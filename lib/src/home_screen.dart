@@ -8,6 +8,8 @@ import 'shared/widgets/poi_bottom_sheet.dart';
 import 'shared/widgets/category_quick_filter.dart';
 import 'shared/domain/map_item.dart';
 import 'modules/_module_registry.dart';
+import 'modules/events/presentation/widgets/notice_banner.dart';
+import 'modules/events/presentation/widgets/upcoming_events_widget.dart';
 import 'core/config/map_config.dart';
 import 'core/providers/filter_provider.dart';
 
@@ -54,6 +56,65 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     }
   }
 
+  void _showEventsSheet(BuildContext context) {
+    showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) => Container(
+        height: MediaQuery.of(context).size.height * 0.7,
+        decoration: const BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+        ),
+        child: Column(
+          children: [
+            // Handle
+            Container(
+              margin: const EdgeInsets.only(top: 12),
+              width: 40,
+              height: 4,
+              decoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: BorderRadius.circular(2),
+              ),
+            ),
+            // Header
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Row(
+                children: [
+                  const Icon(Icons.event, color: Colors.deepPurple),
+                  const SizedBox(width: 8),
+                  const Text(
+                    'Events in MSH',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const Spacer(),
+                  IconButton(
+                    icon: const Icon(Icons.close),
+                    onPressed: () => Navigator.pop(context),
+                  ),
+                ],
+              ),
+            ),
+            const Divider(height: 1),
+            // Content
+            const Expanded(
+              child: SingleChildScrollView(
+                padding: EdgeInsets.all(16),
+                child: UpcomingEventsWidget(),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final filterState = ref.watch(filterProvider);
@@ -77,9 +138,17 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             onMarkerTap: (item) => PoiBottomSheet.show(context, item),
           ),
 
-          // Suchleiste
+          // Notice Banner (at top)
           Positioned(
             top: MediaQuery.of(context).padding.top + 8,
+            left: 16,
+            right: 16,
+            child: const NoticeBanner(),
+          ),
+
+          // Suchleiste
+          Positioned(
+            top: MediaQuery.of(context).padding.top + 70,
             left: 16,
             right: 16,
             child: _SearchBar(
@@ -92,7 +161,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           // Category Quick Filter
           if (!_isLoading && _items.isNotEmpty)
             Positioned(
-              top: MediaQuery.of(context).padding.top + 70,
+              top: MediaQuery.of(context).padding.top + 132,
               left: 0,
               right: 0,
               child: CategoryQuickFilter(
@@ -107,7 +176,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           // POI Counter & Analytics Button
           if (!_isLoading && _items.isNotEmpty)
             Positioned(
-              top: MediaQuery.of(context).padding.top + 126,
+              top: MediaQuery.of(context).padding.top + 188,
               left: 16,
               right: 16,
               child: Row(
@@ -127,6 +196,22 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 ],
               ),
             ),
+
+          // Upcoming Events (bottom sheet trigger)
+          Positioned(
+            bottom: 80,
+            right: 16,
+            child: FloatingActionButton.extended(
+              heroTag: 'events',
+              onPressed: () => _showEventsSheet(context),
+              backgroundColor: Colors.deepPurple,
+              icon: const Icon(Icons.event, color: Colors.white),
+              label: const Text(
+                'Events',
+                style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+              ),
+            ),
+          ),
 
           // Loading
           if (_isLoading)

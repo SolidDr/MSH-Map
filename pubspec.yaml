@@ -57,3 +57,5 @@ flutter:
   assets:
     - lib/assets/data/analytics.json
     - lib/assets/data/locations.json
+    - data/events/events_current.json
+    - data/notices/notices_current.json

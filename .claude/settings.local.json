@@ -7,7 +7,27 @@
       "Bash(Select-Object -Last 30)",
       "Bash(Get-Content \"$env:USERPROFILE\\\\firebase-debug.log\" -Tail 20)",
       "Bash(flutter pub run build_runner build:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(vercel login)",
+      "Bash(vercel:*)",
+      "Bash(Select-Object -First 1)",
+      "Bash(pip install:*)",
+      "Bash(gcloud:*)",
+      "Bash(npx vercel ls)",
+      "Bash(npx vercel:*)",
+      "Bash(curl -s \"https://msh-map-analytics-f8iqtjtac-konstantins-projects-769b9b50.vercel.app/api/recalculate-all\")",
+      "Bash(flutter run:*)",
+      "Bash(flutter devices:*)",
+      "Bash(timeout /t 1)",
+      "Bash(ping:*)",
+      "Bash(timeout /t 2)",
+      "Bash(powershell -Command \"Get-Date -UFormat ''KW %V - %Y''\")",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nfeat: Add Dark Mode, Accessibility, Fog of War & MSH Radar\n\n## 🎨 Dark Mode & Accessibility\n- Complete dark theme with warm amber accent colors\n- High contrast mode for accessibility\n- Text scaling \\(80-150%\\)\n- Bold text toggle\n- Large buttons option \\(+30%\\)\n- Reduce animations setting\n- Theme persistence with SharedPreferences\n- Accessibility settings screen with reset function\n\n## 🗺️ Fog of War\n- MSH border polygon data \\(simplified & detailed\\)\n- Adaptive fog layer with zoom-based opacity\n- Fades out when zooming in \\(starts at zoom 13\\)\n- Multiple fog color variants\n\n## 💬 Community Feedback\n- Pin-drop interface for suggesting missing locations\n- 7 categories \\(playground, museum, gastro, etc.\\)\n- Email integration with url_launcher\n- Animated bounce effect on pin\n- DraggableScrollableSheet for form\n- Pre-filled email with coordinates & Google Maps link\n\n## 📡 MSH Radar \\(Weekly Event Scan\\)\n- Automated event collection from 6+ sources\n- Events data \\(events_current.json\\) - 12 events found\n- Notices data \\(notices_current.json\\) - 8 active notices\n- Detailed markdown report \\(RADAR_REPORT_2026-01-26.md\\)\n- Coverage: Sangerhausen, Eisleben, Stolberg, MSH region\n\n## 🏗️ Infrastructure\n- Vercel deployment config\n- Firebase Cloud Functions for analytics\n- TypeScript API endpoints \\(aggregation, gaps, insights\\)\n- Python deepscan scripts for data seeding\n- Documentation: SIMPLIFIED_SETUP.md, VERCEL_DEPLOYMENT.md\n\n## 🧩 Architecture Improvements\n- Module registry for dynamic routes\n- New providers: theme, accessibility, filter\n- Enhanced analytics service\n- Location service improvements\n- Asset locations module\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)",
+      "Bash(git remote set-url:*)",
+      "Bash(git fetch:*)",
+      "Bash(flutter clean:*)"
     ]
   }
 }
