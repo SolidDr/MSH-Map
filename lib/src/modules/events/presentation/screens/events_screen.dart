@@ -4,7 +4,6 @@ import '../../../../core/theme/msh_colors.dart';
 import '../../../../core/theme/msh_theme.dart';
 import '../../data/events_providers.dart';
 import '../../domain/event.dart';
-import '../widgets/upcoming_events_widget.dart';
 
 /// Screen showing all events
 class EventsScreen extends ConsumerStatefulWidget {

@@ -1,0 +1,98 @@
+{
+  "meta": {
+    "generated_at": "2026-01-26T10:30:00Z",
+    "kw": 4
+  },
+  "notices": [
+    {
+      "id": "notice_001",
+      "type": "sperrung",
+      "title": "Göpenstraße Sperrung (Hausnr. 15)",
+      "description": "Vollsperrung aufgrund der Lieferung und Montage von Schaufenster-Verglasungen",
+      "affected_area": "Sangerhausen, Göpenstraße (Hausnummer 15)",
+      "valid_from": "2026-01-27",
+      "valid_until": "2026-01-27",
+      "time_start": "08:00",
+      "time_end": "12:00",
+      "severity": "warning",
+      "source_url": "https://sangerhausen.de"
+    },
+    {
+      "id": "notice_002",
+      "type": "sperrung",
+      "title": "Sangerhäuser Straße Abrissarbeiten",
+      "description": "Verkehrsbeschränkungen aufgrund von Abrissarbeiten zur Gefahrenabwehr",
+      "affected_area": "Lutherstadt Eisleben, Sangerhäuser Straße",
+      "valid_from": "2026-01-19",
+      "valid_until": "2026-02-28",
+      "severity": "warning",
+      "source_url": "https://www.eisleben.eu"
+    },
+    {
+      "id": "notice_003",
+      "type": "sperrung",
+      "title": "B 180 Vollsperrung Walbeck-Quenstedt",
+      "description": "Vollsperrung zwischen Walbeck und Quenstedt-Sylda. Umleitung über L 85, L 72.",
+      "affected_area": "B 180 (Walbeck - Quenstedt-Sylda)",
+      "valid_from": "2025-03-03",
+      "valid_until": "2026-04-30",
+      "severity": "critical",
+      "source_url": "https://www.mansfeldsuedharz.de/baustellenservice"
+    },
+    {
+      "id": "notice_004",
+      "type": "sperrung",
+      "title": "K 2123 Vollsperrung (Brückenersatz)",
+      "description": "Vollsperrung zwischen L158 und Oeste wegen Brückenersatz. Umleitung über K 2313, L 154, L 158.",
+      "affected_area": "K 2123 (zwischen L158 und Oeste)",
+      "valid_from": "2025-09-02",
+      "valid_until": "2026-05-15",
+      "severity": "critical",
+      "source_url": "https://www.mansfeldsuedharz.de/baustellenservice"
+    },
+    {
+      "id": "notice_005",
+      "type": "sperrung",
+      "title": "L 224 Vollsperrung (Erdfall)",
+      "description": "Vollsperrung Wolferode-Neckendorf aufgrund eines Erdfalls. Geologische Untersuchungen laufen.",
+      "affected_area": "L 224 (Wolferode - Neckendorf)",
+      "valid_from": "2025-11-01",
+      "valid_until": "2026-06-30",
+      "severity": "critical",
+      "source_url": "https://www.mansfeldsuedharz.de/baustellenservice"
+    },
+    {
+      "id": "notice_006",
+      "type": "oeffnungszeit",
+      "title": "Europa Rosarium Winteröffnung",
+      "description": "Im Winter täglich 10:00-16:00 Uhr geöffnet. Eintritt kostenlos von November bis April.",
+      "affected_area": "Europa Rosarium Sangerhausen",
+      "valid_from": "2025-11-01",
+      "valid_until": "2026-04-30",
+      "severity": "info",
+      "source_url": "https://www.europa-rosarium.de"
+    },
+    {
+      "id": "notice_007",
+      "type": "oeffnungszeit",
+      "title": "Lutherhäuser Eisleben Winteröffnung",
+      "description": "Di-So 10:00-17:00 Uhr, montags geschlossen. Geburts- und Sterbehaus Martin Luthers.",
+      "affected_area": "Lutherhäuser Eisleben",
+      "valid_from": "2025-11-01",
+      "valid_until": "2026-03-31",
+      "severity": "info",
+      "source_url": "https://www.luthermuseen.de"
+    },
+    {
+      "id": "notice_008",
+      "type": "oeffnungszeit",
+      "title": "Kyffhäuser Denkmal Winteröffnung",
+      "description": "Täglich 10:00-17:00 Uhr, letzter Einlass 30 Min. vor Schließung.",
+      "affected_area": "Kyffhäuser Denkmal",
+      "valid_from": "2025-11-01",
+      "valid_until": "2026-03-31",
+      "severity": "info",
+      "source_url": "https://www.kyffhaeuser-denkmal.de"
+    }
+  ]
+}

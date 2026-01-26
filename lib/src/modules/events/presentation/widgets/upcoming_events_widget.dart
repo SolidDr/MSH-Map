@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import '../../../../core/theme/msh_colors.dart';
 import '../../../../core/theme/msh_theme.dart';
+import '../../../../shared/widgets/transport_buttons.dart';
 import '../../data/events_providers.dart';
 import '../../domain/event.dart';
 
@@ -389,6 +390,15 @@ class _EventDetailsSheet extends StatelessWidget {
                     ),
                     const SizedBox(height: 16),
                   ],
+
+                  // ÖPNV / Anreise
+                  const Divider(height: 32),
+                  TransportButtons(
+                    latitude: event.latitude,
+                    longitude: event.longitude,
+                    placeName: event.name,
+                  ),
+                  const SizedBox(height: 16),
 
                   // Source
                   if (event.sourceUrl != null)

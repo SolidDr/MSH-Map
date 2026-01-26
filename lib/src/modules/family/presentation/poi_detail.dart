@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../core/theme/msh_colors.dart';
+import '../../../shared/widgets/transport_buttons.dart';
 import '../domain/poi.dart';
 
 class PoiDetailContent extends StatelessWidget {
@@ -120,6 +121,14 @@ class PoiDetailContent extends StatelessWidget {
               value: poi.facilities.join(', '),
             ),
           ],
+
+          // ÖPNV / Anreise
+          const Divider(height: 32),
+          TransportButtons(
+            latitude: poi.coordinates.latitude,
+            longitude: poi.coordinates.longitude,
+            placeName: poi.name,
+          ),
 
           // Kontakt
           if (poi.contactPhone != null || poi.contactEmail != null) ...[
