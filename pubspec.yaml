@@ -1,7 +1,7 @@
-name: lunch_radar
-description: Lokale Mittagstische entdecken
+name: msh_map
+description: Regionale Plattform fuer Mansfeld-Suedharz
 publish_to: 'none'
-version: 0.1.0+1
+version: 1.0.0+1
 
 environment:
   sdk: '>=3.5.0 <4.0.0'
@@ -29,11 +29,17 @@ dependencies:
 
   # Networking
   http: ^1.2.2
+  url_launcher: ^6.3.0
 
   # Utils
   intl: ^0.19.0
   freezed_annotation: ^2.4.4
   json_annotation: ^4.9.0
+
+  # Map (MSH Map)
+  flutter_map: ^6.1.0
+  latlong2: ^0.9.0
+  geolocator: ^11.0.0
 
 dev_dependencies:
   flutter_test:

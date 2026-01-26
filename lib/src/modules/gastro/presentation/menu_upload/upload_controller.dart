@@ -1,0 +1,180 @@
+import 'dart:io';
+
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../../../../core/services/image_picker_service.dart';
+import '../../../../core/services/openai_service.dart';
+import '../../data/menu_repository.dart';
+import '../../domain/dish.dart';
+
+/// State for the upload process
+sealed class UploadState {
+  const UploadState();
+}
+
+class UploadInitial extends UploadState {
+  const UploadInitial();
+}
+
+class UploadImageSelected extends UploadState {
+  const UploadImageSelected(this.image);
+  final File image;
+}
+
+class UploadProcessing extends UploadState {
+  const UploadProcessing(this.image);
+  final File image;
+}
+
+class UploadOcrComplete extends UploadState {
+  const UploadOcrComplete(this.image, this.result);
+  final File image;
+  final OcrResult result;
+}
+
+class UploadError extends UploadState {
+  const UploadError(this.message, {this.image});
+  final String message;
+  final File? image;
+}
+
+class UploadSaving extends UploadState {
+  const UploadSaving(this.image, this.result);
+  final File image;
+  final OcrResult result;
+}
+
+class UploadSuccess extends UploadState {
+  const UploadSuccess(this.menu);
+  final MenuModel menu;
+}
+
+/// Provider for the upload controller
+final uploadControllerProvider =
+    StateNotifierProvider<UploadController, UploadState>((ref) {
+  return UploadController(
+    ref.watch(imagePickerServiceProvider),
+    ref.watch(openAiServiceProvider),
+    ref.watch(menuRepositoryProvider),
+  );
+});
+
+/// Controller for the menu upload flow
+class UploadController extends StateNotifier<UploadState> {
+  UploadController(
+      this._imagePicker, this._openAiService, this._menuRepository,)
+      : super(const UploadInitial());
+  final ImagePickerService _imagePicker;
+  final OpenAiService _openAiService;
+  final MenuRepository _menuRepository;
+
+  /// Pick image from camera
+  Future<void> pickFromCamera() async {
+    try {
+      final image = await _imagePicker.pickFromCamera();
+      if (image != null) {
+        state = UploadImageSelected(image);
+      }
+    } on Exception catch (e) {
+      state = UploadError('Kamera-Fehler: $e');
+    }
+  }
+
+  /// Pick image from gallery
+  Future<void> pickFromGallery() async {
+    try {
+      final image = await _imagePicker.pickFromGallery();
+      if (image != null) {
+        state = UploadImageSelected(image);
+      }
+    } on Exception catch (e) {
+      state = UploadError('Galerie-Fehler: $e');
+    }
+  }
+
+  /// Process the selected image with OCR
+  Future<void> processImage() async {
+    final currentState = state;
+    if (currentState is! UploadImageSelected &&
+        currentState is! UploadOcrComplete) {
+      return;
+    }
+
+    final image = currentState is UploadImageSelected
+        ? currentState.image
+        : (currentState as UploadOcrComplete).image;
+
+    state = UploadProcessing(image);
+
+    try {
+      final result = await _openAiService.extractMenuFromImage(image);
+
+      if (result.hasError) {
+        state = UploadError(result.error!, image: image);
+      } else {
+        state = UploadOcrComplete(image, result);
+      }
+    } on Exception catch (e) {
+      state = UploadError('OCR-Fehler: $e', image: image);
+    }
+  }
+
+  /// Reset to initial state
+  void reset() {
+    state = const UploadInitial();
+  }
+
+  /// Go back to image selected state (from OCR result)
+  void backToImageSelected() {
+    final currentState = state;
+    if (currentState is UploadOcrComplete) {
+      state = UploadImageSelected(currentState.image);
+    } else if (currentState is UploadError && currentState.image != null) {
+      state = UploadImageSelected(currentState.image!);
+    }
+  }
+
+  /// Save the menu to Firestore
+  Future<void> saveMenu({
+    required String merchantId,
+    required String merchantName,
+  }) async {
+    final currentState = state;
+    if (currentState is! UploadOcrComplete) {
+      return;
+    }
+
+    state = UploadSaving(currentState.image, currentState.result);
+
+    try {
+      // Convert ParsedMenuItems to DishModels
+      final dishes = currentState.result.items
+          .asMap()
+          .entries
+          .map(
+            (entry) => DishModel(
+              id: 'dish_${entry.key}',
+              name: entry.value.name,
+              description: entry.value.description,
+              price: entry.value.price,
+              category: entry.value.category,
+            ),
+          )
+          .toList();
+
+      final menu = await _menuRepository.saveMenu(
+        merchantId: merchantId,
+        merchantName: merchantName,
+        dishes: dishes,
+        date: DateTime.now(),
+      );
+
+      state = UploadSuccess(menu);
+    } on Exception catch (e) {
+      state = UploadError(
+        'Speichern fehlgeschlagen: $e',
+        image: currentState.image,
+      );
+    }
+  }
+}

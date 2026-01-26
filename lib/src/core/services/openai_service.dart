@@ -10,7 +10,7 @@ import '../constants/app_constants.dart';
 final openAiApiKeyProvider = Provider<String>((ref) {
   // TODO: Load from secure storage or environment
   // For now, this should be set via --dart-define=OPENAI_API_KEY=xxx
-  return const String.fromEnvironment('OPENAI_API_KEY', defaultValue: '');
+  return const String.fromEnvironment('OPENAI_API_KEY');
 });
 
 /// Provider for the OpenAI service
@@ -21,11 +21,6 @@ final openAiServiceProvider = Provider<OpenAiService>((ref) {
 
 /// Parsed menu item from OCR
 class ParsedMenuItem {
-  final String name;
-  final String? description;
-  final double? price;
-  final String? category;
-
   ParsedMenuItem({
     required this.name,
     this.description,
@@ -41,6 +36,10 @@ class ParsedMenuItem {
       category: json['category'] as String?,
     );
   }
+  final String name;
+  final String? description;
+  final double? price;
+  final String? category;
 
   Map<String, dynamic> toJson() => {
         'name': name,
@@ -52,15 +51,14 @@ class ParsedMenuItem {
 
 /// OCR result containing parsed menu items
 class OcrResult {
-  final List<ParsedMenuItem> items;
-  final String? rawText;
-  final String? error;
-
   OcrResult({
     required this.items,
     this.rawText,
     this.error,
   });
+  final List<ParsedMenuItem> items;
+  final String? rawText;
+  final String? error;
 
   bool get hasError => error != null;
   bool get isEmpty => items.isEmpty;
@@ -68,10 +66,9 @@ class OcrResult {
 
 /// Service for OpenAI Vision API (OCR)
 class OpenAiService {
+  OpenAiService({required this.apiKey});
   final String apiKey;
   final http.Client _client = http.Client();
-
-  OpenAiService({required this.apiKey});
 
   /// Extract menu items from an image using GPT-4 Vision
   Future<OcrResult> extractMenuFromImage(File imageFile) async {
@@ -98,7 +95,8 @@ class OpenAiService {
               'messages': [
                 {
                   'role': 'system',
-                  'content': '''Du bist ein Experte für die Erkennung von Speisekarten.
+                  'content': '''
+Du bist ein Experte für die Erkennung von Speisekarten.
 Extrahiere alle Gerichte aus dem Bild und gib sie als JSON-Array zurück.
 Jedes Gericht sollte folgende Felder haben:
 - name: Name des Gerichts (Pflicht)
@@ -139,8 +137,7 @@ Beispiel: [{"name": "Schnitzel", "price": 12.50, "category": "Hauptgericht"}]'''
       }
 
       final data = jsonDecode(response.body) as Map<String, dynamic>;
-      final content =
-          data['choices'][0]['message']['content'] as String;
+      final content = data['choices'][0]['message']['content'] as String;
 
       // Parse the JSON response
       final jsonMatch = RegExp(r'\[[\s\S]*\]').firstMatch(content);

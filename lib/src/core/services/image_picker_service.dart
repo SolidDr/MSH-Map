@@ -14,7 +14,7 @@ class ImagePickerService {
 
   /// Pick image from camera
   Future<File?> pickFromCamera() async {
-    final XFile? image = await _picker.pickImage(
+    final image = await _picker.pickImage(
       source: ImageSource.camera,
       maxWidth: 1920,
       maxHeight: 1080,
@@ -26,7 +26,7 @@ class ImagePickerService {
 
   /// Pick image from gallery
   Future<File?> pickFromGallery() async {
-    final XFile? image = await _picker.pickImage(
+    final image = await _picker.pickImage(
       source: ImageSource.gallery,
       maxWidth: 1920,
       maxHeight: 1080,
