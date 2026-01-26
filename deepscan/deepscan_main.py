@@ -279,6 +279,54 @@ class DeepScanEngine:
         print(f"📝 Markdown-Report: {md_file}")
 
 
+    def run_scraper(self, scraper_name: str) -> None:
+        """Führt einen spezifischen Scraper aus"""
+        print(f"\n🚀 MSH DeepScan - {scraper_name.upper()} Scraper\n")
+
+        try:
+            if scraper_name == "osm":
+                from scrapers.osm_scraper import OSMScraper
+                scraper = OSMScraper()
+            elif scraper_name == "wikidata":
+                from scrapers.wikidata_scraper import WikidataScraper
+                scraper = WikidataScraper()
+            else:
+                print(f"❌ Unbekannter Scraper: {scraper_name}")
+                return
+
+            # Scraping durchführen
+            locations = scraper.scrape()
+
+            if not locations:
+                print("⚠️  Keine Daten gefunden!")
+                return
+
+            # Timestamp
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+            # Als JSON speichern
+            output_file = self.output_path / "raw" / f"{scraper_name}_{timestamp}.json"
+            with open(output_file, 'w', encoding='utf-8') as f:
+                json.dump({
+                    "meta": {
+                        "source": scraper_name,
+                        "scraped_at": datetime.now().isoformat(),
+                        "count": len(locations)
+                    },
+                    "data": locations
+                }, f, ensure_ascii=False, indent=2)
+
+            print(f"\n✅ Erfolgreich gespeichert: {output_file}")
+            print(f"📊 {len(locations)} Locations gefunden")
+
+        except ImportError as e:
+            print(f"❌ Fehler beim Importieren des Scrapers: {e}")
+            print("   Stelle sicher, dass 'requests' installiert ist:")
+            print("   pip install requests beautifulsoup4")
+        except Exception as e:
+            print(f"❌ Fehler beim Scraping: {e}")
+
+
 def main():
     """Hauptprogramm"""
 
@@ -292,10 +340,34 @@ def main():
 
     if command == "--seed":
         engine.run_seed_export()
+    elif command == "--source":
+        if len(sys.argv) < 3:
+            print("❌ Fehler: Quelle nicht angegeben!")
+            print("Verwendung: python deepscan_main.py --source <quelle>")
+            print("\nVerfügbare Quellen:")
+            print("  osm       - OpenStreetMap (Overpass API)")
+            print("  wikidata  - Wikidata (SPARQL)")
+            sys.exit(1)
+        source = sys.argv[2]
+        engine.run_scraper(source)
+    elif command == "--full":
+        print("\n🚀 MSH DeepScan - Vollständiger Scan\n")
+        print("Führt alle Scraper aus:\n")
+        engine.run_scraper("osm")
+        print("\n" + "="*60 + "\n")
+        engine.run_scraper("wikidata")
+        print("\n✅ Vollständiger Scan abgeschlossen!")
     else:
         print(f"❌ Unbekannter Befehl: {command}")
         print("\nVerfügbare Befehle:")
-        print("  --seed    Exportiert Seed-Daten")
+        print("  --seed             Exportiert Seed-Daten")
+        print("  --source <name>    Führt einen spezifischen Scraper aus")
+        print("  --full             Führt alle Scraper aus")
+        print("\nBeispiele:")
+        print("  python deepscan_main.py --seed")
+        print("  python deepscan_main.py --source osm")
+        print("  python deepscan_main.py --source wikidata")
+        print("  python deepscan_main.py --full")
         sys.exit(1)
 
 

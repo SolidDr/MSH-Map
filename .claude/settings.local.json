@@ -31,7 +31,10 @@
       "Bash(git commit:*)",
       "Bash(exit 0)",
       "Bash(timeout:*)",
-      "Bash(test -f:*)"
+      "Bash(test -f:*)",
+      "Bash(flutter build:*)",
+      "Bash(flutter create:*)",
+      "Bash(ls:*)"
     ]
   }
 }
