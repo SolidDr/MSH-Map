@@ -1,6 +1,10 @@
 {
   "version": 2,
   "name": "msh-map-analytics",
+  "buildCommand": "flutter build web --release",
+  "outputDirectory": "build/web",
+  "installCommand": "flutter pub get",
+  "framework": null,
   "functions": {
     "api/**/*.ts": {
       "memory": 1024,
@@ -19,5 +23,11 @@
   ],
   "env": {
     "FIREBASE_PROJECT_ID": "lunch-radar-5d984"
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }
