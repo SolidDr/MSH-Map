@@ -1,13 +1,15 @@
 import 'package:go_router/go_router.dart';
+import '../config/feature_flags.dart';
+import '../shell/app_shell.dart';
 import '../../features/about/presentation/about_screen.dart';
 import '../../features/auth/presentation/login_screen.dart';
 import '../../features/feedback/presentation/suggest_location_screen.dart';
 import '../../features/settings/presentation/accessibility_settings_screen.dart';
 import '../../home_screen.dart';
 import '../../modules/_module_registry.dart';
+import '../../modules/events/presentation/screens/events_screen.dart';
 import '../../modules/gastro/presentation/menu_upload/ocr_preview.dart';
 import '../../modules/gastro/presentation/menu_upload/upload_screen.dart';
-import '../shell/app_shell.dart';
 
 final appRouter = GoRouter(
   initialLocation: '/',
@@ -23,13 +25,18 @@ final appRouter = GoRouter(
           path: '/about',
           builder: (context, state) => const AboutScreen(),
         ),
-        GoRoute(
-          path: '/suggest-location',
-          builder: (context, state) => const SuggestLocationScreen(),
-        ),
+        if (FeatureFlags.enableSuggestLocation)
+          GoRoute(
+            path: '/suggest-location',
+            builder: (context, state) => const SuggestLocationScreen(),
+          ),
         GoRoute(
           path: '/accessibility',
           builder: (context, state) => const AccessibilitySettingsScreen(),
+        ),
+        GoRoute(
+          path: '/events',
+          builder: (context, state) => const EventsScreen(),
         ),
         // Modul-Routes dynamisch sammeln
         ...ModuleRegistry.instance.collectAllRoutes(),

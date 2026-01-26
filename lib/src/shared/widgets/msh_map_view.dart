@@ -15,12 +15,14 @@ class MshMapView extends ConsumerStatefulWidget {
     this.initialCenter,
     this.initialZoom,
     this.showFogOfWar = true,
+    this.mapController,
   });
   final List<MapItem> items;
   final void Function(MapItem)? onMarkerTap;
   final Coordinates? initialCenter;
   final double? initialZoom;
   final bool showFogOfWar;
+  final MapController? mapController;
 
   @override
   ConsumerState<MshMapView> createState() => _MshMapViewState();
@@ -29,17 +31,20 @@ class MshMapView extends ConsumerStatefulWidget {
 class _MshMapViewState extends ConsumerState<MshMapView> {
   late final MapController _mapController;
   MapItem? _hoveredItem;
+  Offset? _mousePosition;
   double _currentZoom = MapConfig.defaultZoom;
 
   @override
   void initState() {
     super.initState();
-    _mapController = MapController();
+    _mapController = widget.mapController ?? MapController();
   }
 
   @override
   void dispose() {
-    _mapController.dispose();
+    if (widget.mapController == null) {
+      _mapController.dispose();
+    }
     super.dispose();
   }
 
@@ -94,10 +99,10 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
         ),
 
         // Hover Tooltip
-        if (_hoveredItem != null)
+        if (_hoveredItem != null && _mousePosition != null)
           Positioned(
-            left: 16,
-            bottom: 16,
+            left: _mousePosition!.dx + 10,
+            top: _mousePosition!.dy + 10,
             child: _HoverTooltip(item: _hoveredItem!),
           ),
       ],
@@ -112,7 +117,11 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
       child: MouseRegion(
         cursor: SystemMouseCursors.click,
         onEnter: (_) => setState(() => _hoveredItem = item),
-        onExit: (_) => setState(() => _hoveredItem = null),
+        onExit: (_) => setState(() {
+          _hoveredItem = null;
+          _mousePosition = null;
+        }),
+        onHover: (event) => setState(() => _mousePosition = event.position),
         child: GestureDetector(
           onTap: () => widget.onMarkerTap?.call(item),
           child: _MarkerIcon(
@@ -170,52 +179,60 @@ class _HoverTooltip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 8,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Container(
-              width: 32,
-              height: 32,
-              decoration: BoxDecoration(
-                color: item.markerColor,
-                shape: BoxShape.circle,
-              ),
-              child: Icon(
-                _iconForCategory(item.category),
-                color: Colors.white,
-                size: 18,
-              ),
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white.withValues(alpha: 0.95),
+        borderRadius: BorderRadius.circular(8),
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.black26,
+            blurRadius: 8,
+            offset: Offset(0, 2),
+          ),
+        ],
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            width: 32,
+            height: 32,
+            decoration: BoxDecoration(
+              color: item.markerColor,
+              shape: BoxShape.circle,
             ),
-            const SizedBox(width: 12),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  item.displayName,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14,
-                  ),
+            child: Icon(
+              _iconForCategory(item.category),
+              color: Colors.white,
+              size: 18,
+            ),
+          ),
+          const SizedBox(width: 12),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                item.displayName,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
                 ),
-                if (item.subtitle != null)
-                  Text(
-                    item.subtitle!,
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.grey[600],
-                    ),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
+              ),
+              if (item.subtitle != null)
+                Text(
+                  item.subtitle!,
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.grey[600],
                   ),
-              ],
-            ),
-          ],
-        ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+            ],
+          ),
+        ],
       ),
     );
   }

@@ -27,7 +27,11 @@
       "Bash(git push:*)",
       "Bash(git remote set-url:*)",
       "Bash(git fetch:*)",
-      "Bash(flutter clean:*)"
+      "Bash(flutter clean:*)",
+      "Bash(git commit:*)",
+      "Bash(exit 0)",
+      "Bash(timeout:*)",
+      "Bash(test -f:*)"
     ]
   }
 }

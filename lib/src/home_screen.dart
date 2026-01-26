@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:latlong2/latlong.dart';
+import 'core/config/feature_flags.dart';
+import 'core/config/map_config.dart';
+import 'core/providers/filter_provider.dart';
 import 'features/analytics/presentation/analytics_dashboard_screen.dart';
-import 'shared/widgets/msh_map_view.dart';
-import 'shared/widgets/layer_switcher.dart';
-import 'shared/widgets/poi_bottom_sheet.dart';
-import 'shared/widgets/category_quick_filter.dart';
-import 'shared/domain/map_item.dart';
 import 'modules/_module_registry.dart';
 import 'modules/events/presentation/widgets/notice_banner.dart';
 import 'modules/events/presentation/widgets/upcoming_events_widget.dart';
-import 'core/config/map_config.dart';
-import 'core/providers/filter_provider.dart';
+import 'shared/domain/map_item.dart';
+import 'shared/widgets/category_quick_filter.dart';
+import 'shared/widgets/layer_switcher.dart';
+import 'shared/widgets/msh_map_view.dart';
+import 'shared/widgets/poi_bottom_sheet.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -24,11 +27,19 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   List<MapItem> _items = [];
   bool _isLoading = true;
   String? _error;
+  late final MapController _mapController;
 
   @override
   void initState() {
     super.initState();
+    _mapController = MapController();
     _loadItems();
+  }
+
+  @override
+  void dispose() {
+    _mapController.dispose();
+    super.dispose();
   }
 
   Future<void> _loadItems() async {
@@ -136,30 +147,40 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           MshMapView(
             items: filteredItems,
             onMarkerTap: (item) => PoiBottomSheet.show(context, item),
+            mapController: _mapController,
           ),
 
           // Notice Banner (at top)
-          Positioned(
-            top: MediaQuery.of(context).padding.top + 8,
-            left: 16,
-            right: 16,
-            child: const NoticeBanner(),
-          ),
+          if (FeatureFlags.enableNoticesBanner)
+            Positioned(
+              top: MediaQuery.of(context).padding.top + 8,
+              left: 16,
+              right: 16,
+              child: NoticeBanner(
+                onNoticeLocationTap: (latitude, longitude) {
+                  // Zur Position auf der Karte navigieren
+                  _mapController.move(LatLng(latitude, longitude), 16);
+                },
+              ),
+            ),
 
           // Suchleiste
-          Positioned(
-            top: MediaQuery.of(context).padding.top + 70,
-            left: 16,
-            right: 16,
-            child: _SearchBar(
-              onTap: () {
-                // TODO: Zur Suchseite navigieren
-              },
+          if (FeatureFlags.enableSearch)
+            Positioned(
+              top: MediaQuery.of(context).padding.top + 70,
+              left: 16,
+              right: 16,
+              child: _SearchBar(
+                onTap: () {
+                  // TODO: Zur Suchseite navigieren
+                },
+              ),
             ),
-          ),
 
           // Category Quick Filter
-          if (!_isLoading && _items.isNotEmpty)
+          if (FeatureFlags.enableCategoryFilter &&
+              !_isLoading &&
+              _items.isNotEmpty)
             Positioned(
               top: MediaQuery.of(context).padding.top + 132,
               left: 0,
@@ -183,35 +204,39 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   _PoiCounter(count: filteredItems.length),
-                  _AnalyticsButton(
-                    onTap: () {
-                      Navigator.push<void>(
-                        context,
-                        MaterialPageRoute<void>(
-                          builder: (context) => const AnalyticsDashboardScreen(),
-                        ),
-                      );
-                    },
-                  ),
+                  if (FeatureFlags.enableDashboard)
+                    _AnalyticsButton(
+                      onTap: () {
+                        Navigator.push<void>(
+                          context,
+                          MaterialPageRoute<void>(
+                            builder: (context) =>
+                                const AnalyticsDashboardScreen(),
+                          ),
+                        );
+                      },
+                    ),
                 ],
               ),
             ),
 
           // Upcoming Events (bottom sheet trigger)
-          Positioned(
-            bottom: 80,
-            right: 16,
-            child: FloatingActionButton.extended(
-              heroTag: 'events',
-              onPressed: () => _showEventsSheet(context),
-              backgroundColor: Colors.deepPurple,
-              icon: const Icon(Icons.event, color: Colors.white),
-              label: const Text(
-                'Events',
-                style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+          if (FeatureFlags.enableEventsWidget)
+            Positioned(
+              bottom: 80,
+              right: 16,
+              child: FloatingActionButton.extended(
+                heroTag: 'events',
+                onPressed: () => _showEventsSheet(context),
+                backgroundColor: Colors.deepPurple,
+                icon: const Icon(Icons.event, color: Colors.white),
+                label: const Text(
+                  'Events',
+                  style:
+                      TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+                ),
               ),
             ),
-          ),
 
           // Loading
           if (_isLoading)
@@ -247,19 +272,22 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             onPressed: () => context.push('/accessibility'),
             backgroundColor: Colors.purple,
             tooltip: 'Barrierefreiheit',
-            child: const Icon(Icons.accessibility_new, color: Colors.white, size: 20),
+            child:
+                const Icon(Icons.accessibility_new, color: Colors.white, size: 20),
           ),
           const SizedBox(height: 12),
           // Suggest Location Button
-          FloatingActionButton(
-            heroTag: 'suggest',
-            onPressed: () => context.push('/suggest-location'),
-            backgroundColor: Colors.green,
-            tooltip: 'Fehlt etwas?',
-            child: const Icon(Icons.add_location_alt, color: Colors.white),
-          ),
-          const SizedBox(height: 12),
-          LayerSwitcher(onLayerChanged: _loadItems),
+          if (FeatureFlags.enableSuggestLocation)
+            FloatingActionButton(
+              heroTag: 'suggest',
+              onPressed: () => context.push('/suggest-location'),
+              backgroundColor: Colors.green,
+              tooltip: 'Fehlt etwas?',
+              child: const Icon(Icons.add_location_alt, color: Colors.white),
+            ),
+          if (FeatureFlags.enableSuggestLocation) const SizedBox(height: 12),
+          if (FeatureFlags.enableLayerSwitcher)
+            LayerSwitcher(onLayerChanged: _loadItems),
         ],
       ),
     );

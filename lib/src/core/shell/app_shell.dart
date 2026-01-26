@@ -261,10 +261,8 @@ class _DesktopShell extends StatelessWidget {
                         isSelected: selectedIndex == 3,
                         onTap: () {
                           onIndexChanged(3);
-                          context.go('/');
+                          context.go('/events');
                         },
-                        badge: 'Bald',
-                        disabled: true,
                       ),
 
                       const Padding(

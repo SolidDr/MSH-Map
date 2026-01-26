@@ -8,7 +8,9 @@ import '../../domain/notice.dart';
 
 /// Banner to display important notices and warnings
 class NoticeBanner extends ConsumerWidget {
-  const NoticeBanner({super.key});
+  const NoticeBanner({super.key, this.onNoticeLocationTap});
+
+  final void Function(double latitude, double longitude)? onNoticeLocationTap;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -32,7 +34,15 @@ class NoticeBanner extends ConsumerWidget {
           child: Column(
             children: [
               // Show first notice
-              _NoticeCard(notice: important.first),
+              _NoticeCard(
+                notice: important.first,
+                onTap: important.first.latitude != null && important.first.longitude != null
+                    ? () => onNoticeLocationTap?.call(
+                          important.first.latitude!,
+                          important.first.longitude!,
+                        )
+                    : null,
+              ),
 
               // Show count if there are more
               if (important.length > 1)
@@ -67,100 +77,132 @@ class NoticeBanner extends ConsumerWidget {
 }
 
 class _NoticeCard extends StatelessWidget {
-  const _NoticeCard({required this.notice});
+  const _NoticeCard({required this.notice, this.onTap});
 
   final MshNotice notice;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     final color = notice.color;
     final icon = notice.icon;
 
-    return Container(
-      padding: const EdgeInsets.all(MshTheme.spacingSm),
-      decoration: BoxDecoration(
-        color: color.withValues(alpha: 0.1),
+    return Material(
+      elevation: 6,
+      shadowColor: color.withValues(alpha: 0.4),
+      borderRadius: BorderRadius.circular(MshTheme.radiusMedium),
+      child: InkWell(
+        onTap: onTap,
         borderRadius: BorderRadius.circular(MshTheme.radiusMedium),
-        border: Border.all(color: color, width: 1.5),
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Icon(
-            icon,
-            color: color,
-            size: 24,
+        child: Container(
+          padding: const EdgeInsets.all(MshTheme.spacingMd),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(MshTheme.radiusMedium),
+            border: Border.all(color: color, width: 3),
           ),
-          const SizedBox(width: 12),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Icon Circle with colored background
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: color,
+                  shape: BoxShape.circle,
+                ),
+                child: Icon(
+                  icon,
+                  color: Colors.white,
+                  size: 24,
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      notice.title,
-                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                            fontWeight: FontWeight.w600,
-                            color: color,
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            notice.title,
+                            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                  color: color,
+                                ),
                           ),
+                        ),
+                        if (notice.severity == NoticeSeverity.critical) ...[
+                          const SizedBox(width: 8),
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 8,
+                              vertical: 4,
+                            ),
+                            decoration: BoxDecoration(
+                              color: color,
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: const Text(
+                              'KRITISCH',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 11,
+                                fontWeight: FontWeight.bold,
+                                letterSpacing: 0.5,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ],
                     ),
-                    if (notice.severity == NoticeSeverity.critical) ...[
-                      const SizedBox(width: 8),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 6,
-                          vertical: 2,
-                        ),
-                        decoration: BoxDecoration(
-                          color: color,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: const Text(
-                          'KRITISCH',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 10,
-                            fontWeight: FontWeight.bold,
+                    if (notice.description != null) ...[
+                      const SizedBox(height: 6),
+                      Text(
+                        notice.description!,
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                              color: MshColors.textPrimary,
+                              height: 1.3,
+                            ),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ],
+                    if (notice.validUntil != null) ...[
+                      const SizedBox(height: 6),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.schedule,
+                            size: 14,
+                            color: MshColors.textSecondary,
                           ),
-                        ),
+                          const SizedBox(width: 4),
+                          Text(
+                            'Bis ${_formatDate(notice.validUntil!)}',
+                            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                  color: MshColors.textSecondary,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                          ),
+                        ],
                       ),
                     ],
                   ],
                 ),
-                if (notice.description != null) ...[
-                  const SizedBox(height: 4),
-                  Text(
-                    notice.description!,
-                    style: Theme.of(context).textTheme.bodySmall,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ],
-                if (notice.validUntil != null) ...[
-                  const SizedBox(height: 4),
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.schedule,
-                        size: 12,
-                        color: MshColors.textSecondary,
-                      ),
-                      const SizedBox(width: 4),
-                      Text(
-                        'Bis ${_formatDate(notice.validUntil!)}',
-                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                              color: MshColors.textSecondary,
-                              fontSize: 11,
-                            ),
-                      ),
-                    ],
-                  ),
-                ],
-              ],
-            ),
+              ),
+              // Tap indicator
+              if (onTap != null)
+                Icon(
+                  Icons.arrow_forward_ios,
+                  size: 16,
+                  color: color,
+                ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

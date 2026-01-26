@@ -56,7 +56,7 @@ class MenuUploadScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Menü hochladen'),
+        title: const Text('Lunch Radar'),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
@@ -65,12 +65,15 @@ class MenuUploadScreen extends ConsumerWidget {
           },
         ),
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(24),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            // Lunch Radar Header
+            _buildLunchRadarHeader(context),
+            const SizedBox(height: 32),
+
             // Image preview or upload area
             _buildImageArea(context, ref, uploadState),
             const SizedBox(height: 24),
@@ -85,6 +88,139 @@ class MenuUploadScreen extends ConsumerWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildLunchRadarHeader(BuildContext context) {
+    return Card(
+      elevation: 2,
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          children: [
+            // Icon und Titel
+            Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.primaryContainer,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Icon(
+                    Icons.restaurant_menu,
+                    size: 32,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+                ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Lunch Radar',
+                        style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                              fontWeight: FontWeight.bold,
+                            ),
+                      ),
+                      Text(
+                        'Dein Mittagstisch, digital',
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                              color: Colors.grey[600],
+                            ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            const Divider(),
+            const SizedBox(height: 16),
+
+            // Was ist Lunch Radar?
+            _buildInfoSection(
+              context,
+              icon: Icons.lightbulb_outline,
+              iconColor: Colors.orange,
+              title: 'Was ist Lunch Radar?',
+              description:
+                  'Lunch Radar macht Mittagsangebote sichtbar. Restaurants können ihre Tagesgerichte einfach per Foto hochladen – unsere KI erkennt automatisch die Gerichte und Preise.',
+            ),
+            const SizedBox(height: 16),
+
+            // Für wen ist es?
+            _buildInfoSection(
+              context,
+              icon: Icons.people_outline,
+              iconColor: Colors.blue,
+              title: 'Für wen ist es?',
+              description:
+                  'Für Gastronomen, die ihre Mittagskarte schnell teilen möchten, und für Gäste, die auf einen Blick sehen wollen, was es heute in der Nähe gibt.',
+            ),
+            const SizedBox(height: 16),
+
+            // Ziele
+            _buildInfoSection(
+              context,
+              icon: Icons.flag_outlined,
+              iconColor: Colors.green,
+              title: 'Unsere Ziele',
+              description:
+                  'Lokale Gastronomie stärken, Mittagspause vereinfachen und spontane Entscheidungen erleichtern – alles auf einer Karte.',
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildInfoSection(
+    BuildContext context, {
+    required IconData icon,
+    required Color iconColor,
+    required String title,
+    required String description,
+  }) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            color: iconColor.withValues(alpha: 0.1),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Icon(
+            icon,
+            size: 24,
+            color: iconColor,
+          ),
+        ),
+        const SizedBox(width: 12),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                      fontWeight: FontWeight.w600,
+                    ),
+              ),
+              const SizedBox(height: 4),
+              Text(
+                description,
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      color: Colors.grey[700],
+                      height: 1.4,
+                    ),
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 

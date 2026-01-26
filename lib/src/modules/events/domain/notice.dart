@@ -14,6 +14,8 @@ class MshNotice {
     this.timeStart,
     this.timeEnd,
     this.sourceUrl,
+    this.latitude,
+    this.longitude,
   });
 
   final String id;
@@ -27,6 +29,8 @@ class MshNotice {
   final String? timeStart;
   final String? timeEnd;
   final String? sourceUrl;
+  final double? latitude;
+  final double? longitude;
 
   /// Parse from JSON
   factory MshNotice.fromJson(Map<String, dynamic> json) {
@@ -42,6 +46,8 @@ class MshNotice {
       timeStart: json['time_start'] as String?,
       timeEnd: json['time_end'] as String?,
       sourceUrl: json['source_url'] as String?,
+      latitude: json['latitude'] as double?,
+      longitude: json['longitude'] as double?,
     );
   }
 
@@ -87,6 +93,8 @@ class MshNotice {
       if (timeStart != null) 'time_start': timeStart,
       if (timeEnd != null) 'time_end': timeEnd,
       if (sourceUrl != null) 'source_url': sourceUrl,
+      if (latitude != null) 'latitude': latitude,
+      if (longitude != null) 'longitude': longitude,
     };
   }
 }
