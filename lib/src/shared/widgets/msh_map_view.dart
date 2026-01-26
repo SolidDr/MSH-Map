@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../domain/map_item.dart';
 import '../domain/coordinates.dart';
 import '../../core/config/map_config.dart';
+import 'map/fog_of_war_layer.dart';
 
 class MshMapView extends ConsumerStatefulWidget {
 
@@ -13,11 +14,13 @@ class MshMapView extends ConsumerStatefulWidget {
     this.onMarkerTap,
     this.initialCenter,
     this.initialZoom,
+    this.showFogOfWar = true,
   });
   final List<MapItem> items;
   final void Function(MapItem)? onMarkerTap;
   final Coordinates? initialCenter;
   final double? initialZoom;
+  final bool showFogOfWar;
 
   @override
   ConsumerState<MshMapView> createState() => _MshMapViewState();
@@ -26,6 +29,7 @@ class MshMapView extends ConsumerStatefulWidget {
 class _MshMapViewState extends ConsumerState<MshMapView> {
   late final MapController _mapController;
   MapItem? _hoveredItem;
+  double _currentZoom = MapConfig.defaultZoom;
 
   @override
   void initState() {
@@ -51,16 +55,31 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
             initialZoom: widget.initialZoom ?? MapConfig.defaultZoom,
             minZoom: MapConfig.minZoom,
             maxZoom: MapConfig.maxZoom,
-            // Enable interactions (scrollable, zoomable, draggable)
+            // Enable all interactions including pinch-to-zoom on trackpad
             interactionOptions: const InteractionOptions(
               flags: InteractiveFlag.all,
             ),
+            onPositionChanged: (position, hasGesture) {
+              if (_currentZoom != position.zoom) {
+                setState(() {
+                  _currentZoom = position.zoom ?? MapConfig.defaultZoom;
+                });
+              }
+            },
           ),
           children: [
             TileLayer(
               urlTemplate: MapConfig.tileUrlTemplate,
               userAgentPackageName: MapConfig.userAgent,
             ),
+
+            // Fog of War (vor den Markern, damit Marker sichtbar bleiben)
+            if (widget.showFogOfWar)
+              AdaptiveFogOfWarLayer(
+                currentZoom: _currentZoom,
+                useDetailedBorder: _currentZoom > 12,
+              ),
+
             MarkerLayer(
               markers: widget.items.map(_buildMarker).toList(),
             ),

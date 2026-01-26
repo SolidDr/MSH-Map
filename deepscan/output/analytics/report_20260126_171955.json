@@ -1,0 +1,129 @@
+{
+  "overview": {
+    "total_locations": 58,
+    "total_cities": 19,
+    "total_categories": 15
+  },
+  "by_category": {
+    "nature": 9,
+    "castle": 3,
+    "culture": 5,
+    "pool": 4,
+    "museum": 7,
+    "zoo": 1,
+    "restaurant": 5,
+    "adventure": 1,
+    "playground": 6,
+    "farm": 1,
+    "cafe": 3,
+    "imbiss": 1,
+    "indoor": 4,
+    "event": 5,
+    "sport": 3
+  },
+  "by_city": {
+    "Sangerhausen": 18,
+    "Mansfeld": 3,
+    "Seeburg": 1,
+    "Lutherstadt Eisleben": 10,
+    "Steinthaleben": 1,
+    "Wettelrode": 2,
+    "Thale": 1,
+    "Morungen": 1,
+    "Wippra": 1,
+    "Questenberg": 3,
+    "Allstedt": 2,
+    "Hettstedt": 6,
+    "Bad Frankenhausen": 2,
+    "Hornburg": 1,
+    "Stolberg": 2,
+    "Wimmelburg": 1,
+    "Gerbstedt": 1,
+    "Südharz": 1,
+    "Rottleben": 1
+  },
+  "top_cities": [
+    [
+      "Sangerhausen",
+      18
+    ],
+    [
+      "Lutherstadt Eisleben",
+      10
+    ],
+    [
+      "Hettstedt",
+      6
+    ],
+    [
+      "Mansfeld",
+      3
+    ],
+    [
+      "Questenberg",
+      3
+    ],
+    [
+      "Wettelrode",
+      2
+    ],
+    [
+      "Allstedt",
+      2
+    ],
+    [
+      "Bad Frankenhausen",
+      2
+    ],
+    [
+      "Stolberg",
+      2
+    ],
+    [
+      "Seeburg",
+      1
+    ]
+  ],
+  "top_categories": [
+    [
+      "nature",
+      9
+    ],
+    [
+      "museum",
+      7
+    ],
+    [
+      "playground",
+      6
+    ],
+    [
+      "culture",
+      5
+    ],
+    [
+      "restaurant",
+      5
+    ],
+    [
+      "event",
+      5
+    ],
+    [
+      "pool",
+      4
+    ],
+    [
+      "indoor",
+      4
+    ],
+    [
+      "castle",
+      3
+    ],
+    [
+      "cafe",
+      3
+    ]
+  ]
+}

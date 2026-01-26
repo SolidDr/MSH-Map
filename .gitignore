@@ -114,3 +114,5 @@ credentials/
 *.key
 serviceAccountKey.json
 node_modules/
+
+.vercel

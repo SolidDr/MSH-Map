@@ -55,4 +55,31 @@ class MshColors {
   static const Color warning = Color(0xFFF59E0B);
   static const Color error = Color(0xFFEF4444);
   static const Color info = Color(0xFF3B82F6);
+
+  // ═══════════════════════════════════════════════════════════════
+  // DARK MODE COLORS
+  // ═══════════════════════════════════════════════════════════════
+
+  static const Color darkBackground = Color(0xFF0F0E0E);        // Sehr dunkles Grau
+  static const Color darkSurface = Color(0xFF1C1917);           // Stone 900
+  static const Color darkSurfaceVariant = Color(0xFF292524);    // Stone 800
+  static const Color darkSurfaceElevated = Color(0xFF2C2A29);   // Leicht erhöht
+
+  static const Color darkTextPrimary = Color(0xFFFAFAF9);       // Stone 50
+  static const Color darkTextSecondary = Color(0xFFA8A29E);     // Stone 400
+
+  static const Color darkPrimary = Color(0xFFFBBF24);           // Amber 400 - heller für dark mode
+  static const Color darkPrimaryLight = Color(0xFFFCD34D);      // Amber 300
+  static const Color darkPrimaryDark = Color(0xFFF59E0B);       // Amber 500
+  static const Color darkPrimarySurface = Color(0xFF451A03);    // Amber 950
+
+  // ═══════════════════════════════════════════════════════════════
+  // HIGH CONTRAST COLORS (für Accessibility)
+  // ═══════════════════════════════════════════════════════════════
+
+  static const Color highContrastPrimary = Color(0xFFFFD700);   // Gold
+  static const Color highContrastBackground = Color(0xFF000000);
+  static const Color highContrastSurface = Color(0xFF1A1A1A);
+  static const Color highContrastText = Color(0xFFFFFFFF);
+  static const Color highContrastBorder = Color(0xFFFFD700);
 }

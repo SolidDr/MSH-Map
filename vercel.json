@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "name": "msh-map-analytics",
+  "functions": {
+    "api/**/*.ts": {
+      "memory": 1024,
+      "maxDuration": 60
+    }
+  },
+  "crons": [
+    {
+      "path": "/api/scheduled/daily-stats",
+      "schedule": "0 3 * * *"
+    },
+    {
+      "path": "/api/scheduled/weekly-report",
+      "schedule": "0 6 * * 0"
+    }
+  ],
+  "env": {
+    "FIREBASE_PROJECT_ID": "lunch-radar-5d984"
+  }
+}

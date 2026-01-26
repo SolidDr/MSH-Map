@@ -1,0 +1,23 @@
+{
+  "name": "msh-map-vercel-api",
+  "version": "1.0.0",
+  "description": "MSH Map Analytics API for Vercel",
+  "private": true,
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "tsc",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "@vercel/node": "^3.0.0",
+    "firebase-admin": "^11.10.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "vercel": "^33.0.0"
+  },
+  "engines": {
+    "node": "24.x"
+  }
+}
