@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../domain/map_item.dart';
-import '../domain/coordinates.dart';
+import '../../core/config/feature_flags.dart';
 import '../../core/config/map_config.dart';
+import '../../features/engagement/domain/engagement_model.dart';
+import '../../features/engagement/presentation/engagement_detail_sheet.dart';
+import '../../features/engagement/presentation/engagement_map_layer.dart';
+import '../domain/coordinates.dart';
+import '../domain/map_item.dart';
 import 'map/fog_of_war_layer.dart';
 
 class MshMapView extends ConsumerStatefulWidget {
@@ -85,9 +89,16 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
                 useDetailedBorder: _currentZoom > 12,
               ),
 
+            // Regular POI Markers
             MarkerLayer(
               markers: widget.items.map(_buildMarker).toList(),
             ),
+
+            // Engagement Places Layer
+            if (FeatureFlags.enableEngagementOnMap)
+              EngagementMapLayer(
+                onPlaceTap: (place) => _showEngagementSheet(place),
+              ),
           ],
         ),
 
@@ -130,6 +141,15 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
           ),
         ),
       ),
+    );
+  }
+
+  void _showEngagementSheet(EngagementPlace place) {
+    showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) => EngagementDetailSheet(place: place),
     );
   }
 }

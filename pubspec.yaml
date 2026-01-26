@@ -60,3 +60,4 @@ flutter:
     - lib/assets/data/msh_seed_locations.geojson
     - data/events/events_current.json
     - data/notices/notices_current.json
+    - assets/data/engagement/places.json

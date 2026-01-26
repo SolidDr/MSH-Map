@@ -96,6 +96,28 @@ class FeatureFlags {
   static const bool enablePhotoUploads = false;
 
   // ═══════════════════════════════════════════════════════════════
+  // SOZIALES ENGAGEMENT
+  // ═══════════════════════════════════════════════════════════════
+
+  /// Zeigt Engagement-Orte (Tierheime, Vereine, etc.)
+  static const bool enableEngagement = true;
+
+  /// Zeigt Engagement-Orte auf der Karte
+  static const bool enableEngagementOnMap = true;
+
+  /// Zeigt spezielle Marker für dringende Hilfsaufrufe
+  static const bool enableUrgentMarkers = true;
+
+  /// Zeigt adoptierbare Tiere
+  static const bool enableAdoptableAnimals = true;
+
+  /// Zeigt Engagement-Widget auf Home
+  static const bool enableEngagementWidget = true;
+
+  /// Pulsierender Effekt für dringende Marker
+  static const bool enablePulsingMarkers = true;
+
+  // ═══════════════════════════════════════════════════════════════
   // MARKTPLATZ
   // ═══════════════════════════════════════════════════════════════
 

@@ -29,6 +29,7 @@ class MshColors {
 
   static const Color textPrimary = Color(0xFF292524);    // Stone 800
   static const Color textSecondary = Color(0xFF78716C);  // Stone 500
+  static const Color textMuted = Color(0xFFA8A29E);      // Stone 400
   static const Color textOnPrimary = Color(0xFFFFFFFF);
 
   // ═══════════════════════════════════════════════════════════════
@@ -48,6 +49,24 @@ class MshColors {
   static const Color categoryEvent = Color(0xFF6366F1);      // Indigo - Event
 
   // ═══════════════════════════════════════════════════════════════
+  // ZUSÄTZLICHE FARBEN
+  // ═══════════════════════════════════════════════════════════════
+
+  static const Color forest = Color(0xFF2D5016);         // Dunkelgrün
+  static const Color copper = Color(0xFFB87333);         // Kupfer
+  static const Color copperSurface = Color(0xFFFFF0E5);  // Helles Kupfer
+  static const Color slateMuted = Color(0xFF94A3B8);     // Gedämpftes Grau
+
+  /// Standard Card Shadow
+  static const List<BoxShadow> cardShadow = [
+    BoxShadow(
+      color: Color(0x0F000000),
+      blurRadius: 10,
+      offset: Offset(0, 2),
+    ),
+  ];
+
+  // ═══════════════════════════════════════════════════════════════
   // STATUS
   // ═══════════════════════════════════════════════════════════════
 
@@ -55,6 +74,53 @@ class MshColors {
   static const Color warning = Color(0xFFF59E0B);
   static const Color error = Color(0xFFEF4444);
   static const Color info = Color(0xFF3B82F6);
+
+  // ═══════════════════════════════════════════════════════════════
+  // ENGAGEMENT - Spezielle Farben für soziales Engagement
+  // ═══════════════════════════════════════════════════════════════
+
+  /// Engagement-Gold - für "Helfen"-Rahmen
+  static const Color engagementGold = Color(0xFFD4A853);
+
+  /// Engagement-Herz - für Adoption
+  static const Color engagementHeart = Color(0xFFE74C3C);
+
+  /// Tierheim-Braun
+  static const Color engagementAnimal = Color(0xFF8B4513);
+
+  /// Ehrenamt-Violett
+  static const Color engagementVolunteer = Color(0xFF9B59B6);
+
+  /// Dringend-Rot
+  static const Color engagementUrgent = Color(0xFFE74C3C);
+
+  /// Sozial-Blau
+  static const Color engagementSocial = Color(0xFF3498DB);
+
+  /// Spenden-Grün
+  static const Color engagementDonation = Color(0xFF27AE60);
+
+  /// Gibt Engagement-Typ-Farbe zurück
+  static Color getEngagementColor(String typeId) {
+    switch (typeId) {
+      case 'animal_shelter':
+        return engagementAnimal;
+      case 'volunteer':
+        return engagementVolunteer;
+      case 'help_needed':
+        return engagementUrgent;
+      case 'social_service':
+        return engagementSocial;
+      case 'donation':
+        return engagementDonation;
+      case 'blood_donation':
+        return const Color(0xFFC0392B);
+      case 'environment':
+        return const Color(0xFF2ECC71);
+      default:
+        return engagementVolunteer;
+    }
+  }
 
   // ═══════════════════════════════════════════════════════════════
   // DARK MODE COLORS
