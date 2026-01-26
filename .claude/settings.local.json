@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(firebase login:list:*)",
+      "Bash(firebase projects:list:*)",
+      "Bash(firebase projects:create:*)",
+      "Bash(Select-Object -Last 30)",
+      "Bash(Get-Content \"$env:USERPROFILE\\\\firebase-debug.log\" -Tail 20)",
+      "Bash(flutter pub run build_runner build:*)"
+    ]
+  }
+}
