@@ -11,10 +11,43 @@ import 'modules/_module_registry.dart';
 import 'modules/events/presentation/widgets/notice_banner.dart';
 import 'modules/events/presentation/widgets/upcoming_events_widget.dart';
 import 'shared/domain/map_item.dart';
+import 'shared/widgets/age_filter_row.dart';
 import 'shared/widgets/category_quick_filter.dart';
 import 'shared/widgets/layer_switcher.dart';
 import 'shared/widgets/msh_map_view.dart';
 import 'shared/widgets/poi_bottom_sheet.dart';
+
+// ═══════════════════════════════════════════════════════════════
+// HILFSFUNKTION FÜR ALTERSBEREICH-ÜBERLAPPUNG
+// ═══════════════════════════════════════════════════════════════
+
+/// Parst einen Altersbereich-String zu (min, max)
+(int, int)? _parseAgeRange(String range) {
+  if (range == 'alle') return null;
+  if (range.endsWith('+')) {
+    final min = int.tryParse(range.replaceAll('+', ''));
+    return min != null ? (min, 999) : null;
+  }
+  final parts = range.split('-');
+  if (parts.length == 2) {
+    final min = int.tryParse(parts[0]);
+    final max = int.tryParse(parts[1]);
+    return (min != null && max != null) ? (min, max) : null;
+  }
+  return null;
+}
+
+/// Prüft ob zwei Altersbereiche sich überschneiden
+bool _rangesOverlap(String range1, String range2) {
+  if (range1 == 'alle' || range2 == 'alle') return true;
+
+  final parsed1 = _parseAgeRange(range1);
+  final parsed2 = _parseAgeRange(range2);
+
+  if (parsed1 == null || parsed2 == null) return false;
+
+  return parsed1.$1 <= parsed2.$2 && parsed2.$1 <= parsed1.$2;
+}
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -65,6 +98,53 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         _isLoading = false;
       });
     }
+  }
+
+  /// Berechnet die Anzahl der POIs pro Altersgruppe
+  Map<String, int> _calculateAgeCounts() {
+    final counts = <String, int>{
+      '0-3': 0,
+      '3-6': 0,
+      '6-12': 0,
+      '12+': 0,
+    };
+
+    for (final item in _items) {
+      if (item.moduleId == 'family') {
+        final ageRange = item.metadata['ageRange'] as String?;
+        if (ageRange != null && ageRange != 'alle') {
+          // Prüfe Überlappung mit jeder Altersgruppe
+          for (final age in counts.keys) {
+            if (_rangesOverlap(ageRange, age)) {
+              counts[age] = counts[age]! + 1;
+            }
+          }
+        }
+      }
+    }
+
+    return counts;
+  }
+
+  /// Prüft ob Altersfilter angezeigt werden sollen
+  bool _shouldShowAgeFilter() {
+    final filterState = ref.watch(filterProvider);
+
+    // Zeige Altersfilter nur wenn:
+    // - Family-Kategorie ausgewählt ist ODER
+    // - Keine Kategorie ausgewählt ist (alle Items)
+    if (filterState.categories.isEmpty) return true;
+
+    return filterState.categories.any((cat) => [
+          'playground',
+          'museum',
+          'nature',
+          'zoo',
+          'castle',
+          'pool',
+          'farm',
+          'adventure'
+        ].contains(cat));
   }
 
   void _showEventsSheet(BuildContext context) {
@@ -194,10 +274,22 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               ),
             ),
 
+          // Age Filter Row (NEU)
+          if (!_isLoading && _items.isNotEmpty && _shouldShowAgeFilter())
+            Positioned(
+              top: MediaQuery.of(context).padding.top + 188,
+              left: 0,
+              right: 0,
+              child: AgeFilterRow(
+                ageCounts: _calculateAgeCounts(),
+              ),
+            ),
+
           // POI Counter & Analytics Button
           if (!_isLoading && _items.isNotEmpty)
             Positioned(
-              top: MediaQuery.of(context).padding.top + 188,
+              top: MediaQuery.of(context).padding.top +
+                  (_shouldShowAgeFilter() ? 244 : 188),
               left: 16,
               right: 16,
               child: Row(

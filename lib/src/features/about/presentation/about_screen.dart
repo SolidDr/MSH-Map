@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../../core/constants/app_strings.dart';
 import '../../../core/theme/msh_colors.dart';
 import '../../../core/theme/msh_theme.dart';
@@ -127,6 +128,11 @@ class AboutScreen extends StatelessWidget {
                   // Powered by
                   const Center(child: PoweredByBadge()),
 
+                  const SizedBox(height: MshTheme.spacingMd),
+
+                  // GitHub Link
+                  const Center(child: _GitHubButton()),
+
                   const SizedBox(height: MshTheme.spacingLg),
 
                   // Version Info
@@ -211,6 +217,64 @@ class AboutScreen extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     height: 1.6,
                   ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _GitHubButton extends StatelessWidget {
+  const _GitHubButton();
+
+  Future<void> _launchGitHub() async {
+    final uri = Uri.parse('https://github.com/SolidDr/MSH-Map');
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: _launchGitHub,
+      borderRadius: BorderRadius.circular(12),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        decoration: BoxDecoration(
+          color: Colors.grey[900],
+          borderRadius: BorderRadius.circular(12),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.2),
+              blurRadius: 8,
+              offset: const Offset(0, 2),
+            ),
+          ],
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Icon(
+              Icons.code,
+              size: 20,
+              color: Colors.white,
+            ),
+            const SizedBox(width: 12),
+            const Text(
+              'Source Code auf GitHub',
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            const SizedBox(width: 8),
+            Icon(
+              Icons.open_in_new,
+              size: 14,
+              color: Colors.white.withValues(alpha: 0.7),
             ),
           ],
         ),

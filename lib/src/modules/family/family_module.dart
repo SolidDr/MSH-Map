@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../core/constants/app_strings.dart';
 import '../../core/theme/msh_colors.dart';
 import '../../shared/domain/bounding_box.dart';
 import '../../shared/domain/map_item.dart';
@@ -77,5 +78,48 @@ class FamilyModule extends MshModule {
           icon: Icons.wb_sunny,
           predicate: (item) => item is Poi && item.isOutdoor,
         ),
+        // Altersfilter
+        FilterOption(
+          id: 'age_0-3',
+          label: AppStrings.ageRanges['0-3']!,
+          icon: Icons.child_care,
+          predicate: (item) =>
+              item is Poi && _matchesAgeFilter(item.ageRange, '0-3'),
+        ),
+        FilterOption(
+          id: 'age_3-6',
+          label: AppStrings.ageRanges['3-6']!,
+          icon: Icons.child_friendly,
+          predicate: (item) =>
+              item is Poi && _matchesAgeFilter(item.ageRange, '3-6'),
+        ),
+        FilterOption(
+          id: 'age_6-12',
+          label: AppStrings.ageRanges['6-12']!,
+          icon: Icons.school,
+          predicate: (item) =>
+              item is Poi && _matchesAgeFilter(item.ageRange, '6-12'),
+        ),
+        FilterOption(
+          id: 'age_12+',
+          label: AppStrings.ageRanges['12+']!,
+          icon: Icons.face,
+          predicate: (item) =>
+              item is Poi && _matchesAgeFilter(item.ageRange, '12+'),
+        ),
       ];
+
+  /// Hilfsmethode für Altersfilter-Predicates
+  bool _matchesAgeFilter(String poiAge, String filterAge) {
+    // "alle" passt zu jedem Filter
+    if (poiAge == 'alle') return true;
+
+    // Exakte Übereinstimmung
+    if (poiAge == filterAge) return true;
+
+    // Einfache Überlappungsprüfung für benutzerdefinierte Bereiche
+    // z.B. "3-12" enthält sowohl "3-6" als auch "6-12"
+    return poiAge.contains(filterAge.split('-').first) ||
+        poiAge.contains(filterAge.replaceAll('+', ''));
+  }
 }
