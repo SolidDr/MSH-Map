@@ -110,6 +110,7 @@ class FamilyModule extends MshModule {
       ];
 
   /// Hilfsmethode für Altersfilter-Predicates
+  /// Verwendet half-open intervals [min, max) für exakte Gruppierung
   bool _matchesAgeFilter(String poiAge, String filterAge) {
     // "alle" passt zu jedem Filter
     if (poiAge == 'alle') return true;
@@ -117,9 +118,29 @@ class FamilyModule extends MshModule {
     // Exakte Übereinstimmung
     if (poiAge == filterAge) return true;
 
-    // Einfache Überlappungsprüfung für benutzerdefinierte Bereiche
-    // z.B. "3-12" enthält sowohl "3-6" als auch "6-12"
-    return poiAge.contains(filterAge.split('-').first) ||
-        poiAge.contains(filterAge.replaceAll('+', ''));
+    // Parse und prüfe Überlappung mit half-open intervals
+    final poiRange = _parseAgeRange(poiAge);
+    final filterRange = _parseAgeRange(filterAge);
+
+    if (poiRange == null || filterRange == null) return false;
+
+    // Half-open intervals: [min1, max1) overlaps [min2, max2) wenn min1 < max2 && min2 < max1
+    return poiRange.$1 < filterRange.$2 && filterRange.$1 < poiRange.$2;
+  }
+
+  /// Parst einen Altersbereich-String zu (min, max)
+  (int, int)? _parseAgeRange(String range) {
+    if (range == 'alle') return null;
+    if (range.endsWith('+')) {
+      final min = int.tryParse(range.replaceAll('+', ''));
+      return min != null ? (min, 999) : null;
+    }
+    final parts = range.split('-');
+    if (parts.length == 2) {
+      final min = int.tryParse(parts[0]);
+      final max = int.tryParse(parts[1]);
+      return (min != null && max != null) ? (min, max) : null;
+    }
+    return null;
   }
 }

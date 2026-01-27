@@ -23,7 +23,9 @@ import '../../shared/domain/map_item.dart';
 }
 
 /// Prüft ob zwei Altersbereiche sich überschneiden
+/// Verwendet half-open intervals [min, max) für exakte Gruppierung
 /// Beispiel: "3-12" überschneidet sich mit "6-12" → true
+/// Aber: "0-3" und "3-6" überschneiden sich NICHT (grenzen nur aneinander)
 bool _rangesOverlap(String range1, String range2) {
   if (range1 == 'alle' || range2 == 'alle') return true;
 
@@ -32,8 +34,8 @@ bool _rangesOverlap(String range1, String range2) {
 
   if (parsed1 == null || parsed2 == null) return false;
 
-  // Überlappung wenn: min1 <= max2 && min2 <= max1
-  return parsed1.$1 <= parsed2.$2 && parsed2.$1 <= parsed1.$2;
+  // Half-open intervals: [min1, max1) overlaps [min2, max2) wenn min1 < max2 && min2 < max1
+  return parsed1.$1 < parsed2.$2 && parsed2.$1 < parsed1.$2;
 }
 
 // ═══════════════════════════════════════════════════════════════

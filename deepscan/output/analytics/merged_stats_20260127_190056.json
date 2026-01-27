@@ -1,0 +1,46 @@
+{
+  "total": 1735,
+  "by_category": {
+    "nature": 752,
+    "restaurant": 316,
+    "castle": 137,
+    "imbiss": 121,
+    "culture": 93,
+    "cafe": 81,
+    "sport": 76,
+    "museum": 68,
+    "playground": 53,
+    "pool": 15,
+    "zoo": 9,
+    "indoor": 7,
+    "event": 5,
+    "adventure": 1,
+    "farm": 1
+  },
+  "by_city": {
+    "Unbekannt": 1323,
+    "Sangerhausen": 65,
+    "Lutherstadt Eisleben": 33,
+    "Sondershausen": 22,
+    "Harzgerode": 19,
+    "Nordhausen": 18,
+    "Südharz": 17,
+    "Mansfeld": 15,
+    "Bad Frankenhausen/Kyffhäuser": 15,
+    "Hettstedt": 14,
+    "Roßleben-Wiehe": 14,
+    "Artern": 11,
+    "Seegebiet Mansfelder Land": 10,
+    "Thale": 9,
+    "Allstedt": 9,
+    "Harztor": 8,
+    "Querfurt": 8,
+    "Kelbra (Kyffhäuser)": 7,
+    "Oberharz am Brocken": 7,
+    "Nebra (Unstrut)": 6
+  },
+  "by_source": {
+    "unknown": 58,
+    "openstreetmap": 1677
+  }
+}

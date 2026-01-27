@@ -205,6 +205,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
   }
 
   /// Prüft ob zwei Altersbereiche sich überschneiden
+  /// Verwendet half-open intervals [min, max) für exakte Gruppierung
   bool _rangesOverlap(String range1, String range2) {
     if (range1 == 'alle' || range2 == 'alle') return true;
 
@@ -213,8 +214,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
 
     if (parsed1 == null || parsed2 == null) return false;
 
-    // Überlappung wenn: min1 <= max2 && min2 <= max1
-    return parsed1.$1 <= parsed2.$2 && parsed2.$1 <= parsed1.$2;
+    // Half-open intervals: [min1, max1) overlaps [min2, max2) wenn min1 < max2 && min2 < max1
+    // Damit überlappen "0-3" und "3-6" NICHT (sie grenzen nur aneinander)
+    return parsed1.$1 < parsed2.$2 && parsed2.$1 < parsed1.$2;
   }
 
   /// Parst einen Altersbereich-String zu (min, max)

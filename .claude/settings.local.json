@@ -34,7 +34,25 @@
       "Bash(test -f:*)",
       "Bash(flutter build:*)",
       "Bash(flutter create:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(dir:*)",
+      "Bash(findstr:*)",
+      "Bash(du:*)",
+      "WebFetch(domain:msh-map-analytics-i5w1ic3va-konstantins-projects-769b9b50.vercel.app)",
+      "Bash(curl:*)",
+      "WebFetch(domain:v6.db.transport.rest)",
+      "Bash(dart run:*)",
+      "WebFetch(domain:sawanne.de)",
+      "WebFetch(domain:stadtbad-sangerhausen.de)",
+      "Bash(git reset:*)",
+      "Bash(git pull:*)",
+      "Bash(git stash:*)",
+      "Bash(git ls-tree:*)",
+      "WebFetch(domain:msh-map-analytics.vercel.app)",
+      "WebFetch(domain:www.msh-map.de)",
+      "Bash(git rm:*)",
+      "Bash(git check-ignore:*)",
+      "Bash(pip show:*)"
     ]
   }
 }

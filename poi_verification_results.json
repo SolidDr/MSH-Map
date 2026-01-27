@@ -1,0 +1,391 @@
+{
+  "verified_at": "2026-01-27T15:46:43.085310",
+  "summary": {
+    "verified": 15,
+    "issues": 11,
+    "not_found": 12
+  },
+  "results": [
+    {
+      "id": "a1ebbd930a8f",
+      "name": "Europa-Rosarium Sangerhausen",
+      "status": "verified",
+      "distance": 56.06348424095532,
+      "osm_name": "Europa Rosarium",
+      "osm_lat": 51.4744439,
+      "osm_lng": 11.3120487,
+      "current_lat": 51.4744165,
+      "current_lng": 11.311258
+    },
+    {
+      "id": "6cde51fe78b6",
+      "name": "Spengler-Museum Sangerhausen",
+      "status": "verified",
+      "distance": 0.0,
+      "osm_name": "Spengler Museum",
+      "osm_lat": 51.478434,
+      "osm_lng": 11.2942834,
+      "current_lat": 51.478434,
+      "current_lng": 11.2942834
+    },
+    {
+      "id": "dfdd97350e63",
+      "name": "Erlebnisbad Sangerhausen",
+      "status": "not_found",
+      "current_lat": 51.4536936,
+      "current_lng": 11.3025417
+    },
+    {
+      "id": "951f251e09fc",
+      "name": "Stadtpark Sangerhausen",
+      "status": "issue",
+      "distance": 231.19602738575873,
+      "osm_name": "Unnamed",
+      "osm_lat": 51.4735519,
+      "osm_lng": 11.3060391,
+      "osm_address": "",
+      "current_lat": 51.4715,
+      "current_lng": 11.3055
+    },
+    {
+      "id": "e9369f00189b",
+      "name": "Luthers Geburtshaus",
+      "status": "verified",
+      "distance": 0.0,
+      "osm_name": "Luthers Geburtshaus",
+      "osm_lat": 51.52677,
+      "osm_lng": 11.5501248,
+      "current_lat": 51.52677,
+      "current_lng": 11.5501248
+    },
+    {
+      "id": "7b738ecffbb2",
+      "name": "Luthers Sterbehaus",
+      "status": "verified",
+      "distance": 0.0,
+      "osm_name": "Luthers Sterbehaus",
+      "osm_lat": 51.5280953,
+      "osm_lng": 11.5443381,
+      "current_lat": 51.5280953,
+      "current_lng": 11.5443381
+    },
+    {
+      "id": "1db418ba25cb",
+      "name": "Knappenbrunnen Eisleben",
+      "status": "issue",
+      "distance": 151.18941785195122,
+      "osm_name": "Vikariatsgarten",
+      "osm_lat": 51.5275233,
+      "osm_lng": 11.5441731,
+      "osm_address": "",
+      "current_lat": 51.5285326,
+      "current_lng": 11.5427087
+    },
+    {
+      "id": "1954ae4fca7e",
+      "name": "Bergbaumuseum Röhrigschacht",
+      "status": "not_found",
+      "current_lat": 51.5189,
+      "current_lng": 11.4308
+    },
+    {
+      "id": "61d92b1c1015",
+      "name": "Mansfeld-Museum Hettstedt",
+      "status": "verified",
+      "distance": 0.0,
+      "osm_name": "Mansfeld Museum",
+      "osm_lat": 51.6257968,
+      "osm_lng": 11.5124499,
+      "current_lat": 51.6257968,
+      "current_lng": 11.5124499
+    },
+    {
+      "id": "a0e83a7a56be",
+      "name": "Saigertor Hettstedt",
+      "status": "not_found",
+      "current_lat": 51.6469021,
+      "current_lng": 11.5137467
+    },
+    {
+      "id": "0c8f3c88380a",
+      "name": "Freibad Hettstedt",
+      "status": "issue",
+      "distance": 853.9637096791521,
+      "osm_name": "Unnamed",
+      "osm_lat": 51.6479571,
+      "osm_lng": 11.509735,
+      "osm_address": "",
+      "current_lat": 51.6523251,
+      "current_lng": 11.5199157
+    },
+    {
+      "id": "4f140a84718b",
+      "name": "Schloss Mansfeld",
+      "status": "verified",
+      "distance": 24.494776603500206,
+      "osm_name": "Festung Mansfeld",
+      "osm_lat": 51.5936136,
+      "osm_lng": 11.457787,
+      "current_lat": 51.593631,
+      "current_lng": 11.4577407
+    },
+    {
+      "id": "b59655bcd20f",
+      "name": "Luthers Elternhaus Mansfeld",
+      "status": "verified",
+      "distance": 25.239455926627297,
+      "osm_name": "Museum Luthers Elternhaus",
+      "osm_lat": 51.5938648,
+      "osm_lng": 11.4536909,
+      "current_lat": 51.5937987,
+      "current_lng": 11.4537465
+    },
+    {
+      "id": "9b72398721ee",
+      "name": "Historische Altstadt Stolberg",
+      "status": "issue",
+      "distance": 213.42217064123494,
+      "osm_name": "Schloß Stolberg",
+      "osm_lat": 51.574828,
+      "osm_lng": 10.9539635,
+      "osm_address": "",
+      "current_lat": 51.5734,
+      "current_lng": 10.9519
+    },
+    {
+      "id": "0a416be8510b",
+      "name": "Schloss Stolberg",
+      "status": "verified",
+      "distance": 37.98685358550189,
+      "osm_name": "Schloß Stolberg",
+      "osm_lat": 51.574828,
+      "osm_lng": 10.9539635,
+      "current_lat": 51.5748358,
+      "current_lng": 10.954447
+    },
+    {
+      "id": "860d6327449b",
+      "name": "Josephskreuz",
+      "status": "verified",
+      "distance": 24.316931424217003,
+      "osm_name": "Josephshöhe",
+      "osm_lat": 51.5805668,
+      "osm_lng": 11.0056602,
+      "current_lat": 51.5805599,
+      "current_lng": 11.0056511
+    },
+    {
+      "id": "5be16aec5f4f",
+      "name": "Wippertalsperre",
+      "status": "not_found",
+      "current_lat": 51.5603,
+      "current_lng": 11.0833
+    },
+    {
+      "id": "eee6f07a5d32",
+      "name": "Heimkehle Uftrungen",
+      "status": "not_found",
+      "current_lat": 51.496951,
+      "current_lng": 10.9546502
+    },
+    {
+      "id": "24ddf657633c",
+      "name": "Questenberg mit Queste",
+      "status": "issue",
+      "distance": 6686.522452203562,
+      "osm_name": "Gipskarstlandschaft Questenberg",
+      "osm_lat": 51.4990717,
+      "osm_lng": 11.1261612,
+      "osm_address": "",
+      "current_lat": 51.4844,
+      "current_lng": 11.0325
+    },
+    {
+      "id": "456b4954d79a",
+      "name": "Thyragrotte Rottleberode",
+      "status": "not_found",
+      "current_lat": 51.518453,
+      "current_lng": 10.9473925
+    },
+    {
+      "id": "6d7a53c523db",
+      "name": "Süßer See",
+      "status": "not_found",
+      "current_lat": 51.4962922,
+      "current_lng": 11.6733979
+    },
+    {
+      "id": "98f00ff1923e",
+      "name": "Schloss Seeburg",
+      "status": "verified",
+      "distance": 0.0,
+      "osm_name": "Schloss Seeburg",
+      "osm_lat": 51.4910902,
+      "osm_lng": 11.6988835,
+      "current_lat": 51.4910902,
+      "current_lng": 11.6988835
+    },
+    {
+      "id": "49f576f8cc8d",
+      "name": "Concordia See",
+      "status": "not_found",
+      "current_lat": 51.8358117,
+      "current_lng": 11.4027304
+    },
+    {
+      "id": "abb075adbee5",
+      "name": "Schloss Gerbstedt",
+      "status": "issue",
+      "distance": 786.4992452077257,
+      "osm_name": "Eisenbahnromantik aus Beton M1:10",
+      "osm_lat": 51.628431,
+      "osm_lng": 11.6250087,
+      "osm_address": "",
+      "current_lat": 51.6354975,
+      "current_lng": 11.6245144
+    },
+    {
+      "id": "6e634bd77c3f",
+      "name": "Burg und Schloss Allstedt",
+      "status": "issue",
+      "distance": 847.8167143202287,
+      "osm_name": "Stadtmühle",
+      "osm_lat": 51.4033921,
+      "osm_lng": 11.3919457,
+      "osm_address": "",
+      "current_lat": 51.4078801,
+      "current_lng": 11.4018267
+    },
+    {
+      "id": "0fd9c7744e9e",
+      "name": "Burg Falkenstein",
+      "status": "verified",
+      "distance": 24.418255912941355,
+      "osm_name": "Burg Falkenstein",
+      "osm_lat": 51.6818484,
+      "osm_lng": 11.2651086,
+      "current_lat": 51.6818619,
+      "current_lng": 11.2651445
+    },
+    {
+      "id": "241fca2a5975",
+      "name": "Selketal",
+      "status": "issue",
+      "distance": 440.17995062322336,
+      "osm_name": "Wilhelmsberg",
+      "osm_lat": 51.6874105,
+      "osm_lng": 11.2671595,
+      "osm_address": "",
+      "current_lat": 51.6874839,
+      "current_lng": 11.2735438
+    },
+    {
+      "id": "a62ae6b0a729",
+      "name": "Burg Querfurt",
+      "status": "verified",
+      "distance": 27.77375629776902,
+      "osm_name": "Burg Querfurt",
+      "osm_lat": 51.3769781,
+      "osm_lng": 11.5935268,
+      "current_lat": 51.376967,
+      "current_lng": 11.5937586
+    },
+    {
+      "id": "61478d6bb40c",
+      "name": "Kyffhäuser-Denkmal",
+      "status": "not_found",
+      "current_lat": 51.4199063,
+      "current_lng": 11.1401762
+    },
+    {
+      "id": "5f7abcc9a930",
+      "name": "Bodetal und Rosstrappe",
+      "status": "issue",
+      "distance": 907.6796618139209,
+      "osm_name": "Unnamed",
+      "osm_lat": 51.7422706,
+      "osm_lng": 11.038742,
+      "osm_address": "",
+      "current_lat": 51.734132,
+      "current_lng": 11.0397596
+    },
+    {
+      "id": "509cd30b0421",
+      "name": "Hexentanzplatz Thale",
+      "status": "verified",
+      "distance": 98.20583476220112,
+      "osm_name": "Harz Mystery Show",
+      "osm_lat": 51.7324828,
+      "osm_lng": 11.0249976,
+      "current_lat": 51.7332975,
+      "current_lng": 11.0244493
+    },
+    {
+      "id": "3ff70dd17fb2",
+      "name": "Harzer Schmalspurbahnen - Selketalbahn",
+      "status": "not_found",
+      "current_lat": 51.6408,
+      "current_lng": 11.1267
+    },
+    {
+      "id": "413e32241076",
+      "name": "Pullman City Harz",
+      "status": "not_found",
+      "current_lat": 51.7016805,
+      "current_lng": 10.8685726
+    },
+    {
+      "id": "e9066bb8f5b2",
+      "name": "Abenteuerspielplatz Sangerhausen",
+      "status": "verified",
+      "distance": 44.409885603283996,
+      "osm_name": "Unnamed",
+      "osm_lat": 51.4756258,
+      "osm_lng": 11.3193081,
+      "current_lat": 51.4758725,
+      "current_lng": 11.3188564
+    },
+    {
+      "id": "024bfd8250a1",
+      "name": "Spielplatz Stadtpark Eisleben",
+      "status": "issue",
+      "distance": 140.1651026239773,
+      "osm_name": "Unnamed",
+      "osm_lat": 51.5233677,
+      "osm_lng": 11.5483618,
+      "osm_address": "",
+      "current_lat": 51.522195,
+      "current_lng": 11.5491047
+    },
+    {
+      "id": "424cc5730d39",
+      "name": "Arche Nebra",
+      "status": "verified",
+      "distance": 57.26196256725159,
+      "osm_name": "Besucherzentrum Arche Nebra",
+      "osm_lat": 51.2713775,
+      "osm_lng": 11.5315444,
+      "current_lat": 51.2716626,
+      "current_lng": 11.5308783
+    },
+    {
+      "id": "9f53b2b5e0f5",
+      "name": "Tiergehege Sangerhausen",
+      "status": "not_found",
+      "current_lat": 51.4744,
+      "current_lng": 11.3113
+    },
+    {
+      "id": "302570dbd683",
+      "name": "Erlebnisbauernhof Mittelhausen",
+      "status": "issue",
+      "distance": 683.4616537567363,
+      "osm_name": "Tor der Mahnung",
+      "osm_lat": 51.5229477,
+      "osm_lng": 11.5519174,
+      "osm_address": "",
+      "current_lat": 51.5186,
+      "current_lng": 11.5589
+    }
+  ]
+}

@@ -15,7 +15,9 @@
       "time_start": "08:00",
       "time_end": "12:00",
       "severity": "warning",
-      "source_url": "https://sangerhausen.de"
+      "source_url": "https://sangerhausen.de",
+      "latitude": 51.4724,
+      "longitude": 11.2997
     },
     {
       "id": "notice_002",
@@ -26,7 +28,9 @@
       "valid_from": "2026-01-19",
       "valid_until": "2026-02-28",
       "severity": "warning",
-      "source_url": "https://www.eisleben.eu"
+      "source_url": "https://www.eisleben.eu",
+      "latitude": 51.5249,
+      "longitude": 11.5480
     },
     {
       "id": "notice_003",
@@ -37,7 +41,9 @@
       "valid_from": "2025-03-03",
       "valid_until": "2026-04-30",
       "severity": "critical",
-      "source_url": "https://www.mansfeldsuedharz.de/baustellenservice"
+      "source_url": "https://www.mansfeldsuedharz.de/baustellenservice",
+      "latitude": 51.5900,
+      "longitude": 11.1200
     },
     {
       "id": "notice_004",
@@ -48,7 +54,9 @@
       "valid_from": "2025-09-02",
       "valid_until": "2026-05-15",
       "severity": "critical",
-      "source_url": "https://www.mansfeldsuedharz.de/baustellenservice"
+      "source_url": "https://www.mansfeldsuedharz.de/baustellenservice",
+      "latitude": 51.5080,
+      "longitude": 11.3900
     },
     {
       "id": "notice_005",
@@ -59,7 +67,9 @@
       "valid_from": "2025-11-01",
       "valid_until": "2026-06-30",
       "severity": "critical",
-      "source_url": "https://www.mansfeldsuedharz.de/baustellenservice"
+      "source_url": "https://www.mansfeldsuedharz.de/baustellenservice",
+      "latitude": 51.5400,
+      "longitude": 11.5700
     },
     {
       "id": "notice_006",
@@ -70,7 +80,9 @@
       "valid_from": "2025-11-01",
       "valid_until": "2026-04-30",
       "severity": "info",
-      "source_url": "https://www.europa-rosarium.de"
+      "source_url": "https://www.europa-rosarium.de",
+      "latitude": 51.4734,
+      "longitude": 11.2987
     },
     {
       "id": "notice_007",
@@ -81,7 +93,9 @@
       "valid_from": "2025-11-01",
       "valid_until": "2026-03-31",
       "severity": "info",
-      "source_url": "https://www.luthermuseen.de"
+      "source_url": "https://www.luthermuseen.de",
+      "latitude": 51.5275,
+      "longitude": 11.5483
     },
     {
       "id": "notice_008",
@@ -92,7 +106,9 @@
       "valid_from": "2025-11-01",
       "valid_until": "2026-03-31",
       "severity": "info",
-      "source_url": "https://www.kyffhaeuser-denkmal.de"
+      "source_url": "https://www.kyffhaeuser-denkmal.de",
+      "latitude": 51.4170,
+      "longitude": 11.0950
     }
   ]
 }

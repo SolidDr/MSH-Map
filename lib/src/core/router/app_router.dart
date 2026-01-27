@@ -1,7 +1,9 @@
 import 'package:go_router/go_router.dart';
 
 import '../../features/about/presentation/about_screen.dart';
+import '../../features/about/presentation/datenschutz_screen.dart';
 import '../../features/about/presentation/impressum_screen.dart';
+import '../../features/about/presentation/nutzungsbedingungen_screen.dart';
 import '../../features/auth/presentation/login_screen.dart';
 import '../../features/discover/presentation/discover_screen.dart';
 import '../../features/feedback/presentation/suggest_location_screen.dart';
@@ -74,6 +76,14 @@ final appRouter = GoRouter(
         GoRoute(
           path: '/impressum',
           builder: (context, state) => const ImpressumScreen(),
+        ),
+        GoRoute(
+          path: '/datenschutz',
+          builder: (context, state) => const DatenschutzScreen(),
+        ),
+        GoRoute(
+          path: '/nutzungsbedingungen',
+          builder: (context, state) => const NutzungsbedingungenScreen(),
         ),
         // Modul-Routes dynamisch sammeln
         ...ModuleRegistry.instance.collectAllRoutes(),

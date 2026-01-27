@@ -139,6 +139,11 @@ class _MobileShell extends StatelessWidget {
             label: 'Mobilität',
           ),
           NavigationDestination(
+            icon: Icon(Icons.local_hospital_outlined),
+            selectedIcon: Icon(Icons.local_hospital),
+            label: 'Gesundheit',
+          ),
+          NavigationDestination(
             icon: Icon(Icons.person_outline),
             selectedIcon: Icon(Icons.person),
             label: 'Profil',
@@ -197,6 +202,11 @@ class _TabletShell extends StatelessWidget {
                 icon: Icon(Icons.directions_bus_outlined),
                 selectedIcon: Icon(Icons.directions_bus),
                 label: Text('Mobilität'),
+              ),
+              NavigationRailDestination(
+                icon: Icon(Icons.local_hospital_outlined),
+                selectedIcon: Icon(Icons.local_hospital),
+                label: Text('Gesundheit'),
               ),
               NavigationRailDestination(
                 icon: Icon(Icons.person_outline),
@@ -468,6 +478,8 @@ void _navigateToIndex(BuildContext context, int index) {
     case 3:
       context.go('/mobility');
     case 4:
+      context.go('/health');
+    case 5:
       context.go('/profile');
   }
 }

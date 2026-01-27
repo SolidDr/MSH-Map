@@ -36,17 +36,17 @@ class PoiBottomSheet extends StatelessWidget {
 
     if (screenHeight < 700) {
       // Kleine Viewports (Mobile Landscape, kleine Fenster)
-      initialSize = 0.65;
+      initialSize = 0.75;
       minSize = 0.3;
       maxSize = 0.95;
     } else if (screenHeight < 900) {
       // Mittlere Viewports (Tablets, kleine Desktops)
-      initialSize = 0.55;
+      initialSize = 0.65;
       minSize = 0.25;
       maxSize = 0.92;
     } else {
       // Große Viewports (Desktop)
-      initialSize = 0.5;
+      initialSize = 0.6;
       minSize = 0.2;
       maxSize = 0.9;
     }

@@ -138,9 +138,8 @@ class AppStrings {
   static const String aboutTitle = 'Warum MSH Map?';
 
   static const String aboutIntro =
-      'Diese Plattform ist nicht entstanden, um mich selbst darzustellen, '
-      'sondern aus einem ganz konkreten Bedarf heraus, den ich hier in der '
-      'Region täglich erlebe.';
+      'Diese Plattform ist aus einem ganz konkreten Bedarf heraus entstanden, '
+      'den ich hier in der Region täglich erlebe.';
 
   static const String aboutMotivation =
       'Meine Motivation für dieses Projekt stützt sich auf drei wesentliche Säulen:';

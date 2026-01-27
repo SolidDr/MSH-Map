@@ -133,6 +133,8 @@ class ProfileScreen extends StatelessWidget {
                   label: 'Daten löschen',
                   onTap: () => _confirmDeleteData(context),
                   isDestructive: true,
+                  tooltip: 'Diese Daten sind nur lokal auf deinem Gerät '
+                      'gespeichert und werden nicht an externe Server übertragen.',
                 ),
               ],
             ),
@@ -151,18 +153,12 @@ class ProfileScreen extends StatelessWidget {
                 _SettingsItem(
                   icon: Icons.description_outlined,
                   label: 'Nutzungsbedingungen',
-                  onTap: () => _openUrl(
-                    context,
-                    'https://msh-map.de/nutzungsbedingungen',
-                  ),
+                  onTap: () => context.push('/nutzungsbedingungen'),
                 ),
                 _SettingsItem(
                   icon: Icons.privacy_tip_outlined,
                   label: 'Datenschutzerklärung',
-                  onTap: () => _openUrl(
-                    context,
-                    'https://msh-map.de/datenschutz',
-                  ),
+                  onTap: () => context.push('/datenschutz'),
                 ),
                 _SettingsItem(
                   icon: Icons.feedback_outlined,
@@ -428,6 +424,7 @@ class _SettingsItem extends StatelessWidget {
     required this.onTap,
     this.trailing,
     this.isDestructive = false,
+    this.tooltip,
   });
 
   final IconData icon;
@@ -435,12 +432,13 @@ class _SettingsItem extends StatelessWidget {
   final VoidCallback onTap;
   final String? trailing;
   final bool isDestructive;
+  final String? tooltip;
 
   @override
   Widget build(BuildContext context) {
     final color = isDestructive ? MshColors.error : MshColors.textPrimary;
 
-    return InkWell(
+    final content = InkWell(
       onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.symmetric(
@@ -480,5 +478,15 @@ class _SettingsItem extends StatelessWidget {
         ),
       ),
     );
+
+    if (tooltip != null) {
+      return Tooltip(
+        message: tooltip!,
+        preferBelow: false,
+        child: content,
+      );
+    }
+
+    return content;
   }
 }
