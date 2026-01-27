@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:latlong2/latlong.dart';
 import 'core/config/feature_flags.dart';
 import 'core/config/map_config.dart';
@@ -14,12 +15,12 @@ import 'modules/events/domain/notice.dart';
 import 'modules/events/presentation/widgets/notice_banner.dart';
 import 'shared/domain/map_item.dart';
 import 'shared/widgets/age_filter_row.dart';
-import 'shared/widgets/bottom_content_card.dart';
 import 'shared/widgets/category_quick_filter.dart';
 import 'shared/widgets/layer_switcher.dart';
 import 'shared/widgets/msh_map_view.dart';
 import 'shared/widgets/poi_bottom_sheet.dart';
 import 'shared/widgets/search_autocomplete.dart';
+import 'shared/widgets/up_next_section.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({
@@ -47,17 +48,38 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
   AnimationController? _flyToController;
   bool _hasNavigatedToTarget = false;
 
+  // Draggable Sheet Controller
+  final DraggableScrollableController _sheetController =
+      DraggableScrollableController();
+  double _sheetPosition = 0.25; // Start bei 25%
+
+  // Sheet Snap Points
+  static const double _minSheetSize = 0.08; // Nur Drag Handle
+  static const double _midSheetSize = 0.25; // Standard (wie jetzt)
+  static const double _maxSheetSize = 0.65; // Erweitert
+
   @override
   void initState() {
     super.initState();
     _mapController = MapController();
+    _sheetController.addListener(_onSheetPositionChanged);
     _loadItems();
+  }
+
+  void _onSheetPositionChanged() {
+    if (_sheetController.isAttached) {
+      setState(() {
+        _sheetPosition = _sheetController.size;
+      });
+    }
   }
 
   @override
   void dispose() {
     _flyToController?.dispose();
     _mapController.dispose();
+    _sheetController.removeListener(_onSheetPositionChanged);
+    _sheetController.dispose();
     super.dispose();
   }
 
@@ -275,140 +297,414 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
             n.longitude != null)
         .toList();
 
+    // Notice Banner Opacity basierend auf Sheet Position
+    // Ausblenden wenn Sheet minimiert wird (unter 15%)
+    final noticeOpacity = ((_sheetPosition - _minSheetSize) /
+            (_midSheetSize - _minSheetSize))
+        .clamp(0.0, 1.0);
+
     return Scaffold(
-      body: Column(
+      body: Stack(
         children: [
           // ═══════════════════════════════════════════════════════════
-          // MAP AREA - 80% des Viewports
+          // MAP - Volle Größe im Hintergrund
           // ═══════════════════════════════════════════════════════════
-          Expanded(
-            flex: 4, // 80%
-            child: Stack(
-              children: [
-                // Karte
-                MshMapView(
-                  items: filteredItems,
-                  onMarkerTap: (item) => PoiBottomSheet.show(context, item),
-                  mapController: _mapController,
-                  notices: importantNotices,
-                  onNoticeTap: (notice) {
-                    // Show notice details when marker is tapped
-                    _flyTo(LatLng(notice.latitude!, notice.longitude!), 16);
-                  },
-                ),
-
-                // Top Overlay Container - verhindert Überlappungen
-                Positioned(
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  child: SafeArea(
-                    bottom: false,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: MshSpacing.lg,
-                        vertical: MshSpacing.sm,
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          // Notice Banner (oben)
-                          if (FeatureFlags.enableNoticesBanner)
-                            NoticeBanner(
-                              onNoticeLocationTap: (latitude, longitude) {
-                                // Animated flyTo when banner is clicked
-                                _flyTo(LatLng(latitude, longitude), 16);
-                              },
-                            ),
-
-                          // Abstand zwischen Banner und Suchleiste
-                          if (FeatureFlags.enableNoticesBanner && FeatureFlags.enableSearch)
-                            const SizedBox(height: MshSpacing.xs),
-
-                          // Suchleiste mit Autocomplete
-                          if (FeatureFlags.enableSearch)
-                            SearchAutocomplete(
-                              items: _items,
-                              onItemSelected: (item) {
-                                // Karte zum ausgewählten Item bewegen
-                                _mapController.move(
-                                  LatLng(
-                                    item.coordinates.latitude,
-                                    item.coordinates.longitude,
-                                  ),
-                                  16, // Zoom-Level
-                                );
-                                // Bottom Sheet mit Details öffnen
-                                PoiBottomSheet.show(context, item);
-                              },
-                            ),
-
-                          // Category Quick Filter
-                          CategoryQuickFilter(
-                            selectedCategories: filterState.categories,
-                            onCategoryToggle: (category) {
-                              ref.read(filterProvider.notifier).toggleCategory(category);
-                            },
-                            categoryCounts: _calculateCategoryCounts(),
-                          ),
-
-                          // Age Filter (nur bei Family-Kategorien)
-                          if (_shouldShowAgeFilter(filterState))
-                            AgeFilterRow(
-                              ageCounts: _calculateAgeCounts(),
-                            ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-
-                // Layer Switcher (rechts, über den Zoom Controls)
-                if (FeatureFlags.enableLayerSwitcher)
-                  Positioned(
-                    bottom: 100, // Über den Zoom Controls in MshMapView
-                    right: MshSpacing.lg,
-                    child: LayerSwitcher(onLayerChanged: _loadItems),
-                  ),
-
-                // Loading Overlay
-                if (_isLoading)
-                  Positioned.fill(
-                    child: ColoredBox(
-                      color: Colors.black.withValues(alpha: 0.3),
-                      child: const Center(
-                        child: CircularProgressIndicator(
-                          color: MshColors.primary,
-                        ),
-                      ),
-                    ),
-                  ),
-
-                // Error Banner
-                if (_error != null)
-                  Positioned(
-                    bottom: MshSpacing.lg,
-                    left: MshSpacing.lg,
-                    right: MshSpacing.lg,
-                    child: _ErrorBanner(error: _error!),
-                  ),
-              ],
+          Positioned.fill(
+            child: MshMapView(
+              items: filteredItems,
+              onMarkerTap: (item) => PoiBottomSheet.show(context, item),
+              mapController: _mapController,
+              notices: importantNotices,
+              onNoticeTap: (notice) {
+                _flyTo(LatLng(notice.latitude!, notice.longitude!), 16);
+              },
             ),
           ),
 
           // ═══════════════════════════════════════════════════════════
-          // BOTTOM CONTENT - 20% des Viewports
+          // TOP OVERLAY - Suche, Filter, Notices
           // ═══════════════════════════════════════════════════════════
-          BottomContentCard(
-            poiCount: filteredItems.length,
-            activeFilters: activeFilterCount,
-            isLoading: _isLoading,
-            onFilterTap: () {
-              // Filter zurücksetzen
-              ref.read(filterProvider.notifier).clearAll();
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: SafeArea(
+              bottom: false,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: MshSpacing.lg,
+                  vertical: MshSpacing.sm,
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    // Notice Banner (mit Fade-Animation)
+                    if (FeatureFlags.enableNoticesBanner)
+                      AnimatedOpacity(
+                        opacity: noticeOpacity,
+                        duration: const Duration(milliseconds: 150),
+                        child: noticeOpacity > 0
+                            ? NoticeBanner(
+                                onNoticeLocationTap: (latitude, longitude) {
+                                  _flyTo(LatLng(latitude, longitude), 16);
+                                },
+                              )
+                            : const SizedBox.shrink(),
+                      ),
+
+                    // Abstand
+                    if (FeatureFlags.enableNoticesBanner &&
+                        FeatureFlags.enableSearch &&
+                        noticeOpacity > 0)
+                      const SizedBox(height: MshSpacing.xs),
+
+                    // Suchleiste
+                    if (FeatureFlags.enableSearch)
+                      SearchAutocomplete(
+                        items: _items,
+                        onItemSelected: (item) {
+                          _mapController.move(
+                            LatLng(
+                              item.coordinates.latitude,
+                              item.coordinates.longitude,
+                            ),
+                            16,
+                          );
+                          PoiBottomSheet.show(context, item);
+                        },
+                      ),
+
+                    // Category Quick Filter
+                    CategoryQuickFilter(
+                      selectedCategories: filterState.categories,
+                      onCategoryToggle: (category) {
+                        ref.read(filterProvider.notifier).toggleCategory(category);
+                      },
+                      categoryCounts: _calculateCategoryCounts(),
+                    ),
+
+                    // Age Filter
+                    if (_shouldShowAgeFilter(filterState))
+                      AgeFilterRow(
+                        ageCounts: _calculateAgeCounts(),
+                      ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+
+          // Layer Switcher
+          if (FeatureFlags.enableLayerSwitcher)
+            Positioned(
+              bottom: MediaQuery.of(context).size.height * _sheetPosition + 60,
+              right: MshSpacing.lg,
+              child: LayerSwitcher(onLayerChanged: _loadItems),
+            ),
+
+          // Loading Overlay
+          if (_isLoading)
+            Positioned.fill(
+              child: ColoredBox(
+                color: Colors.black.withValues(alpha: 0.3),
+                child: const Center(
+                  child: CircularProgressIndicator(
+                    color: MshColors.primary,
+                  ),
+                ),
+              ),
+            ),
+
+          // Error Banner
+          if (_error != null)
+            Positioned(
+              bottom: MediaQuery.of(context).size.height * _sheetPosition + 20,
+              left: MshSpacing.lg,
+              right: MshSpacing.lg,
+              child: _ErrorBanner(error: _error!),
+            ),
+
+          // ═══════════════════════════════════════════════════════════
+          // DRAGGABLE BOTTOM SHEET - Google Maps Style
+          // ═══════════════════════════════════════════════════════════
+          DraggableScrollableSheet(
+            controller: _sheetController,
+            initialChildSize: _midSheetSize,
+            minChildSize: _minSheetSize,
+            maxChildSize: _maxSheetSize,
+            snap: true,
+            snapSizes: const [_minSheetSize, _midSheetSize, _maxSheetSize],
+            builder: (context, scrollController) {
+              return _DraggableBottomContent(
+                scrollController: scrollController,
+                poiCount: filteredItems.length,
+                activeFilters: activeFilterCount,
+                isLoading: _isLoading,
+                isMinimized: _sheetPosition < (_minSheetSize + 0.02),
+                onFilterTap: () {
+                  ref.read(filterProvider.notifier).clearAll();
+                },
+              );
             },
           ),
         ],
+      ),
+    );
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// DRAGGABLE BOTTOM CONTENT
+// ═══════════════════════════════════════════════════════════════
+
+class _DraggableBottomContent extends StatelessWidget {
+  const _DraggableBottomContent({
+    required this.scrollController,
+    required this.poiCount,
+    required this.activeFilters,
+    required this.isLoading,
+    required this.isMinimized,
+    this.onFilterTap,
+  });
+
+  final ScrollController scrollController;
+  final int poiCount;
+  final int activeFilters;
+  final bool isLoading;
+  final bool isMinimized;
+  final VoidCallback? onFilterTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: MshColors.surface,
+        borderRadius: const BorderRadius.vertical(
+          top: Radius.circular(MshTheme.radiusXLarge),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.15),
+            blurRadius: 20,
+            offset: const Offset(0, -4),
+          ),
+        ],
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          // Drag Handle - immer sichtbar
+          _buildDragHandle(),
+
+          // Content - scrollbar
+          Expanded(
+            child: ListView(
+              controller: scrollController,
+              padding: EdgeInsets.zero,
+              children: [
+                // POI Counter Row
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: MshSpacing.lg),
+                  child: _buildPoiCounterRow(context),
+                ),
+
+                // Weitere Inhalte nur wenn nicht minimiert
+                if (!isMinimized) ...[
+                  const SizedBox(height: MshSpacing.sm),
+
+                  // Up Next Events
+                  const UpNextSection(),
+
+                  const SizedBox(height: MshSpacing.sm),
+
+                  // Quick Actions
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: MshSpacing.lg),
+                    child: _buildQuickActions(context),
+                  ),
+
+                  // Extra Padding für SafeArea
+                  SizedBox(height: MediaQuery.of(context).padding.bottom + MshSpacing.md),
+                ],
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildDragHandle() {
+    return Center(
+      child: Container(
+        width: MshSpacing.dragHandleWidth,
+        height: MshSpacing.dragHandle,
+        margin: const EdgeInsets.symmetric(vertical: MshSpacing.sm),
+        decoration: BoxDecoration(
+          color: MshColors.textMuted.withValues(alpha: 0.4),
+          borderRadius: BorderRadius.circular(MshSpacing.xs),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildPoiCounterRow(BuildContext context) {
+    return Row(
+      children: [
+        // POI Counter
+        Container(
+          padding: const EdgeInsets.symmetric(
+            horizontal: MshSpacing.md,
+            vertical: MshSpacing.sm,
+          ),
+          decoration: BoxDecoration(
+            color: MshColors.primary.withValues(alpha: 0.1),
+            borderRadius: BorderRadius.circular(MshTheme.radiusMedium),
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Icon(
+                Icons.place,
+                size: 18,
+                color: MshColors.primary,
+              ),
+              const SizedBox(width: MshSpacing.xs),
+              if (isLoading)
+                const SizedBox(
+                  width: 14,
+                  height: 14,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                    color: MshColors.primary,
+                  ),
+                )
+              else
+                Text(
+                  '$poiCount ${poiCount == 1 ? 'Ort' : 'Orte'}',
+                  style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                        color: MshColors.primary,
+                        fontWeight: FontWeight.w600,
+                      ),
+                ),
+            ],
+          ),
+        ),
+
+        const Spacer(),
+
+        // Filter Badge
+        if (activeFilters > 0)
+          GestureDetector(
+            onTap: onFilterTap,
+            child: Container(
+              padding: const EdgeInsets.symmetric(
+                horizontal: MshSpacing.sm,
+                vertical: MshSpacing.xs,
+              ),
+              decoration: BoxDecoration(
+                color: MshColors.engagementElevated.withValues(alpha: 0.15),
+                borderRadius: BorderRadius.circular(MshTheme.radiusSmall),
+                border: Border.all(
+                  color: MshColors.engagementElevated.withValues(alpha: 0.3),
+                ),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(
+                    Icons.filter_list,
+                    size: 16,
+                    color: MshColors.engagementElevated,
+                  ),
+                  const SizedBox(width: 4),
+                  Text(
+                    '$activeFilters Filter',
+                    style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                          color: MshColors.engagementElevated,
+                          fontWeight: FontWeight.w600,
+                        ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+      ],
+    );
+  }
+
+  Widget _buildQuickActions(BuildContext context) {
+    const actions = [
+      (Icons.explore, 'Entdecken', '/discover'),
+      (Icons.celebration, 'Erleben', '/events'),
+      (Icons.directions_bus, 'ÖPNV', '/mobility'),
+    ];
+
+    return Row(
+      children: actions
+          .map((action) => Expanded(
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    right: action != actions.last ? MshSpacing.sm : 0,
+                  ),
+                  child: _QuickActionButton(
+                    icon: action.$1,
+                    label: action.$2,
+                    route: action.$3,
+                  ),
+                ),
+              ))
+          .toList(),
+    );
+  }
+}
+
+class _QuickActionButton extends StatelessWidget {
+  const _QuickActionButton({
+    required this.icon,
+    required this.label,
+    required this.route,
+  });
+
+  final IconData icon;
+  final String label;
+  final String route;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: MshColors.background,
+      borderRadius: BorderRadius.circular(MshTheme.radiusMedium),
+      child: InkWell(
+        onTap: () => context.go(route),
+        borderRadius: BorderRadius.circular(MshTheme.radiusMedium),
+        child: Container(
+          padding: const EdgeInsets.symmetric(
+            horizontal: MshSpacing.sm,
+            vertical: MshSpacing.md,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                icon,
+                size: 18,
+                color: MshColors.textSecondary,
+              ),
+              const SizedBox(width: MshSpacing.xs),
+              Flexible(
+                child: Text(
+                  label,
+                  style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                        color: MshColors.textPrimary,
+                        fontWeight: FontWeight.w500,
+                      ),
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
