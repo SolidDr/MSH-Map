@@ -30,8 +30,8 @@ addons/
 .git/
 
 # Flutter source (only need built web)
-lib/
-assets/
+/lib/
+/assets/
 pubspec.yaml
 pubspec.lock
 analysis_options.yaml
