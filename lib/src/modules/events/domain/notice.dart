@@ -1,10 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:latlong2/latlong.dart';
 
 /// Notice Model - MSH Radar Hinweise (Straßensperrungen, Warnungen, etc.)
 class MshNotice {
 
   /// Parse from JSON
   factory MshNotice.fromJson(Map<String, dynamic> json) {
+    // Route-Koordinaten parsen (für Polylines bei Straßensperrungen)
+    List<LatLng>? routeCoords;
+    if (json['route_coordinates'] != null) {
+      final coords = json['route_coordinates'] as List;
+      routeCoords = coords.map((c) {
+        final coord = c as List;
+        return LatLng(
+          (coord[0] as num).toDouble(),
+          (coord[1] as num).toDouble(),
+        );
+      }).toList();
+    }
+
     return MshNotice(
       id: json['id'] as String,
       type: NoticeType.fromString(json['type'] as String),
@@ -17,8 +31,10 @@ class MshNotice {
       timeStart: json['time_start'] as String?,
       timeEnd: json['time_end'] as String?,
       sourceUrl: json['source_url'] as String?,
+      sourceUrls: (json['source_urls'] as List<dynamic>?)?.map((e) => e as String).toList(),
       latitude: json['latitude'] as double?,
       longitude: json['longitude'] as double?,
+      routeCoordinates: routeCoords,
     );
   }
   const MshNotice({
@@ -33,8 +49,10 @@ class MshNotice {
     this.timeStart,
     this.timeEnd,
     this.sourceUrl,
+    this.sourceUrls,
     this.latitude,
     this.longitude,
+    this.routeCoordinates,
   });
 
   final String id;
@@ -48,8 +66,16 @@ class MshNotice {
   final String? timeStart;
   final String? timeEnd;
   final String? sourceUrl;
+  /// Multiple source URLs for comprehensive information
+  final List<String>? sourceUrls;
   final double? latitude;
   final double? longitude;
+  /// Route coordinates for drawing polylines (street closures, etc.)
+  /// Format: List of [latitude, longitude] pairs
+  final List<LatLng>? routeCoordinates;
+
+  /// Check if this notice has a route (polyline)
+  bool get hasRoute => routeCoordinates != null && routeCoordinates!.length >= 2;
 
   /// Check if notice is currently active
   bool get isActive {
@@ -93,8 +119,13 @@ class MshNotice {
       if (timeStart != null) 'time_start': timeStart,
       if (timeEnd != null) 'time_end': timeEnd,
       if (sourceUrl != null) 'source_url': sourceUrl,
+      if (sourceUrls != null) 'source_urls': sourceUrls,
       if (latitude != null) 'latitude': latitude,
       if (longitude != null) 'longitude': longitude,
+      if (routeCoordinates != null)
+        'route_coordinates': routeCoordinates!
+            .map((c) => [c.latitude, c.longitude])
+            .toList(),
     };
   }
 }

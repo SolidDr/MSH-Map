@@ -41,6 +41,29 @@ python merge_and_export.py
 - `output/merged/msh_firestore_merged_*.json` - Firestore-Format
 - `assets/data/locations.json` - Flutter Assets
 
+### Phase 3.5: FAKE-CHECK (KRITISCH!)
+
+```bash
+cd tools
+python fake_checker.py --remove-suspicious --save-cleaned ../output/merged/msh_firestore_CLEANED.json
+```
+
+**WICHTIG:** Dieser Schritt ist MANDATORY! Er verhindert, dass:
+- Halluzinierte Daten in die Produktion gelangen
+- Fake-Aerzte, Anlaufstellen, etc. angezeigt werden
+- Nicht-verifizierte Eintraege live gehen
+
+**Was passiert:**
+- Prueft alle Eintraege auf verifizierte Quellen (OSM/Wikidata)
+- Entfernt bekannte Fake-Eintraege (Blacklist)
+- Entfernt verdaechtige Eintraege ohne Quelle
+- Erstellt bereinigte Datei
+
+**Bei Fehler (Exit Code 1 oder 2):**
+- STOPP! Nicht weitermachen!
+- Report pruefen: `output/analytics/fake_check_report.json`
+- Verdaechtige Eintraege manuell verifizieren oder entfernen
+
 ### Phase 4: Flutter Assets aktualisieren
 
 ```bash
@@ -80,8 +103,11 @@ curl -s "https://www.msh-map.de/assets/lib/assets/data/locations.json" | head -c
 | OSM Locations (roh) | ~7000+ |
 | Nach MSH-Filter | ~1700 |
 | Nach Deduplizierung | ~1650-1700 |
-| Seed Locations | 58 |
-| **Gesamt gemerged** | **~1700-1750** |
+| Seed Locations (VERIFIZIERT) | 13 |
+| Nach Fake-Check | ~1550-1600 |
+| **Gesamt sauber** | **~1550-1600** |
+
+**WICHTIG:** Seed-Daten enthalten NUR verifizierte Eintraege mit `verifiable_url`!
 
 ---
 
@@ -98,6 +124,32 @@ curl -s "https://www.msh-map.de/assets/lib/assets/data/locations.json" | head -c
 
 ```bash
 python deepscan_main.py --source wikidata
+```
+
+### Notices (Straßensperrungen, Warnungen) aktualisieren
+
+```bash
+cd scrapers
+python notice_scraper.py --merge
+```
+
+**Was passiert:**
+- Scrapt mansfeldsuedharz.de/baustellenservice
+- Scrapt sangerhausen.de Bekanntmachungen
+- Scrapt eisleben.eu Bekanntmachungen
+- Scrapt lokale Blogs (Welbsleben, etc.)
+- Generiert Route-Koordinaten für Polyline-Darstellung
+- Merged mit bestehenden manuellen Notices
+
+**Output:**
+- `data/notices/notices_scraped.json` - Neue Notices
+
+**Danach:** Manuelle Prüfung der notices_scraped.json und Übernahme in notices_current.json
+
+```bash
+# Koordinaten validieren
+cd ../tools
+python validate_notices.py --verbose
 ```
 
 ---
@@ -120,13 +172,15 @@ python deepscan_main.py --source wikidata
 
 ## Datenquellen-Übersicht
 
-| Quelle | Update-Frequenz | Priorität |
-|--------|-----------------|-----------|
-| **Seed-Daten** | Manuell kuratiert | Höchste |
-| **OSM** | Live-Daten | Hoch |
-| **Events** | Wöchentlich (KW) | Mittel |
-| **Notices** | Bei Bedarf | Mittel |
-| **Wikidata** | Selten (monatlich) | Niedrig |
+| Quelle | Update-Frequenz | Priorität | Vertrauenswuerdig |
+|--------|-----------------|-----------|-------------------|
+| **OSM** | Live-Daten | Hoechste | JA (automatisch) |
+| **Wikidata** | Selten (monatlich) | Hoch | JA (automatisch) |
+| **Seed-Daten (VERIFIZIERT)** | Manuell kuratiert | Mittel | JA (mit URL) |
+| **Events** | Woechentlich (KW) | Mittel | Manuell pruefen |
+| **Notices** | Bei Bedarf | Mittel | Manuell pruefen |
+
+**NIEMALS** ungepruefte Daten aus anderen Quellen hinzufuegen!
 
 ---
 

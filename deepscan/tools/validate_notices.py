@@ -22,12 +22,12 @@ import urllib.request
 import urllib.parse
 import time
 
-# Bounding Box für Landkreis Mansfeld-Südharz (großzügig)
+# Bounding Box für Landkreis Mansfeld-Südharz (erweitert für Randgebiete)
 MSH_BOUNDS = {
     "min_lat": 51.35,   # Südgrenze (Kyffhäuser)
-    "max_lat": 51.75,   # Nordgrenze (nördlich von Hettstedt)
+    "max_lat": 51.80,   # Nordgrenze (Walbeck, Aschersleben-Bereich)
     "min_lon": 10.90,   # Westgrenze
-    "max_lon": 11.80    # Ostgrenze (Saale)
+    "max_lon": 11.85    # Ostgrenze (Saale)
 }
 
 # Bekannte Orte im Landkreis MSH für Plausibilitätsprüfung
@@ -37,11 +37,14 @@ KNOWN_LOCATIONS = {
     "Hettstedt": (51.6449, 11.5112),
     "Mansfeld": (51.5933, 11.4500),
     "Kyffhäuser": (51.4135, 11.1096),
-    "Walbeck": (51.6667, 11.4667),
-    "Quenstedt": (51.7200, 11.4500),
-    "Freist": (51.6000, 11.7000),
-    "Neckendorf": (51.5050, 11.5250),
-    "Wolferode": (51.5100, 11.5150),
+    "Walbeck": (51.7480, 11.4490),
+    "Quenstedt": (51.6960, 11.4410),
+    "Sylda": (51.7100, 11.4300),
+    "Freist": (51.5950, 11.6850),
+    "Neckendorf": (51.4980, 11.5320),
+    "Wolferode": (51.5120, 11.5180),
+    "Mehringen": (51.7600, 11.4800),
+    "Aschersleben": (51.7575, 11.4600),
 }
 
 def is_in_msh_bounds(lat: float, lon: float) -> bool:

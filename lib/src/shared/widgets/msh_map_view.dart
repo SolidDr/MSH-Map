@@ -112,6 +112,14 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
               MarkerLayer(
                 markers: widget.items.map(_buildMarker).toList(),
               ),
+              // Polylines für Straßensperrungen (vor Markern, damit Marker oben liegen)
+              if (widget.notices.any((n) => n.hasRoute))
+                PolylineLayer(
+                  polylines: widget.notices
+                      .where((n) => n.hasRoute)
+                      .map(_buildNoticePolyline)
+                      .toList(),
+                ),
               if (widget.notices.isNotEmpty)
                 MarkerLayer(
                   markers: widget.notices
@@ -166,6 +174,17 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
           ),
         ),
       ),
+    );
+  }
+
+  Polyline _buildNoticePolyline(MshNotice notice) {
+    return Polyline(
+      points: notice.routeCoordinates!,
+      strokeWidth: 6,
+      color: notice.color.withValues(alpha: 0.8),
+      borderColor: Colors.white,
+      borderStrokeWidth: 2,
+      isDotted: notice.severity == NoticeSeverity.warning,
     );
   }
 

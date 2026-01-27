@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-01-27T19:00:00Z",
+    "generated_at": "2026-01-27T22:10:00Z",
     "kw": 5,
     "coordinates_verified": true,
     "last_verification": "2026-01-27"
@@ -38,14 +38,30 @@
       "id": "notice_003",
       "type": "sperrung",
       "title": "B 180 Vollsperrung Walbeck-Quenstedt",
-      "description": "Vollsperrung zwischen Walbeck und Quenstedt-Sylda. Umleitung über L 85, L 72.",
+      "description": "Vollsperrung zwischen Walbeck und Quenstedt-Sylda wegen Bau der Ortsumgehung. Umleitung über L 85 (Mehringen), L 72 (Sandersleben, Welfesholz, Siersleben).",
       "affected_area": "B 180 (Walbeck - Quenstedt-Sylda)",
       "valid_from": "2025-03-03",
-      "valid_until": "2026-04-30",
+      "valid_until": "2026-06-17",
       "severity": "critical",
       "source_url": "https://www.mansfeldsuedharz.de/baustellenservice",
-      "latitude": 51.6933,
-      "longitude": 11.4583
+      "source_urls": [
+        "https://www.mansfeldsuedharz.de/baustellenservice",
+        "https://initiativewelbsleben.blogspot.com/2025/02/vollsperrung-b180-walbeck-quenstedt.html",
+        "https://welbsleben.blogspot.com/2025/02/sperrung-b-180-quenstedt-walbeck-ab-3.html",
+        "https://initiativewelbsleben.blogspot.com/2025/09/b180-umgehung-nimmt-gestalt-an.html",
+        "https://initiativewelbsleben.blogspot.com/2025/05/b180n-wird-zur-flachenbaustelle.html",
+        "https://initiativewelbsleben.blogspot.com/2025/02/b180n-einetalbrucke-bauarbeiten-am.html"
+      ],
+      "latitude": 51.7220,
+      "longitude": 11.4450,
+      "route_coordinates": [
+        [51.7480, 11.4490],
+        [51.7380, 11.4465],
+        [51.7280, 11.4445],
+        [51.7180, 11.4430],
+        [51.7080, 11.4420],
+        [51.6960, 11.4410]
+      ]
     },
     {
       "id": "notice_004",
@@ -58,7 +74,12 @@
       "severity": "critical",
       "source_url": "https://www.mansfeldsuedharz.de/baustellenservice",
       "latitude": 51.5950,
-      "longitude": 11.6850
+      "longitude": 11.6850,
+      "route_coordinates": [
+        [51.5980, 11.6780],
+        [51.5950, 11.6850],
+        [51.5920, 11.6920]
+      ]
     },
     {
       "id": "notice_005",
@@ -71,7 +92,12 @@
       "severity": "critical",
       "source_url": "https://www.mansfeldsuedharz.de/baustellenservice",
       "latitude": 51.5050,
-      "longitude": 11.5250
+      "longitude": 11.5250,
+      "route_coordinates": [
+        [51.5120, 11.5180],
+        [51.5050, 11.5250],
+        [51.4980, 11.5320]
+      ]
     },
     {
       "id": "notice_006",

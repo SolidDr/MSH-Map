@@ -1,9 +1,8 @@
 {
   "meta": {
-    "generated_at": "2026-01-27T22:10:00Z",
-    "kw": 5,
-    "coordinates_verified": true,
-    "last_verification": "2026-01-27"
+    "generated_at": "2026-01-27T22:03:44.152461",
+    "source": "notice_scraper",
+    "count": 15
   },
   "notices": [
     {
@@ -32,7 +31,7 @@
       "severity": "warning",
       "source_url": "https://www.eisleben.eu",
       "latitude": 51.5249,
-      "longitude": 11.5480
+      "longitude": 11.548
     },
     {
       "id": "notice_003",
@@ -47,20 +46,35 @@
       "source_urls": [
         "https://www.mansfeldsuedharz.de/baustellenservice",
         "https://initiativewelbsleben.blogspot.com/2025/02/vollsperrung-b180-walbeck-quenstedt.html",
-        "https://welbsleben.blogspot.com/2025/02/sperrung-b-180-quenstedt-walbeck-ab-3.html",
-        "https://initiativewelbsleben.blogspot.com/2025/09/b180-umgehung-nimmt-gestalt-an.html",
-        "https://initiativewelbsleben.blogspot.com/2025/05/b180n-wird-zur-flachenbaustelle.html",
-        "https://initiativewelbsleben.blogspot.com/2025/02/b180n-einetalbrucke-bauarbeiten-am.html"
+        "https://welbsleben.blogspot.com/2025/02/sperrung-b-180-quenstedt-walbeck-ab-3.html"
       ],
-      "latitude": 51.7220,
-      "longitude": 11.4450,
+      "latitude": 51.722,
+      "longitude": 11.445,
       "route_coordinates": [
-        [51.7480, 11.4490],
-        [51.7380, 11.4465],
-        [51.7280, 11.4445],
-        [51.7180, 11.4430],
-        [51.7080, 11.4420],
-        [51.6960, 11.4410]
+        [
+          51.748,
+          11.449
+        ],
+        [
+          51.738,
+          11.4465
+        ],
+        [
+          51.728,
+          11.4445
+        ],
+        [
+          51.718,
+          11.443
+        ],
+        [
+          51.708,
+          11.442
+        ],
+        [
+          51.696,
+          11.441
+        ]
       ]
     },
     {
@@ -73,12 +87,21 @@
       "valid_until": "2026-05-15",
       "severity": "critical",
       "source_url": "https://www.mansfeldsuedharz.de/baustellenservice",
-      "latitude": 51.5950,
-      "longitude": 11.6850,
+      "latitude": 51.595,
+      "longitude": 11.685,
       "route_coordinates": [
-        [51.5980, 11.6780],
-        [51.5950, 11.6850],
-        [51.5920, 11.6920]
+        [
+          51.598,
+          11.678
+        ],
+        [
+          51.595,
+          11.685
+        ],
+        [
+          51.592,
+          11.692
+        ]
       ]
     },
     {
@@ -91,12 +114,21 @@
       "valid_until": "2026-06-30",
       "severity": "critical",
       "source_url": "https://www.mansfeldsuedharz.de/baustellenservice",
-      "latitude": 51.5050,
-      "longitude": 11.5250,
+      "latitude": 51.505,
+      "longitude": 11.525,
       "route_coordinates": [
-        [51.5120, 11.5180],
-        [51.5050, 11.5250],
-        [51.4980, 11.5320]
+        [
+          51.512,
+          11.518
+        ],
+        [
+          51.505,
+          11.525
+        ],
+        [
+          51.498,
+          11.532
+        ]
       ]
     },
     {
@@ -137,6 +169,71 @@
       "source_url": "https://www.kyffhaeuser-denkmal.de",
       "latitude": 51.4135,
       "longitude": 11.1096
+    },
+    {
+      "type": "sperrung",
+      "title": "Vollsperrung der Göpenstraße",
+      "description": "Weiterlesen",
+      "affected_area": "Sangerhausen, Vollsperrung der Göpenstraße",
+      "severity": "warning",
+      "source_url": "https://www.sangerhausen.de/aktuelles",
+      "latitude": 51.4728,
+      "longitude": 11.2982,
+      "id": "notice_009"
+    },
+    {
+      "type": "sperrung",
+      "title": "B180 Umgehung nimmt Gestalt an",
+      "source_url": "https://initiativewelbsleben.blogspot.com/2025/09/b180-umgehung-nimmt-gestalt-an.html",
+      "severity": "warning",
+      "latitude": 51.7,
+      "longitude": 11.45,
+      "id": "notice_010"
+    },
+    {
+      "type": "sperrung",
+      "title": "B180n wird zur Flächenbaustelle",
+      "source_url": "https://initiativewelbsleben.blogspot.com/2025/05/b180n-wird-zur-flachenbaustelle.html",
+      "severity": "warning",
+      "latitude": 51.7,
+      "longitude": 11.45,
+      "id": "notice_011"
+    },
+    {
+      "type": "sperrung",
+      "title": "Vollsperrung B180  Walbeck <-> Quenstedt",
+      "source_url": "https://initiativewelbsleben.blogspot.com/2025/02/vollsperrung-b180-walbeck-quenstedt.html",
+      "severity": "warning",
+      "latitude": 51.7,
+      "longitude": 11.45,
+      "id": "notice_012"
+    },
+    {
+      "type": "sperrung",
+      "title": "B180n - Einetalbrücke - Bauarbeiten am Fundament beginnen",
+      "source_url": "https://initiativewelbsleben.blogspot.com/2025/02/b180n-einetalbrucke-bauarbeiten-am.html",
+      "severity": "warning",
+      "latitude": 51.7,
+      "longitude": 11.45,
+      "id": "notice_013"
+    },
+    {
+      "type": "sperrung",
+      "title": "B180n : Hohes Tempo unter guten Wetterbedingungen  (Bilder)",
+      "source_url": "https://welbsleben.blogspot.com/",
+      "severity": "warning",
+      "latitude": 51.7,
+      "longitude": 11.45,
+      "id": "notice_014"
+    },
+    {
+      "type": "sperrung",
+      "title": "B180n  Umfahrung Aschersleben: Es wird auf Hochdruck asphaltiert",
+      "source_url": "https://welbsleben.blogspot.com/",
+      "severity": "warning",
+      "latitude": 51.7,
+      "longitude": 11.45,
+      "id": "notice_015"
     }
   ]
 }
