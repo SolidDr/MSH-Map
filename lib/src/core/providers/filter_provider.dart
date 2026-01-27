@@ -152,7 +152,8 @@ class FilterState {
 
 /// Filter Notifier
 class FilterNotifier extends StateNotifier<FilterState> {
-  FilterNotifier() : super(const FilterState());
+  // Starteinstellung: Nur Spielplätze ausgewählt
+  FilterNotifier() : super(const FilterState(categories: {'playground'}));
 
   void toggleCategory(String category) {
     final newCategories = Set<String>.from(state.categories);

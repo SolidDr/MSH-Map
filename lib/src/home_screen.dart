@@ -3,6 +3,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'core/config/feature_flags.dart';
 import 'core/config/map_config.dart';
 import 'core/providers/filter_provider.dart';
@@ -13,6 +14,7 @@ import 'modules/_module_registry.dart';
 import 'modules/events/data/events_providers.dart';
 import 'modules/events/domain/notice.dart';
 import 'modules/events/presentation/widgets/notice_banner.dart';
+import 'shared/domain/coordinates.dart';
 import 'shared/domain/map_item.dart';
 import 'shared/widgets/age_filter_row.dart';
 import 'shared/widgets/category_quick_filter.dart';
@@ -58,12 +60,53 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
   static const double _midSheetSize = 0.25; // Standard (wie jetzt)
   static const double _maxSheetSize = 0.65; // Erweitert
 
+  // Gespeicherte Kartenposition
+  double? _savedLatitude;
+  double? _savedLongitude;
+  double? _savedZoom;
+  bool _viewportLoaded = false;
+
+  // SharedPreferences Keys
+  static const _keyLatitude = 'map_last_latitude';
+  static const _keyLongitude = 'map_last_longitude';
+  static const _keyZoom = 'map_last_zoom';
+
   @override
   void initState() {
     super.initState();
     _mapController = MapController();
     _sheetController.addListener(_onSheetPositionChanged);
+    _loadSavedViewport();
     _loadItems();
+  }
+
+  /// Lädt die gespeicherte Kartenposition
+  Future<void> _loadSavedViewport() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _savedLatitude = prefs.getDouble(_keyLatitude);
+      _savedLongitude = prefs.getDouble(_keyLongitude);
+      _savedZoom = prefs.getDouble(_keyZoom);
+      _viewportLoaded = true;
+    });
+  }
+
+  /// Speichert die aktuelle Kartenposition (debounced)
+  DateTime? _lastSaveTime;
+  void _saveViewport(double latitude, double longitude, double zoom) {
+    // Debounce: Speichere maximal alle 500ms
+    final now = DateTime.now();
+    if (_lastSaveTime != null &&
+        now.difference(_lastSaveTime!).inMilliseconds < 500) {
+      return;
+    }
+    _lastSaveTime = now;
+
+    SharedPreferences.getInstance().then((prefs) {
+      prefs.setDouble(_keyLatitude, latitude);
+      prefs.setDouble(_keyLongitude, longitude);
+      prefs.setDouble(_keyZoom, zoom);
+    });
   }
 
   void _onSheetPositionChanged() {
@@ -190,6 +233,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
     for (final item in _items) {
       final categoryName = item.category.name;
       counts[categoryName] = (counts[categoryName] ?? 0) + 1;
+
+      // Spezielle Zählung für moduleId-basierte Filter (z.B. health)
+      final moduleId = item.moduleId;
+      if (moduleId == 'health') {
+        counts['health'] = (counts['health'] ?? 0) + 1;
+      }
     }
     return counts;
   }
@@ -310,15 +359,27 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
           // MAP - Volle Größe im Hintergrund
           // ═══════════════════════════════════════════════════════════
           Positioned.fill(
-            child: MshMapView(
-              items: filteredItems,
-              onMarkerTap: (item) => PoiBottomSheet.show(context, item),
-              mapController: _mapController,
-              notices: importantNotices,
-              onNoticeTap: (notice) {
-                _flyTo(LatLng(notice.latitude!, notice.longitude!), 16);
-              },
-            ),
+            child: _viewportLoaded
+                ? MshMapView(
+                    items: filteredItems,
+                    onMarkerTap: (item) => PoiBottomSheet.show(context, item),
+                    mapController: _mapController,
+                    notices: importantNotices,
+                    onNoticeTap: (notice) {
+                      _flyTo(LatLng(notice.latitude!, notice.longitude!), 16);
+                    },
+                    // Gespeicherte Position wiederherstellen
+                    initialCenter: _savedLatitude != null && _savedLongitude != null
+                        ? Coordinates(
+                            latitude: _savedLatitude!,
+                            longitude: _savedLongitude!,
+                          )
+                        : null,
+                    initialZoom: _savedZoom,
+                    // Position speichern bei Änderung
+                    onPositionChanged: _saveViewport,
+                  )
+                : const SizedBox.shrink(),
           ),
 
           // ═══════════════════════════════════════════════════════════

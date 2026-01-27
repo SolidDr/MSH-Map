@@ -23,6 +23,7 @@ class MshMapView extends ConsumerStatefulWidget {
     this.mapController,
     this.notices = const [],
     this.onNoticeTap,
+    this.onPositionChanged,
   });
   final List<MapItem> items;
   final void Function(MapItem)? onMarkerTap;
@@ -32,6 +33,7 @@ class MshMapView extends ConsumerStatefulWidget {
   final MapController? mapController;
   final List<MshNotice> notices;
   final void Function(MshNotice)? onNoticeTap;
+  final void Function(double latitude, double longitude, double zoom)? onPositionChanged;
 
   @override
   ConsumerState<MshMapView> createState() => _MshMapViewState();
@@ -78,6 +80,14 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
                 setState(() {
                   _currentZoom = position.zoom ?? MapConfig.defaultZoom;
                 });
+              }
+              // Callback für Viewport-Persistenz
+              if (hasGesture && position.center != null && position.zoom != null) {
+                widget.onPositionChanged?.call(
+                  position.center!.latitude,
+                  position.center!.longitude,
+                  position.zoom!,
+                );
               }
             },
           ),
