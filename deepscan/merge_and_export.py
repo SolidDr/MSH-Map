@@ -239,7 +239,7 @@ class MergeAndExport:
                 "generated_at": datetime.now().isoformat(),
                 "count": len(locations)
             },
-            "locations": locations
+            "data": locations  # Key muss "data" sein für LocationsService.dart
         }
 
         with open(locations_file, 'w', encoding='utf-8') as f:
