@@ -1,4 +1,4 @@
-# 🗺️ MSH Map Analytics
+# 🗺️ MSH Map
 
 **Interaktive Kartenanwendung für den Landkreis Mansfeld-Südharz**
 
