@@ -24,6 +24,7 @@ class MshMapView extends ConsumerStatefulWidget {
     this.notices = const [],
     this.onNoticeTap,
     this.onPositionChanged,
+    this.onDoubleTap,
   });
   final List<MapItem> items;
   final void Function(MapItem)? onMarkerTap;
@@ -34,6 +35,8 @@ class MshMapView extends ConsumerStatefulWidget {
   final List<MshNotice> notices;
   final void Function(MshNotice)? onNoticeTap;
   final void Function(double latitude, double longitude, double zoom)? onPositionChanged;
+  /// Callback für Doppeltipp auf die Karte (für Fullmap-Modus)
+  final VoidCallback? onDoubleTap;
 
   @override
   ConsumerState<MshMapView> createState() => _MshMapViewState();
@@ -63,67 +66,65 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        FlutterMap(
-          mapController: _mapController,
-          options: MapOptions(
-            initialCenter:
-                widget.initialCenter?.toLatLng() ?? MapConfig.defaultCenter.toLatLng(),
-            initialZoom: widget.initialZoom ?? MapConfig.defaultZoom,
-            minZoom: MapConfig.minZoom,
-            maxZoom: MapConfig.maxZoom,
-            // Enable all interactions including pinch-to-zoom on trackpad
-            interactionOptions: const InteractionOptions(
-              
-            ),
-            onPositionChanged: (position, hasGesture) {
-              if (_currentZoom != position.zoom) {
-                setState(() {
-                  _currentZoom = position.zoom ?? MapConfig.defaultZoom;
-                });
-              }
-              // Callback für Viewport-Persistenz
-              if (hasGesture && position.center != null && position.zoom != null) {
-                widget.onPositionChanged?.call(
-                  position.center!.latitude,
-                  position.center!.longitude,
-                  position.zoom!,
-                );
-              }
-            },
-          ),
-          children: [
-            TileLayer(
-              urlTemplate: MapConfig.tileUrlTemplate,
-              userAgentPackageName: MapConfig.userAgent,
-            ),
-
-            // Fog of War (vor den Markern, damit Marker sichtbar bleiben)
-            if (widget.showFogOfWar)
-              AdaptiveFogOfWarLayer(
-                currentZoom: _currentZoom,
-                useDetailedBorder: _currentZoom > 12,
+        GestureDetector(
+          onDoubleTap: widget.onDoubleTap,
+          behavior: HitTestBehavior.translucent,
+          child: FlutterMap(
+            mapController: _mapController,
+            options: MapOptions(
+              initialCenter:
+                  widget.initialCenter?.toLatLng() ?? MapConfig.defaultCenter.toLatLng(),
+              initialZoom: widget.initialZoom ?? MapConfig.defaultZoom,
+              minZoom: MapConfig.minZoom,
+              maxZoom: MapConfig.maxZoom,
+              interactionOptions: const InteractionOptions(
+                flags: InteractiveFlag.all,
+                pinchZoomThreshold: 0.3,
+                rotationThreshold: 50,
+                enableMultiFingerGestureRace: true,
+                scrollWheelVelocity: 0.01,
               ),
-
-            // Regular POI Markers
-            MarkerLayer(
-              markers: widget.items.map(_buildMarker).toList(),
+              onPositionChanged: (position, hasGesture) {
+                if (_currentZoom != position.zoom) {
+                  setState(() {
+                    _currentZoom = position.zoom ?? MapConfig.defaultZoom;
+                  });
+                }
+                if (hasGesture && position.center != null && position.zoom != null) {
+                  widget.onPositionChanged?.call(
+                    position.center!.latitude,
+                    position.center!.longitude,
+                    position.zoom!,
+                  );
+                }
+              },
             ),
-
-            // Notice/Warning Markers (on top of POI markers)
-            if (widget.notices.isNotEmpty)
+            children: [
+              TileLayer(
+                urlTemplate: MapConfig.tileUrlTemplate,
+                userAgentPackageName: MapConfig.userAgent,
+              ),
+              if (widget.showFogOfWar)
+                AdaptiveFogOfWarLayer(
+                  currentZoom: _currentZoom,
+                  useDetailedBorder: _currentZoom > 12,
+                ),
               MarkerLayer(
-                markers: widget.notices
-                    .where((n) => n.latitude != null && n.longitude != null)
-                    .map(_buildNoticeMarker)
-                    .toList(),
+                markers: widget.items.map(_buildMarker).toList(),
               ),
-
-            // Engagement Places Layer
-            if (FeatureFlags.enableEngagementOnMap)
-              EngagementMapLayer(
-                onPlaceTap: _showEngagementSheet,
-              ),
-          ],
+              if (widget.notices.isNotEmpty)
+                MarkerLayer(
+                  markers: widget.notices
+                      .where((n) => n.latitude != null && n.longitude != null)
+                      .map(_buildNoticeMarker)
+                      .toList(),
+                ),
+              if (FeatureFlags.enableEngagementOnMap)
+                EngagementMapLayer(
+                  onPlaceTap: _showEngagementSheet,
+                ),
+            ],
+          ),
         ),
 
         // Zoom Controls

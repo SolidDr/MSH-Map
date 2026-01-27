@@ -60,6 +60,7 @@ class PoiBottomSheet extends StatelessWidget {
       maxChildSize: maxSize,
       snap: true,
       snapSizes: [minSize, initialSize, maxSize],
+      snapAnimationDuration: const Duration(milliseconds: 200),
       expand: false,
       builder: (context, scrollController) {
         final sheet = Container(
@@ -79,62 +80,66 @@ class PoiBottomSheet extends StatelessWidget {
               ),
             ],
           ),
-          child: SingleChildScrollView(
+          child: CustomScrollView(
             controller: scrollController,
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Drag Handle
-                Center(
-                  child: Container(
-                    width: 40,
-                    height: 4,
-                    margin: const EdgeInsets.only(bottom: 16),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[300],
-                      borderRadius: BorderRadius.circular(2),
-                    ),
-                  ),
-                ),
-                // Header
-                Row(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        color: item.markerColor.withValues(alpha: 0.1),
-                        borderRadius: BorderRadius.circular(8),
+            physics: const ClampingScrollPhysics(),
+            slivers: [
+              SliverPadding(
+                padding: const EdgeInsets.all(16),
+                sliver: SliverList(
+                  delegate: SliverChildListDelegate([
+                    // Drag Handle
+                    Center(
+                      child: Container(
+                        width: 40,
+                        height: 4,
+                        margin: const EdgeInsets.only(bottom: 16),
+                        decoration: BoxDecoration(
+                          color: Colors.grey[300],
+                          borderRadius: BorderRadius.circular(2),
+                        ),
                       ),
-                      child: Icon(Icons.place, color: item.markerColor),
                     ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            item.displayName,
-                            style: Theme.of(context).textTheme.titleLarge,
+                    // Header
+                    Row(
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            color: item.markerColor.withValues(alpha: 0.1),
+                            borderRadius: BorderRadius.circular(8),
                           ),
-                          if (item.subtitle != null)
-                            Text(
-                              item.subtitle!,
-                              style: TextStyle(color: Colors.grey[600]),
-                            ),
-                        ],
-                      ),
+                          child: Icon(Icons.place, color: item.markerColor),
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                item.displayName,
+                                style: Theme.of(context).textTheme.titleLarge,
+                              ),
+                              if (item.subtitle != null)
+                                Text(
+                                  item.subtitle!,
+                                  style: TextStyle(color: Colors.grey[600]),
+                                ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
+                    const Divider(height: 32),
+                    // Modul-Detail
+                    if (module != null)
+                      module.buildDetailView(context, item)
+                    else
+                      const Text('Keine Details verfügbar'),
+                  ]),
                 ),
-                const Divider(height: 32),
-                // Modul-Detail
-                if (module != null)
-                  module.buildDetailView(context, item)
-                else
-                  const Text('Keine Details verfügbar'),
-              ],
-            ),
+              ),
+            ],
           ),
         );
 

@@ -21,31 +21,37 @@ class EngagementDetailSheet extends StatelessWidget {
       initialChildSize: 0.7,
       minChildSize: 0.5,
       maxChildSize: 0.95,
+      snap: true,
+      snapSizes: const [0.5, 0.7, 0.95],
+      snapAnimationDuration: const Duration(milliseconds: 200),
       builder: (context, scrollController) {
         return Container(
           decoration: const BoxDecoration(
             color: MshColors.background,
             borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
           ),
-          child: Column(
-            children: [
+          child: CustomScrollView(
+            controller: scrollController,
+            physics: const ClampingScrollPhysics(),
+            slivers: [
               // Drag Handle
-              Container(
-                margin: const EdgeInsets.symmetric(vertical: 12),
-                width: 40,
-                height: 4,
-                decoration: BoxDecoration(
-                  color: MshColors.slateMuted,
-                  borderRadius: BorderRadius.circular(2),
+              SliverToBoxAdapter(
+                child: Container(
+                  margin: const EdgeInsets.symmetric(vertical: 12),
+                  width: 40,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: MshColors.slateMuted,
+                    borderRadius: BorderRadius.circular(2),
+                  ),
                 ),
               ),
 
               // Content
-              Expanded(
-                child: ListView(
-                  controller: scrollController,
-                  padding: const EdgeInsets.all(20),
-                  children: [
+              SliverPadding(
+                padding: const EdgeInsets.all(20),
+                sliver: SliverList(
+                  delegate: SliverChildListDelegate([
                     // Header
                     _buildHeader(),
                     const SizedBox(height: 20),
@@ -70,7 +76,7 @@ class EngagementDetailSheet extends StatelessWidget {
 
                     const SizedBox(height: 24),
                     _buildCTAButtons(context),
-                  ],
+                  ]),
                 ),
               ),
             ],

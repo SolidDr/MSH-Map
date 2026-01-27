@@ -40,6 +40,9 @@ class CategoryPoisBottomSheet extends StatelessWidget {
       initialChildSize: 0.6,
       minChildSize: 0.3,
       maxChildSize: 0.9,
+      snap: true,
+      snapSizes: const [0.3, 0.6, 0.9],
+      snapAnimationDuration: const Duration(milliseconds: 200),
       expand: false,
       builder: (context, scrollController) {
         return Container(
@@ -113,6 +116,7 @@ class CategoryPoisBottomSheet extends StatelessWidget {
                     ? _buildEmptyState(context)
                     : ListView.separated(
                         controller: scrollController,
+                        physics: const ClampingScrollPhysics(),
                         padding: const EdgeInsets.symmetric(
                           horizontal: MshSpacing.md,
                           vertical: MshSpacing.sm,

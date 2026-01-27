@@ -18,7 +18,6 @@ import 'shared/domain/coordinates.dart';
 import 'shared/domain/map_item.dart';
 import 'shared/widgets/age_filter_row.dart';
 import 'shared/widgets/category_quick_filter.dart';
-import 'shared/widgets/layer_switcher.dart';
 import 'shared/widgets/msh_map_view.dart';
 import 'shared/widgets/poi_bottom_sheet.dart';
 import 'shared/widgets/search_autocomplete.dart';
@@ -59,6 +58,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
   static const double _minSheetSize = 0.08; // Nur Drag Handle
   static const double _midSheetSize = 0.25; // Standard (wie jetzt)
   static const double _maxSheetSize = 0.65; // Erweitert
+
+  // Fullmap Modus - blendet alles außer Suche+Filter aus
+  bool _isFullMapMode = false;
 
   // Gespeicherte Kartenposition
   double? _savedLatitude;
@@ -111,10 +113,40 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
 
   void _onSheetPositionChanged() {
     if (_sheetController.isAttached) {
-      setState(() {
-        _sheetPosition = _sheetController.size;
-      });
+      final newPosition = _sheetController.size;
+      // Nur updaten wenn sich die Position signifikant geändert hat (>1%)
+      // Dies verhindert unnötige Rebuilds während des Draggings
+      if ((newPosition - _sheetPosition).abs() > 0.01) {
+        setState(() {
+          _sheetPosition = newPosition;
+        });
+      }
     }
+  }
+
+  /// Fullmap-Modus umschalten (Doppeltipp auf Karte)
+  void _toggleFullMapMode() {
+    setState(() {
+      _isFullMapMode = !_isFullMapMode;
+      // Im Fullmap-Modus das Bottom Sheet minimieren
+      if (_isFullMapMode && _sheetController.isAttached) {
+        _sheetController.animateTo(
+          _minSheetSize,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeOut,
+        );
+      }
+    });
+  }
+
+  /// Feedback-Sheet anzeigen ("Fehlt dir was?")
+  void _showFeedbackSheet(BuildContext context) {
+    showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) => const _FeedbackSheet(),
+    );
   }
 
   @override
@@ -375,7 +407,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                     onNoticeTap: (notice) {
                       _flyTo(LatLng(notice.latitude!, notice.longitude!), 16);
                     },
-                    // Gespeicherte Position wiederherstellen
                     initialCenter: _savedLatitude != null && _savedLongitude != null
                         ? Coordinates(
                             latitude: _savedLatitude!,
@@ -383,8 +414,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                           )
                         : null,
                     initialZoom: _savedZoom,
-                    // Position speichern bei Änderung
                     onPositionChanged: _saveViewport,
+                    onDoubleTap: _toggleFullMapMode,
                   )
                 : const SizedBox.shrink(),
           ),
@@ -406,8 +437,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    // Notice Banner (mit Fade-Animation)
-                    if (FeatureFlags.enableNoticesBanner)
+                    // Notice Banner (ausblenden im Fullmap-Modus)
+                    if (FeatureFlags.enableNoticesBanner && !_isFullMapMode)
                       AnimatedOpacity(
                         opacity: noticeOpacity,
                         duration: const Duration(milliseconds: 150),
@@ -423,10 +454,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                     // Abstand
                     if (FeatureFlags.enableNoticesBanner &&
                         FeatureFlags.enableSearch &&
-                        noticeOpacity > 0)
+                        noticeOpacity > 0 &&
+                        !_isFullMapMode)
                       const SizedBox(height: MshSpacing.xs),
 
-                    // Suchleiste
+                    // Suchleiste - immer sichtbar
                     if (FeatureFlags.enableSearch)
                       SearchAutocomplete(
                         items: _items,
@@ -442,7 +474,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                         },
                       ),
 
-                    // Category Quick Filter
+                    // Category Quick Filter - immer sichtbar
                     CategoryQuickFilter(
                       selectedCategories: filterState.categories,
                       onCategoryToggle: (category) {
@@ -451,8 +483,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                       categoryCounts: _calculateCategoryCounts(),
                     ),
 
-                    // Age Filter
-                    if (_shouldShowAgeFilter(filterState))
+                    // Age Filter (ausblenden im Fullmap-Modus)
+                    if (_shouldShowAgeFilter(filterState) && !_isFullMapMode)
                       AgeFilterRow(
                         ageCounts: _calculateAgeCounts(),
                       ),
@@ -462,12 +494,14 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
             ),
           ),
 
-          // Layer Switcher
-          if (FeatureFlags.enableLayerSwitcher)
+          // "Fehlt dir was?" Button (ausblenden im Fullmap-Modus)
+          if (!_isFullMapMode)
             Positioned(
               bottom: MediaQuery.of(context).size.height * _sheetPosition + 60,
               right: MshSpacing.lg,
-              child: LayerSwitcher(onLayerChanged: _loadItems),
+              child: _FeedbackButton(
+                onPressed: () => _showFeedbackSheet(context),
+              ),
             ),
 
           // Loading Overlay
@@ -483,8 +517,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
               ),
             ),
 
-          // Error Banner
-          if (_error != null)
+          // Error Banner (ausblenden im Fullmap-Modus)
+          if (_error != null && !_isFullMapMode)
             Positioned(
               bottom: MediaQuery.of(context).size.height * _sheetPosition + 20,
               left: MshSpacing.lg,
@@ -494,14 +528,17 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
 
           // ═══════════════════════════════════════════════════════════
           // DRAGGABLE BOTTOM SHEET - Google Maps Style
+          // (ausblenden im Fullmap-Modus)
           // ═══════════════════════════════════════════════════════════
-          DraggableScrollableSheet(
+          if (!_isFullMapMode)
+            DraggableScrollableSheet(
             controller: _sheetController,
             initialChildSize: _midSheetSize,
             minChildSize: _minSheetSize,
             maxChildSize: _maxSheetSize,
             snap: true,
             snapSizes: const [_minSheetSize, _midSheetSize, _maxSheetSize],
+            snapAnimationDuration: const Duration(milliseconds: 200),
             builder: (context, scrollController) {
               return _DraggableBottomContent(
                 scrollController: scrollController,
@@ -509,12 +546,58 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                 activeFilters: activeFilterCount,
                 isLoading: _isLoading,
                 isMinimized: _sheetPosition < (_minSheetSize + 0.02),
+                isExpanded: _sheetPosition > (_midSheetSize + 0.1),
                 onFilterTap: () {
                   ref.read(filterProvider.notifier).clearAll();
                 },
               );
             },
           ),
+
+          // ═══════════════════════════════════════════════════════════
+          // FULLMAP-MODUS EXIT BUTTON
+          // ═══════════════════════════════════════════════════════════
+          if (_isFullMapMode)
+            Positioned(
+              bottom: MediaQuery.of(context).padding.bottom + MshSpacing.lg,
+              left: 0,
+              right: 0,
+              child: Center(
+                child: Material(
+                  color: MshColors.surface,
+                  borderRadius: BorderRadius.circular(MshTheme.radiusLarge),
+                  elevation: 4,
+                  child: InkWell(
+                    onTap: _toggleFullMapMode,
+                    borderRadius: BorderRadius.circular(MshTheme.radiusLarge),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: MshSpacing.lg,
+                        vertical: MshSpacing.sm,
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          const Icon(
+                            Icons.fullscreen_exit,
+                            size: 20,
+                            color: MshColors.textSecondary,
+                          ),
+                          const SizedBox(width: MshSpacing.xs),
+                          Text(
+                            'Vollbild beenden',
+                            style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                                  color: MshColors.textPrimary,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
         ],
       ),
     );
@@ -532,6 +615,7 @@ class _DraggableBottomContent extends StatelessWidget {
     required this.activeFilters,
     required this.isLoading,
     required this.isMinimized,
+    required this.isExpanded,
     this.onFilterTap,
   });
 
@@ -540,6 +624,7 @@ class _DraggableBottomContent extends StatelessWidget {
   final int activeFilters;
   final bool isLoading;
   final bool isMinimized;
+  final bool isExpanded;
   final VoidCallback? onFilterTap;
 
   @override
@@ -558,45 +643,45 @@ class _DraggableBottomContent extends StatelessWidget {
           ),
         ],
       ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          // Drag Handle - immer sichtbar
-          _buildDragHandle(),
+      child: CustomScrollView(
+        controller: scrollController,
+        physics: const ClampingScrollPhysics(),
+        slivers: [
+          // Drag Handle - immer sichtbar (non-scrolling header)
+          SliverToBoxAdapter(child: _buildDragHandle()),
 
-          // Content - scrollbar
-          Expanded(
-            child: ListView(
-              controller: scrollController,
-              padding: EdgeInsets.zero,
-              children: [
-                // POI Counter Row
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: MshSpacing.lg),
-                  child: _buildPoiCounterRow(context),
-                ),
-
-                // Weitere Inhalte nur wenn nicht minimiert
-                if (!isMinimized) ...[
-                  const SizedBox(height: MshSpacing.sm),
-
-                  // Up Next Events
-                  const UpNextSection(),
-
-                  const SizedBox(height: MshSpacing.sm),
-
-                  // Quick Actions
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: MshSpacing.lg),
-                    child: _buildQuickActions(context),
-                  ),
-
-                  // Extra Padding für SafeArea
-                  SizedBox(height: MediaQuery.of(context).padding.bottom + MshSpacing.md),
-                ],
-              ],
+          // POI Counter Row
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: MshSpacing.lg),
+              child: _buildPoiCounterRow(context),
             ),
           ),
+
+          // Weitere Inhalte nur wenn nicht minimiert
+          if (!isMinimized) ...[
+            const SliverToBoxAdapter(child: SizedBox(height: MshSpacing.sm)),
+
+            // Up Next Events - mehr anzeigen wenn expanded
+            SliverToBoxAdapter(child: UpNextSection(isExpanded: isExpanded)),
+
+            const SliverToBoxAdapter(child: SizedBox(height: MshSpacing.sm)),
+
+            // Quick Actions
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: MshSpacing.lg),
+                child: _buildQuickActions(context),
+              ),
+            ),
+
+            // Extra Padding für SafeArea
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: MediaQuery.of(context).padding.bottom + MshSpacing.md,
+              ),
+            ),
+          ],
         ],
       ),
     );
@@ -817,6 +902,251 @@ class _ErrorBanner extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// FEEDBACK BUTTON ("Fehlt dir was?")
+// ═══════════════════════════════════════════════════════════════
+
+class _FeedbackButton extends StatelessWidget {
+  const _FeedbackButton({required this.onPressed});
+
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: MshColors.surface,
+      borderRadius: BorderRadius.circular(MshTheme.radiusLarge),
+      elevation: 4,
+      child: InkWell(
+        onTap: onPressed,
+        borderRadius: BorderRadius.circular(MshTheme.radiusLarge),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: MshSpacing.md,
+            vertical: MshSpacing.sm,
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Icon(
+                Icons.add_location_alt_outlined,
+                size: 20,
+                color: MshColors.primary,
+              ),
+              const SizedBox(width: MshSpacing.xs),
+              Text(
+                'Fehlt was?',
+                style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                      color: MshColors.textPrimary,
+                      fontWeight: FontWeight.w500,
+                    ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// FEEDBACK SHEET
+// ═══════════════════════════════════════════════════════════════
+
+class _FeedbackSheet extends StatelessWidget {
+  const _FeedbackSheet();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: MshColors.surface,
+        borderRadius: const BorderRadius.vertical(
+          top: Radius.circular(MshTheme.radiusXLarge),
+        ),
+      ),
+      padding: EdgeInsets.fromLTRB(
+        MshSpacing.lg,
+        MshSpacing.md,
+        MshSpacing.lg,
+        MediaQuery.of(context).padding.bottom + MshSpacing.lg,
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          // Drag Handle
+          Container(
+            width: MshSpacing.dragHandleWidth,
+            height: MshSpacing.dragHandle,
+            margin: const EdgeInsets.only(bottom: MshSpacing.md),
+            decoration: BoxDecoration(
+              color: MshColors.textMuted.withValues(alpha: 0.4),
+              borderRadius: BorderRadius.circular(MshSpacing.xs),
+            ),
+          ),
+
+          // Header
+          Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(MshSpacing.sm),
+                decoration: BoxDecoration(
+                  color: MshColors.primary.withValues(alpha: 0.1),
+                  borderRadius: BorderRadius.circular(MshTheme.radiusMedium),
+                ),
+                child: const Icon(
+                  Icons.add_location_alt,
+                  color: MshColors.primary,
+                  size: 24,
+                ),
+              ),
+              const SizedBox(width: MshSpacing.md),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Fehlt dir was?',
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: MshColors.textPrimary,
+                          ),
+                    ),
+                    Text(
+                      'Hilf uns, die Karte zu verbessern!',
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                            color: MshColors.textSecondary,
+                          ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+
+          const SizedBox(height: MshSpacing.lg),
+
+          // Feedback Options
+          _FeedbackOption(
+            icon: Icons.restaurant,
+            title: 'Restaurant / Café fehlt',
+            subtitle: 'Ein Lokal ist nicht auf der Karte',
+            onTap: () => _sendFeedback(context, 'restaurant'),
+          ),
+          const SizedBox(height: MshSpacing.sm),
+          _FeedbackOption(
+            icon: Icons.child_care,
+            title: 'Familienausflugsziel fehlt',
+            subtitle: 'Spielplatz, Museum, Zoo, etc.',
+            onTap: () => _sendFeedback(context, 'family'),
+          ),
+          const SizedBox(height: MshSpacing.sm),
+          _FeedbackOption(
+            icon: Icons.event,
+            title: 'Veranstaltung melden',
+            subtitle: 'Ein Event ist nicht gelistet',
+            onTap: () => _sendFeedback(context, 'event'),
+          ),
+          const SizedBox(height: MshSpacing.sm),
+          _FeedbackOption(
+            icon: Icons.error_outline,
+            title: 'Fehler melden',
+            subtitle: 'Falsche Infos oder geschlossene Orte',
+            onTap: () => _sendFeedback(context, 'error'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _sendFeedback(BuildContext context, String type) {
+    Navigator.pop(context);
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: const Text('Danke für dein Feedback! Wir schauen es uns an.'),
+        backgroundColor: MshColors.success,
+        behavior: SnackBarBehavior.floating,
+        margin: EdgeInsets.only(
+          bottom: MediaQuery.of(context).size.height * 0.1,
+          left: MshSpacing.lg,
+          right: MshSpacing.lg,
+        ),
+      ),
+    );
+  }
+}
+
+class _FeedbackOption extends StatelessWidget {
+  const _FeedbackOption({
+    required this.icon,
+    required this.title,
+    required this.subtitle,
+    required this.onTap,
+  });
+
+  final IconData icon;
+  final String title;
+  final String subtitle;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: MshColors.background,
+      borderRadius: BorderRadius.circular(MshTheme.radiusMedium),
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(MshTheme.radiusMedium),
+        child: Padding(
+          padding: const EdgeInsets.all(MshSpacing.md),
+          child: Row(
+            children: [
+              Container(
+                width: 44,
+                height: 44,
+                decoration: BoxDecoration(
+                  color: MshColors.primary.withValues(alpha: 0.1),
+                  borderRadius: BorderRadius.circular(MshTheme.radiusSmall),
+                ),
+                child: Icon(
+                  icon,
+                  color: MshColors.primary,
+                  size: 22,
+                ),
+              ),
+              const SizedBox(width: MshSpacing.md),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                            fontWeight: FontWeight.w600,
+                            color: MshColors.textPrimary,
+                          ),
+                    ),
+                    Text(
+                      subtitle,
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                            color: MshColors.textSecondary,
+                          ),
+                    ),
+                  ],
+                ),
+              ),
+              const Icon(
+                Icons.chevron_right,
+                color: MshColors.textMuted,
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

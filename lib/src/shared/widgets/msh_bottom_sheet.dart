@@ -110,6 +110,8 @@ class MshBottomSheet extends StatelessWidget {
       initialChildSize: size.initialSize,
       minChildSize: size.minSize,
       maxChildSize: size.maxSize,
+      snap: true,
+      snapAnimationDuration: const Duration(milliseconds: 200),
       expand: false,
       builder: (context, scrollController) {
         return Container(
@@ -147,6 +149,7 @@ class MshBottomSheet extends StatelessWidget {
               Expanded(
                 child: SingleChildScrollView(
                   controller: scrollController,
+                  physics: const ClampingScrollPhysics(),
                   padding: padding ??
                       const EdgeInsets.symmetric(
                         horizontal: MshSpacing.lg, // 21px
