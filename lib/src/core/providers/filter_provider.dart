@@ -61,6 +61,8 @@ const Map<String, Set<String>> categoryGroups = {
     'feinkost',
     'hofladen',
   },
+  // "Bildung" umfasst Schulen, Kitas, Bibliotheken
+  'education': {'school', 'kindergarten', 'library'},
 };
 
 /// Filter-Kategorien die über moduleId statt category matchen

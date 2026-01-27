@@ -13,6 +13,10 @@ enum PoiCategory {
   zoo,
   farm,
   adventure,
+  // Bildung
+  school,
+  kindergarten,
+  library,
 }
 
 class Poi implements MapItem {
@@ -121,6 +125,9 @@ class Poi implements MapItem {
         PoiCategory.zoo => MapItemCategory.zoo,
         PoiCategory.farm => MapItemCategory.farm,
         PoiCategory.adventure => MapItemCategory.adventure,
+        PoiCategory.school => MapItemCategory.school,
+        PoiCategory.kindergarten => MapItemCategory.kindergarten,
+        PoiCategory.library => MapItemCategory.library,
       };
 
   @override
@@ -133,6 +140,9 @@ class Poi implements MapItem {
         PoiCategory.zoo => MshColors.categoryZoo,
         PoiCategory.farm => MshColors.categoryFarm,
         PoiCategory.adventure => MshColors.categoryAdventure,
+        PoiCategory.school => MshColors.categorySchool,
+        PoiCategory.kindergarten => MshColors.categoryKindergarten,
+        PoiCategory.library => MshColors.categoryLibrary,
       };
 
   @override

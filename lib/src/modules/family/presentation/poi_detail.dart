@@ -235,6 +235,9 @@ class _CategoryBadge extends StatelessWidget {
       PoiCategory.zoo => (Icons.pets, 'Zoo/Tierpark', MshColors.categoryZoo),
       PoiCategory.farm => (Icons.agriculture, 'Bauernhof', MshColors.categoryFarm),
       PoiCategory.adventure => (Icons.landscape, 'Abenteuer', MshColors.categoryAdventure),
+      PoiCategory.school => (Icons.school, 'Schule', MshColors.categorySchool),
+      PoiCategory.kindergarten => (Icons.child_care, 'Kita', MshColors.categoryKindergarten),
+      PoiCategory.library => (Icons.local_library, 'Bibliothek', MshColors.categoryLibrary),
     };
 
     return Container(

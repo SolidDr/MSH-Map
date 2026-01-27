@@ -112,6 +112,12 @@ class AssetLocation implements MapItem {
         return MapItemCategory.farm;
       case 'adventure':
         return MapItemCategory.adventure;
+      case 'school':
+        return MapItemCategory.school;
+      case 'kindergarten':
+        return MapItemCategory.kindergarten;
+      case 'library':
+        return MapItemCategory.library;
       default:
         return MapItemCategory.custom;
     }
@@ -145,6 +151,12 @@ class AssetLocation implements MapItem {
         return Colors.indigo;
       case MapItemCategory.adventure:
         return Colors.amber;
+      case MapItemCategory.school:
+        return const Color(0xFF1976D2);  // Blau - Schulen
+      case MapItemCategory.kindergarten:
+        return const Color(0xFFEC407A);  // Pink - Kitas
+      case MapItemCategory.library:
+        return const Color(0xFF00796B);  // Teal - Bibliotheken
       default:
         return Colors.grey;
     }

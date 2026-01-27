@@ -51,6 +51,10 @@ enum MapItemCategory {
   indoor,
   farm,
   adventure,
+  // Bildung
+  school,
+  kindergarten,
+  library,
   // Other
   service,
   search,

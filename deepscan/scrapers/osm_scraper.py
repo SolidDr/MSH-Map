@@ -87,6 +87,12 @@ class OSMScraper:
         # Indoor
         ("leisure", "indoor_play"): "indoor",
         ("amenity", "cinema"): "indoor",
+
+        # Bildung & Betreuung
+        ("amenity", "school"): "school",
+        ("amenity", "kindergarten"): "kindergarten",
+        ("amenity", "library"): "library",
+        ("amenity", "childcare"): "kindergarten",
     }
 
     def __init__(self, rate_limit: float = 2.0):
@@ -133,12 +139,15 @@ out center tags;
             "leisure": [],
             "tourism": [],
             "nature": [],
+            "education": [],
             "other": []
         }
 
         for (key, value) in self.TAG_MAPPING.keys():
             if key == "amenity" and value in ["restaurant", "cafe", "fast_food", "biergarten", "pub", "bar", "ice_cream", "food_court"]:
                 groups["gastro"].append((key, value))
+            elif key == "amenity" and value in ["school", "kindergarten", "library", "childcare"]:
+                groups["education"].append((key, value))
             elif key == "shop":
                 groups["shops"].append((key, value))
             elif key in ["leisure", "sport"]:

@@ -76,6 +76,12 @@ class MshColors {
   static const Color categoryGastro = Color(0xFFEF4444);     // Red - Gastro
   static const Color categoryEvent = Color(0xFF6366F1);      // Indigo - Event
 
+  // Bildung
+  static const Color categorySchool = Color(0xFF1976D2);        // Blau - Schulen
+  static const Color categoryKindergarten = Color(0xFFEC407A);  // Pink - Kitas
+  static const Color categoryLibrary = Color(0xFF00796B);       // Teal - Bibliotheken
+  static const Color categoryEducation = Color(0xFF1976D2);     // Blau - Bildung allgemein
+
   // ═══════════════════════════════════════════════════════════════
   // GESUNDHEIT - Health & Fitness Modul
   // ═══════════════════════════════════════════════════════════════

@@ -313,6 +313,10 @@ class _HoverTooltip extends StatelessWidget {
         MapItemCategory.indoor => Icons.house,
         MapItemCategory.farm => Icons.agriculture,
         MapItemCategory.adventure => Icons.terrain,
+        // Bildung
+        MapItemCategory.school => Icons.school,
+        MapItemCategory.kindergarten => Icons.child_care,
+        MapItemCategory.library => Icons.local_library,
         // Other
         MapItemCategory.service => Icons.build,
         MapItemCategory.search => Icons.search,
@@ -360,6 +364,10 @@ class _MarkerIcon extends StatelessWidget {
         MapItemCategory.indoor => Icons.house,
         MapItemCategory.farm => Icons.agriculture,
         MapItemCategory.adventure => Icons.terrain,
+        // Bildung
+        MapItemCategory.school => Icons.school,
+        MapItemCategory.kindergarten => Icons.child_care,
+        MapItemCategory.library => Icons.local_library,
         // Other
         MapItemCategory.service => Icons.build,
         MapItemCategory.search => Icons.search,

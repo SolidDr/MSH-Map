@@ -239,6 +239,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
       if (moduleId == 'health') {
         counts['health'] = (counts['health'] ?? 0) + 1;
       }
+
+      // Bildung: school, kindergarten, library → education
+      if (categoryName == 'school' ||
+          categoryName == 'kindergarten' ||
+          categoryName == 'library') {
+        counts['education'] = (counts['education'] ?? 0) + 1;
+      }
     }
     return counts;
   }
