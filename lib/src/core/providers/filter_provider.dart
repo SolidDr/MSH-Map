@@ -39,6 +39,57 @@ bool _rangesOverlap(String range1, String range2) {
 }
 
 // ═══════════════════════════════════════════════════════════════
+// KATEGORIE-GRUPPEN
+// ═══════════════════════════════════════════════════════════════
+
+/// Gruppen von Kategorien für zusammengefasste Filter
+const Map<String, Set<String>> categoryGroups = {
+  // "Natur" umfasst alle Natur-Unterkategorien
+  'nature': {'nature', 'viewpoint', 'waterfall', 'cave'},
+  // "Essen" umfasst alle Gastro-Kategorien
+  'restaurant': {
+    'restaurant',
+    'cafe',
+    'imbiss',
+    'biergarten',
+    'pub',
+    'bar',
+    'eiscafe',
+    'baeckerei',
+    'fleischerei',
+    'konditorei',
+    'feinkost',
+    'hofladen',
+  },
+};
+
+/// Filter-Kategorien die über moduleId statt category matchen
+const Set<String> moduleIdFilters = {'health'};
+
+/// Prüft ob eine Kategorie zum Filter passt (inkl. Gruppen)
+bool _categoryMatchesFilter(String itemCategory, String filterCategory) {
+  // Direkte Übereinstimmung
+  if (itemCategory == filterCategory) return true;
+
+  // Gruppen-Übereinstimmung: Filter ist Gruppe, Item ist Member
+  final group = categoryGroups[filterCategory];
+  if (group != null && group.contains(itemCategory)) return true;
+
+  return false;
+}
+
+/// Prüft ob ein Item zum Filter passt (inkl. moduleId-Filter)
+bool _itemMatchesFilter(MapItem item, String filterCategory) {
+  // ModuleId-Filter (z.B. 'health' matched moduleId 'health')
+  if (moduleIdFilters.contains(filterCategory)) {
+    return item.moduleId == filterCategory;
+  }
+
+  // Standard Kategorie-Filter
+  return _categoryMatchesFilter(item.category.name, filterCategory);
+}
+
+// ═══════════════════════════════════════════════════════════════
 // FILTER STATE
 // ═══════════════════════════════════════════════════════════════
 
@@ -63,10 +114,12 @@ class FilterState {
   }
 
   bool matches(MapItem item) {
-    // Kategorie-Filter
-    if (categories.isNotEmpty &&
-        !categories.contains(item.category.name)) {
-      return false;
+    // Kategorie-Filter (mit Gruppen-Support und moduleId-Filter)
+    if (categories.isNotEmpty) {
+      final matchesAny = categories.any(
+        (filterCat) => _itemMatchesFilter(item, filterCat),
+      );
+      if (!matchesAny) return false;
     }
 
     // Altersfilter

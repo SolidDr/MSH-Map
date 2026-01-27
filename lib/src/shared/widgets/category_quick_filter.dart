@@ -51,8 +51,14 @@ class CategoryQuickFilter extends StatelessWidget {
     (
       id: 'playground',
       label: 'Spielplätze',
-      icon: Icons.toys,
+      icon: Icons.child_care,
       color: MshColors.categoryPlayground
+    ),
+    (
+      id: 'health',
+      label: 'Gesundheit',
+      icon: Icons.medical_services,
+      color: MshColors.categoryHealth
     ),
     (
       id: 'museum',
@@ -90,12 +96,6 @@ class CategoryQuickFilter extends StatelessWidget {
       label: 'Essen',
       icon: Icons.restaurant,
       color: MshColors.categoryGastro
-    ),
-    (
-      id: 'health',
-      label: 'Gesundheit',
-      icon: Icons.local_hospital,
-      color: MshColors.categoryHealth
     ),
   ];
 }

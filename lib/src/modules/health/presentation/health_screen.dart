@@ -36,6 +36,7 @@ class HealthScreen extends ConsumerStatefulWidget {
 
 class _HealthScreenState extends ConsumerState<HealthScreen> {
   HealthCategory? _selectedCategory;
+  DoctorSpecialization? _selectedSpecialization;
   String _searchQuery = '';
   final _searchController = TextEditingController();
 
@@ -90,6 +91,20 @@ class _HealthScreenState extends ConsumerState<HealthScreen> {
               child: _buildCategoryFilter(),
             ),
           ),
+
+          // Facharzt-Filter (nur bei Ärzte-Kategorie)
+          if (_selectedCategory == HealthCategory.doctor)
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(
+                  MshSpacing.lg,
+                  0,
+                  MshSpacing.lg,
+                  MshSpacing.lg,
+                ),
+                child: _buildSpecializationFilter(),
+              ),
+            ),
 
           // Einrichtungen Liste
           facilitiesAsync.when(
@@ -157,25 +172,71 @@ class _HealthScreenState extends ConsumerState<HealthScreen> {
           label: 'Alle',
           icon: Icons.medical_services,
           isSelected: _selectedCategory == null,
-          onTap: () => setState(() => _selectedCategory = null),
+          onTap: () => setState(() {
+            _selectedCategory = null;
+            _selectedSpecialization = null;
+          }),
         ),
         _CategoryChip(
           label: 'Ärzte',
           icon: Icons.person,
           isSelected: _selectedCategory == HealthCategory.doctor,
-          onTap: () => setState(() => _selectedCategory = HealthCategory.doctor),
+          onTap: () => setState(() {
+            _selectedCategory = HealthCategory.doctor;
+            // Spezialisierung behalten wenn schon auf Ärzte
+          }),
         ),
         _CategoryChip(
           label: 'Apotheken',
           icon: Icons.local_pharmacy,
           isSelected: _selectedCategory == HealthCategory.pharmacy,
-          onTap: () => setState(() => _selectedCategory = HealthCategory.pharmacy),
+          onTap: () => setState(() {
+            _selectedCategory = HealthCategory.pharmacy;
+            _selectedSpecialization = null;
+          }),
         ),
         _CategoryChip(
           label: 'Fitness',
           icon: Icons.fitness_center,
           isSelected: _selectedCategory == HealthCategory.fitness,
-          onTap: () => setState(() => _selectedCategory = HealthCategory.fitness),
+          onTap: () => setState(() {
+            _selectedCategory = HealthCategory.fitness;
+            _selectedSpecialization = null;
+          }),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildSpecializationFilter() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Fachrichtung',
+          style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                color: MshColors.textSecondary,
+                fontWeight: FontWeight.w600,
+              ),
+        ),
+        const SizedBox(height: MshSpacing.sm),
+        Wrap(
+          spacing: MshSpacing.xs,
+          runSpacing: MshSpacing.xs,
+          children: [
+            _SpecializationChip(
+              label: 'Alle Ärzte',
+              isSelected: _selectedSpecialization == null,
+              onTap: () => setState(() => _selectedSpecialization = null),
+            ),
+            ...DoctorSpecialization.values.map(
+              (spec) => _SpecializationChip(
+                label: spec.label,
+                isSelected: _selectedSpecialization == spec,
+                onTap: () => setState(() => _selectedSpecialization = spec),
+              ),
+            ),
+          ],
         ),
       ],
     );
@@ -186,6 +247,12 @@ class _HealthScreenState extends ConsumerState<HealthScreen> {
     final filtered = facilities.where((f) {
       // Kategorie-Filter
       if (_selectedCategory != null && f.healthCategory != _selectedCategory) {
+        return false;
+      }
+      // Spezialisierungs-Filter (nur bei Ärzten)
+      if (_selectedCategory == HealthCategory.doctor &&
+          _selectedSpecialization != null &&
+          f.specialization != _selectedSpecialization) {
         return false;
       }
       // Such-Filter
@@ -375,6 +442,46 @@ class _CategoryChip extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _SpecializationChip extends StatelessWidget {
+  const _SpecializationChip({
+    required this.label,
+    required this.isSelected,
+    required this.onTap,
+  });
+
+  final String label;
+  final bool isSelected;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: isSelected
+          ? MshColors.categoryDoctor
+          : MshColors.surface,
+      borderRadius: BorderRadius.circular(MshTheme.radiusSmall),
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(MshTheme.radiusSmall),
+        child: Container(
+          padding: const EdgeInsets.symmetric(
+            horizontal: MshSpacing.sm,
+            vertical: MshSpacing.xs,
+          ),
+          child: Text(
+            label,
+            style: TextStyle(
+              fontSize: 13,
+              color: isSelected ? Colors.white : MshColors.textPrimary,
+              fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
+            ),
           ),
         ),
       ),

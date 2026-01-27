@@ -283,7 +283,7 @@ class _PoiListTile extends StatelessWidget {
         MapItemCategory.event => Icons.event,
         MapItemCategory.culture => Icons.museum,
         MapItemCategory.sport => Icons.sports,
-        MapItemCategory.playground => Icons.toys,
+        MapItemCategory.playground => Icons.child_care,
         MapItemCategory.museum => Icons.account_balance,
         MapItemCategory.nature => Icons.park,
         MapItemCategory.zoo => Icons.pets,

@@ -451,7 +451,7 @@ class _SuggestionItem extends StatelessWidget {
       MapItemCategory.event => Icons.event,
       MapItemCategory.culture => Icons.theater_comedy,
       MapItemCategory.sport => Icons.sports,
-      MapItemCategory.playground => Icons.toys,
+      MapItemCategory.playground => Icons.child_care,
       MapItemCategory.museum => Icons.museum,
       MapItemCategory.nature => Icons.park,
       MapItemCategory.zoo => Icons.pets,

@@ -40,11 +40,11 @@ class OSMScraper:
         ("leisure", "swimming_area"): "pool",
         ("amenity", "swimming_pool"): "pool",
 
-        # Natur & Parks
-        ("leisure", "park"): "nature",
-        ("leisure", "garden"): "nature",
-        ("natural", "peak"): "nature",
-        ("natural", "waterfall"): "nature",
+        # Natur - Nur sinnvolle Ziele (keine generischen Berggipfel)
+        ("tourism", "viewpoint"): "viewpoint",  # Aussichtspunkte
+        ("natural", "waterfall"): "waterfall",  # Wasserfälle
+        ("natural", "cave_entrance"): "cave",  # Höhlen
+        ("boundary", "national_park"): "nature",  # Nationalparks
 
         # Museen
         ("tourism", "museum"): "museum",
@@ -132,6 +132,7 @@ out center tags;
             "shops": [],
             "leisure": [],
             "tourism": [],
+            "nature": [],
             "other": []
         }
 
@@ -144,6 +145,8 @@ out center tags;
                 groups["leisure"].append((key, value))
             elif key in ["tourism", "historic"]:
                 groups["tourism"].append((key, value))
+            elif key in ["natural", "boundary"]:
+                groups["nature"].append((key, value))
             else:
                 groups["other"].append((key, value))
 

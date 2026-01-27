@@ -294,7 +294,7 @@ class _HoverTooltip extends StatelessWidget {
         MapItemCategory.culture => Icons.museum,
         MapItemCategory.sport => Icons.sports,
         // Family
-        MapItemCategory.playground => Icons.toys,
+        MapItemCategory.playground => Icons.child_care,
         MapItemCategory.museum => Icons.account_balance,
         MapItemCategory.nature => Icons.park,
         MapItemCategory.zoo => Icons.pets,
@@ -341,7 +341,7 @@ class _MarkerIcon extends StatelessWidget {
         MapItemCategory.culture => Icons.museum,
         MapItemCategory.sport => Icons.sports,
         // Family
-        MapItemCategory.playground => Icons.toys,
+        MapItemCategory.playground => Icons.child_care,
         MapItemCategory.museum => Icons.account_balance,
         MapItemCategory.nature => Icons.park,
         MapItemCategory.zoo => Icons.pets,

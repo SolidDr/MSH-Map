@@ -25,7 +25,7 @@ class _SuggestLocationScreenState extends State<SuggestLocationScreen> {
 
   // Kategorien
   static const _categories = [
-    ('playground', 'Spielplatz', Icons.toys),
+    ('playground', 'Spielplatz', Icons.child_care),
     ('museum', 'Museum/Kultur', Icons.museum),
     ('nature', 'Natur/Wandern', Icons.park),
     ('pool', 'Schwimmbad/See', Icons.pool),
