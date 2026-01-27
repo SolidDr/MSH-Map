@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'msh_colors.dart';
 import 'msh_spacing.dart';
 
@@ -183,71 +184,74 @@ class MshTheme {
     ),
 
     // Text - mit Goldener Schnitt Line Height (1.618)
-    textTheme: const TextTheme(
-      displayLarge: TextStyle(
-        fontSize: 55,                          // Fibonacci 55
-        fontWeight: FontWeight.bold,
-        color: MshColors.textStrong,
-        height: MshSpacing.phi,                 // 1.618 line height
-        letterSpacing: -0.5,
-      ),
-      displayMedium: TextStyle(
-        fontSize: 34,                          // Fibonacci 34
-        fontWeight: FontWeight.bold,
-        color: MshColors.textStrong,
-        height: MshSpacing.phi,                 // 1.618
-      ),
-      headlineLarge: TextStyle(
-        fontSize: 21,                          // Fibonacci 21
-        fontWeight: FontWeight.w600,
-        color: MshColors.textPrimary,
-        height: MshSpacing.phi,                 // 1.618
-      ),
-      headlineMedium: TextStyle(
-        fontSize: 18,
-        fontWeight: FontWeight.w600,
-        color: MshColors.textPrimary,
-        height: MshSpacing.phi,                 // 1.618
-      ),
-      titleLarge: TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.w600,
-        color: MshColors.textPrimary,
-        height: MshSpacing.phi,                 // 1.618
-      ),
-      titleMedium: TextStyle(
-        fontSize: 14,
-        fontWeight: FontWeight.w500,
-        color: MshColors.textPrimary,
-        height: MshSpacing.phi,                 // 1.618
-      ),
-      bodyLarge: TextStyle(
-        fontSize: 16,
-        color: MshColors.textPrimary,
-        height: MshSpacing.phi,                 // 1.618 - optimal für Lesbarkeit
-      ),
-      bodyMedium: TextStyle(
-        fontSize: 14,
-        color: MshColors.textSecondary,
-        height: MshSpacing.phi,                 // 1.618
-      ),
-      labelLarge: TextStyle(
-        fontSize: 13,                          // Fibonacci 13
-        fontWeight: FontWeight.w600,
-        color: MshColors.textPrimary,
-        height: 1.4,                           // Etwas kompakter für Labels
-      ),
-      labelMedium: TextStyle(
-        fontSize: 12,
-        fontWeight: FontWeight.w500,
-        color: MshColors.textSecondary,
-        height: 1.4,
-      ),
-      labelSmall: TextStyle(
-        fontSize: 11,
-        fontWeight: FontWeight.w500,
-        color: MshColors.textMuted,
-        height: 1.3,
+    // Noto Sans für vollständige Unicode-Unterstützung
+    textTheme: GoogleFonts.notoSansTextTheme(
+      const TextTheme(
+        displayLarge: TextStyle(
+          fontSize: 55,                          // Fibonacci 55
+          fontWeight: FontWeight.bold,
+          color: MshColors.textStrong,
+          height: MshSpacing.phi,                 // 1.618 line height
+          letterSpacing: -0.5,
+        ),
+        displayMedium: TextStyle(
+          fontSize: 34,                          // Fibonacci 34
+          fontWeight: FontWeight.bold,
+          color: MshColors.textStrong,
+          height: MshSpacing.phi,                 // 1.618
+        ),
+        headlineLarge: TextStyle(
+          fontSize: 21,                          // Fibonacci 21
+          fontWeight: FontWeight.w600,
+          color: MshColors.textPrimary,
+          height: MshSpacing.phi,                 // 1.618
+        ),
+        headlineMedium: TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.w600,
+          color: MshColors.textPrimary,
+          height: MshSpacing.phi,                 // 1.618
+        ),
+        titleLarge: TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.w600,
+          color: MshColors.textPrimary,
+          height: MshSpacing.phi,                 // 1.618
+        ),
+        titleMedium: TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.w500,
+          color: MshColors.textPrimary,
+          height: MshSpacing.phi,                 // 1.618
+        ),
+        bodyLarge: TextStyle(
+          fontSize: 16,
+          color: MshColors.textPrimary,
+          height: MshSpacing.phi,                 // 1.618 - optimal für Lesbarkeit
+        ),
+        bodyMedium: TextStyle(
+          fontSize: 14,
+          color: MshColors.textSecondary,
+          height: MshSpacing.phi,                 // 1.618
+        ),
+        labelLarge: TextStyle(
+          fontSize: 13,                          // Fibonacci 13
+          fontWeight: FontWeight.w600,
+          color: MshColors.textPrimary,
+          height: 1.4,                           // Etwas kompakter für Labels
+        ),
+        labelMedium: TextStyle(
+          fontSize: 12,
+          fontWeight: FontWeight.w500,
+          color: MshColors.textSecondary,
+          height: 1.4,
+        ),
+        labelSmall: TextStyle(
+          fontSize: 11,
+          fontWeight: FontWeight.w500,
+          color: MshColors.textMuted,
+          height: 1.3,
+        ),
       ),
     ),
   );
@@ -407,71 +411,74 @@ class MshTheme {
     ),
 
     // Text - mit Goldener Schnitt Line Height (1.618)
-    textTheme: const TextTheme(
-      displayLarge: TextStyle(
-        fontSize: 55,                          // Fibonacci 55
-        fontWeight: FontWeight.bold,
-        color: MshColors.darkTextPrimary,
-        height: MshSpacing.phi,                 // 1.618 line height
-        letterSpacing: -0.5,
-      ),
-      displayMedium: TextStyle(
-        fontSize: 34,                          // Fibonacci 34
-        fontWeight: FontWeight.bold,
-        color: MshColors.darkTextPrimary,
-        height: MshSpacing.phi,                 // 1.618
-      ),
-      headlineLarge: TextStyle(
-        fontSize: 21,                          // Fibonacci 21
-        fontWeight: FontWeight.w600,
-        color: MshColors.darkTextPrimary,
-        height: MshSpacing.phi,                 // 1.618
-      ),
-      headlineMedium: TextStyle(
-        fontSize: 18,
-        fontWeight: FontWeight.w600,
-        color: MshColors.darkTextPrimary,
-        height: MshSpacing.phi,                 // 1.618
-      ),
-      titleLarge: TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.w600,
-        color: MshColors.darkTextPrimary,
-        height: MshSpacing.phi,                 // 1.618
-      ),
-      titleMedium: TextStyle(
-        fontSize: 14,
-        fontWeight: FontWeight.w500,
-        color: MshColors.darkTextPrimary,
-        height: MshSpacing.phi,                 // 1.618
-      ),
-      bodyLarge: TextStyle(
-        fontSize: 16,
-        color: MshColors.darkTextPrimary,
-        height: MshSpacing.phi,                 // 1.618 - optimal für Lesbarkeit
-      ),
-      bodyMedium: TextStyle(
-        fontSize: 14,
-        color: MshColors.darkTextSecondary,
-        height: MshSpacing.phi,                 // 1.618
-      ),
-      labelLarge: TextStyle(
-        fontSize: 13,                          // Fibonacci 13
-        fontWeight: FontWeight.w600,
-        color: MshColors.darkTextPrimary,
-        height: 1.4,                           // Etwas kompakter für Labels
-      ),
-      labelMedium: TextStyle(
-        fontSize: 12,
-        fontWeight: FontWeight.w500,
-        color: MshColors.darkTextSecondary,
-        height: 1.4,
-      ),
-      labelSmall: TextStyle(
-        fontSize: 11,
-        fontWeight: FontWeight.w500,
-        color: MshColors.darkTextSecondary,
-        height: 1.3,
+    // Noto Sans für vollständige Unicode-Unterstützung
+    textTheme: GoogleFonts.notoSansTextTheme(
+      const TextTheme(
+        displayLarge: TextStyle(
+          fontSize: 55,                          // Fibonacci 55
+          fontWeight: FontWeight.bold,
+          color: MshColors.darkTextPrimary,
+          height: MshSpacing.phi,                 // 1.618 line height
+          letterSpacing: -0.5,
+        ),
+        displayMedium: TextStyle(
+          fontSize: 34,                          // Fibonacci 34
+          fontWeight: FontWeight.bold,
+          color: MshColors.darkTextPrimary,
+          height: MshSpacing.phi,                 // 1.618
+        ),
+        headlineLarge: TextStyle(
+          fontSize: 21,                          // Fibonacci 21
+          fontWeight: FontWeight.w600,
+          color: MshColors.darkTextPrimary,
+          height: MshSpacing.phi,                 // 1.618
+        ),
+        headlineMedium: TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.w600,
+          color: MshColors.darkTextPrimary,
+          height: MshSpacing.phi,                 // 1.618
+        ),
+        titleLarge: TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.w600,
+          color: MshColors.darkTextPrimary,
+          height: MshSpacing.phi,                 // 1.618
+        ),
+        titleMedium: TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.w500,
+          color: MshColors.darkTextPrimary,
+          height: MshSpacing.phi,                 // 1.618
+        ),
+        bodyLarge: TextStyle(
+          fontSize: 16,
+          color: MshColors.darkTextPrimary,
+          height: MshSpacing.phi,                 // 1.618 - optimal für Lesbarkeit
+        ),
+        bodyMedium: TextStyle(
+          fontSize: 14,
+          color: MshColors.darkTextSecondary,
+          height: MshSpacing.phi,                 // 1.618
+        ),
+        labelLarge: TextStyle(
+          fontSize: 13,                          // Fibonacci 13
+          fontWeight: FontWeight.w600,
+          color: MshColors.darkTextPrimary,
+          height: 1.4,                           // Etwas kompakter für Labels
+        ),
+        labelMedium: TextStyle(
+          fontSize: 12,
+          fontWeight: FontWeight.w500,
+          color: MshColors.darkTextSecondary,
+          height: 1.4,
+        ),
+        labelSmall: TextStyle(
+          fontSize: 11,
+          fontWeight: FontWeight.w500,
+          color: MshColors.darkTextSecondary,
+          height: 1.3,
+        ),
       ),
     ),
 
