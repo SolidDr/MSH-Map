@@ -2,7 +2,9 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
   "framework": null,
+  "buildCommand": "",
   "outputDirectory": "build/web",
+  "installCommand": "echo 'Pre-built Flutter web app'",
   "functions": {
     "api/**/*.ts": {
       "memory": 1024,
