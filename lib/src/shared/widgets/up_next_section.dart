@@ -386,20 +386,24 @@ class _ExpandedEventCard extends StatelessWidget {
                   ),
                 ),
 
-                // Kategorie Icon rechts
-                Container(
-                  width: 36,
-                  height: 36,
-                  decoration: BoxDecoration(
-                    color: event.eventCategory.color.withValues(alpha: 0.15),
+                // Bild oder Kategorie Icon rechts
+                if (event.imageUrl != null)
+                  ClipRRect(
                     borderRadius: BorderRadius.circular(MshTheme.radiusSmall),
-                  ),
-                  child: Icon(
-                    event.eventCategory.icon,
-                    color: event.eventCategory.color,
-                    size: 18,
-                  ),
-                ),
+                    child: Image.network(
+                      event.imageUrl!,
+                      width: 56,
+                      height: 56,
+                      fit: BoxFit.cover,
+                      errorBuilder: (_, __, ___) => _buildCategoryIcon(),
+                      loadingBuilder: (context, child, loadingProgress) {
+                        if (loadingProgress == null) return child;
+                        return _buildCategoryIcon();
+                      },
+                    ),
+                  )
+                else
+                  _buildCategoryIcon(),
               ],
             ),
           ),
@@ -420,5 +424,21 @@ class _ExpandedEventCard extends StatelessWidget {
     return date.year == tomorrow.year &&
         date.month == tomorrow.month &&
         date.day == tomorrow.day;
+  }
+
+  Widget _buildCategoryIcon() {
+    return Container(
+      width: 56,
+      height: 56,
+      decoration: BoxDecoration(
+        color: event.eventCategory.color.withValues(alpha: 0.15),
+        borderRadius: BorderRadius.circular(MshTheme.radiusSmall),
+      ),
+      child: Icon(
+        event.eventCategory.icon,
+        color: event.eventCategory.color,
+        size: 24,
+      ),
+    );
   }
 }

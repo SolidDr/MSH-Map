@@ -37,7 +37,12 @@
       "description": "Eine archäologische Spurensuche zum Bergbau im Landkreis Mansfeld-Südharz",
       "price": "kostenlos",
       "source_url": "https://www.mansfeldsuedharz-tourismus.de/veranstaltungen/",
-      "tags": ["museum", "bergbau", "geschichte"]
+      "tags": [
+        "museum",
+        "bergbau",
+        "geschichte"
+      ],
+      "image_url": "https://www.mansfeldsuedharz-tourismus.de/wp-content/uploads/Veranstaltungen-Theater©TheaterEisleben-JensSchlüter.jpg"
     },
     {
       "id": "evt_20260127_001",
@@ -53,7 +58,12 @@
       "description": "Wöchentlicher Markt mit regionalen Produkten",
       "price": "kostenlos",
       "source_url": "https://www.wochenmarkt-deutschland.de/maerkte/sachsen-anhalt/wochenmarkt-in-sangerhausen/",
-      "tags": ["markt", "regional", "wochentag"]
+      "tags": [
+        "markt",
+        "regional",
+        "wochentag"
+      ],
+      "image_url": "https://www.wochenmarkt-deutschland.de/wp-content/uploads/wochenmarkt-deutschland-logo.png"
     },
     {
       "id": "evt_20260130_001",
@@ -69,7 +79,12 @@
       "description": "Wöchentlicher Markt mit regionalen Produkten",
       "price": "kostenlos",
       "source_url": "https://www.wochenmarkt-deutschland.de/maerkte/sachsen-anhalt/wochenmarkt-in-sangerhausen/",
-      "tags": ["markt", "regional", "freitag"]
+      "tags": [
+        "markt",
+        "regional",
+        "freitag"
+      ],
+      "image_url": "https://www.wochenmarkt-deutschland.de/wp-content/uploads/wochenmarkt-deutschland-logo.png"
     },
     {
       "id": "evt_20260130_002",
@@ -79,13 +94,18 @@
       "time_end": "17:00",
       "location_name": "Feuerwehr Lutherstadt Eisleben",
       "latitude": 51.5256,
-      "longitude": 11.5490,
+      "longitude": 11.549,
       "city": "Lutherstadt Eisleben",
       "category": "kinder",
       "description": "Kinderfasching der 1. Eislebener Karnevalsverein 'De Lotterstädter' e.V.",
       "price": "Eintritt frei",
       "source_url": "https://www.eisleben.eu",
-      "tags": ["kinder", "fasching", "familie"]
+      "tags": [
+        "kinder",
+        "fasching",
+        "familie"
+      ],
+      "image_url": "https://www.eisleben.eu/media/custom/3918_1068_1_g.JPG?1762933847"
     },
     {
       "id": "evt_20260130_003",
@@ -101,7 +121,12 @@
       "description": "Abendliche Besichtigung des historischen Schlosses",
       "price": "Erwachsene: 8€",
       "source_url": "https://www.mansfeldsuedharz-tourismus.de/veranstaltungen/",
-      "tags": ["schloss", "führung", "abend"]
+      "tags": [
+        "schloss",
+        "führung",
+        "abend"
+      ],
+      "image_url": "https://www.mansfeldsuedharz-tourismus.de/wp-content/uploads/Veranstaltungen-Theater©TheaterEisleben-JensSchlüter.jpg"
     },
     {
       "id": "evt_20260131_001",
@@ -117,7 +142,12 @@
       "description": "Stadtführung durch die historische Fachwerkstadt",
       "price": "Erwachsene: 5€",
       "source_url": "https://www.mansfeldsuedharz-tourismus.de/veranstaltungen/",
-      "tags": ["stadtführung", "fachwerk", "morgen"]
+      "tags": [
+        "stadtführung",
+        "fachwerk",
+        "morgen"
+      ],
+      "image_url": "https://www.mansfeldsuedharz-tourismus.de/wp-content/uploads/Veranstaltungen-Theater©TheaterEisleben-JensSchlüter.jpg"
     },
     {
       "id": "evt_20260203_001",
@@ -133,7 +163,12 @@
       "description": "Wöchentlicher Markt mit regionalen Produkten",
       "price": "kostenlos",
       "source_url": "https://www.wochenmarkt-deutschland.de/maerkte/sachsen-anhalt/wochenmarkt-in-sangerhausen/",
-      "tags": ["markt", "regional", "wochentag"]
+      "tags": [
+        "markt",
+        "regional",
+        "wochentag"
+      ],
+      "image_url": "https://www.wochenmarkt-deutschland.de/wp-content/uploads/wochenmarkt-deutschland-logo.png"
     },
     {
       "id": "evt_20260203_002",
@@ -143,13 +178,18 @@
       "time_end": "18:30",
       "location_name": "Markthalle Katharinenstift",
       "latitude": 51.5256,
-      "longitude": 11.5490,
+      "longitude": 11.549,
       "city": "Lutherstadt Eisleben",
       "category": "sonstiges",
       "description": "Filmvorführung für Kinder und Jugendliche (6-26 Jahre). Einlass 16:00. Kissen mitbringen!",
       "price": "kostenlos",
       "source_url": "https://www.eisleben.eu",
-      "tags": ["film", "kinder", "jugend"]
+      "tags": [
+        "film",
+        "kinder",
+        "jugend"
+      ],
+      "image_url": "https://www.eisleben.eu/media/custom/3918_1068_1_g.JPG?1762933847"
     },
     {
       "id": "evt_20260206_001",
@@ -165,7 +205,12 @@
       "description": "Wöchentlicher Markt mit regionalen Produkten",
       "price": "kostenlos",
       "source_url": "https://www.wochenmarkt-deutschland.de/maerkte/sachsen-anhalt/wochenmarkt-in-sangerhausen/",
-      "tags": ["markt", "regional", "freitag"]
+      "tags": [
+        "markt",
+        "regional",
+        "freitag"
+      ],
+      "image_url": "https://www.wochenmarkt-deutschland.de/wp-content/uploads/wochenmarkt-deutschland-logo.png"
     },
     {
       "id": "evt_20260206_002",
@@ -181,7 +226,12 @@
       "description": "Abendliche Besichtigung des historischen Schlosses",
       "price": "Erwachsene: 8€",
       "source_url": "https://www.mansfeldsuedharz-tourismus.de/veranstaltungen/",
-      "tags": ["schloss", "führung", "abend"]
+      "tags": [
+        "schloss",
+        "führung",
+        "abend"
+      ],
+      "image_url": "https://www.mansfeldsuedharz-tourismus.de/wp-content/uploads/Veranstaltungen-Theater©TheaterEisleben-JensSchlüter.jpg"
     },
     {
       "id": "evt_20260207_001",
@@ -197,7 +247,12 @@
       "description": "Stadtführung durch die historische Fachwerkstadt",
       "price": "Erwachsene: 5€",
       "source_url": "https://www.mansfeldsuedharz-tourismus.de/veranstaltungen/",
-      "tags": ["stadtführung", "fachwerk", "morgen"]
+      "tags": [
+        "stadtführung",
+        "fachwerk",
+        "morgen"
+      ],
+      "image_url": "https://www.mansfeldsuedharz-tourismus.de/wp-content/uploads/Veranstaltungen-Theater©TheaterEisleben-JensSchlüter.jpg"
     },
     {
       "id": "evt_20260209_001",
@@ -213,7 +268,12 @@
       "description": "Wöchentlicher Markt mit regionalen Produkten (letzter Termin im Scan-Zeitraum)",
       "price": "kostenlos",
       "source_url": "https://www.wochenmarkt-deutschland.de/maerkte/sachsen-anhalt/wochenmarkt-in-sangerhausen/",
-      "tags": ["markt", "regional", "wochentag"]
+      "tags": [
+        "markt",
+        "regional",
+        "wochentag"
+      ],
+      "image_url": "https://www.wochenmarkt-deutschland.de/wp-content/uploads/wochenmarkt-deutschland-logo.png"
     }
   ]
 }

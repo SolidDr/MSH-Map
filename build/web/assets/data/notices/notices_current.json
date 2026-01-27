@@ -1,7 +1,9 @@
 {
   "meta": {
-    "generated_at": "2026-01-26T10:30:00Z",
-    "kw": 4
+    "generated_at": "2026-01-27T19:00:00Z",
+    "kw": 5,
+    "coordinates_verified": true,
+    "last_verification": "2026-01-27"
   },
   "notices": [
     {
@@ -16,8 +18,8 @@
       "time_end": "12:00",
       "severity": "warning",
       "source_url": "https://sangerhausen.de",
-      "latitude": 51.4724,
-      "longitude": 11.2997
+      "latitude": 51.4728,
+      "longitude": 11.2982
     },
     {
       "id": "notice_002",
@@ -42,21 +44,21 @@
       "valid_until": "2026-04-30",
       "severity": "critical",
       "source_url": "https://www.mansfeldsuedharz.de/baustellenservice",
-      "latitude": 51.5900,
-      "longitude": 11.1200
+      "latitude": 51.6933,
+      "longitude": 11.4583
     },
     {
       "id": "notice_004",
       "type": "sperrung",
       "title": "K 2123 Vollsperrung (Brückenersatz)",
-      "description": "Vollsperrung zwischen L158 und Oeste wegen Brückenersatz. Umleitung über K 2313, L 154, L 158.",
-      "affected_area": "K 2123 (zwischen L158 und Oeste)",
+      "description": "Vollsperrung bei Freist wegen Brückenersatz. Umleitung über K 2313, L 154, L 158.",
+      "affected_area": "K 2123 (bei Freist/Friedeburg)",
       "valid_from": "2025-09-02",
       "valid_until": "2026-05-15",
       "severity": "critical",
       "source_url": "https://www.mansfeldsuedharz.de/baustellenservice",
-      "latitude": 51.5080,
-      "longitude": 11.3900
+      "latitude": 51.5950,
+      "longitude": 11.6850
     },
     {
       "id": "notice_005",
@@ -68,8 +70,8 @@
       "valid_until": "2026-06-30",
       "severity": "critical",
       "source_url": "https://www.mansfeldsuedharz.de/baustellenservice",
-      "latitude": 51.5400,
-      "longitude": 11.5700
+      "latitude": 51.5050,
+      "longitude": 11.5250
     },
     {
       "id": "notice_006",
@@ -94,8 +96,8 @@
       "valid_until": "2026-03-31",
       "severity": "info",
       "source_url": "https://www.luthermuseen.de",
-      "latitude": 51.5275,
-      "longitude": 11.5483
+      "latitude": 51.5268,
+      "longitude": 11.5499
     },
     {
       "id": "notice_008",
@@ -107,8 +109,8 @@
       "valid_until": "2026-03-31",
       "severity": "info",
       "source_url": "https://www.kyffhaeuser-denkmal.de",
-      "latitude": 51.4170,
-      "longitude": 11.0950
+      "latitude": 51.4135,
+      "longitude": 11.1096
     }
   ]
 }

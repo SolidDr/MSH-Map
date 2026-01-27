@@ -23,6 +23,7 @@ class MshEvent implements MapItem {
       description: json['description'] as String?,
       price: json['price'] as String?,
       sourceUrl: json['source_url'] as String?,
+      imageUrl: json['image_url'] as String?,
       tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList() ?? [],
     );
   }
@@ -41,6 +42,7 @@ class MshEvent implements MapItem {
     this.description,
     this.price,
     this.sourceUrl,
+    this.imageUrl,
     this.tags = const [],
   });
 
@@ -59,6 +61,7 @@ class MshEvent implements MapItem {
   final String? description;
   final String? price;
   final String? sourceUrl;
+  final String? imageUrl;
   final List<String> tags;
 
   // MapItem implementation
@@ -109,6 +112,7 @@ class MshEvent implements MapItem {
       if (description != null) 'description': description,
       if (price != null) 'price': price,
       if (sourceUrl != null) 'source_url': sourceUrl,
+      if (imageUrl != null) 'image_url': imageUrl,
       'tags': tags,
     };
   }
