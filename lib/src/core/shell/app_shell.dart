@@ -126,22 +126,22 @@ class _MobileShell extends StatelessWidget {
           NavigationDestination(
             icon: Icon(Icons.explore_outlined),
             selectedIcon: Icon(Icons.explore),
-            label: 'Entdecken',
+            label: 'Finden',
           ),
           NavigationDestination(
             icon: Icon(Icons.celebration_outlined),
             selectedIcon: Icon(Icons.celebration),
-            label: 'Erleben',
+            label: 'Events',
           ),
           NavigationDestination(
             icon: Icon(Icons.directions_bus_outlined),
             selectedIcon: Icon(Icons.directions_bus),
-            label: 'Mobilität',
+            label: 'ÖPNV',
           ),
           NavigationDestination(
             icon: Icon(Icons.local_hospital_outlined),
             selectedIcon: Icon(Icons.local_hospital),
-            label: 'Gesundheit',
+            label: 'Arzt',
           ),
           NavigationDestination(
             icon: Icon(Icons.person_outline),

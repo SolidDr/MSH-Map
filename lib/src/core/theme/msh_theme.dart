@@ -254,6 +254,25 @@ class MshTheme {
         ),
       ),
     ),
+
+    // Navigation Bar (Bottom Nav)
+    navigationBarTheme: NavigationBarThemeData(
+      backgroundColor: MshColors.surface,
+      indicatorColor: MshColors.primary.withValues(alpha: 0.15),
+      height: 65,
+      labelTextStyle: WidgetStateProperty.all(
+        const TextStyle(fontSize: 11, color: MshColors.textSecondary),
+      ),
+    ),
+
+    // Navigation Rail
+    navigationRailTheme: const NavigationRailThemeData(
+      backgroundColor: MshColors.surface,
+      selectedIconTheme: IconThemeData(color: MshColors.primary),
+      unselectedIconTheme: IconThemeData(color: MshColors.textSecondary),
+      selectedLabelTextStyle: TextStyle(color: MshColors.primary),
+      unselectedLabelTextStyle: TextStyle(color: MshColors.textSecondary),
+    ),
   );
 
   // ═══════════════════════════════════════════════════════════════
