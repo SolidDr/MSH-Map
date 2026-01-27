@@ -22,9 +22,7 @@
   "env": {
     "FIREBASE_PROJECT_ID": "lunch-radar-5d984"
   },
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/api/(.*)", "dest": "/api/$1" },
-    { "src": "/(.*)", "dest": "/index.html" }
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "/api/:path*" }
   ]
 }
