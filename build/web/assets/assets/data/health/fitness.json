@@ -1,39 +1,45 @@
 {
   "meta": {
-    "source": "manual_seed",
+    "source": "asv-sangerhausen.de, sawanne.de",
     "created_at": "2026-01-27",
-    "version": "1.0",
-    "region": "Mansfeld-Südharz"
+    "version": "2.0",
+    "region": "Mansfeld-Südharz",
+    "note": "Echte Fitness- und Sportdaten"
   },
   "data": [
     {
       "id": "fitness_001",
       "type": "fitness",
-      "name": "Seniorensport SV Sangerhausen",
-      "description": "Gymnastik und Bewegung für Senioren beim SV Sangerhausen",
-      "phone": "03464678901",
-      "phoneFormatted": "03464 / 67 89 01",
-      "street": "Am Rosengarten 5",
+      "name": "ASV Sangerhausen - Gymnastik & Seniorensport",
+      "description": "Größter Sportverein im Landkreis MSH mit ca. 1300 Mitgliedern. Bietet Gymnastik, Seniorensport, Präventionskurse und Rehabilitationssport.",
+      "phone": "03464341578",
+      "phoneFormatted": "03464 / 34 15 78",
+      "email": "info@asv-sangerhausen.de",
+      "website": "https://www.asv-sangerhausen.de/gymnastik/",
+      "street": "Wilhelm-Koenen-Straße 33",
       "postalCode": "06526",
       "city": "Sangerhausen",
-      "latitude": 51.4712,
-      "longitude": 11.2945,
+      "latitude": 51.4688,
+      "longitude": 11.2956,
       "fitnessOffers": [
         {
-          "name": "Seniorengymnastik",
-          "day": "Montag",
-          "time": "10:00 - 11:00",
-          "location": "Sporthalle Am Rosengarten",
-          "cost": "5€ pro Einheit / Vereinsmitglieder kostenlos",
+          "name": "Gymnastik",
+          "description": "Beweglichkeit verbessern mit funktionellen Dehn- und Kräftigungsübungen",
+          "location": "Vereinssportstätten ASV",
+          "ageGroup": "alle"
+        },
+        {
+          "name": "Seniorensport",
+          "description": "Aktive sportliche Bewegung und Geselligkeit für ältere Sportfreunde",
+          "location": "Vereinssportstätten ASV",
           "ageGroup": "60+"
         },
         {
-          "name": "Sturzprävention",
-          "day": "Mittwoch",
-          "time": "09:00 - 10:00",
-          "location": "Sporthalle Am Rosengarten",
-          "cost": "5€ pro Einheit",
-          "ageGroup": "65+"
+          "name": "Präventionskurse §20",
+          "description": "Krankenkassengeförderte Präventionskurse nach dem Präventionsgesetz",
+          "location": "Vereinssportstätten ASV",
+          "cost": "Krankenkassenzuschuss möglich",
+          "ageGroup": "alle"
         }
       ],
       "isBarrierFree": true,
@@ -42,66 +48,75 @@
     {
       "id": "fitness_002",
       "type": "fitness",
-      "name": "Wassergymnastik Hallenbad Sangerhausen",
-      "description": "Gelenkschonendes Training im Wasser für Senioren",
-      "phone": "03464789012",
-      "phoneFormatted": "03464 / 78 90 12",
-      "street": "Erfurter Straße 35",
+      "name": "SaWanne Hallenbad - Aqua-Fitness",
+      "description": "Modernes Hallenbad mit Aqua-Fitness-Kursen in Flach- und Tiefwasser. Ideal für gelenkschonendes Training.",
+      "phone": "03464521809",
+      "phoneFormatted": "03464 / 52 18 09",
+      "email": "info@sawanne.de",
+      "website": "https://sawanne.de/kurse/",
+      "street": "Otto-Nuschke-Straße 29",
       "postalCode": "06526",
       "city": "Sangerhausen",
-      "latitude": 51.4678,
-      "longitude": 11.2912,
+      "latitude": 51.4652,
+      "longitude": 11.2878,
       "fitnessOffers": [
         {
-          "name": "Wassergymnastik Senioren",
-          "day": "Mittwoch",
-          "time": "14:00 - 15:00",
-          "location": "Hallenbad Sangerhausen",
-          "cost": "8€ inkl. Eintritt",
-          "ageGroup": "55+"
+          "name": "AQUA-Fitness Flachwasser",
+          "description": "Gelenkschonendes Training im flachen Wasser",
+          "day": "Dienstag - Freitag",
+          "location": "SaWanne Hallenbad",
+          "ageGroup": "alle",
+          "requiresRegistration": true
         },
         {
-          "name": "Aqua-Fitness 60+",
-          "day": "Freitag",
-          "time": "10:00 - 11:00",
-          "location": "Hallenbad Sangerhausen",
-          "cost": "8€ inkl. Eintritt",
-          "ageGroup": "60+"
+          "name": "AQUA-Fitness Tiefwasser",
+          "description": "Intensives Training im tiefen Wasser",
+          "day": "Dienstag - Freitag",
+          "location": "SaWanne Hallenbad",
+          "ageGroup": "alle",
+          "requiresRegistration": true
         }
       ],
+      "openingHours": {
+        "monday": {"from": "08:00", "to": "22:00"},
+        "tuesday": {"from": "08:00", "to": "22:00"},
+        "wednesday": {"from": "08:00", "to": "22:00"},
+        "thursday": {"from": "08:00", "to": "22:00"},
+        "friday": {"from": "08:00", "to": "22:00"},
+        "saturday": {"from": "10:00", "to": "20:00"},
+        "sunday": {"from": "10:00", "to": "18:00"}
+      },
       "isBarrierFree": true,
       "hasParking": true
     },
     {
       "id": "fitness_003",
       "type": "fitness",
-      "name": "Rehasport Eisleben",
-      "description": "Rehabilitationssport und Präventionskurse",
-      "phone": "03475890123",
-      "phoneFormatted": "03475 / 89 01 23",
-      "street": "Bahnhofstraße 20",
-      "postalCode": "06295",
-      "city": "Lutherstadt Eisleben",
-      "latitude": 51.5256,
-      "longitude": 11.5512,
+      "name": "SV für Gesundheit und Rehabilitation Sangerhausen e.V.",
+      "description": "Rehabilitationssport auf ärztliche Verordnung. Mitglied des AWO Kreisverbandes Mansfeld-Südharz.",
+      "website": "https://www.awo-mansfeldsuedharz.de/",
+      "street": "Sangerhausen",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "latitude": 51.4700,
+      "longitude": 11.2980,
       "fitnessOffers": [
         {
-          "name": "Rückenfit für Senioren",
-          "day": "Dienstag",
-          "time": "09:30 - 10:30",
-          "location": "Rehasport-Zentrum",
+          "name": "Rehabilitationssport",
+          "description": "Ärztlich verordneter Reha-Sport zur Wiederherstellung der körperlichen Leistungsfähigkeit",
           "cost": "Mit Rezept kostenlos",
           "ageGroup": "alle",
           "requiresRegistration": true
         },
         {
-          "name": "Herzsportgruppe",
-          "day": "Donnerstag",
-          "time": "15:00 - 16:00",
-          "location": "Rehasport-Zentrum",
-          "cost": "Mit Rezept kostenlos",
-          "ageGroup": "alle",
-          "requiresRegistration": true
+          "name": "Gesundheitssport",
+          "description": "Präventive Bewegungsangebote zur Gesundheitsförderung",
+          "ageGroup": "alle"
+        },
+        {
+          "name": "Wassergymnastik",
+          "description": "Gelenkschonendes Training im Wasser",
+          "ageGroup": "alle"
         }
       ],
       "isBarrierFree": true,

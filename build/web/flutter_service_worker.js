@@ -3,16 +3,17 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {"assets/AssetManifest.bin": "023f386b8db57eaaa2861a75b82c49e8",
-"assets/AssetManifest.bin.json": "3e3859cefeda8fd0276172f7e6777849",
-"assets/assets/data/engagement/places.json": "147748cc4232984491825305d3c454fa",
-"assets/assets/data/health/doctors.json": "17668a667639722b33e7ec54273e72b4",
-"assets/assets/data/health/fitness.json": "ed98f75cafe300f62673be6ca3552a8f",
-"assets/assets/data/health/pharmacies.json": "76c4b1f6f4dc239028677326bf92de33",
+const RESOURCES = {"assets/AssetManifest.bin": "f2546325bcb54b702b70b7a6b31f6e95",
+"assets/AssetManifest.bin.json": "50428022074d146139c65bb7d7def3b0",
+"assets/assets/data/engagement/places.json": "804582e89c15e2fbe5a24739bc6f345a",
+"assets/assets/data/health/doctors.json": "b9db4f370abc4d7c9727390bc57a8dc8",
+"assets/assets/data/health/fitness.json": "1a5c5250011c7fc0076307cfd5935305",
+"assets/assets/data/health/hospitals.json": "e65122ab9c193f327ba062c01098e5de",
+"assets/assets/data/health/pharmacies.json": "0d2e07960a5770aa36cd078f8ccd97a9",
 "assets/data/events/events_current.json": "5011b4e8fbcdf5f5da2ea8715007f8ae",
 "assets/data/notices/notices_current.json": "d021d04caff0d9d7c902749d07f6f306",
 "assets/FontManifest.json": "7b2a36307916a9721811788013e65289",
-"assets/fonts/MaterialIcons-Regular.otf": "862fe03725b32d262c71c608922c749d",
+"assets/fonts/MaterialIcons-Regular.otf": "233c5400773493f46d40e6679b9e297b",
 "assets/lib/assets/data/analytics.json": "32057235e668e869bcb2d4bd47c9dd77",
 "assets/lib/assets/data/locations.json": "417a9ff482ac95887eb76d8cc6a299ea",
 "assets/lib/assets/data/msh_seed_locations.geojson": "a51533b2b734fa87f091458696bc2e3b",
@@ -34,7 +35,7 @@ const RESOURCES = {"assets/AssetManifest.bin": "023f386b8db57eaaa2861a75b82c49e8
 "canvaskit/skwasm_heavy.wasm": "b0be7910760d205ea4e011458df6ee01",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "flutter.js": "24bc71911b75b5f8135c949e27a2984e",
-"flutter_bootstrap.js": "ee730169b7dfcec66e1c278b95525b5f",
+"flutter_bootstrap.js": "3fda101c79f3ad5d84e0c876bd17eae8",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
@@ -42,7 +43,7 @@ const RESOURCES = {"assets/AssetManifest.bin": "023f386b8db57eaaa2861a75b82c49e8
 "import.html": "94f049fc0bfa06a59f5b4f8e3f1a1510",
 "index.html": "59cab93631e6a01db33d0064765b00a2",
 "/": "59cab93631e6a01db33d0064765b00a2",
-"main.dart.js": "0de425dbbb22346e30aa662b98c70fb6",
+"main.dart.js": "50e7876782e80f122ddae14cb907241a",
 "manifest.json": "7650c600954b95bc8831b201afedd1fe",
 "version.json": "80b8606e91ece0c3c2ff5682ec0dce0c"};
 // The application shell files that are downloaded before a service worker can

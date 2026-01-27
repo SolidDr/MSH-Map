@@ -1,149 +1,100 @@
 {
+  "meta": {
+    "source": "sangerhausen.de, feuerwehr-hettstedt.de, tafel-eisleben.de, drk-blutspende.de",
+    "created_at": "2026-01-27",
+    "version": "2.0",
+    "region": "Mansfeld-Südharz",
+    "note": "Echte Engagement-Daten"
+  },
   "places": [
     {
       "id": "tierheim_sgh",
       "name": "Tierheim Sangerhausen",
       "type": "animal_shelter",
-      "latitude": 51.4725,
-      "longitude": 11.2978,
+      "latitude": 51.4738,
+      "longitude": 11.2965,
       "city": "Sangerhausen",
-      "street": "Tierheimweg 1",
-      "phone": "03464 123456",
-      "email": "info@tierheim-sangerhausen.de",
-      "website": "https://tierheim-sangerhausen.de",
-      "openingHours": "Di-Fr 14-17, Sa 10-12",
+      "street": "Eschental 14",
+      "postalCode": "06526",
+      "phone": "03464278308",
+      "phoneFormatted": "03464 / 27 83 08",
+      "website": "https://sangerhausen.de/buergerservice/tierheim",
+      "openingHours": {
+        "tuesday": {"from": "10:00", "to": "12:00", "afternoon": {"from": "14:00", "to": "18:00"}},
+        "thursday": {"from": "10:00", "to": "12:00", "afternoon": {"from": "14:00", "to": "18:00"}},
+        "friday": {"from": "09:30", "to": "12:30"},
+        "saturday": {"from": "09:30", "to": "12:30"}
+      },
+      "openingHoursText": "Di+Do 10-12 & 14-18 Uhr, Fr+Sa 9:30-12:30 Uhr",
       "isVerified": true,
-      "description": "Wir kümmern uns seit über 30 Jahren um herrenlose und abgegebene Tiere in der Region Sangerhausen.",
-      "currentNeeds": [
-        {
-          "id": "need_1",
-          "title": "Gassigeher gesucht",
-          "description": "Wir suchen dringend ehrenamtliche Helfer für regelmäßiges Gassigehen mit unseren Hunden.",
-          "urgency": "elevated",
-          "category": "volunteers",
-          "contactEmail": "freiwillige@tierheim-sangerhausen.de",
-          "validUntil": "2025-12-31"
-        },
-        {
-          "id": "need_2",
-          "title": "Futterspenden benötigt",
-          "description": "Besonders Hundefutter für große Rassen wird aktuell dringend gebraucht.",
-          "urgency": "urgent",
-          "category": "donations",
-          "contactEmail": "spenden@tierheim-sangerhausen.de"
-        }
-      ],
-      "adoptableAnimals": [
-        {
-          "id": "dog_1",
-          "name": "Max",
-          "type": "dog",
-          "breed": "Schäferhund-Mix",
-          "age": "4 Jahre",
-          "gender": "männlich",
-          "size": "groß",
-          "character": "Freundlich und verspielt, braucht viel Bewegung",
-          "description": "Max ist ein toller Kerl, der leider sein Zuhause verloren hat. Er ist verträglich mit anderen Hunden und liebt lange Spaziergänge.",
-          "isUrgent": true,
-          "availableSince": "2024-09-15",
-          "imageUrl": "assets/images/engagement/max.jpg"
-        },
-        {
-          "id": "cat_1",
-          "name": "Luna",
-          "type": "cat",
-          "breed": "Europäisch Kurzhaar",
-          "age": "2 Jahre",
-          "gender": "weiblich",
-          "size": "mittel",
-          "character": "Verschmust und ruhig",
-          "description": "Luna ist eine zauberhafte Katze, die ein ruhiges Zuhause ohne Kinder sucht.",
-          "isUrgent": false,
-          "availableSince": "2024-10-20",
-          "imageUrl": "assets/images/engagement/luna.jpg"
-        }
-      ]
+      "description": "Das städtische Tierheim Sangerhausen kümmert sich um herrenlose und abgegebene Tiere in der Region. Spenden möglich an die Anny-Bauer-Tierheim-Stiftung.",
+      "donationInfo": {
+        "name": "Anny-Bauer-Tierheim-Stiftung",
+        "bank": "Volksbank Sangerhausen",
+        "iban": "DE37 8006 3558 0301 0009 00",
+        "bic": "GENODEF1SGH",
+        "purpose": "Spende"
+      },
+      "currentNeeds": [],
+      "adoptableAnimals": []
     },
     {
       "id": "ffw_hettstedt",
-      "name": "Freiwillige Feuerwehr Hettstedt",
+      "name": "Freiwillige Feuerwehr Stadt Hettstedt",
       "type": "volunteer",
-      "latitude": 51.6333,
-      "longitude": 11.5000,
+      "latitude": 51.6437,
+      "longitude": 11.5094,
       "city": "Hettstedt",
-      "street": "Feuerwehrstraße 5",
-      "phone": "03476 123456",
-      "email": "info@ffw-hettstedt.de",
-      "website": "https://ffw-hettstedt.de",
+      "street": "Obermühlenstraße 11",
+      "postalCode": "06333",
+      "phone": "03476398799",
+      "phoneFormatted": "03476 / 39 87 99 6",
+      "website": "https://www.feuerwehr-hettstedt.de/",
       "isVerified": true,
-      "description": "Die Freiwillige Feuerwehr Hettstedt schützt seit 1890 Leben und Eigentum in unserer Stadt.",
-      "currentNeeds": [
-        {
-          "id": "need_ffw_1",
-          "title": "Neue Mitglieder gesucht",
-          "description": "Wir suchen engagierte Bürger ab 18 Jahren für die Einsatzabteilung.",
-          "urgency": "elevated",
-          "category": "volunteers",
-          "contactEmail": "mitgliedschaft@ffw-hettstedt.de"
-        }
-      ],
+      "description": "Die Freiwillige Feuerwehr Stadt Hettstedt schützt Leben und Eigentum in der Kupferstadt Hettstedt. Mitgliedschaft ab 17 Jahren möglich (Einsatzabteilung) oder ab 10 Jahren (Jugendfeuerwehr).",
+      "membershipInfo": {
+        "minAge": 17,
+        "youthAge": 10,
+        "training": "80 Stunden Grundausbildung",
+        "benefits": "Kostenlose Ausbildung, Ausrüstung gestellt, Versicherungsschutz"
+      },
+      "currentNeeds": [],
       "adoptableAnimals": []
     },
     {
       "id": "tafel_eisleben",
       "name": "Tafel Lutherstadt Eisleben",
       "type": "social_service",
-      "latitude": 51.5269,
-      "longitude": 11.5503,
+      "latitude": 51.5267,
+      "longitude": 11.5492,
       "city": "Lutherstadt Eisleben",
-      "street": "Hallesche Straße 12",
-      "phone": "03475 654321",
-      "email": "info@tafel-eisleben.de",
-      "openingHours": "Mo, Mi, Fr 9-12",
+      "street": "Rammtorstraße 37",
+      "postalCode": "06295",
+      "website": "https://www.tafel-eisleben.de/",
+      "openingHoursText": "Mo, Di, Do, Fr geöffnet",
       "isVerified": true,
-      "description": "Die Tafel Eisleben versorgt bedürftige Menschen mit Lebensmitteln und unterstützt bei sozialen Notlagen.",
-      "currentNeeds": [
-        {
-          "id": "need_tafel_1",
-          "title": "Fahrer mit Führerschein gesucht",
-          "description": "Für die Abholung von Lebensmitteln benötigen wir Fahrer (Klasse B) an 2-3 Tagen pro Woche.",
-          "urgency": "urgent",
-          "category": "volunteers",
-          "contactEmail": "helfen@tafel-eisleben.de"
-        },
-        {
-          "id": "need_tafel_2",
-          "title": "Haltbare Lebensmittel",
-          "description": "Konserven, Nudeln, Reis und andere haltbare Lebensmittel werden dringend benötigt.",
-          "urgency": "elevated",
-          "category": "donations",
-          "contactEmail": "spenden@tafel-eisleben.de"
-        }
-      ],
+      "description": "Die Tafel Eisleben versorgt bedürftige Menschen mit Lebensmitteln. Träger ist der Förderverein für Soziokultur und Beschäftigung e.V.",
+      "carrier": "Förderverein für Soziokultur und Beschäftigung e.V.",
+      "currentNeeds": [],
       "adoptableAnimals": []
     },
     {
       "id": "drk_blutspende_msh",
-      "name": "DRK Blutspendedienst",
+      "name": "DRK Blutspende - Termine in Sangerhausen",
       "type": "blood_donation",
-      "latitude": 51.4700,
-      "longitude": 11.3000,
+      "latitude": 51.4563,
+      "longitude": 11.2906,
       "city": "Sangerhausen",
-      "street": "Wipperstraße 20",
-      "phone": "03464 789012",
-      "website": "https://blutspende.drk.de",
+      "street": "Wilhelm-Koenen-Straße 35",
+      "postalCode": "06526",
+      "location": "DRK-Seniorenzentrum Kyffhäuserblick",
+      "phone": "0800 11 949 11",
+      "phoneFormatted": "0800 / 11 949 11 (kostenlos)",
+      "website": "https://www.drk-blutspende.de/blutspendetermine/termine?term=Sangerhausen",
       "isVerified": true,
-      "description": "Regelmäßige Blutspendetermine in der Region Mansfeld-Südharz.",
-      "currentNeeds": [
-        {
-          "id": "need_blut_1",
-          "title": "Blutspender dringend gesucht",
-          "description": "Besonders Blutgruppen 0 negativ und AB negativ werden aktuell dringend benötigt.",
-          "urgency": "critical",
-          "category": "volunteers",
-          "contactEmail": "termin@blutspende-drk.de"
-        }
-      ],
+      "description": "Regelmäßige Blutspendetermine im DRK-Seniorenzentrum Kyffhäuserblick in Sangerhausen. Termine von 15:00-19:00 Uhr. Terminreservierung bis zu 4 Wochen im Voraus möglich.",
+      "donationHours": "15:00 - 19:00 Uhr",
+      "currentNeeds": [],
       "adoptableAnimals": []
     }
   ]
