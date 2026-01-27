@@ -157,13 +157,13 @@ class _WelcomeContent extends StatelessWidget {
                   ),
                   const SizedBox(height: 39),
 
-                  // Features - kompakter in 2x2 Grid
+                  // Features - Module-Übersicht
                   const Row(
                     children: [
                       Expanded(
                         child: _FeatureItem(
                           icon: Icons.family_restroom,
-                          title: 'Familienausflüge',
+                          title: 'Familie',
                           desc: 'Spielplätze, Museen, Natur',
                         ),
                       ),
@@ -172,7 +172,7 @@ class _WelcomeContent extends StatelessWidget {
                         child: _FeatureItem(
                           icon: Icons.restaurant,
                           title: 'Gastronomie',
-                          desc: 'Restaurants, Cafés, Imbisse',
+                          desc: 'Restaurants & Cafés',
                         ),
                       ),
                     ],
@@ -183,15 +183,37 @@ class _WelcomeContent extends StatelessWidget {
                       Expanded(
                         child: _FeatureItem(
                           icon: Icons.event,
-                          title: 'Events & Kultur',
-                          desc: 'Veranstaltungen in der Region',
+                          title: 'Events',
+                          desc: 'Veranstaltungen live',
+                        ),
+                      ),
+                      SizedBox(width: 12),
+                      Expanded(
+                        child: _FeatureItem(
+                          icon: Icons.local_hospital,
+                          title: 'Gesundheit',
+                          desc: 'Ärzte & Apotheken',
+                          isNew: true,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 12),
+                  const Row(
+                    children: [
+                      Expanded(
+                        child: _FeatureItem(
+                          icon: Icons.directions_bus,
+                          title: 'Mobilität',
+                          desc: 'ÖPNV-Abfahrten',
+                          isNew: true,
                         ),
                       ),
                       SizedBox(width: 12),
                       Expanded(
                         child: _FeatureItem(
                           icon: Icons.cookie_outlined,
-                          title: 'Privatsphäre-freundlich',
+                          title: 'Privatsphäre',
                           desc: 'Keine Tracking-Cookies',
                           highlight: true,
                         ),
@@ -244,17 +266,19 @@ class _WelcomeContent extends StatelessWidget {
 }
 
 class _FeatureItem extends StatelessWidget {
-
   const _FeatureItem({
     required this.icon,
     required this.title,
     required this.desc,
     this.highlight = false,
+    this.isNew = false,
   });
+
   final IconData icon;
   final String title;
   final String desc;
   final bool highlight;
+  final bool isNew;
 
   @override
   Widget build(BuildContext context) {
@@ -263,19 +287,55 @@ class _FeatureItem extends StatelessWidget {
       decoration: BoxDecoration(
         color: highlight
             ? MshColors.success.withValues(alpha: 0.15)
-            : Colors.white.withValues(alpha: 0.05),
+            : isNew
+                ? MshColors.primary.withValues(alpha: 0.15)
+                : Colors.white.withValues(alpha: 0.05),
         borderRadius: BorderRadius.circular(12),
         border: highlight
             ? Border.all(color: MshColors.success.withValues(alpha: 0.3))
-            : null,
+            : isNew
+                ? Border.all(color: MshColors.primary.withValues(alpha: 0.3))
+                : null,
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(
-            icon,
-            color: highlight ? MshColors.success : MshColors.primary,
-            size: 32,
+          Stack(
+            clipBehavior: Clip.none,
+            children: [
+              Icon(
+                icon,
+                color: highlight
+                    ? MshColors.success
+                    : isNew
+                        ? MshColors.primary
+                        : MshColors.primary,
+                size: 32,
+              ),
+              if (isNew)
+                Positioned(
+                  top: -4,
+                  right: -12,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 4,
+                      vertical: 1,
+                    ),
+                    decoration: BoxDecoration(
+                      color: MshColors.primary,
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    child: const Text(
+                      'NEU',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 8,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+            ],
           ),
           const SizedBox(height: 12),
           Text(

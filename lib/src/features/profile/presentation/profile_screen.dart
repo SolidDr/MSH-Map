@@ -253,7 +253,7 @@ class ProfileScreen extends StatelessWidget {
               ),
               const SizedBox(height: 2),
               Text(
-                'Melde dich an für mehr Funktionen',
+                'Login-Funktion kommt bald',
                 style: Theme.of(context).textTheme.bodySmall?.copyWith(
                       color: MshColors.textSecondary,
                     ),
@@ -262,10 +262,34 @@ class ProfileScreen extends StatelessWidget {
           ),
         ),
 
-        // Login Button
-        FilledButton(
-          onPressed: () => context.push('/login'),
-          child: const Text('Anmelden'),
+        // Coming Soon Badge
+        Container(
+          padding: const EdgeInsets.symmetric(
+            horizontal: MshSpacing.sm,
+            vertical: MshSpacing.xs,
+          ),
+          decoration: BoxDecoration(
+            color: MshColors.textMuted.withValues(alpha: 0.15),
+            borderRadius: BorderRadius.circular(MshTheme.radiusSmall),
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Icon(
+                Icons.schedule,
+                size: 14,
+                color: MshColors.textSecondary,
+              ),
+              const SizedBox(width: 4),
+              Text(
+                'Bald',
+                style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                      color: MshColors.textSecondary,
+                      fontWeight: FontWeight.w600,
+                    ),
+              ),
+            ],
+          ),
         ),
       ],
     );

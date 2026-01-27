@@ -2,15 +2,17 @@
 ///
 /// Kompakte Infozeile am unteren Kartenrand:
 /// - POI Counter
+/// - Up Next Events
 /// - Quick Action Chips
-/// - Slide-up für mehr Details
 library;
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
 import '../../core/theme/msh_colors.dart';
 import '../../core/theme/msh_spacing.dart';
 import '../../core/theme/msh_theme.dart';
+import 'up_next_section.dart';
 
 /// Quick Action Typen
 enum QuickAction {
@@ -76,20 +78,31 @@ class BottomContentCard extends StatelessWidget {
             // Content
             Padding(
               padding: const EdgeInsets.fromLTRB(
-                MshSpacing.lg, // 21px
+                0, // UpNextSection hat eigenes Padding
                 0,
-                MshSpacing.lg, // 21px
+                0,
                 MshSpacing.md, // 13px
               ),
               child: Column(
                 children: [
                   // POI Counter Row
-                  _buildPoiCounterRow(context),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: MshSpacing.lg),
+                    child: _buildPoiCounterRow(context),
+                  ),
 
-                  const SizedBox(height: MshSpacing.md), // 13px
+                  const SizedBox(height: MshSpacing.sm),
+
+                  // Up Next Events
+                  const UpNextSection(),
+
+                  const SizedBox(height: MshSpacing.sm),
 
                   // Quick Actions
-                  _buildQuickActions(context),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: MshSpacing.lg),
+                    child: _buildQuickActions(context),
+                  ),
                 ],
               ),
             ),
@@ -210,7 +223,7 @@ class BottomContentCard extends StatelessWidget {
                   ),
                   child: _QuickActionChip(action: action),
                 ),
-              ))
+              ),)
           .toList(),
     );
   }
