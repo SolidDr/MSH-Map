@@ -19,8 +19,11 @@ class _WelcomeOverlayState extends State<WelcomeOverlay>
   bool _showOverlay = true;
   bool _isLoading = true;
 
-  // LocalStorage Key (NICHT Cookie!)
-  static const _storageKey = 'msh_welcome_seen_v1';
+  // LocalStorage Key für Timestamp der letzten Anzeige
+  static const _lastSeenKey = 'msh_welcome_last_seen';
+
+  // Cooldown: Nicht erneut anzeigen wenn innerhalb dieser Zeit geöffnet
+  static const _cooldownMinutes = 10;
 
   @override
   void initState() {
@@ -33,14 +36,27 @@ class _WelcomeOverlayState extends State<WelcomeOverlay>
       parent: _controller,
       curve: Curves.easeOut,
     );
-    _checkIfSeen();
+    _checkIfShouldShow();
   }
 
-  Future<void> _checkIfSeen() async {
+  Future<void> _checkIfShouldShow() async {
     final prefs = await SharedPreferences.getInstance();
-    final seen = prefs.getBool(_storageKey) ?? false;
+    final lastSeenTimestamp = prefs.getInt(_lastSeenKey);
+
+    var shouldShow = true;
+
+    if (lastSeenTimestamp != null) {
+      final lastSeen = DateTime.fromMillisecondsSinceEpoch(lastSeenTimestamp);
+      final difference = DateTime.now().difference(lastSeen);
+
+      // Nicht anzeigen wenn weniger als _cooldownMinutes vergangen sind
+      if (difference.inMinutes < _cooldownMinutes) {
+        shouldShow = false;
+      }
+    }
+
     setState(() {
-      _showOverlay = !seen;
+      _showOverlay = shouldShow;
       _isLoading = false;
     });
   }
@@ -48,8 +64,11 @@ class _WelcomeOverlayState extends State<WelcomeOverlay>
   Future<void> _dismiss() async {
     _controller.forward();
     await Future<void>.delayed(const Duration(milliseconds: 400));
+
+    // Speichere aktuellen Timestamp
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool(_storageKey, true);
+    await prefs.setInt(_lastSeenKey, DateTime.now().millisecondsSinceEpoch);
+
     setState(() => _showOverlay = false);
   }
 

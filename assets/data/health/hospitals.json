@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "source": "helios-gesundheit.de, bundes-klinik-atlas.de",
+    "created_at": "2026-01-27",
+    "version": "1.0",
+    "region": "Mansfeld-Südharz",
+    "note": "Echte Krankenhaus-Daten"
+  },
+  "data": [
+    {
+      "id": "kh_sg_001",
+      "type": "hospital",
+      "name": "HELIOS Klinik Sangerhausen",
+      "phone": "03464210",
+      "phoneFormatted": "03464 / 21-0",
+      "website": "https://www.helios-gesundheit.de/standorte-angebote/kliniken/mansfeld-suedharz/",
+      "street": "Am Beinschuh 2b",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "latitude": 51.4752,
+      "longitude": 11.3045,
+      "isBarrierFree": true,
+      "hasParking": true,
+      "hasEmergency": true,
+      "beds": 250,
+      "departments": [
+        "Orthopädie und Unfallchirurgie",
+        "Gefäßchirurgie",
+        "Gynäkologie und Geburtshilfe",
+        "Innere Medizin",
+        "Kinderheilkunde",
+        "Neurologie",
+        "Geriatrie",
+        "Notfallmedizin"
+      ],
+      "description": "Mit über 250 Betten und 9 modernen Fachabteilungen bietet die HELIOS Klinik Sangerhausen kompetente medizinische Versorgung rund um die Uhr."
+    },
+    {
+      "id": "kh_el_001",
+      "type": "hospital",
+      "name": "HELIOS Klinik Lutherstadt Eisleben",
+      "phone": "034755210",
+      "phoneFormatted": "03475 / 521-0",
+      "website": "https://www.helios-gesundheit.de/kliniken/lutherstadt-eisleben/",
+      "street": "Hohetorstraße 25",
+      "postalCode": "06295",
+      "city": "Lutherstadt Eisleben",
+      "latitude": 51.5285,
+      "longitude": 11.5472,
+      "isBarrierFree": true,
+      "hasParking": true,
+      "hasEmergency": true,
+      "departments": [
+        "Allgemein- und Viszeralchirurgie",
+        "Urologie",
+        "Innere Medizin mit Kardiologie",
+        "Geriatrie",
+        "HNO (Hals-Nasen-Ohren)"
+      ],
+      "description": "Die HELIOS Klinik Lutherstadt Eisleben mit über hundertjähriger Geschichte ist fester Bestandteil der Gesundheitsversorgung in Mansfeld-Südharz."
+    },
+    {
+      "id": "kh_ht_001",
+      "type": "hospital",
+      "name": "HELIOS Klinik Hettstedt",
+      "phone": "034760",
+      "phoneFormatted": "03476 / 0",
+      "website": "https://www.helios-gesundheit.de/kliniken/hettstedt/",
+      "street": "Robert-Koch-Straße 6",
+      "postalCode": "06333",
+      "city": "Hettstedt",
+      "latitude": 51.6412,
+      "longitude": 11.5134,
+      "isBarrierFree": true,
+      "hasParking": true,
+      "hasEmergency": false,
+      "departments": [
+        "Psychiatrie",
+        "Schmerztherapie"
+      ],
+      "description": "Der Standort Hettstedt entwickelt sich zu einer hochspezialisierten Klinik für Psychiatrie und Schmerztherapie."
+    }
+  ]
+}

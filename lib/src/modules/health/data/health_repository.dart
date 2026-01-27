@@ -64,6 +64,21 @@ class HealthRepository {
       debugPrint('Konnte Fitness nicht laden: $e');
     }
 
+    // Lade Krankenhäuser
+    try {
+      final hospitalsJson =
+          await rootBundle.loadString('assets/data/health/hospitals.json');
+      final hospitalsData = jsonDecode(hospitalsJson) as Map<String, dynamic>;
+      final hospitalsList = hospitalsData['data'] as List<dynamic>;
+      facilities.addAll(
+        hospitalsList.map(
+          (e) => HealthFacility.fromJson(e as Map<String, dynamic>),
+        ),
+      );
+    } on Exception catch (e) {
+      debugPrint('Konnte Krankenhäuser nicht laden: $e');
+    }
+
     _cachedFacilities = facilities;
     _streamController.add(facilities);
     return facilities;

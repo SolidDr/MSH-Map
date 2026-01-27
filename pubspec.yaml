@@ -65,3 +65,4 @@ flutter:
     - assets/data/health/doctors.json
     - assets/data/health/pharmacies.json
     - assets/data/health/fitness.json
+    - assets/data/health/hospitals.json
