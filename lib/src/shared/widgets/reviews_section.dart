@@ -1,49 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/theme/msh_colors.dart';
 import '../../core/theme/msh_spacing.dart';
+import '../../core/theme/msh_theme.dart';
+import '../../features/ratings/application/rating_providers.dart';
+import '../../features/ratings/domain/rating_model.dart';
+import '../../features/ratings/presentation/rating_bottom_sheet.dart';
+import '../../features/ratings/presentation/rating_input_widget.dart';
 
-/// Einzelne Bewertung
-class Review {
-  const Review({
-    required this.rating,
-    this.text,
-    this.date,
-    this.source,
-    this.authorName,
-  });
-
-  final double rating; // 1-5
-  final String? text;
-  final DateTime? date;
-  final String? source; // z.B. "Google", "Tripadvisor"
-  final String? authorName;
-}
-
-/// Bewertungs-Sektion für Ort-Details
-class ReviewsSection extends StatelessWidget {
+/// Bewertungs-Sektion für POI-Details
+///
+/// Zeigt Bewertungen aus Firestore und ermöglicht anonymes Bewerten
+class ReviewsSection extends ConsumerWidget {
   const ReviewsSection({
+    required this.poiId,
+    required this.poiName,
     super.key,
-    required this.reviews,
-    this.averageRating,
   });
 
-  final List<Review> reviews;
-  final double? averageRating;
+  final String poiId;
+  final String poiName;
 
   @override
-  Widget build(BuildContext context) {
-    // Berechne Durchschnitt falls nicht gegeben
-    final avg = averageRating ??
-        (reviews.isNotEmpty
-            ? reviews.map((r) => r.rating).reduce((a, b) => a + b) /
-                reviews.length
-            : 0.0);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final ratingAsync = ref.watch(poiRatingProvider(poiId));
+    final hasRatedAsync = ref.watch(hasRatedProvider(poiId));
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Titel
+        // Titel mit Bewerten-Button
         Row(
           children: [
             Text(
@@ -52,54 +39,167 @@ class ReviewsSection extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
             ),
-            if (reviews.isNotEmpty) ...[
-              const SizedBox(width: 8),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                decoration: BoxDecoration(
-                  color: MshColors.textMuted.withValues(alpha: 0.2),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Text(
-                  '${reviews.length}',
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: MshColors.textSecondary,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-            ],
+            const Spacer(),
+            // Bewerten-Button
+            hasRatedAsync.when(
+              loading: () => const SizedBox.shrink(),
+              error: (_, __) => _buildRateButton(context, false),
+              data: (hasRated) => _buildRateButton(context, hasRated),
+            ),
           ],
         ),
         const SizedBox(height: MshSpacing.md),
 
-        // Keine Bewertungen
-        if (reviews.isEmpty)
-          _NoReviews()
-        else ...[
-          // Zusammenfassung
-          _ReviewsSummary(
-            averageRating: avg,
-            reviewCount: reviews.length,
+        // Bewertungs-Inhalt
+        ratingAsync.when(
+          loading: () => const Center(
+            child: Padding(
+              padding: EdgeInsets.all(MshSpacing.lg),
+              child: CircularProgressIndicator(),
+            ),
+          ),
+          error: (error, _) => _NoReviews(
+            poiId: poiId,
+            poiName: poiName,
+          ),
+          data: (rating) {
+            if (!rating.hasRatings) {
+              return _NoReviews(
+                poiId: poiId,
+                poiName: poiName,
+              );
+            }
+            return _ReviewsContent(
+              rating: rating,
+              poiId: poiId,
+              poiName: poiName,
+            );
+          },
+        ),
+      ],
+    );
+  }
+
+  Widget _buildRateButton(BuildContext context, bool hasRated) {
+    return TextButton.icon(
+      onPressed: () => RatingBottomSheet.show(
+        context: context,
+        poiId: poiId,
+        poiName: poiName,
+      ),
+      icon: Icon(
+        hasRated ? Icons.check_circle : Icons.star_outline_rounded,
+        size: 18,
+        color: hasRated ? MshColors.success : MshColors.primary,
+      ),
+      label: Text(
+        hasRated ? 'Bewertet' : 'Bewerten',
+        style: TextStyle(
+          color: hasRated ? MshColors.success : MshColors.primary,
+        ),
+      ),
+    );
+  }
+}
+
+/// Keine Bewertungen vorhanden
+class _NoReviews extends StatelessWidget {
+  const _NoReviews({
+    required this.poiId,
+    required this.poiName,
+  });
+
+  final String poiId;
+  final String poiName;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(MshSpacing.lg),
+      decoration: BoxDecoration(
+        color: MshColors.surfaceVariant,
+        borderRadius: BorderRadius.circular(MshTheme.radiusMedium),
+      ),
+      child: Column(
+        children: [
+          const Icon(
+            Icons.rate_review_outlined,
+            size: 40,
+            color: MshColors.textMuted,
+          ),
+          const SizedBox(height: MshSpacing.sm),
+          const Text(
+            'Noch keine Bewertungen',
+            style: TextStyle(
+              color: MshColors.textSecondary,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          const SizedBox(height: 4),
+          const Text(
+            'Sei der Erste, der diesen Ort bewertet!',
+            style: TextStyle(
+              color: MshColors.textMuted,
+              fontSize: 12,
+            ),
           ),
           const SizedBox(height: MshSpacing.md),
+          FilledButton.icon(
+            onPressed: () => RatingBottomSheet.show(
+              context: context,
+              poiId: poiId,
+              poiName: poiName,
+            ),
+            icon: const Icon(Icons.star_rounded, size: 18),
+            label: const Text('Jetzt bewerten'),
+          ),
+        ],
+      ),
+    );
+  }
+}
 
-          // Einzelne Bewertungen (max 5)
-          ...reviews.take(5).map((review) => Padding(
-                padding: const EdgeInsets.only(bottom: MshSpacing.sm),
-                child: _ReviewItem(review: review),
-              )),
+/// Bewertungen mit Inhalt
+class _ReviewsContent extends StatelessWidget {
+  const _ReviewsContent({
+    required this.rating,
+    required this.poiId,
+    required this.poiName,
+  });
 
-          // "Mehr anzeigen" Button
-          if (reviews.length > 5)
-            TextButton(
-              onPressed: () {
-                // TODO: Alle Bewertungen anzeigen
-              },
-              child: Text(
-                'Alle ${reviews.length} Bewertungen anzeigen',
-                style: TextStyle(color: MshColors.primary),
+  final PoiRating rating;
+  final String poiId;
+  final String poiName;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // Zusammenfassung
+        _ReviewsSummary(rating: rating),
+        const SizedBox(height: MshSpacing.md),
+
+        // Einzelne Bewertungen (max 5)
+        if (rating.reviews.isNotEmpty) ...[
+          ...rating.reviews.take(5).map(
+                (review) => Padding(
+                  padding: const EdgeInsets.only(bottom: MshSpacing.sm),
+                  child: _ReviewItem(review: review),
+                ),
+              ),
+
+          // "Mehr anzeigen" wenn mehr als 5
+          if (rating.reviews.length > 5)
+            Center(
+              child: TextButton(
+                onPressed: () {
+                  // TODO: Alle Bewertungen in Modal anzeigen
+                },
+                child: Text(
+                  'Alle ${rating.totalCount} Bewertungen anzeigen',
+                  style: const TextStyle(color: MshColors.primary),
+                ),
               ),
             ),
         ],
@@ -108,54 +208,11 @@ class ReviewsSection extends StatelessWidget {
   }
 }
 
-/// Keine Bewertungen vorhanden
-class _NoReviews extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(MshSpacing.lg),
-      decoration: BoxDecoration(
-        color: MshColors.surfaceVariant,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Column(
-        children: [
-          Icon(
-            Icons.rate_review_outlined,
-            size: 40,
-            color: MshColors.textMuted,
-          ),
-          const SizedBox(height: MshSpacing.sm),
-          Text(
-            'Noch keine Bewertungen',
-            style: TextStyle(
-              color: MshColors.textSecondary,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            'Sei der Erste, der diesen Ort bewertet!',
-            style: TextStyle(
-              color: MshColors.textMuted,
-              fontSize: 12,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
 /// Zusammenfassung der Bewertungen
 class _ReviewsSummary extends StatelessWidget {
-  const _ReviewsSummary({
-    required this.averageRating,
-    required this.reviewCount,
-  });
+  const _ReviewsSummary({required this.rating});
 
-  final double averageRating;
-  final int reviewCount;
+  final PoiRating rating;
 
   @override
   Widget build(BuildContext context) {
@@ -163,7 +220,7 @@ class _ReviewsSummary extends StatelessWidget {
       padding: const EdgeInsets.all(MshSpacing.md),
       decoration: BoxDecoration(
         color: MshColors.surfaceVariant,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(MshTheme.radiusMedium),
       ),
       child: Row(
         children: [
@@ -171,25 +228,26 @@ class _ReviewsSummary extends StatelessWidget {
           Column(
             children: [
               Text(
-                averageRating.toStringAsFixed(1),
+                rating.formattedRating,
                 style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                       fontWeight: FontWeight.bold,
-                      color: MshColors.primary,
+                      color: MshColors.textStrong,
                     ),
               ),
-              _StarRating(rating: averageRating),
+              RatingDisplayWidget(
+                rating: rating.averageRating,
+                showCount: false,
+                size: 16,
+              ),
             ],
           ),
           const SizedBox(width: MshSpacing.lg),
 
-          // Anzahl Bewertungen
+          // Verteilung
           Expanded(
-            child: Text(
-              'basierend auf $reviewCount ${reviewCount == 1 ? 'Bewertung' : 'Bewertungen'}',
-              style: TextStyle(
-                color: MshColors.textSecondary,
-                fontSize: 13,
-              ),
+            child: RatingDistributionWidget(
+              distribution: rating.distribution,
+              totalCount: rating.totalCount,
             ),
           ),
         ],
@@ -202,7 +260,7 @@ class _ReviewsSummary extends StatelessWidget {
 class _ReviewItem extends StatelessWidget {
   const _ReviewItem({required this.review});
 
-  final Review review;
+  final ReviewEntry review;
 
   @override
   Widget build(BuildContext context) {
@@ -210,10 +268,10 @@ class _ReviewItem extends StatelessWidget {
       padding: const EdgeInsets.all(MshSpacing.md),
       decoration: BoxDecoration(
         color: MshColors.surface,
-        borderRadius: BorderRadius.circular(8),
-        border: Border(
+        borderRadius: BorderRadius.circular(MshTheme.radiusSmall),
+        border: const Border(
           left: BorderSide(
-            color: MshColors.primary,
+            color: MshColors.starFilled,
             width: 3,
           ),
         ),
@@ -232,15 +290,18 @@ class _ReviewItem extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              _StarRating(rating: review.rating, size: 16),
-              if (review.date != null)
-                Text(
-                  _formatDate(review.date!),
-                  style: TextStyle(
-                    color: MshColors.textMuted,
-                    fontSize: 11,
-                  ),
+              RatingDisplayWidget(
+                rating: review.rating.toDouble(),
+                showCount: false,
+                size: 16,
+              ),
+              Text(
+                review.relativeTime,
+                style: const TextStyle(
+                  color: MshColors.textMuted,
+                  fontSize: 11,
                 ),
+              ),
             ],
           ),
 
@@ -249,67 +310,15 @@ class _ReviewItem extends StatelessWidget {
             const SizedBox(height: MshSpacing.sm),
             Text(
               review.text!,
-              style: TextStyle(
+              style: const TextStyle(
                 color: MshColors.textPrimary,
                 fontSize: 14,
                 height: 1.4,
               ),
             ),
           ],
-
-          // Quelle
-          if (review.source != null) ...[
-            const SizedBox(height: MshSpacing.sm),
-            Text(
-              'Quelle: ${review.source}',
-              style: TextStyle(
-                color: MshColors.textMuted,
-                fontSize: 11,
-              ),
-            ),
-          ],
         ],
       ),
-    );
-  }
-
-  String _formatDate(DateTime date) {
-    return '${date.day.toString().padLeft(2, '0')}.${date.month.toString().padLeft(2, '0')}.${date.year}';
-  }
-}
-
-/// Sterne-Anzeige
-class _StarRating extends StatelessWidget {
-  const _StarRating({
-    required this.rating,
-    this.size = 18,
-  });
-
-  final double rating;
-  final double size;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: List.generate(5, (index) {
-        final starValue = index + 1;
-
-        IconData icon;
-        if (rating >= starValue) {
-          icon = Icons.star;
-        } else if (rating >= starValue - 0.5) {
-          icon = Icons.star_half;
-        } else {
-          icon = Icons.star_border;
-        }
-
-        return Icon(
-          icon,
-          size: size,
-          color: MshColors.primary,
-        );
-      }),
     );
   }
 }

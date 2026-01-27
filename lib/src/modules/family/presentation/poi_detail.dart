@@ -133,8 +133,9 @@ class PoiDetailContent extends StatelessWidget {
 
           // Bewertungen
           const Divider(height: 32),
-          const ReviewsSection(
-            reviews: [], // TODO: Bewertungen aus Datenbank laden
+          ReviewsSection(
+            poiId: poi.id,
+            poiName: poi.name,
           ),
 
           // Kontakt

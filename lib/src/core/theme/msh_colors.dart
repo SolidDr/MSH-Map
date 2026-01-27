@@ -101,6 +101,13 @@ class MshColors {
   static const Color emergencyGreen = Color(0xFF388E3C);        // Notdienst Apotheke
 
   // ═══════════════════════════════════════════════════════════════
+  // BEWERTUNGS-STERNE
+  // ═══════════════════════════════════════════════════════════════
+
+  static const Color starFilled = Color(0xFFFBBF24);     // Amber 400 - Gefüllter Stern
+  static const Color starEmpty = Color(0xFFD6D3D1);      // Stone 300 - Leerer Stern
+
+  // ═══════════════════════════════════════════════════════════════
   // ZUSÄTZLICHE FARBEN
   // ═══════════════════════════════════════════════════════════════
 
