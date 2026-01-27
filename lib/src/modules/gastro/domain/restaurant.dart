@@ -10,9 +10,7 @@ class Restaurant implements MapItem {
   const Restaurant({
     required this.id,
     required this.name,
-    this.description,
-    required this.location,
-    required this.type,
+    required this.location, required this.type, this.description,
     this.address,
     this.phone,
     this.website,

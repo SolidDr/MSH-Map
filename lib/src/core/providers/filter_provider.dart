@@ -42,13 +42,13 @@ bool _rangesOverlap(String range1, String range2) {
 
 /// Filter State
 class FilterState {
-  final Set<String> categories;
-  final Set<String> activeFilterIds;
 
   const FilterState({
     this.categories = const {},
     this.activeFilterIds = const {},
   });
+  final Set<String> categories;
+  final Set<String> activeFilterIds;
 
   FilterState copyWith({
     Set<String>? categories,
@@ -75,14 +75,17 @@ class FilterState {
 
     if (ageFilters.isNotEmpty) {
       final ageRange = item.metadata['ageRange'] as String?;
-      if (ageRange != null) {
-        // "alle" passt immer
-        if (ageRange == 'alle') return true;
 
-        // Prüfe Überlappung mit ausgewählten Altersfiltern
-        final matches = ageFilters.any((filter) => _rangesOverlap(ageRange, filter));
-        if (!matches) return false;
-      }
+      // Wenn Altersfilter aktiv, aber Item hat kein ageRange → ausschließen
+      // (nur Family-Items haben ageRange)
+      if (ageRange == null) return false;
+
+      // "alle" passt zu jedem Altersfilter
+      if (ageRange == 'alle') return true;
+
+      // Prüfe Überlappung mit ausgewählten Altersfiltern
+      final matches = ageFilters.any((filter) => _rangesOverlap(ageRange, filter));
+      if (!matches) return false;
     }
 
     return true;

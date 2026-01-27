@@ -5,6 +5,27 @@ import '../../../shared/domain/map_item.dart';
 
 /// Event Model - MSH Radar Events
 class MshEvent implements MapItem {
+
+  /// Parse from JSON
+  factory MshEvent.fromJson(Map<String, dynamic> json) {
+    return MshEvent(
+      id: json['id'] as String,
+      name: json['name'] as String,
+      date: DateTime.parse(json['date'] as String),
+      locationName: json['location_name'] as String,
+      latitude: (json['latitude'] as num).toDouble(),
+      longitude: (json['longitude'] as num).toDouble(),
+      city: json['city'] as String,
+      eventCategory: EventCategory.fromString(json['category'] as String),
+      dateEnd: json['date_end'] != null ? DateTime.parse(json['date_end'] as String) : null,
+      timeStart: json['time_start'] as String?,
+      timeEnd: json['time_end'] as String?,
+      description: json['description'] as String?,
+      price: json['price'] as String?,
+      sourceUrl: json['source_url'] as String?,
+      tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList() ?? [],
+    );
+  }
   const MshEvent({
     required this.id,
     required this.name,
@@ -70,27 +91,6 @@ class MshEvent implements MapItem {
         'timeStart': timeStart,
         'tags': tags,
       };
-
-  /// Parse from JSON
-  factory MshEvent.fromJson(Map<String, dynamic> json) {
-    return MshEvent(
-      id: json['id'] as String,
-      name: json['name'] as String,
-      date: DateTime.parse(json['date'] as String),
-      locationName: json['location_name'] as String,
-      latitude: (json['latitude'] as num).toDouble(),
-      longitude: (json['longitude'] as num).toDouble(),
-      city: json['city'] as String,
-      eventCategory: EventCategory.fromString(json['category'] as String),
-      dateEnd: json['date_end'] != null ? DateTime.parse(json['date_end'] as String) : null,
-      timeStart: json['time_start'] as String?,
-      timeEnd: json['time_end'] as String?,
-      description: json['description'] as String?,
-      price: json['price'] as String?,
-      sourceUrl: json['source_url'] as String?,
-      tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList() ?? [],
-    );
-  }
 
   /// Convert to JSON
   Map<String, dynamic> toJson() {

@@ -19,9 +19,7 @@ class Poi implements MapItem {
   const Poi({
     required this.id,
     required this.name,
-    this.description,
-    required this.location,
-    required this.poiCategory,
+    required this.location, required this.poiCategory, this.description,
     this.address,
     this.city,
     this.tags = const [],

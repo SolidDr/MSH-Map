@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../core/constants/app_strings.dart';
 import '../../../core/theme/msh_colors.dart';
+import '../../../core/theme/msh_spacing.dart';
 import '../../../core/theme/msh_theme.dart';
 import '../../../shared/widgets/powered_by_badge.dart';
 
@@ -18,7 +20,7 @@ class AboutScreen extends StatelessWidget {
             expandedHeight: 200,
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
-              title: Text(AppStrings.navAbout),
+              title: const Text(AppStrings.navAbout),
               background: Container(
                 decoration: const BoxDecoration(
                   gradient: LinearGradient(
@@ -26,7 +28,7 @@ class AboutScreen extends StatelessWidget {
                     end: Alignment.bottomRight,
                     colors: [
                       MshColors.primary,
-                      MshColors.primaryDark,
+                      MshColors.primaryStrong,
                     ],
                   ),
                 ),
@@ -44,7 +46,7 @@ class AboutScreen extends StatelessWidget {
           // Content
           SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.all(MshTheme.spacingMd),
+              padding: const EdgeInsets.all(MshSpacing.md),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -55,7 +57,7 @@ class AboutScreen extends StatelessWidget {
                     content: AppStrings.aboutIntro,
                   ),
 
-                  const SizedBox(height: MshTheme.spacingLg),
+                  const SizedBox(height: MshSpacing.lg),
 
                   // Motivation Cards
                   _buildMotivationCard(
@@ -66,7 +68,7 @@ class AboutScreen extends StatelessWidget {
                     color: MshColors.categoryFamily,
                   ),
 
-                  const SizedBox(height: MshTheme.spacingMd),
+                  const SizedBox(height: MshSpacing.md),
 
                   _buildMotivationCard(
                     context,
@@ -76,7 +78,7 @@ class AboutScreen extends StatelessWidget {
                     color: MshColors.info,
                   ),
 
-                  const SizedBox(height: MshTheme.spacingMd),
+                  const SizedBox(height: MshSpacing.md),
 
                   _buildMotivationCard(
                     context,
@@ -86,13 +88,13 @@ class AboutScreen extends StatelessWidget {
                     color: MshColors.success,
                   ),
 
-                  const SizedBox(height: MshTheme.spacingLg),
+                  const SizedBox(height: MshSpacing.lg),
 
                   // Closing Statement
                   Container(
-                    padding: const EdgeInsets.all(MshTheme.spacingMd),
+                    padding: const EdgeInsets.all(MshSpacing.md),
                     decoration: BoxDecoration(
-                      color: MshColors.primarySurface,
+                      color: MshColors.primarySubtle,
                       borderRadius: BorderRadius.circular(MshTheme.radiusLarge),
                     ),
                     child: Column(
@@ -102,16 +104,16 @@ class AboutScreen extends StatelessWidget {
                           color: MshColors.primary,
                           size: 32,
                         ),
-                        const SizedBox(height: MshTheme.spacingSm),
+                        const SizedBox(height: MshSpacing.sm),
                         Text(
                           AppStrings.aboutClosing,
                           textAlign: TextAlign.center,
                           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                                 fontStyle: FontStyle.italic,
-                                color: MshColors.primaryDark,
+                                color: MshColors.primaryStrong,
                               ),
                         ),
-                        const SizedBox(height: MshTheme.spacingSm),
+                        const SizedBox(height: MshSpacing.sm),
                         Text(
                           AppStrings.aboutPersonal,
                           textAlign: TextAlign.center,
@@ -123,17 +125,17 @@ class AboutScreen extends StatelessWidget {
                     ),
                   ),
 
-                  const SizedBox(height: MshTheme.spacingXl),
+                  const SizedBox(height: MshSpacing.xl),
 
                   // Powered by
                   const Center(child: PoweredByBadge()),
 
-                  const SizedBox(height: MshTheme.spacingMd),
+                  const SizedBox(height: MshSpacing.md),
 
                   // GitHub Link
                   const Center(child: _GitHubButton()),
 
-                  const SizedBox(height: MshTheme.spacingLg),
+                  const SizedBox(height: MshSpacing.lg),
 
                   // Version Info
                   Center(
@@ -145,7 +147,22 @@ class AboutScreen extends StatelessWidget {
                     ),
                   ),
 
-                  const SizedBox(height: MshTheme.spacingMd),
+                  const SizedBox(height: MshSpacing.lg),
+
+                  // Impressum Link (dezent)
+                  Center(
+                    child: TextButton(
+                      onPressed: () => context.push('/impressum'),
+                      child: Text(
+                        'Impressum',
+                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                              color: MshColors.textMuted,
+                            ),
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(height: MshSpacing.md),
                 ],
               ),
             ),
@@ -167,7 +184,7 @@ class AboutScreen extends StatelessWidget {
           title,
           style: Theme.of(context).textTheme.headlineMedium,
         ),
-        const SizedBox(height: MshTheme.spacingSm),
+        const SizedBox(height: MshSpacing.sm),
         Text(
           content,
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
@@ -188,7 +205,7 @@ class AboutScreen extends StatelessWidget {
   }) {
     return Card(
       child: Padding(
-        padding: const EdgeInsets.all(MshTheme.spacingMd),
+        padding: const EdgeInsets.all(MshSpacing.md),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -202,7 +219,7 @@ class AboutScreen extends StatelessWidget {
                   ),
                   child: Icon(icon, color: color, size: 24),
                 ),
-                const SizedBox(width: MshTheme.spacingMd),
+                const SizedBox(width: MshSpacing.md),
                 Expanded(
                   child: Text(
                     title,
@@ -211,7 +228,7 @@ class AboutScreen extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: MshTheme.spacingMd),
+            const SizedBox(height: MshSpacing.md),
             Text(
               content,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(

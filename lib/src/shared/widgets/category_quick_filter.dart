@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import '../../core/theme/msh_colors.dart';
 
 class CategoryQuickFilter extends StatelessWidget {
-  final Set<String> selectedCategories;
-  final ValueChanged<String> onCategoryToggle;
-  final Map<String, int> categoryCounts;
 
   const CategoryQuickFilter({
     super.key,
@@ -12,6 +9,9 @@ class CategoryQuickFilter extends StatelessWidget {
     required this.onCategoryToggle,
     this.categoryCounts = const {},
   });
+  final Set<String> selectedCategories;
+  final ValueChanged<String> onCategoryToggle;
+  final Map<String, int> categoryCounts;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class CategoryQuickFilter extends StatelessWidget {
                 count: categoryCounts[cat.id] ?? 0,
                 isSelected: selectedCategories.contains(cat.id),
                 onTap: () => onCategoryToggle(cat.id),
-              )),
+              ),),
         ],
       ),
     );
@@ -91,16 +91,16 @@ class CategoryQuickFilter extends StatelessWidget {
       icon: Icons.restaurant,
       color: MshColors.categoryGastro
     ),
+    (
+      id: 'health',
+      label: 'Gesundheit',
+      icon: Icons.local_hospital,
+      color: MshColors.categoryHealth
+    ),
   ];
 }
 
 class _CategoryChip extends StatelessWidget {
-  final String label;
-  final IconData icon;
-  final Color? color;
-  final int count;
-  final bool isSelected;
-  final VoidCallback onTap;
 
   const _CategoryChip({
     required this.label,
@@ -110,6 +110,12 @@ class _CategoryChip extends StatelessWidget {
     required this.isSelected,
     required this.onTap,
   });
+  final String label;
+  final IconData icon;
+  final Color? color;
+  final int count;
+  final bool isSelected;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {

@@ -73,7 +73,6 @@ enum UrgencyLevel {
 /// Engagement-Ort (Tierheim, Verein, etc.)
 @freezed
 class EngagementPlace with _$EngagementPlace {
-  const EngagementPlace._();
 
   const factory EngagementPlace({
     required String id,
@@ -108,6 +107,7 @@ class EngagementPlace with _$EngagementPlace {
     DateTime? lastUpdated,
     String? dataSource,
   }) = _EngagementPlace;
+  const EngagementPlace._();
 
   factory EngagementPlace.fromJson(Map<String, dynamic> json) =>
       _$EngagementPlaceFromJson(json);
@@ -132,7 +132,6 @@ class EngagementPlace with _$EngagementPlace {
 /// Aktueller Bedarf/Hilfsaufruf
 @freezed
 class EngagementNeed with _$EngagementNeed {
-  const EngagementNeed._();
 
   const factory EngagementNeed({
     required String id,
@@ -159,6 +158,7 @@ class EngagementNeed with _$EngagementNeed {
     DateTime? createdAt,
     @Default(true) bool isActive,
   }) = _EngagementNeed;
+  const EngagementNeed._();
 
   factory EngagementNeed.fromJson(Map<String, dynamic> json) =>
       _$EngagementNeedFromJson(json);
@@ -173,7 +173,7 @@ class EngagementNeed with _$EngagementNeed {
   /// Fortschritt in Prozent (wenn messbar)
   double? get progress {
     if (targetAmount == null || currentAmount == null) return null;
-    if (targetAmount == 0) return 1.0;
+    if (targetAmount == 0) return 1;
     return (currentAmount! / targetAmount!).clamp(0.0, 1.0);
   }
 }
@@ -227,7 +227,6 @@ enum NeedCategory {
 /// Tier zur Vermittlung
 @freezed
 class AdoptableAnimal with _$AdoptableAnimal {
-  const AdoptableAnimal._();
 
   const factory AdoptableAnimal({
     required String id,
@@ -257,6 +256,7 @@ class AdoptableAnimal with _$AdoptableAnimal {
     // Kontakt
     String? contactInfo,
   }) = _AdoptableAnimal;
+  const AdoptableAnimal._();
 
   factory AdoptableAnimal.fromJson(Map<String, dynamic> json) =>
       _$AdoptableAnimalFromJson(json);

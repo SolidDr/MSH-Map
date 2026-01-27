@@ -1,5 +1,5 @@
-import '../../shared/domain/coordinates.dart';
 import '../../shared/domain/bounding_box.dart';
+import '../../shared/domain/coordinates.dart';
 
 class MapConfig {
   MapConfig._();

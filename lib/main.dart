@@ -10,13 +10,14 @@ import 'src/modules/asset_locations/asset_locations_module.dart';
 import 'src/modules/events/events_module.dart';
 import 'src/modules/family/family_module.dart';
 import 'src/modules/gastro/gastro_module.dart';
+import 'src/modules/health/health_module.dart';
 import 'src/modules/search/search_module.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // Initialize date formatting for German locale
-  await initializeDateFormatting('de_DE', null);
+  await initializeDateFormatting('de_DE');
 
   // Firebase init
   await Firebase.initializeApp(
@@ -28,6 +29,7 @@ Future<void> main() async {
   ModuleRegistry.instance.register(GastroModule());
   ModuleRegistry.instance.register(FamilyModule());
   ModuleRegistry.instance.register(EventsModule());
+  ModuleRegistry.instance.register(HealthModule());
   ModuleRegistry.instance.register(SearchModule());
 
   // Module initialisieren

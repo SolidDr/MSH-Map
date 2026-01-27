@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:latlong2/latlong.dart';
 import '../../core/config/feature_flags.dart';
 import '../../core/config/map_config.dart';
 import '../../features/engagement/domain/engagement_model.dart';
 import '../../features/engagement/presentation/engagement_detail_sheet.dart';
 import '../../features/engagement/presentation/engagement_map_layer.dart';
+import '../../modules/events/domain/notice.dart';
 import '../domain/coordinates.dart';
 import '../domain/map_item.dart';
 import 'map/fog_of_war_layer.dart';
@@ -13,13 +15,14 @@ import 'map/fog_of_war_layer.dart';
 class MshMapView extends ConsumerStatefulWidget {
 
   const MshMapView({
-    super.key,
-    required this.items,
+    required this.items, super.key,
     this.onMarkerTap,
     this.initialCenter,
     this.initialZoom,
     this.showFogOfWar = true,
     this.mapController,
+    this.notices = const [],
+    this.onNoticeTap,
   });
   final List<MapItem> items;
   final void Function(MapItem)? onMarkerTap;
@@ -27,6 +30,8 @@ class MshMapView extends ConsumerStatefulWidget {
   final double? initialZoom;
   final bool showFogOfWar;
   final MapController? mapController;
+  final List<MshNotice> notices;
+  final void Function(MshNotice)? onNoticeTap;
 
   @override
   ConsumerState<MshMapView> createState() => _MshMapViewState();
@@ -66,7 +71,7 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
             maxZoom: MapConfig.maxZoom,
             // Enable all interactions including pinch-to-zoom on trackpad
             interactionOptions: const InteractionOptions(
-              flags: InteractiveFlag.all,
+              
             ),
             onPositionChanged: (position, hasGesture) {
               if (_currentZoom != position.zoom) {
@@ -94,10 +99,19 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
               markers: widget.items.map(_buildMarker).toList(),
             ),
 
+            // Notice/Warning Markers (on top of POI markers)
+            if (widget.notices.isNotEmpty)
+              MarkerLayer(
+                markers: widget.notices
+                    .where((n) => n.latitude != null && n.longitude != null)
+                    .map(_buildNoticeMarker)
+                    .toList(),
+              ),
+
             // Engagement Places Layer
             if (FeatureFlags.enableEngagementOnMap)
               EngagementMapLayer(
-                onPlaceTap: (place) => _showEngagementSheet(place),
+                onPlaceTap: _showEngagementSheet,
               ),
           ],
         ),
@@ -140,6 +154,18 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
             color: item.markerColor,
           ),
         ),
+      ),
+    );
+  }
+
+  Marker _buildNoticeMarker(MshNotice notice) {
+    return Marker(
+      point: LatLng(notice.latitude!, notice.longitude!),
+      width: 48,
+      height: 48,
+      child: GestureDetector(
+        onTap: () => widget.onNoticeTap?.call(notice),
+        child: _NoticeMarkerIcon(notice: notice),
       ),
     );
   }
@@ -329,4 +355,75 @@ class _MarkerIcon extends StatelessWidget {
         MapItemCategory.search => Icons.search,
         MapItemCategory.custom => Icons.place,
       };
+}
+
+/// Notice/Warning Marker with pulsing animation
+class _NoticeMarkerIcon extends StatefulWidget {
+  const _NoticeMarkerIcon({required this.notice});
+
+  final MshNotice notice;
+
+  @override
+  State<_NoticeMarkerIcon> createState() => _NoticeMarkerIconState();
+}
+
+class _NoticeMarkerIconState extends State<_NoticeMarkerIcon>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller;
+  late final Animation<double> _scaleAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 1500),
+      vsync: this,
+    )..repeat(reverse: true);
+    _scaleAnimation = Tween<double>(begin: 1, end: 1.15).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final color = widget.notice.color;
+    final icon = widget.notice.icon;
+
+    return AnimatedBuilder(
+      animation: _scaleAnimation,
+      builder: (context, child) {
+        return Transform.scale(
+          scale: _scaleAnimation.value,
+          child: child,
+        );
+      },
+      child: Container(
+        width: 44,
+        height: 44,
+        decoration: BoxDecoration(
+          color: color,
+          shape: BoxShape.circle,
+          border: Border.all(color: Colors.white, width: 3),
+          boxShadow: [
+            BoxShadow(
+              color: color.withValues(alpha: 0.5),
+              blurRadius: 8,
+              spreadRadius: 2,
+            ),
+          ],
+        ),
+        child: Icon(
+          icon,
+          color: Colors.white,
+          size: 24,
+        ),
+      ),
+    );
+  }
 }

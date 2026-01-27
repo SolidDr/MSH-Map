@@ -42,7 +42,6 @@ class FogOfWarLayer extends StatelessWidget {
             holePointsList: [border],
             color: fogColor,
             borderColor: Colors.transparent,
-            borderStrokeWidth: 0,
           ),
         ],
       ),

@@ -36,11 +36,11 @@ class EngagementWidget extends ConsumerWidget {
                 child: const Text('❤️', style: TextStyle(fontSize: 20)),
               ),
               const SizedBox(width: 12),
-              Expanded(
+              const Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       'Hilfe gesucht',
                       style: TextStyle(
                         fontFamily: 'Merriweather',
@@ -49,7 +49,7 @@ class EngagementWidget extends ConsumerWidget {
                         color: MshColors.textPrimary,
                       ),
                     ),
-                    const Text(
+                    Text(
                       'Engagiere dich in deiner Region',
                       style: TextStyle(
                         fontSize: 13,
@@ -151,13 +151,13 @@ class EngagementWidget extends ConsumerWidget {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16),
                   child: Row(
                     children: [
-                      const Text('🆘', style: TextStyle(fontSize: 16)),
-                      const SizedBox(width: 8),
-                      const Text(
+                      Text('🆘', style: TextStyle(fontSize: 16)),
+                      SizedBox(width: 8),
+                      Text(
                         'Dringende Hilfsaufrufe',
                         style: TextStyle(
                           fontWeight: FontWeight.w600,
@@ -190,9 +190,9 @@ class EngagementWidget extends ConsumerWidget {
 }
 
 class _NeedCard extends StatelessWidget {
-  final EngagementNeedWithPlace needWithPlace;
 
   const _NeedCard({required this.needWithPlace});
+  final EngagementNeedWithPlace needWithPlace;
 
   @override
   Widget build(BuildContext context) {

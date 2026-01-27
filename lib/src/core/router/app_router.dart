@@ -1,15 +1,21 @@
 import 'package:go_router/go_router.dart';
-import '../config/feature_flags.dart';
-import '../shell/app_shell.dart';
+
 import '../../features/about/presentation/about_screen.dart';
+import '../../features/about/presentation/impressum_screen.dart';
 import '../../features/auth/presentation/login_screen.dart';
+import '../../features/discover/presentation/discover_screen.dart';
 import '../../features/feedback/presentation/suggest_location_screen.dart';
+import '../../features/mobility/presentation/mobility_screen.dart';
+import '../../features/profile/presentation/profile_screen.dart';
 import '../../features/settings/presentation/accessibility_settings_screen.dart';
 import '../../home_screen.dart';
 import '../../modules/_module_registry.dart';
 import '../../modules/events/presentation/screens/events_screen.dart';
 import '../../modules/gastro/presentation/menu_upload/ocr_preview.dart';
 import '../../modules/gastro/presentation/menu_upload/upload_screen.dart';
+import '../../modules/health/presentation/health_screen.dart';
+import '../config/feature_flags.dart';
+import '../shell/app_shell.dart';
 
 final appRouter = GoRouter(
   initialLocation: '/',
@@ -19,7 +25,18 @@ final appRouter = GoRouter(
       routes: [
         GoRoute(
           path: '/',
-          builder: (context, state) => const HomeScreen(),
+          builder: (context, state) {
+            // Extract query parameters for POI navigation
+            final lat = double.tryParse(state.uri.queryParameters['lat'] ?? '');
+            final lng = double.tryParse(state.uri.queryParameters['lng'] ?? '');
+            final poiId = state.uri.queryParameters['id'];
+
+            return HomeScreen(
+              targetLatitude: lat,
+              targetLongitude: lng,
+              targetPoiId: poiId,
+            );
+          },
         ),
         GoRoute(
           path: '/about',
@@ -35,8 +52,28 @@ final appRouter = GoRouter(
           builder: (context, state) => const AccessibilitySettingsScreen(),
         ),
         GoRoute(
+          path: '/discover',
+          builder: (context, state) => const DiscoverScreen(),
+        ),
+        GoRoute(
           path: '/events',
           builder: (context, state) => const EventsScreen(),
+        ),
+        GoRoute(
+          path: '/mobility',
+          builder: (context, state) => const MobilityScreen(),
+        ),
+        GoRoute(
+          path: '/health',
+          builder: (context, state) => const HealthScreen(),
+        ),
+        GoRoute(
+          path: '/profile',
+          builder: (context, state) => const ProfileScreen(),
+        ),
+        GoRoute(
+          path: '/impressum',
+          builder: (context, state) => const ImpressumScreen(),
         ),
         // Modul-Routes dynamisch sammeln
         ...ModuleRegistry.instance.collectAllRoutes(),

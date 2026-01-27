@@ -79,13 +79,6 @@ final engagementStatsProvider = FutureProvider<EngagementStats>((ref) async {
 });
 
 class EngagementStats {
-  final int totalPlaces;
-  final int urgentPlaces;
-  final int totalAnimals;
-  final int urgentAnimals;
-  final int totalNeeds;
-  final int urgentNeeds;
-  final Map<EngagementType, int> byType;
 
   EngagementStats({
     required this.totalPlaces,
@@ -96,4 +89,11 @@ class EngagementStats {
     required this.urgentNeeds,
     required this.byType,
   });
+  final int totalPlaces;
+  final int urgentPlaces;
+  final int totalAnimals;
+  final int urgentAnimals;
+  final int totalNeeds;
+  final int urgentNeeds;
+  final Map<EngagementType, int> byType;
 }

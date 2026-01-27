@@ -1,28 +1,35 @@
 import 'package:flutter/material.dart';
 import 'msh_colors.dart';
+import 'msh_spacing.dart';
 
 class MshTheme {
   MshTheme._();
 
   // ═══════════════════════════════════════════════════════════════
   // BORDER RADIUS (Runde, freundliche UI)
+  // Basierend auf Fibonacci-Sequenz
   // ═══════════════════════════════════════════════════════════════
 
-  static const double radiusSmall = 8.0;
-  static const double radiusMedium = 12.0;
-  static const double radiusLarge = 16.0;
-  static const double radiusXLarge = 24.0;
-  static const double radiusRound = 100.0; // Für Pills/Chips
+  static const double radiusSmall = MshSpacing.sm;      // 8px
+  static const double radiusMedium = MshSpacing.md;     // 13px
+  static const double radiusLarge = MshSpacing.lg;      // 21px
+  static const double radiusXLarge = MshSpacing.xl;     // 34px
+  static const double radiusRound = 100;              // Für Pills/Chips
 
   // ═══════════════════════════════════════════════════════════════
-  // SPACING
+  // SPACING - Verwenden MshSpacing (Fibonacci)
   // ═══════════════════════════════════════════════════════════════
 
-  static const double spacingXs = 4.0;
-  static const double spacingSm = 8.0;
-  static const double spacingMd = 16.0;
-  static const double spacingLg = 24.0;
-  static const double spacingXl = 32.0;
+  @Deprecated('Use MshSpacing.xs instead')
+  static const double spacingXs = MshSpacing.xs;
+  @Deprecated('Use MshSpacing.sm instead')
+  static const double spacingSm = MshSpacing.sm;
+  @Deprecated('Use MshSpacing.md instead')
+  static const double spacingMd = MshSpacing.md;
+  @Deprecated('Use MshSpacing.lg instead')
+  static const double spacingLg = MshSpacing.lg;
+  @Deprecated('Use MshSpacing.xl instead')
+  static const double spacingXl = MshSpacing.xl;
 
   // ═══════════════════════════════════════════════════════════════
   // LIGHT THEME
@@ -35,12 +42,10 @@ class MshTheme {
     // Farben
     colorScheme: ColorScheme.light(
       primary: MshColors.primary,
-      primaryContainer: MshColors.primarySurface,
+      primaryContainer: MshColors.primarySubtle,
       secondary: MshColors.secondary,
       secondaryContainer: MshColors.secondaryLight.withValues(alpha: 0.2),
-      surface: MshColors.surface,
       error: MshColors.error,
-      onPrimary: MshColors.textOnPrimary,
       onSecondary: MshColors.textOnPrimary,
       onSurface: MshColors.textPrimary,
     ),
@@ -49,12 +54,12 @@ class MshTheme {
     scaffoldBackgroundColor: MshColors.background,
 
     // AppBar
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       backgroundColor: MshColors.surface,
       foregroundColor: MshColors.textPrimary,
       elevation: 0,
       centerTitle: true,
-      titleTextStyle: const TextStyle(
+      titleTextStyle: TextStyle(
         color: MshColors.textPrimary,
         fontSize: 18,
         fontWeight: FontWeight.w600,
@@ -69,7 +74,7 @@ class MshTheme {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(radiusLarge),
       ),
-      margin: const EdgeInsets.all(spacingSm),
+      margin: const EdgeInsets.all(MshSpacing.sm),
     ),
 
     // Buttons
@@ -124,7 +129,7 @@ class MshTheme {
     // Chips (für Filter, Tags)
     chipTheme: ChipThemeData(
       backgroundColor: MshColors.surfaceVariant,
-      selectedColor: MshColors.primarySurface,
+      selectedColor: MshColors.primarySubtle,
       labelStyle: const TextStyle(color: MshColors.textPrimary),
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       shape: RoundedRectangleBorder(
@@ -143,7 +148,7 @@ class MshTheme {
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(radiusRound),
-        borderSide: const BorderSide(color: MshColors.surfaceVariant, width: 1),
+        borderSide: const BorderSide(color: MshColors.surfaceVariant),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(radiusRound),
@@ -153,9 +158,9 @@ class MshTheme {
     ),
 
     // Bottom Sheet
-    bottomSheetTheme: BottomSheetThemeData(
+    bottomSheetTheme: const BottomSheetThemeData(
       backgroundColor: MshColors.surface,
-      shape: const RoundedRectangleBorder(
+      shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(radiusXLarge)),
       ),
     ),
@@ -174,53 +179,75 @@ class MshTheme {
     dividerTheme: const DividerThemeData(
       color: MshColors.surfaceVariant,
       thickness: 1,
-      space: spacingMd,
+      space: MshSpacing.md,
     ),
 
-    // Text
+    // Text - mit Goldener Schnitt Line Height (1.618)
     textTheme: const TextTheme(
       displayLarge: TextStyle(
-        fontSize: 32,
+        fontSize: 55,                          // Fibonacci 55
         fontWeight: FontWeight.bold,
-        color: MshColors.textPrimary,
+        color: MshColors.textStrong,
+        height: MshSpacing.phi,                 // 1.618 line height
+        letterSpacing: -0.5,
       ),
       displayMedium: TextStyle(
-        fontSize: 28,
+        fontSize: 34,                          // Fibonacci 34
         fontWeight: FontWeight.bold,
-        color: MshColors.textPrimary,
+        color: MshColors.textStrong,
+        height: MshSpacing.phi,                 // 1.618
       ),
       headlineLarge: TextStyle(
-        fontSize: 24,
+        fontSize: 21,                          // Fibonacci 21
         fontWeight: FontWeight.w600,
         color: MshColors.textPrimary,
+        height: MshSpacing.phi,                 // 1.618
       ),
       headlineMedium: TextStyle(
-        fontSize: 20,
-        fontWeight: FontWeight.w600,
-        color: MshColors.textPrimary,
-      ),
-      titleLarge: TextStyle(
         fontSize: 18,
         fontWeight: FontWeight.w600,
         color: MshColors.textPrimary,
+        height: MshSpacing.phi,                 // 1.618
+      ),
+      titleLarge: TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.w600,
+        color: MshColors.textPrimary,
+        height: MshSpacing.phi,                 // 1.618
       ),
       titleMedium: TextStyle(
-        fontSize: 16,
+        fontSize: 14,
         fontWeight: FontWeight.w500,
         color: MshColors.textPrimary,
+        height: MshSpacing.phi,                 // 1.618
       ),
       bodyLarge: TextStyle(
         fontSize: 16,
         color: MshColors.textPrimary,
+        height: MshSpacing.phi,                 // 1.618 - optimal für Lesbarkeit
       ),
       bodyMedium: TextStyle(
         fontSize: 14,
         color: MshColors.textSecondary,
+        height: MshSpacing.phi,                 // 1.618
       ),
       labelLarge: TextStyle(
-        fontSize: 14,
+        fontSize: 13,                          // Fibonacci 13
         fontWeight: FontWeight.w600,
         color: MshColors.textPrimary,
+        height: 1.4,                           // Etwas kompakter für Labels
+      ),
+      labelMedium: TextStyle(
+        fontSize: 12,
+        fontWeight: FontWeight.w500,
+        color: MshColors.textSecondary,
+        height: 1.4,
+      ),
+      labelSmall: TextStyle(
+        fontSize: 11,
+        fontWeight: FontWeight.w500,
+        color: MshColors.textMuted,
+        height: 1.3,
       ),
     ),
   );
@@ -251,12 +278,12 @@ class MshTheme {
     scaffoldBackgroundColor: MshColors.darkBackground,
 
     // AppBar
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       backgroundColor: MshColors.darkSurface,
       foregroundColor: MshColors.darkTextPrimary,
       elevation: 0,
       centerTitle: true,
-      titleTextStyle: const TextStyle(
+      titleTextStyle: TextStyle(
         color: MshColors.darkTextPrimary,
         fontSize: 18,
         fontWeight: FontWeight.w600,
@@ -271,7 +298,7 @@ class MshTheme {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(radiusLarge),
       ),
-      margin: const EdgeInsets.all(spacingSm),
+      margin: const EdgeInsets.all(MshSpacing.sm),
     ),
 
     // Buttons
@@ -345,7 +372,7 @@ class MshTheme {
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(radiusRound),
-        borderSide: const BorderSide(color: MshColors.darkSurfaceVariant, width: 1),
+        borderSide: const BorderSide(color: MshColors.darkSurfaceVariant),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(radiusRound),
@@ -355,9 +382,9 @@ class MshTheme {
     ),
 
     // Bottom Sheet
-    bottomSheetTheme: BottomSheetThemeData(
+    bottomSheetTheme: const BottomSheetThemeData(
       backgroundColor: MshColors.darkSurface,
-      shape: const RoundedRectangleBorder(
+      shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(radiusXLarge)),
       ),
     ),
@@ -376,53 +403,75 @@ class MshTheme {
     dividerTheme: const DividerThemeData(
       color: MshColors.darkSurfaceVariant,
       thickness: 1,
-      space: spacingMd,
+      space: MshSpacing.md,
     ),
 
-    // Text
+    // Text - mit Goldener Schnitt Line Height (1.618)
     textTheme: const TextTheme(
       displayLarge: TextStyle(
-        fontSize: 32,
+        fontSize: 55,                          // Fibonacci 55
         fontWeight: FontWeight.bold,
         color: MshColors.darkTextPrimary,
+        height: MshSpacing.phi,                 // 1.618 line height
+        letterSpacing: -0.5,
       ),
       displayMedium: TextStyle(
-        fontSize: 28,
+        fontSize: 34,                          // Fibonacci 34
         fontWeight: FontWeight.bold,
         color: MshColors.darkTextPrimary,
+        height: MshSpacing.phi,                 // 1.618
       ),
       headlineLarge: TextStyle(
-        fontSize: 24,
+        fontSize: 21,                          // Fibonacci 21
         fontWeight: FontWeight.w600,
         color: MshColors.darkTextPrimary,
+        height: MshSpacing.phi,                 // 1.618
       ),
       headlineMedium: TextStyle(
-        fontSize: 20,
-        fontWeight: FontWeight.w600,
-        color: MshColors.darkTextPrimary,
-      ),
-      titleLarge: TextStyle(
         fontSize: 18,
         fontWeight: FontWeight.w600,
         color: MshColors.darkTextPrimary,
+        height: MshSpacing.phi,                 // 1.618
+      ),
+      titleLarge: TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.w600,
+        color: MshColors.darkTextPrimary,
+        height: MshSpacing.phi,                 // 1.618
       ),
       titleMedium: TextStyle(
-        fontSize: 16,
+        fontSize: 14,
         fontWeight: FontWeight.w500,
         color: MshColors.darkTextPrimary,
+        height: MshSpacing.phi,                 // 1.618
       ),
       bodyLarge: TextStyle(
         fontSize: 16,
         color: MshColors.darkTextPrimary,
+        height: MshSpacing.phi,                 // 1.618 - optimal für Lesbarkeit
       ),
       bodyMedium: TextStyle(
         fontSize: 14,
         color: MshColors.darkTextSecondary,
+        height: MshSpacing.phi,                 // 1.618
       ),
       labelLarge: TextStyle(
-        fontSize: 14,
+        fontSize: 13,                          // Fibonacci 13
         fontWeight: FontWeight.w600,
         color: MshColors.darkTextPrimary,
+        height: 1.4,                           // Etwas kompakter für Labels
+      ),
+      labelMedium: TextStyle(
+        fontSize: 12,
+        fontWeight: FontWeight.w500,
+        color: MshColors.darkTextSecondary,
+        height: 1.4,
+      ),
+      labelSmall: TextStyle(
+        fontSize: 11,
+        fontWeight: FontWeight.w500,
+        color: MshColors.darkTextSecondary,
+        height: 1.3,
       ),
     ),
 
@@ -436,12 +485,12 @@ class MshTheme {
     ),
 
     // Navigation Rail
-    navigationRailTheme: NavigationRailThemeData(
+    navigationRailTheme: const NavigationRailThemeData(
       backgroundColor: MshColors.darkSurface,
-      selectedIconTheme: const IconThemeData(color: MshColors.darkPrimary),
-      unselectedIconTheme: const IconThemeData(color: MshColors.darkTextSecondary),
-      selectedLabelTextStyle: const TextStyle(color: MshColors.darkPrimary),
-      unselectedLabelTextStyle: const TextStyle(color: MshColors.darkTextSecondary),
+      selectedIconTheme: IconThemeData(color: MshColors.darkPrimary),
+      unselectedIconTheme: IconThemeData(color: MshColors.darkTextSecondary),
+      selectedLabelTextStyle: TextStyle(color: MshColors.darkPrimary),
+      unselectedLabelTextStyle: TextStyle(color: MshColors.darkTextSecondary),
     ),
   );
 
@@ -457,8 +506,6 @@ class MshTheme {
       primary: MshColors.highContrastPrimary,
       surface: MshColors.highContrastSurface,
       error: Color(0xFFFF4444),
-      onPrimary: Colors.black,
-      onSurface: MshColors.highContrastText,
     ),
 
     scaffoldBackgroundColor: MshColors.highContrastBackground,

@@ -4,9 +4,9 @@ import '../../core/theme/msh_colors.dart';
 import '../../core/constants/app_strings.dart';
 
 class WelcomeOverlay extends StatefulWidget {
-  final Widget child;
 
   const WelcomeOverlay({super.key, required this.child});
+  final Widget child;
 
   @override
   State<WelcomeOverlay> createState() => _WelcomeOverlayState();
@@ -91,9 +91,9 @@ class _WelcomeOverlayState extends State<WelcomeOverlay>
 }
 
 class _WelcomeContent extends StatelessWidget {
-  final VoidCallback onStart;
 
   const _WelcomeContent({required this.onStart});
+  final VoidCallback onStart;
 
   @override
   Widget build(BuildContext context) {
@@ -244,10 +244,6 @@ class _WelcomeContent extends StatelessWidget {
 }
 
 class _FeatureItem extends StatelessWidget {
-  final IconData icon;
-  final String title;
-  final String desc;
-  final bool highlight;
 
   const _FeatureItem({
     required this.icon,
@@ -255,6 +251,10 @@ class _FeatureItem extends StatelessWidget {
     required this.desc,
     this.highlight = false,
   });
+  final IconData icon;
+  final String title;
+  final String desc;
+  final bool highlight;
 
   @override
   Widget build(BuildContext context) {

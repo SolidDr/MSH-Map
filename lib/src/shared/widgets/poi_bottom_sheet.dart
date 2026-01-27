@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
-import '../domain/map_item.dart';
+
+import '../../core/theme/msh_theme.dart';
 import '../../modules/_module_registry.dart';
+import '../domain/map_item.dart';
 
 class PoiBottomSheet extends StatelessWidget {
 
-  const PoiBottomSheet({super.key, required this.item});
+  const PoiBottomSheet({required this.item, super.key});
   final MapItem item;
+
+  /// Maximale Breite für Desktop/Web - verhindert zu breite Sheets
+  static const double _maxWidth = 600;
 
   static void show(BuildContext context, MapItem item) {
     showModalBottomSheet<void>(
@@ -19,18 +24,60 @@ class PoiBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final module = ModuleRegistry.instance.getById(item.moduleId);
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+
+    // Adaptive Größen basierend auf Bildschirmhöhe
+    // Kleine Bildschirme (<700px): mehr Platz nötig
+    // Große Bildschirme (>900px): weniger Initialplatz, da mehr Inhalt sichtbar
+    final double initialSize;
+    final double minSize;
+    final double maxSize;
+
+    if (screenHeight < 700) {
+      // Kleine Viewports (Mobile Landscape, kleine Fenster)
+      initialSize = 0.65;
+      minSize = 0.3;
+      maxSize = 0.95;
+    } else if (screenHeight < 900) {
+      // Mittlere Viewports (Tablets, kleine Desktops)
+      initialSize = 0.55;
+      minSize = 0.25;
+      maxSize = 0.92;
+    } else {
+      // Große Viewports (Desktop)
+      initialSize = 0.5;
+      minSize = 0.2;
+      maxSize = 0.9;
+    }
+
+    // Zentrierung für breite Bildschirme
+    final isWideScreen = screenWidth > _maxWidth + 100;
 
     return DraggableScrollableSheet(
-      initialChildSize: 0.4,
-      minChildSize: 0.2,
-      maxChildSize: 0.9,
+      initialChildSize: initialSize,
+      minChildSize: minSize,
+      maxChildSize: maxSize,
+      snap: true,
+      snapSizes: [minSize, initialSize, maxSize],
       expand: false,
       builder: (context, scrollController) {
-        return Container(
+        final sheet = Container(
+          constraints: BoxConstraints(
+            maxWidth: isWideScreen ? _maxWidth : double.infinity,
+          ),
           decoration: BoxDecoration(
             color: Theme.of(context).scaffoldBackgroundColor,
-            borderRadius:
-                const BorderRadius.vertical(top: Radius.circular(16)),
+            borderRadius: const BorderRadius.vertical(
+              top: Radius.circular(MshTheme.radiusXLarge),
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.15),
+                blurRadius: 20,
+                offset: const Offset(0, -4),
+              ),
+            ],
           ),
           child: SingleChildScrollView(
             controller: scrollController,
@@ -90,6 +137,12 @@ class PoiBottomSheet extends StatelessWidget {
             ),
           ),
         );
+
+        // Bei breiten Bildschirmen zentrieren
+        if (isWideScreen) {
+          return Center(child: sheet);
+        }
+        return sheet;
       },
     );
   }

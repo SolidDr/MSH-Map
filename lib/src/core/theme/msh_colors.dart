@@ -5,12 +5,26 @@ class MshColors {
 
   // ═══════════════════════════════════════════════════════════════
   // PRIMÄR: Warmes Amber (freundlich, einladend)
+  // 4-Stufen Hierarchie für visuelle Tiefe
   // ═══════════════════════════════════════════════════════════════
 
-  static const Color primary = Color(0xFFF59E0B);        // Amber 500
-  static const Color primaryLight = Color(0xFFFBBF24);   // Amber 400
-  static const Color primaryDark = Color(0xFFD97706);    // Amber 600
-  static const Color primarySurface = Color(0xFFFEF3C7); // Amber 100
+  /// Level 1 - Stark (für wichtige Aktionen, Hover-States)
+  static const Color primaryStrong = Color(0xFFD97706);    // Amber 600
+
+  /// Level 2 - Normal (Standard-Primärfarbe)
+  static const Color primary = Color(0xFFF59E0B);          // Amber 500
+
+  /// Level 3 - Hell (für Akzente, ausgewählte States)
+  static const Color primaryLight = Color(0xFFFBBF24);     // Amber 400
+
+  /// Level 4 - Subtil (für Hintergründe, sehr leichte Akzente)
+  static const Color primarySubtle = Color(0xFFFEF3C7);    // Amber 100
+
+  // Legacy-Kompatibilität
+  @Deprecated('Use primaryStrong instead')
+  static const Color primaryDark = primaryStrong;
+  @Deprecated('Use primarySubtle instead')
+  static const Color primarySurface = primarySubtle;
 
   // ═══════════════════════════════════════════════════════════════
   // SEKUNDÄR: Warmes Orange (Akzent)
@@ -27,9 +41,23 @@ class MshColors {
   static const Color surface = Color(0xFFFFFFFF);
   static const Color surfaceVariant = Color(0xFFFEF3C7); // Amber 100
 
-  static const Color textPrimary = Color(0xFF292524);    // Stone 800
-  static const Color textSecondary = Color(0xFF78716C);  // Stone 500
-  static const Color textMuted = Color(0xFFA8A29E);      // Stone 400
+  // ═══════════════════════════════════════════════════════════════
+  // TEXT: 4-Stufen Hierarchie für bessere Lesbarkeit
+  // ═══════════════════════════════════════════════════════════════
+
+  /// Level 1 - Stark (für Headlines, wichtige Informationen)
+  static const Color textStrong = Color(0xFF1C1917);      // Stone 900
+
+  /// Level 2 - Primär (für Body-Text, Standard)
+  static const Color textPrimary = Color(0xFF292524);     // Stone 800
+
+  /// Level 3 - Sekundär (für Meta-Informationen, Timestamps)
+  static const Color textSecondary = Color(0xFF78716C);   // Stone 500
+
+  /// Level 4 - Gedämpft (für Disabled States, unwichtige Infos)
+  static const Color textMuted = Color(0xFFA8A29E);       // Stone 400
+
+  /// Text auf Primärfarbe (immer weiß)
   static const Color textOnPrimary = Color(0xFFFFFFFF);
 
   // ═══════════════════════════════════════════════════════════════
@@ -47,6 +75,24 @@ class MshColors {
   static const Color categoryAdventure = Color(0xFFF44336);  // Red - Abenteuer
   static const Color categoryGastro = Color(0xFFEF4444);     // Red - Gastro
   static const Color categoryEvent = Color(0xFF6366F1);      // Indigo - Event
+
+  // ═══════════════════════════════════════════════════════════════
+  // GESUNDHEIT - Health & Fitness Modul
+  // ═══════════════════════════════════════════════════════════════
+
+  /// Hauptfarbe für Gesundheitsbereich
+  static const Color categoryHealth = Color(0xFF4CAF50);        // Grün - Primary
+  static const Color categoryDoctor = Color(0xFF2196F3);        // Blau - Ärzte
+  static const Color categoryPharmacy = Color(0xFFE91E63);      // Pink - Apotheken
+  static const Color categoryHospital = Color(0xFFF44336);      // Rot - Krankenhaus
+  static const Color categoryPhysiotherapy = Color(0xFF9C27B0); // Lila - Physio
+  static const Color categoryFitnessSenior = Color(0xFFFF9800); // Orange - Fitness
+  static const Color categoryCareService = Color(0xFF00BCD4);   // Cyan - Pflege
+
+  // Emergency Colors (hohe Sichtbarkeit für Senioren)
+  static const Color emergencyRed = Color(0xFFD32F2F);          // 112 Notruf
+  static const Color emergencyBlue = Color(0xFF1976D2);         // 116117 Bereitschaft
+  static const Color emergencyGreen = Color(0xFF388E3C);        // Notdienst Apotheke
 
   // ═══════════════════════════════════════════════════════════════
   // ZUSÄTZLICHE FARBEN
@@ -79,6 +125,22 @@ class MshColors {
   // ENGAGEMENT - Spezielle Farben für soziales Engagement
   // ═══════════════════════════════════════════════════════════════
 
+  // Urgency-Levels (4-Stufen für visuelle Hierarchie)
+
+  /// Level 1 - Kritisch (höchste Dringlichkeit, pulsierend)
+  static const Color engagementCritical = Color(0xFFDC2626);   // Red 600
+
+  /// Level 2 - Dringend (hohe Priorität)
+  static const Color engagementUrgent = Color(0xFFEA580C);     // Orange 600
+
+  /// Level 3 - Erhöht (mittlere Priorität)
+  static const Color engagementElevated = Color(0xFFF59E0B);   // Amber 500
+
+  /// Level 4 - Normal (Standard, alles ok)
+  static const Color engagementNormal = Color(0xFF10B981);     // Green 500
+
+  // Typ-Farben
+
   /// Engagement-Gold - für "Helfen"-Rahmen
   static const Color engagementGold = Color(0xFFD4A853);
 
@@ -90,9 +152,6 @@ class MshColors {
 
   /// Ehrenamt-Violett
   static const Color engagementVolunteer = Color(0xFF9B59B6);
-
-  /// Dringend-Rot
-  static const Color engagementUrgent = Color(0xFFE74C3C);
 
   /// Sozial-Blau
   static const Color engagementSocial = Color(0xFF3498DB);

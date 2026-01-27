@@ -39,7 +39,7 @@ class AccessibilitySettingsScreen extends ConsumerWidget {
                 ),
               );
 
-              if (confirm == true) {
+              if (confirm ?? false) {
                 ref.read(accessibilityProvider.notifier).resetToDefaults();
                 if (context.mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(
@@ -59,7 +59,7 @@ class AccessibilitySettingsScreen extends ConsumerWidget {
         padding: const EdgeInsets.all(16),
         children: [
           // Theme Section
-          _SectionHeader(
+          const _SectionHeader(
             icon: Icons.palette,
             title: 'Design',
             subtitle: 'Aussehen der App anpassen',
@@ -120,7 +120,7 @@ class AccessibilitySettingsScreen extends ConsumerWidget {
           const SizedBox(height: 24),
 
           // Text Section
-          _SectionHeader(
+          const _SectionHeader(
             icon: Icons.text_fields,
             title: 'Text',
             subtitle: 'Textgröße und Schriftart',
@@ -192,7 +192,7 @@ class AccessibilitySettingsScreen extends ConsumerWidget {
           const SizedBox(height: 24),
 
           // Interaction Section
-          _SectionHeader(
+          const _SectionHeader(
             icon: Icons.touch_app,
             title: 'Interaktion',
             subtitle: 'Buttons und Animationen',

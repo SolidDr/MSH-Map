@@ -10,9 +10,9 @@ import 'engagement_marker.dart';
 /// Map-Layer für Engagement-Orte
 /// Zeigt EngagementMarker auf der Karte
 class EngagementMapLayer extends ConsumerWidget {
-  final void Function(EngagementPlace)? onPlaceTap;
 
   const EngagementMapLayer({super.key, this.onPlaceTap});
+  final void Function(EngagementPlace)? onPlaceTap;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -36,7 +36,7 @@ class EngagementMapLayer extends ConsumerWidget {
                         place.adoptableCount > 0 ? place.adoptableCount : null,
                     onTap: () => onPlaceTap?.call(place),
                   ),
-                ))
+                ),)
             .toList(),
       ),
       loading: () => const MarkerLayer(markers: []),

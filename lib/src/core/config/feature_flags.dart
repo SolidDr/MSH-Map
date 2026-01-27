@@ -132,13 +132,13 @@ class FeatureFlags {
   // ═══════════════════════════════════════════════════════════════
 
   /// "MSH in Zahlen" Dashboard
-  static const bool enableDashboard = true;
+  static const bool enableDashboard = false;
 
   /// Infrastruktur-Lücken anzeigen
-  static const bool enableGapAnalysis = true;
+  static const bool enableGapAnalysis = false;
 
   /// Automatische Insights
-  static const bool enableInsights = true;
+  static const bool enableInsights = false;
 
   // ═══════════════════════════════════════════════════════════════
   // DEVELOPMENT & DEBUG

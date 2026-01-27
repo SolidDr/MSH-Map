@@ -17,7 +17,7 @@ class MshBorderData {
     LatLng(51.32, 11.55), // S - bei Roßla
     LatLng(51.30, 11.35), // S - bei Kelbra
     LatLng(51.33, 11.15), // SW - bei Uftrungen
-    LatLng(51.40, 11.00), // W - bei Stolberg
+    LatLng(51.40, 11), // W - bei Stolberg
     LatLng(51.50, 10.95), // W - bei Rottleberode
     LatLng(51.58, 10.98), // NW - bei Hayn
     LatLng(51.68, 11.02), // Zurück zum Start
@@ -76,18 +76,18 @@ class MshBorderData {
 
   /// Äußere Grenzen für Fog of War (weit außerhalb MSH)
   static const List<LatLng> outerBounds = [
-    LatLng(53.0, 9.0), // NW - Weit im Norden
-    LatLng(53.0, 14.0), // NE
-    LatLng(50.0, 14.0), // SE
-    LatLng(50.0, 9.0), // SW
-    LatLng(53.0, 9.0), // Zurück zum Start
+    LatLng(53, 9), // NW - Weit im Norden
+    LatLng(53, 14), // NE
+    LatLng(50, 14), // SE
+    LatLng(50, 9), // SW
+    LatLng(53, 9), // Zurück zum Start
   ];
 
   /// Geografisches Zentrum von MSH
   static const LatLng mshCenter = LatLng(51.50, 11.35);
 
   /// Ungefährer Radius des Landkreises (in km)
-  static const double mshRadiusKm = 35.0;
+  static const double mshRadiusKm = 35;
 
   /// Wichtige Orte als Referenzpunkte
   static const Map<String, LatLng> landmarks = {

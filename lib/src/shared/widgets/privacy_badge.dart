@@ -84,6 +84,20 @@ class PrivacyBadge extends StatelessWidget {
               title: 'Minimale lokale Speicherung',
               desc: 'Nur ob du das Intro gesehen hast, wird lokal gespeichert.',
             ),
+            const _PrivacyPoint(
+              icon: Icons.map_outlined,
+              iconColor: MshColors.info,
+              title: 'OpenStreetMap',
+              desc:
+                  'Für die Kartenanzeige nutzen wir OpenStreetMap. Details: openstreetmap.org/copyright',
+            ),
+            const _PrivacyPoint(
+              icon: Icons.location_on_outlined,
+              iconColor: MshColors.info,
+              title: 'Standort',
+              desc:
+                  'Dein Standort wird nur lokal zur Kartenzentrierung genutzt und nicht übertragen.',
+            ),
             const SizedBox(height: 20),
             SizedBox(
               width: double.infinity,
@@ -103,10 +117,6 @@ class PrivacyBadge extends StatelessWidget {
 }
 
 class _PrivacyPoint extends StatelessWidget {
-  final IconData icon;
-  final Color iconColor;
-  final String title;
-  final String desc;
 
   const _PrivacyPoint({
     required this.icon,
@@ -114,6 +124,10 @@ class _PrivacyPoint extends StatelessWidget {
     required this.title,
     required this.desc,
   });
+  final IconData icon;
+  final Color iconColor;
+  final String title;
+  final String desc;
 
   @override
   Widget build(BuildContext context) {
@@ -129,7 +143,7 @@ class _PrivacyPoint extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(title,
-                    style: const TextStyle(fontWeight: FontWeight.w600)),
+                    style: const TextStyle(fontWeight: FontWeight.w600),),
                 const SizedBox(height: 2),
                 Text(
                   desc,

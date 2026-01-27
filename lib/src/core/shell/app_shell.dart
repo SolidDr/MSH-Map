@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
-import '../theme/msh_colors.dart';
+
 import '../../shared/widgets/powered_by_badge.dart';
 import '../../shared/widgets/privacy_badge.dart';
+import '../theme/msh_colors.dart';
 
 class AppShell extends StatefulWidget {
-  final Widget child;
 
   const AppShell({super.key, required this.child});
+  final Widget child;
 
   @override
   State<AppShell> createState() => _AppShellState();
@@ -15,34 +17,76 @@ class AppShell extends StatefulWidget {
 
 class _AppShellState extends State<AppShell> {
   int _selectedIndex = 0;
+  final FocusNode _focusNode = FocusNode();
+
+  @override
+  void dispose() {
+    _focusNode.dispose();
+    super.dispose();
+  }
+
+  /// Behandelt ESC-Tastendruck für Zurück-Navigation
+  void _handleKeyEvent(KeyEvent event) {
+    if (event is KeyDownEvent && event.logicalKey == LogicalKeyboardKey.escape) {
+      _handleEscapeKey();
+    }
+  }
+
+  /// ESC-Handler mit Prioritäten
+  void _handleEscapeKey() {
+    final router = GoRouter.of(context);
+
+    // Priorität 1: Zurück navigieren wenn möglich
+    if (router.canPop()) {
+      router.pop();
+      return;
+    }
+
+    // Priorität 2: Zur Startseite wenn nicht schon dort
+    final location = GoRouterState.of(context).uri.path;
+    if (location != '/') {
+      router.go('/');
+      setState(() => _selectedIndex = 0);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
 
+    Widget shell;
+
     // Mobile: Bottom Navigation
     if (width < 600) {
-      return _MobileShell(
+      shell = _MobileShell(
         selectedIndex: _selectedIndex,
         onIndexChanged: (i) => setState(() => _selectedIndex = i),
         child: widget.child,
       );
     }
-
     // Tablet: Navigation Rail
-    if (width < 1200) {
-      return _TabletShell(
+    else if (width < 1200) {
+      shell = _TabletShell(
+        selectedIndex: _selectedIndex,
+        onIndexChanged: (i) => setState(() => _selectedIndex = i),
+        child: widget.child,
+      );
+    }
+    // Desktop: Sidebar
+    else {
+      shell = _DesktopShell(
         selectedIndex: _selectedIndex,
         onIndexChanged: (i) => setState(() => _selectedIndex = i),
         child: widget.child,
       );
     }
 
-    // Desktop: Sidebar
-    return _DesktopShell(
-      selectedIndex: _selectedIndex,
-      onIndexChanged: (i) => setState(() => _selectedIndex = i),
-      child: widget.child,
+    // ESC-Taste für Zurück-Navigation (global)
+    return KeyboardListener(
+      focusNode: _focusNode,
+      autofocus: true,
+      onKeyEvent: _handleKeyEvent,
+      child: shell,
     );
   }
 }
@@ -52,15 +96,15 @@ class _AppShellState extends State<AppShell> {
 // ═══════════════════════════════════════════════════════════════
 
 class _MobileShell extends StatelessWidget {
-  final int selectedIndex;
-  final ValueChanged<int> onIndexChanged;
-  final Widget child;
 
   const _MobileShell({
     required this.selectedIndex,
     required this.onIndexChanged,
     required this.child,
   });
+  final int selectedIndex;
+  final ValueChanged<int> onIndexChanged;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
@@ -80,18 +124,24 @@ class _MobileShell extends StatelessWidget {
             label: 'Karte',
           ),
           NavigationDestination(
-            icon: Icon(Icons.family_restroom_outlined),
-            selectedIcon: Icon(Icons.family_restroom),
-            label: 'Familie',
+            icon: Icon(Icons.explore_outlined),
+            selectedIcon: Icon(Icons.explore),
+            label: 'Entdecken',
           ),
           NavigationDestination(
-            icon: Icon(Icons.restaurant_outlined),
-            selectedIcon: Icon(Icons.restaurant),
-            label: 'Gastro',
+            icon: Icon(Icons.celebration_outlined),
+            selectedIcon: Icon(Icons.celebration),
+            label: 'Erleben',
           ),
           NavigationDestination(
-            icon: Icon(Icons.more_horiz),
-            label: 'Mehr',
+            icon: Icon(Icons.directions_bus_outlined),
+            selectedIcon: Icon(Icons.directions_bus),
+            label: 'Mobilität',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.person_outline),
+            selectedIcon: Icon(Icons.person),
+            label: 'Profil',
           ),
         ],
       ),
@@ -104,15 +154,15 @@ class _MobileShell extends StatelessWidget {
 // ═══════════════════════════════════════════════════════════════
 
 class _TabletShell extends StatelessWidget {
-  final int selectedIndex;
-  final ValueChanged<int> onIndexChanged;
-  final Widget child;
 
   const _TabletShell({
     required this.selectedIndex,
     required this.onIndexChanged,
     required this.child,
   });
+  final int selectedIndex;
+  final ValueChanged<int> onIndexChanged;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
@@ -134,18 +184,24 @@ class _TabletShell extends StatelessWidget {
                 label: Text('Karte'),
               ),
               NavigationRailDestination(
-                icon: Icon(Icons.family_restroom_outlined),
-                selectedIcon: Icon(Icons.family_restroom),
-                label: Text('Familie'),
+                icon: Icon(Icons.explore_outlined),
+                selectedIcon: Icon(Icons.explore),
+                label: Text('Entdecken'),
               ),
               NavigationRailDestination(
-                icon: Icon(Icons.restaurant_outlined),
-                selectedIcon: Icon(Icons.restaurant),
-                label: Text('Gastro'),
+                icon: Icon(Icons.celebration_outlined),
+                selectedIcon: Icon(Icons.celebration),
+                label: Text('Erleben'),
               ),
               NavigationRailDestination(
-                icon: Icon(Icons.more_horiz),
-                label: Text('Mehr'),
+                icon: Icon(Icons.directions_bus_outlined),
+                selectedIcon: Icon(Icons.directions_bus),
+                label: Text('Mobilität'),
+              ),
+              NavigationRailDestination(
+                icon: Icon(Icons.person_outline),
+                selectedIcon: Icon(Icons.person),
+                label: Text('Profil'),
               ),
             ],
           ),
@@ -162,15 +218,15 @@ class _TabletShell extends StatelessWidget {
 // ═══════════════════════════════════════════════════════════════
 
 class _DesktopShell extends StatelessWidget {
-  final int selectedIndex;
-  final ValueChanged<int> onIndexChanged;
-  final Widget child;
 
   const _DesktopShell({
     required this.selectedIndex,
     required this.onIndexChanged,
     required this.child,
   });
+  final int selectedIndex;
+  final ValueChanged<int> onIndexChanged;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
@@ -191,7 +247,7 @@ class _DesktopShell extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
-                          color: MshColors.primarySurface,
+                          color: MshColors.primarySubtle,
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: const Icon(Icons.map, color: MshColors.primary),
@@ -238,30 +294,48 @@ class _DesktopShell extends StatelessWidget {
                         },
                       ),
                       _SidebarItem(
-                        icon: Icons.family_restroom,
-                        label: 'Familienaktivitäten',
+                        icon: Icons.explore,
+                        label: 'Entdecken',
                         isSelected: selectedIndex == 1,
                         onTap: () {
                           onIndexChanged(1);
-                          context.go('/');
+                          context.go('/discover');
                         },
                       ),
                       _SidebarItem(
-                        icon: Icons.restaurant,
-                        label: 'Gastronomie',
+                        icon: Icons.celebration,
+                        label: 'Erleben',
                         isSelected: selectedIndex == 2,
                         onTap: () {
                           onIndexChanged(2);
-                          context.go('/');
+                          context.go('/events');
                         },
                       ),
                       _SidebarItem(
-                        icon: Icons.event,
-                        label: 'Events',
+                        icon: Icons.directions_bus,
+                        label: 'Mobilität',
                         isSelected: selectedIndex == 3,
                         onTap: () {
                           onIndexChanged(3);
-                          context.go('/events');
+                          context.go('/mobility');
+                        },
+                      ),
+                      _SidebarItem(
+                        icon: Icons.local_hospital,
+                        label: 'Gesundheit',
+                        isSelected: selectedIndex == 4,
+                        onTap: () {
+                          onIndexChanged(4);
+                          context.go('/health');
+                        },
+                      ),
+                      _SidebarItem(
+                        icon: Icons.person,
+                        label: 'Profil',
+                        isSelected: selectedIndex == 5,
+                        onTap: () {
+                          onIndexChanged(5);
+                          context.go('/profile');
                         },
                       ),
 
@@ -275,11 +349,6 @@ class _DesktopShell extends StatelessWidget {
                         icon: Icons.info_outline,
                         label: 'Über MSH Map',
                         onTap: () => context.go('/about'),
-                      ),
-                      _SidebarItem(
-                        icon: Icons.login,
-                        label: 'Anmelden',
-                        onTap: () => context.go('/login'),
                       ),
                     ],
                   ),
@@ -312,12 +381,6 @@ class _DesktopShell extends StatelessWidget {
 }
 
 class _SidebarItem extends StatelessWidget {
-  final IconData icon;
-  final String label;
-  final bool isSelected;
-  final VoidCallback onTap;
-  final String? badge;
-  final bool disabled;
 
   const _SidebarItem({
     required this.icon,
@@ -327,13 +390,19 @@ class _SidebarItem extends StatelessWidget {
     this.badge,
     this.disabled = false,
   });
+  final IconData icon;
+  final String label;
+  final bool isSelected;
+  final VoidCallback onTap;
+  final String? badge;
+  final bool disabled;
 
   @override
   Widget build(BuildContext context) {
     return Opacity(
       opacity: disabled ? 0.5 : 1.0,
       child: Material(
-        color: isSelected ? MshColors.primarySurface : Colors.transparent,
+        color: isSelected ? MshColors.primarySubtle : Colors.transparent,
         borderRadius: BorderRadius.circular(8),
         child: InkWell(
           onTap: disabled ? null : onTap,
@@ -392,15 +461,13 @@ void _navigateToIndex(BuildContext context, int index) {
   switch (index) {
     case 0:
       context.go('/');
-      break;
     case 1:
-      context.go('/');
-      break;
+      context.go('/discover');
     case 2:
-      context.go('/');
-      break;
+      context.go('/events');
     case 3:
-      context.go('/about');
-      break;
+      context.go('/mobility');
+    case 4:
+      context.go('/profile');
   }
 }

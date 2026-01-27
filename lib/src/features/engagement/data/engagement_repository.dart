@@ -47,7 +47,7 @@ class EngagementRepository {
         animals.add(AdoptableAnimalWithPlace(
           animal: animal,
           place: place,
-        ));
+        ),);
       }
     }
 
@@ -72,7 +72,7 @@ class EngagementRepository {
           needs.add(EngagementNeedWithPlace(
             need: need,
             place: place,
-          ));
+          ),);
         }
       }
     }
@@ -151,7 +151,7 @@ class EngagementRepository {
         lastUpdated: DateTime.now(),
       ),
 
-      EngagementPlace(
+      const EngagementPlace(
         id: 'feuerwehr_eisleben',
         name: 'Freiwillige Feuerwehr Eisleben',
         type: EngagementType.volunteer,
@@ -171,7 +171,7 @@ class EngagementRepository {
         ],
       ),
 
-      EngagementPlace(
+      const EngagementPlace(
         id: 'tafel_sgh',
         name: 'Tafel Sangerhausen',
         type: EngagementType.socialService,
@@ -224,22 +224,22 @@ class EngagementRepository {
 
 /// Tier mit zugehörigem Ort
 class AdoptableAnimalWithPlace {
-  final AdoptableAnimal animal;
-  final EngagementPlace place;
 
   AdoptableAnimalWithPlace({
     required this.animal,
     required this.place,
   });
+  final AdoptableAnimal animal;
+  final EngagementPlace place;
 }
 
 /// Bedarf mit zugehörigem Ort
 class EngagementNeedWithPlace {
-  final EngagementNeed need;
-  final EngagementPlace place;
 
   EngagementNeedWithPlace({
     required this.need,
     required this.place,
   });
+  final EngagementNeed need;
+  final EngagementPlace place;
 }

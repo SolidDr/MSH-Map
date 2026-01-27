@@ -2,6 +2,25 @@ import 'package:flutter/material.dart';
 
 /// Notice Model - MSH Radar Hinweise (Straßensperrungen, Warnungen, etc.)
 class MshNotice {
+
+  /// Parse from JSON
+  factory MshNotice.fromJson(Map<String, dynamic> json) {
+    return MshNotice(
+      id: json['id'] as String,
+      type: NoticeType.fromString(json['type'] as String),
+      title: json['title'] as String,
+      severity: NoticeSeverity.fromString(json['severity'] as String),
+      description: json['description'] as String?,
+      affectedArea: json['affected_area'] as String?,
+      validFrom: json['valid_from'] != null ? DateTime.parse(json['valid_from'] as String) : null,
+      validUntil: json['valid_until'] != null ? DateTime.parse(json['valid_until'] as String) : null,
+      timeStart: json['time_start'] as String?,
+      timeEnd: json['time_end'] as String?,
+      sourceUrl: json['source_url'] as String?,
+      latitude: json['latitude'] as double?,
+      longitude: json['longitude'] as double?,
+    );
+  }
   const MshNotice({
     required this.id,
     required this.type,
@@ -31,25 +50,6 @@ class MshNotice {
   final String? sourceUrl;
   final double? latitude;
   final double? longitude;
-
-  /// Parse from JSON
-  factory MshNotice.fromJson(Map<String, dynamic> json) {
-    return MshNotice(
-      id: json['id'] as String,
-      type: NoticeType.fromString(json['type'] as String),
-      title: json['title'] as String,
-      severity: NoticeSeverity.fromString(json['severity'] as String),
-      description: json['description'] as String?,
-      affectedArea: json['affected_area'] as String?,
-      validFrom: json['valid_from'] != null ? DateTime.parse(json['valid_from'] as String) : null,
-      validUntil: json['valid_until'] != null ? DateTime.parse(json['valid_until'] as String) : null,
-      timeStart: json['time_start'] as String?,
-      timeEnd: json['time_end'] as String?,
-      sourceUrl: json['source_url'] as String?,
-      latitude: json['latitude'] as double?,
-      longitude: json['longitude'] as double?,
-    );
-  }
 
   /// Check if notice is currently active
   bool get isActive {

@@ -61,3 +61,6 @@ flutter:
     - data/events/events_current.json
     - data/notices/notices_current.json
     - assets/data/engagement/places.json
+    - assets/data/health/doctors.json
+    - assets/data/health/pharmacies.json
+    - assets/data/health/fitness.json

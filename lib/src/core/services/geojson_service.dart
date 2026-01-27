@@ -36,7 +36,7 @@ class GeoJsonService {
     final geoJson = await loadGeoJson(assetPath);
 
     if (geoJson['type'] != 'FeatureCollection') {
-      throw FormatException('Invalid GeoJSON: Expected FeatureCollection');
+      throw const FormatException('Invalid GeoJSON: Expected FeatureCollection');
     }
 
     final features = geoJson['features'] as List<dynamic>;

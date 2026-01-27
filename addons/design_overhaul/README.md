@@ -1,210 +1,690 @@
-# MSH Map - Claude Code Prompts
+# MSH Map - UI Design Overhaul
 
-## Übersicht
+> **Ziel:** Komplette Neugestaltung der UI mit Fokus auf Informationsarchitektur, goldenen Schnitt, visuelle Hierarchie und klare Gruppierung.
 
-Diese Prompts sind für Claude Code in VS Code. Führe sie **nacheinander** aus.
-Jeder Prompt baut auf dem vorherigen auf.
-
----
-
-## Prompt-Reihenfolge
-
-| # | Datei | Feature | Aufwand |
-|---|-------|---------|---------|
-| 1 | `PROMPT_01_FEATURE_FLAGS.md` | Feature-Flag System | 30 Min |
-| 2 | `PROMPT_02_AGE_FILTER.md` | Altersgerechte Empfehlungen | 1-2 Std |
-| 3 | `PROMPT_03_WEATHER.md` | Wetter-Integration (Open-Meteo) | 1 Std |
-| 4 | `PROMPT_04_EVENTS.md` | Events auf Karte + Widget | 2 Std |
-| 5 | `PROMPT_05_OEPNV_REPORT.md` | ÖPNV-Links + Problem melden | 1 Std |
-| 6 | `PROMPT_06_FINAL_TEST.md` | Finaler System-Test | 1-2 Std |
-| 7 | `PROMPT_07_DEEPSCAN_POPULARITY.md` | DeepScan 2.0 + Beliebtheit | 2-3 Std |
-| **8** | `PROMPT_08_DESIGN_OVERHAUL.md` | **Design "Heimat MSH"** | **3-4 Std** |
-
-**Gesamtaufwand:** ~14-17 Stunden (kann über mehrere Tage verteilt werden)
+**Version:** 1.0
+**Datum:** 2026-01-26
+**Status:** 📋 Planung
 
 ---
 
-## So verwendest du die Prompts
+## 📐 Design-Prinzipien
 
-### Schritt 1: Projekt öffnen
-```bash
-code /pfad/zu/msh_map
+### 1. Goldener Schnitt & Proportionen
+```
+Verhältnis: 1:1.618 (φ)
+
+Anwendung in der App:
+- Content-Bereich zu Sidebar: 1.618:1 (Desktop)
+- Card-Höhe zu Breite: ~0.618:1
+- Header zu Content in Sheets: 1:1.618
+- Spacing-Hierarchie: 8px → 13px → 21px → 34px → 55px (Fibonacci)
 ```
 
-### Schritt 2: Claude Code starten
-- In VS Code: Claude Code Extension öffnen
-- Oder: Terminal → `claude`
-
-### Schritt 3: Prompt einfügen
-- Öffne `PROMPT_01_FEATURE_FLAGS.md`
-- Kopiere den gesamten Inhalt
-- Füge in Claude Code ein
-- Warte bis Claude fertig ist
-
-### Schritt 4: Testen
-- App starten: `flutter run -d chrome`
-- Feature testen
-- Bei Problemen: Claude fragen
-
-### Schritt 5: Nächster Prompt
-- Weiter mit `PROMPT_02_AGE_FILTER.md`
-- Und so weiter...
-
----
-
-## Was jeder Prompt macht
-
-### PROMPT 1: Feature-Flags
+### 2. Whitespace & Breathing Room
 ```
-Erstellt:
-├── lib/src/core/config/feature_flags.dart
-├── lib/src/shared/widgets/feature_flag_wrapper.dart
-└── README zur Verwendung
-
-Ergebnis: Features können ein/ausgeschaltet werden
+Minimale Touch-Targets: 48px × 48px
+Card-Spacing: 21px (statt 8px/16px gemischt)
+Section-Spacing: 34px (klare Trennung)
+Screen-Padding: 21px horizontal, 13px vertikal
 ```
 
-### PROMPT 2: Altersfilter
+### 3. Visuelle Hierarchie
 ```
-Erstellt:
-├── lib/src/features/age_filter/domain/age_group.dart
-├── lib/src/features/age_filter/application/age_filter_provider.dart
-└── lib/src/features/age_filter/presentation/age_filter_chips.dart
-
-Ergebnis: Chips über der Karte filtern nach Kinder-Alter
+Ebene 1: Primäre Aktion (FAB, CTA-Buttons)
+Ebene 2: Navigation & Filter (AppBar, Chips)
+Ebene 3: Content (Cards, Listen)
+Ebene 4: Meta-Info (Timestamps, Badges)
 ```
 
-### PROMPT 3: Wetter
+### 4. Informationsgruppierung
 ```
-Erstellt:
-├── lib/src/features/weather/domain/weather_model.dart
-├── lib/src/features/weather/data/weather_repository.dart
-├── lib/src/features/weather/application/weather_provider.dart
-├── lib/src/features/weather/presentation/weather_widget.dart
-└── lib/src/features/weather/presentation/weather_badge.dart
-
-Ergebnis: Aktuelles Wetter + Indoor/Outdoor Empfehlung
-```
-
-### PROMPT 4: Events
-```
-Erstellt:
-├── lib/src/features/events/domain/event_model.dart
-├── lib/src/features/events/data/event_repository.dart
-├── lib/src/features/events/application/event_provider.dart
-├── lib/src/features/events/presentation/event_map_layer.dart
-├── lib/src/features/events/presentation/upcoming_events_widget.dart
-└── assets/data/events/events_current.json
-
-Ergebnis: Events auf Karte + "Diese Woche" Widget
-```
-
-### PROMPT 5: ÖPNV + Problem melden
-```
-Erstellt:
-├── lib/src/shared/widgets/public_transport_button.dart
-├── lib/src/features/feedback/domain/issue_type.dart
-└── lib/src/features/feedback/presentation/report_issue_sheet.dart
-
-Ergebnis: ÖPNV-Link bei Orten + Anonymes Problem-Melden
+Prinzip: Maximal 3-5 Items pro Gruppe
+Subsektionen statt Überfüllung
+Progressive Disclosure (Details on Demand)
 ```
 
 ---
 
-## Nach allen Prompts
+## 🔍 Analyse: Aktuelle UI-Probleme
 
-Deine App hat dann:
-
+### HomeScreen - Überlagerung & Clutter
 ```
-✅ Feature-Flag System (alles ein/ausschaltbar)
-✅ Altersfilter (👶 0-2, 🧒 3-5, 👦 6-11, 🧑 12+)
-✅ Wetter-Widget (Open-Meteo, DSGVO-konform)
-✅ Indoor/Outdoor Empfehlung
-✅ Events auf der Karte (farbige Marker)
-✅ "Diese Woche" Events-Widget
-✅ ÖPNV-Links (zu INSA)
-✅ Problem melden (anonym per E-Mail)
+❌ Probleme:
+- 7+ UI-Elemente übereinander (Banner, Search, 2× Filter, Counter, 3× FABs)
+- Category + Age Filter beide horizontal scrollbar → verwirrend
+- 3 FABs gleichzeitig → unklar welche primär ist
+- POI Counter + Analytics Button in Ecke → leicht zu übersehen
+- Keine klare visuelle Gruppierung
+
+✅ Lösung:
+- Konsolidierung in Tabs/Sections
+- Maximal 1 primärer FAB
+- Filter in Drawer/Sheet auslagern
+- Map als Fokus (80% Viewport)
+```
+
+### Navigation - Inkonsistente Struktur
+```
+❌ Probleme:
+- "Mehr"-Tab ist Catch-All ohne klare Struktur
+- Engagement-Feature nicht in Navigation sichtbar
+- Search-Modul registriert aber keine eigene Route
+- ÖPNV/Mobilität Features versteckt
+
+✅ Lösung:
+- 5 Hauptkategorien statt 4
+  1. Karte (Zentral)
+  2. Entdecken (POIs gruppiert)
+  3. Erleben (Events + Engagement)
+  4. Mobilität (ÖPNV + Ladesäulen)
+  5. Profil (Settings, About, Feedback)
+```
+
+### Filter & Kategorien - Zu flach
+```
+❌ Probleme:
+- Alle Family-Kategorien auf einer Ebene (9 Chips)
+- Keine Subsektionen (Natur, Indoor, Outdoor)
+- Age Filter nur bei Family → sollte globaler sein
+
+✅ Lösung:
+- Hierarchische Filter:
+  └─ Familie
+     ├─ Indoor (Museum, Pool, Adventure)
+     ├─ Outdoor (Playground, Zoo, Farm, Nature)
+     └─ Kultur (Castle)
+- Age Filter global sichtbar bei relevanten POIs
+```
+
+### Bottom Sheets - Inkonsistent
+```
+❌ Probleme:
+- POI Sheet: DraggableScrollableSheet
+- Event Sheet: Anderer Style
+- Engagement Sheet: Wieder anderer Style
+- Unterschiedliche Header, Buttons, Spacing
+
+✅ Lösung:
+- Einheitliche Sheet-Komponente (MshBottomSheet)
+- Konsistente Sections: Header → Details → Actions
+- Wiederverwendbare Widgets
+```
+
+### Engagement - Zu versteckt
+```
+❌ Probleme:
+- Feature Flag enableEngagementWidget = false (standardmäßig)
+- Nur auf Map als Layer sichtbar
+- Kein dedizierter Screen
+- Urgency-Marker nicht prominent
+
+✅ Lösung:
+- Eigener "Helfen & Engagieren" Tab
+- Dashboard mit dringenden Bedarfen
+- Filter nach: Tierheime, Soziales, Ehrenamt, Blutspende
+- Integration mit Events ("Helfer-Events")
 ```
 
 ---
 
-## Abhängigkeiten
+## 🎨 Neue UI-Architektur
 
-Diese Packages werden benötigt (die Prompts fügen sie hinzu):
+### 1. Navigation & Information Architecture
 
-```yaml
-# pubspec.yaml
-dependencies:
-  flutter_riverpod: ^2.4.0
-  freezed_annotation: ^2.4.0
-  json_annotation: ^4.8.0
-  http: ^1.1.0
-  url_launcher: ^6.2.0
-  flutter_map: ^6.0.0
-  latlong2: ^0.9.0
-
-dev_dependencies:
-  freezed: ^2.4.0
-  json_serializable: ^6.7.0
-  build_runner: ^2.4.0
+```
+┌─────────────────────────────────────────┐
+│  MSH Map - Hauptnavigation (5 Tabs)    │
+├─────────────────────────────────────────┤
+│                                         │
+│  1️⃣ KARTE                               │
+│     └─ Hauptansicht (Map + Filter)     │
+│     └─ Layer Switcher                   │
+│     └─ Search                           │
+│                                         │
+│  2️⃣ ENTDECKEN                           │
+│     ├─ 🎡 Familie & Freizeit            │
+│     │  ├─ Indoor (Museum, Pool, etc.)   │
+│     │  ├─ Outdoor (Spielplatz, Zoo)     │
+│     │  └─ Kultur (Burgen, Schlösser)    │
+│     │                                   │
+│     ├─ 🍴 Gastronomie                   │
+│     │  ├─ Restaurants                   │
+│     │  ├─ Cafés & Bars                  │
+│     │  └─ Regional & Bio                │
+│     │                                   │
+│     └─ 🏛️ Sehenswürdigkeiten            │
+│        ├─ Historisch                    │
+│        ├─ Natur & Wandern               │
+│        └─ Aussichtspunkte               │
+│                                         │
+│  3️⃣ ERLEBEN                             │
+│     ├─ 📅 Veranstaltungen               │
+│     │  ├─ Diese Woche                   │
+│     │  ├─ Dieses Wochenende             │
+│     │  └─ Nach Kategorie                │
+│     │                                   │
+│     └─ ❤️ Helfen & Engagieren           │
+│        ├─ Dringende Bedarfe             │
+│        ├─ Tierheime & Adoption          │
+│        ├─ Soziale Einrichtungen         │
+│        └─ Ehrenamt & Blutspende         │
+│                                         │
+│  4️⃣ MOBILITÄT                           │
+│     ├─ 🚌 ÖPNV & Verbindungen           │
+│     ├─ 🚗 Parkplätze                    │
+│     ├─ ⚡ E-Ladesäulen                  │
+│     └─ 🚲 Fahrrad & Verleih             │
+│                                         │
+│  5️⃣ PROFIL                              │
+│     ├─ ⚙️ Einstellungen                 │
+│     ├─ 🎨 Darstellung & Themes          │
+│     ├─ ♿ Barrierefreiheit              │
+│     ├─ 💬 Feedback & Ort vorschlagen    │
+│     └─ ℹ️ Über die App                  │
+│                                         │
+└─────────────────────────────────────────┘
 ```
 
-Nach Änderungen an Models:
-```bash
-dart run build_runner build --delete-conflicting-outputs
+### 2. HomeScreen - Neu strukturiert
+
+#### Layout (Goldener Schnitt)
+```
+┌─────────────────────────────────────────┐
+│  🗺️ AppBar (56px)                       │ ← Ebene 2
+│  [Logo]  MSH Map  [Search] [Profile]   │
+├─────────────────────────────────────────┤
+│                                         │
+│                                         │
+│           MAP VIEW (80%)                │ ← Ebene 3 (Fokus)
+│       φ = 1.618 height ratio            │
+│                                         │
+│                                         │
+│          [Marker] [Marker]              │
+│              [Marker]                   │
+│                                         │
+│                                         │
+├─────────────────────────────────────────┤
+│  🏷️ Quick Filters (20%)                 │ ← Ebene 2
+│  [Chip] [Chip] [Chip] [...]            │
+│                                         │
+│  📍 145 Orte gefunden                   │ ← Ebene 4 (Meta)
+├─────────────────────────────────────────┤
+│  [🎯 Filter]  🗺️  🎡  🍴  👤            │ ← Ebene 1 (Nav)
+└─────────────────────────────────────────┘
+
+Einziger FAB: 🎯 Filter Drawer (primäre Aktion)
 ```
 
----
-
-## Tipps
-
-### Bei Fehlern
-- Lies die Fehlermeldung genau
-- Kopiere sie zu Claude Code
-- Claude kann meist selbst fixen
-
-### Bei Unklarheiten
-- Frag Claude: "Was macht dieser Code?"
-- Oder: "Wie teste ich das?"
-
-### Zum Testen
-```bash
-# Web
-flutter run -d chrome --web-port=8080
-
-# Analyzer
-flutter analyze
-
-# Tests (falls vorhanden)
-flutter test
-```
-
-### Feature deaktivieren
+#### Komponenten-Hierarchie
 ```dart
-// In feature_flags.dart:
-static const bool enableWeather = false;  // ← Ausschalten
+Stack(
+  children: [
+    // Background - Ebene 3 (80% Viewport)
+    MshMapView(
+      items: filteredItems,
+      showFogOfWar: true,
+    ),
+
+    // Top Bar - Ebene 2
+    Positioned(
+      top: 0,
+      child: SearchBar(compact: true),
+    ),
+
+    // Bottom Content Card - Ebene 2 (20% Viewport)
+    DraggableScrollableSheet(
+      initialChildSize: 0.2,
+      minChildSize: 0.08,  // Nur Counter sichtbar
+      maxChildSize: 0.6,   // Filter expandiert
+      child: BottomContentCard(
+        sections: [
+          FilterChipsSection(),
+          NearbyPoisSection(),
+          UpcomingEventsSection(),
+        ],
+      ),
+    ),
+
+    // FAB - Ebene 1 (Primär)
+    Positioned(
+      bottom: 90,
+      right: 21,
+      child: FloatingActionButton(
+        onPressed: _openFilterDrawer,
+        child: Icon(Icons.tune),
+      ),
+    ),
+  ],
+)
+```
+
+### 3. Filter Drawer - Hierarchisch & Gruppiert
+
+```
+┌─────────────────────────────────────────┐
+│  🎯 Filter & Kategorien                 │
+├─────────────────────────────────────────┤
+│                                         │
+│  🎡 FAMILIE & FREIZEIT                  │ ← Gruppe 1
+│  ┌─────────────────────────────────┐   │
+│  │ 🏠 Indoor                        │   │
+│  │  ☐ Museum & Ausstellung         │   │
+│  │  ☐ Schwimmbad & Therme          │   │
+│  │  ☐ Indoor-Spielplatz             │   │
+│  │                                  │   │
+│  │ 🌳 Outdoor                       │   │
+│  │  ☐ Spielplatz                   │   │
+│  │  ☐ Zoo & Tierpark               │   │
+│  │  ☐ Bauernhof                    │   │
+│  │  ☐ Natur & Wandern              │   │
+│  │                                  │   │
+│  │ 🏰 Kultur                        │   │
+│  │  ☐ Burg & Schloss               │   │
+│  └─────────────────────────────────┘   │
+│                                         │
+│  👶 Altersgruppen                       │
+│  [0-3] [3-6] [6-12] [12+] [Alle]       │
+│                                         │
+│  ─────────────────────────────────────  │ ← Divider (34px)
+│                                         │
+│  🍴 GASTRONOMIE                         │ ← Gruppe 2
+│  ┌─────────────────────────────────┐   │
+│  │  ☐ Restaurant                    │   │
+│  │  ☐ Café & Bar                    │   │
+│  │  ☐ Imbiss & Fastfood             │   │
+│  │  ☐ Regional & Bioprodukte        │   │
+│  └─────────────────────────────────┘   │
+│                                         │
+│  🍽️ Besonderheiten                     │
+│  [Vegetarisch] [Vegan] [Halal]         │
+│                                         │
+│  ─────────────────────────────────────  │
+│                                         │
+│  ❤️ HELFEN & ENGAGIEREN                 │ ← Gruppe 3
+│  ┌─────────────────────────────────┐   │
+│  │  ☐ Tierheim & Tierschutz         │   │
+│  │  ☐ Soziale Einrichtungen         │   │
+│  │  ☐ Ehrenamt & Vereine            │   │
+│  │  ☐ Blutspende                    │   │
+│  └─────────────────────────────────┘   │
+│                                         │
+│  🚨 Dringlichkeit                       │
+│  [Kritisch] [Dringend] [Erhöht]        │
+│                                         │
+│  ─────────────────────────────────────  │
+│                                         │
+│  [Zurücksetzen]    [Filter anwenden]   │ ← Actions
+│                                         │
+└─────────────────────────────────────────┘
+
+Spacing:
+- Section-Titel: 34px margin-top (goldener Schnitt)
+- Checkbox-Items: 13px padding vertical
+- Chips: 8px gap horizontal
+- Buttons: 21px padding
+```
+
+### 4. Entdecken Screen - Kategorisiert
+
+```
+┌─────────────────────────────────────────┐
+│  🎡 Entdecken                           │
+├─────────────────────────────────────────┤
+│  [Suche...]                🗺️           │ ← Search + Map Toggle
+├─────────────────────────────────────────┤
+│                                         │
+│  🎡 Familie & Freizeit                  │ ← Card 1 (Ratio 1.618:1)
+│  ┌───────────────────────────────────┐ │
+│  │  📸 [Hero Image]                  │ │
+│  │                                   │ │
+│  │  145 Orte • Für Familien          │ │ ← Meta
+│  │                                   │ │
+│  │  [Indoor] [Outdoor] [Kultur] →   │ │ ← Sub-Nav
+│  └───────────────────────────────────┘ │
+│                                         │ ← 34px spacing
+│  🍴 Gastronomie                         │ ← Card 2
+│  ┌───────────────────────────────────┐ │
+│  │  📸 [Hero Image]                  │ │
+│  │                                   │ │
+│  │  87 Restaurants • Regional        │ │
+│  │                                   │ │
+│  │  [Restaurant] [Café] [Regional] →│ │
+│  └───────────────────────────────────┘ │
+│                                         │
+│  🏛️ Sehenswürdigkeiten                 │ ← Card 3
+│  ┌───────────────────────────────────┐ │
+│  │  📸 [Hero Image]                  │ │
+│  │                                   │ │
+│  │  23 Orte • Historisch & Natur     │ │
+│  │                                   │ │
+│  │  [Historisch] [Natur] [Aussicht]→│ │
+│  └───────────────────────────────────┘ │
+│                                         │
+└─────────────────────────────────────────┘
+```
+
+### 5. Erleben Screen - Events & Engagement
+
+```
+┌─────────────────────────────────────────┐
+│  📅 Erleben                             │
+├─────────────────────────────────────────┤
+│  [Diese Woche] [Wochenende] [Monat]    │ ← Tab Bar
+├─────────────────────────────────────────┤
+│                                         │
+│  📅 VERANSTALTUNGEN                     │
+│  ┌───────────────────────────────────┐ │
+│  │  Fr, 31. Jan • 19:00 Uhr          │ │ ← Timeline
+│  │  🎵 Konzert im Rosarium            │ │
+│  │  Sangerhausen                      │ │
+│  │                     [Details →]    │ │
+│  ├───────────────────────────────────┤ │
+│  │  Sa, 01. Feb • 14:00 Uhr          │ │
+│  │  🎨 Kunstmarkt Lutherstadt         │ │
+│  │  Eisleben                          │ │
+│  │                     [Details →]    │ │
+│  └───────────────────────────────────┘ │
+│                                         │
+│  ─────────────────────────────────────  │ ← Divider (34px)
+│                                         │
+│  ❤️ HELFEN & ENGAGIEREN                 │
+│  ┌───────────────────────────────────┐ │
+│  │  🚨 DRINGEND                       │ │ ← Urgency Badge
+│  │  🐾 Tierheim Sangerhausen          │ │
+│  │  Gassigeher dringend gesucht       │ │
+│  │  Blutgruppen 0- und AB- benötigt  │ │
+│  │                      [Helfen →]    │ │
+│  ├───────────────────────────────────┤ │
+│  │  🏥 DRK Blutspende                 │ │
+│  │  Nächster Termin: Mo, 03. Feb     │ │
+│  │                     [Termin →]     │ │
+│  └───────────────────────────────────┘ │
+│                                         │
+│  [🎯 Alle Engagement-Orte anzeigen]    │ ← CTA
+│                                         │
+└─────────────────────────────────────────┘
+```
+
+### 6. Mobilität Screen - ÖPNV & Infrastruktur
+
+```
+┌─────────────────────────────────────────┐
+│  🚌 Mobilität                           │
+├─────────────────────────────────────────┤
+│  [ÖPNV] [Parken] [Laden] [Fahrrad]    │ ← Tab Bar
+├─────────────────────────────────────────┤
+│                                         │
+│  🚌 ÖPNV & VERBINDUNGEN                 │
+│  ┌───────────────────────────────────┐ │
+│  │  Von: [Sangerhausen HBF]     🎯   │ │ ← GPS Button
+│  │  Nach: [Eisleben Markt]      🔍   │ │ ← Search
+│  │                                   │ │
+│  │  [Jetzt] [Abfahrt] [Ankunft]     │ │ ← Time Filter
+│  │                                   │ │
+│  │  ─────────────────────────────    │ │
+│  │  Nächste Verbindungen:            │ │
+│  │                                   │ │
+│  │  🚌 14:35 → 15:12 (37 Min)        │ │
+│  │     Bus 280 → Bus 340             │ │
+│  │     [Details] [Tickets]           │ │
+│  │                                   │ │
+│  │  🚂 15:05 → 15:48 (43 Min)        │ │
+│  │     RB nach Halle → Bus 340       │ │
+│  │     [Details] [Tickets]           │ │
+│  └───────────────────────────────────┘ │
+│                                         │
+│  🚏 Haltestellen in der Nähe            │
+│  ┌───────────────────────────────────┐ │
+│  │  📍 Sangerhausen, Bahnhof (50m)   │ │
+│  │     280, 340, RB                  │ │
+│  │                        [Karte →]  │ │
+│  │  📍 Rosenweg (320m)               │ │
+│  │     280, 285                      │ │
+│  │                        [Karte →]  │ │
+│  └───────────────────────────────────┘ │
+│                                         │
+└─────────────────────────────────────────┘
+```
+
+### 7. Profil Screen - Settings & Über
+
+```
+┌─────────────────────────────────────────┐
+│  👤 Profil                              │
+├─────────────────────────────────────────┤
+│                                         │
+│  ⚙️ EINSTELLUNGEN                       │
+│  ┌───────────────────────────────────┐ │
+│  │  🎨 Darstellung                    │ │
+│  │     Hell • Dunkel • Automatisch   │ │
+│  │                                   │ │
+│  │  ♿ Barrierefreiheit               │ │
+│  │     Hoher Kontrast • Schriftgröße│ │
+│  │                                   │ │
+│  │  🗺️ Karten-Einstellungen          │ │
+│  │     Layer • Zoom • Fog of War     │ │
+│  │                                   │ │
+│  │  🔔 Benachrichtigungen            │ │
+│  │     Events • Engagement • Updates │ │
+│  └───────────────────────────────────┘ │
+│                                         │
+│  ─────────────────────────────────────  │
+│                                         │
+│  💬 FEEDBACK & COMMUNITY                │
+│  ┌───────────────────────────────────┐ │
+│  │  📍 Ort vorschlagen                │ │
+│  │  🐛 Problem melden                 │ │
+│  │  ⭐ App bewerten                   │ │
+│  └───────────────────────────────────┘ │
+│                                         │
+│  ─────────────────────────────────────  │
+│                                         │
+│  ℹ️ ÜBER DIE APP                        │
+│  ┌───────────────────────────────────┐ │
+│  │  MSH Map v1.0.0                   │ │
+│  │  Regionale Plattform für          │ │
+│  │  Mansfeld-Südharz                 │ │
+│  │                                   │ │
+│  │  [GitHub] [Datenschutz] [Lizenz] │ │
+│  │                                   │ │
+│  │  Powered by OpenStreetMap         │ │
+│  └───────────────────────────────────┘ │
+│                                         │
+└─────────────────────────────────────────┘
 ```
 
 ---
 
-## Nächste Schritte (später)
+## 🎨 Theme Updates - Goldener Schnitt & Spacing
 
-Nach V1.1 kannst du weitere Prompts für V1.2 erstellen:
+### Neue Spacing-Konstanten (Fibonacci)
+```dart
+// lib/src/core/theme/msh_spacing.dart
 
-- PROMPT_06: Offline-Karten
-- PROMPT_07: Naturschutzgebiete Layer
-- PROMPT_08: E-Ladesäulen
-- PROMPT_09: Prognose "Wird es voll?"
+class MshSpacing {
+  // Fibonacci Sequence für harmonische Proportionen
+  static const double xs = 5.0;     // Fibonacci 5
+  static const double sm = 8.0;     // Fibonacci 8
+  static const double md = 13.0;    // Fibonacci 13 (neu)
+  static const double lg = 21.0;    // Fibonacci 21 (neu)
+  static const double xl = 34.0;    // Fibonacci 34 (neu)
+  static const double xxl = 55.0;   // Fibonacci 55 (neu)
+
+  // Goldener Schnitt Ratios
+  static const double phi = 1.618;
+  static const double phiInverse = 0.618;
+
+  // Anwendungen
+  static double goldenRatio(double base) => base * phi;
+  static double goldenInverse(double base) => base * phiInverse;
+}
+```
+
+### Card Proportionen
+```dart
+// Ratio 1.618:1 für alle Cards
+class MshCard extends StatelessWidget {
+  static const double aspectRatio = 1.618;
+
+  @override
+  Widget build(BuildContext context) {
+    return AspectRatio(
+      aspectRatio: aspectRatio,
+      child: Card(
+        margin: EdgeInsets.all(MshSpacing.lg), // 21px
+        child: Padding(
+          padding: EdgeInsets.all(MshSpacing.md), // 13px
+          child: content,
+        ),
+      ),
+    );
+  }
+}
+```
 
 ---
 
-## Hilfe
+## 📦 Neue Komponenten (Übersicht)
 
-Bei Problemen:
-1. Claude Code fragen
-2. Flutter Docs: https://docs.flutter.dev
-3. Riverpod Docs: https://riverpod.dev
+### 1. MshBottomSheet - Einheitliche Sheets
+Ersetzt: POI Sheet, Event Sheet, Engagement Sheet
+Features: Draggable, Konsistentes Layout, Goldener Schnitt Header:Content
+
+### 2. MshCategoryCard - Gruppierte Kategorien
+Für: Entdecken Screen
+Features: AspectRatio 1.618:1, Hero Images, Subcategories
+
+### 3. MshFilterDrawer - Hierarchische Filter
+Ersetzt: Category Quick Filter, Age Filter Row
+Features: Gruppierung, Subsektionen, Progressive Disclosure
+
+### 4. MshTimelineCard - Events mit Timeline
+Für: Erleben Screen
+Features: DateTime Indicator, Consistent Layout, CTA
+
+### 5. MshEngagementCard - Urgency-basierte Cards
+Für: Erleben Screen, Engagement Tab
+Features: Urgency-Badge, Visual Hierarchy, Elevated bei Critical
 
 ---
 
-**Viel Erfolg! 🚀**
+## 📋 Implementierungsplan
+
+### Phase 1: Foundation (Theme & Spacing)
+**Dateien:** 3 Dateien
+1. [lib/src/core/theme/msh_spacing.dart](../../lib/src/core/theme/msh_spacing.dart) (NEU)
+2. [lib/src/core/theme/msh_colors.dart](../../lib/src/core/theme/msh_colors.dart) (UPDATE)
+3. [lib/src/core/theme/msh_theme.dart](../../lib/src/core/theme/msh_theme.dart) (UPDATE)
+
+**Aufgaben:**
+- Fibonacci-Spacing System
+- Goldenen Schnitt Ratios
+- Color Hierarchy (4 Abstufungen)
+- Typography mit Line Height 1.618
+
+---
+
+### Phase 2: Basis-Komponenten
+**Dateien:** 5 neue Komponenten
+1. [lib/src/shared/widgets/msh_bottom_sheet.dart](../../lib/src/shared/widgets/msh_bottom_sheet.dart) (NEU)
+2. [lib/src/shared/widgets/msh_category_card.dart](../../lib/src/shared/widgets/msh_category_card.dart) (NEU)
+3. [lib/src/shared/widgets/msh_filter_drawer.dart](../../lib/src/shared/widgets/msh_filter_drawer.dart) (NEU)
+4. [lib/src/shared/widgets/msh_timeline_card.dart](../../lib/src/shared/widgets/msh_timeline_card.dart) (NEU)
+5. [lib/src/shared/widgets/msh_engagement_card.dart](../../lib/src/shared/widgets/msh_engagement_card.dart) (NEU)
+
+---
+
+### Phase 3: Navigation Update (5 Tabs)
+**Dateien:** 4 Dateien (2 Updates, 2 NEU)
+1. [lib/src/core/shell/app_shell.dart](../../lib/src/core/shell/app_shell.dart) (UPDATE)
+2. [lib/src/core/router/app_router.dart](../../lib/src/core/router/app_router.dart) (UPDATE)
+3. [lib/src/modules/discover/discover_module.dart](../../lib/src/modules/discover/discover_module.dart) (NEU)
+4. [lib/src/modules/mobility/mobility_module.dart](../../lib/src/modules/mobility/mobility_module.dart) (NEU)
+
+**Neue Navigation:**
+- Karte
+- Entdecken (NEU)
+- Erleben (Events + Engagement)
+- Mobilität (NEU)
+- Profil
+
+---
+
+### Phase 4: HomeScreen Redesign
+**Dateien:** 3 Dateien
+1. [lib/src/home_screen.dart](../../lib/src/home_screen.dart) (MAJOR UPDATE)
+2. [lib/src/shared/widgets/bottom_content_card.dart](../../lib/src/shared/widgets/bottom_content_card.dart) (NEU)
+3. [lib/src/shared/widgets/msh_map_view.dart](../../lib/src/shared/widgets/msh_map_view.dart) (UPDATE)
+
+**Änderungen:**
+- 80/20 Ratio (Map vs. Content)
+- Filter in Drawer ausgelagert
+- Nur 1 FAB (Filter)
+- DraggableScrollableSheet für Bottom Content
+
+---
+
+### Phase 5: Filter Hierarchie & Gruppierung
+**Dateien:** 4 Dateien
+1. [lib/src/core/providers/filter_provider.dart](../../lib/src/core/providers/filter_provider.dart) (UPDATE)
+2. [lib/src/core/models/filter_model.dart](../../lib/src/core/models/filter_model.dart) (NEU)
+3. [lib/src/modules/family/family_module.dart](../../lib/src/modules/family/family_module.dart) (UPDATE)
+4. [lib/src/modules/gastro/gastro_module.dart](../../lib/src/modules/gastro/gastro_module.dart) (UPDATE)
+
+**Neue Hierarchie:**
+- Familie: Indoor / Outdoor / Kultur
+- Gastro: Restaurant / Café / Regional + Besonderheiten
+- Engagement: Tierheim / Sozial / Ehrenamt / Blutspende
+
+---
+
+### Phase 6-12: Weitere Phasen
+- Phase 6: Entdecken Screen
+- Phase 7: Erleben Screen
+- Phase 8: Mobilität Screen
+- Phase 9: Profil Screen
+- Phase 10: Bottom Sheets Vereinheitlichung
+- Phase 11: Responsive Anpassungen
+- Phase 12: Polish & Details
+
+---
+
+## 📊 Zusammenfassung
+
+### Geschätzte Dateien Gesamt
+- **NEU:** 25+ Dateien
+- **UPDATE:** 15+ Dateien
+- **GESAMT:** ~40 Dateien
+
+### Priorität
+1. 🔴 **Kritisch:** Phase 1-5 (Foundation, Navigation, HomeScreen)
+2. 🟠 **Wichtig:** Phase 6-9 (Neue Screens)
+3. 🟢 **Nice-to-Have:** Phase 10-12 (Polish)
+
+---
+
+## 🎯 Nächste Schritte
+
+**Möchtest du:**
+
+1. ✅ **Mit Phase 1 starten** (Theme & Spacing Foundation)
+2. 📋 **Detaillierten Plan für eine Phase** sehen
+3. 🎨 **Visual Mockups/Wireframes** erstellen
+4. 🔍 **Einzelne Komponente** zuerst implementieren
+
+**Empfehlung:** Start mit Phase 1 (Theme Foundation), da alle anderen Phasen darauf aufbauen.
+
+---
+
+## 📚 Referenzen
+
+- **Goldener Schnitt:** https://en.wikipedia.org/wiki/Golden_ratio
+- **Fibonacci Spacing:** Material Design 3 adaptiert
+- **Flutter Best Practices:** https://docs.flutter.dev/ui/layout
+- **Accessibility:** WCAG 2.1 AA Standard
+
+---
+
+**Erstellt:** 2026-01-26
+**Version:** 1.0

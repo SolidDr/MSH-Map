@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart' show debugPrint;
 import 'package:flutter/services.dart' show rootBundle;
 import '../domain/event.dart';
 import '../domain/notice.dart';
@@ -19,7 +20,7 @@ class EventsDataSource {
           .map((e) => MshEvent.fromJson(e as Map<String, dynamic>))
           .toList();
     } catch (e) {
-      print('Error loading events: $e');
+      debugPrint('Error loading events: $e');
       return [];
     }
   }
@@ -35,7 +36,7 @@ class EventsDataSource {
           .map((e) => MshNotice.fromJson(e as Map<String, dynamic>))
           .toList();
     } catch (e) {
-      print('Error loading notices: $e');
+      debugPrint('Error loading notices: $e');
       return [];
     }
   }
@@ -47,7 +48,7 @@ class EventsDataSource {
       final jsonData = json.decode(jsonString) as Map<String, dynamic>;
       return jsonData['meta'] as Map<String, dynamic>?;
     } catch (e) {
-      print('Error loading events metadata: $e');
+      debugPrint('Error loading events metadata: $e');
       return null;
     }
   }
@@ -59,7 +60,7 @@ class EventsDataSource {
       final jsonData = json.decode(jsonString) as Map<String, dynamic>;
       return jsonData['stats'] as Map<String, dynamic>?;
     } catch (e) {
-      print('Error loading events stats: $e');
+      debugPrint('Error loading events stats: $e');
       return null;
     }
   }

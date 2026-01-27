@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../core/theme/msh_colors.dart';
+import '../../../shared/widgets/reviews_section.dart';
 import '../../../shared/widgets/transport_buttons.dart';
 import '../domain/poi.dart';
 
@@ -47,7 +48,7 @@ class PoiDetailContent extends StatelessWidget {
                         label: Text(tag),
                         backgroundColor: Colors.grey[200],
                         padding: const EdgeInsets.symmetric(horizontal: 8),
-                      ))
+                      ),)
                   .toList(),
             ),
             const SizedBox(height: 16),
@@ -79,7 +80,7 @@ class PoiDetailContent extends StatelessWidget {
 
           // Kostenlos
           if (poi.isFree)
-            _InfoRow(
+            const _InfoRow(
               icon: Icons.money_off,
               label: 'Eintritt',
               value: 'Kostenlos',
@@ -106,7 +107,7 @@ class PoiDetailContent extends StatelessWidget {
 
           // Barrierefrei
           if (poi.isBarrierFree)
-            _InfoRow(
+            const _InfoRow(
               icon: Icons.accessible,
               label: 'Barrierefrei',
               value: 'Ja',
@@ -128,6 +129,12 @@ class PoiDetailContent extends StatelessWidget {
             latitude: poi.coordinates.latitude,
             longitude: poi.coordinates.longitude,
             placeName: poi.name,
+          ),
+
+          // Bewertungen
+          const Divider(height: 32),
+          const ReviewsSection(
+            reviews: [], // TODO: Bewertungen aus Datenbank laden
           ),
 
           // Kontakt

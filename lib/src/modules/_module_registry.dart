@@ -28,8 +28,7 @@ class FilterOption {
   const FilterOption({
     required this.id,
     required this.label,
-    this.icon,
-    required this.predicate,
+    required this.predicate, this.icon,
   });
   final String id;
   final String label;

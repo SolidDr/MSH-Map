@@ -6,9 +6,6 @@ import '../data/engagement_repository.dart';
 /// Karte für ein adoptierbares Tier
 /// Mit Bild, Details und Dringlichkeits-Anzeige
 class AdoptableAnimalCard extends StatelessWidget {
-  final AdoptableAnimalWithPlace animalWithPlace;
-  final VoidCallback? onTap;
-  final bool compact;
 
   const AdoptableAnimalCard({
     super.key,
@@ -16,6 +13,9 @@ class AdoptableAnimalCard extends StatelessWidget {
     this.onTap,
     this.compact = false,
   });
+  final AdoptableAnimalWithPlace animalWithPlace;
+  final VoidCallback? onTap;
+  final bool compact;
 
   AdoptableAnimal get animal => animalWithPlace.animal;
   EngagementPlace get place => animalWithPlace.place;
@@ -456,10 +456,10 @@ class AdoptableAnimalCard extends StatelessWidget {
 }
 
 class _PropertyChip extends StatelessWidget {
-  final IconData icon;
-  final String label;
 
   const _PropertyChip({required this.icon, required this.label});
+  final IconData icon;
+  final String label;
 
   @override
   Widget build(BuildContext context) {

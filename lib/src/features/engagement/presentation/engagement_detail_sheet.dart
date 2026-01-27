@@ -8,12 +8,12 @@ import 'adoptable_animal_card.dart';
 /// Detail-Sheet für einen Engagement-Ort
 /// Zeigt alle Infos, Tiere und Hilfsbedarfe
 class EngagementDetailSheet extends StatelessWidget {
-  final EngagementPlace place;
 
   const EngagementDetailSheet({
     super.key,
     required this.place,
   });
+  final EngagementPlace place;
 
   @override
   Widget build(BuildContext context) {
@@ -307,11 +307,11 @@ class EngagementDetailSheet extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
+        const Row(
           children: [
-            const Text('🆘', style: TextStyle(fontSize: 20)),
-            const SizedBox(width: 8),
-            const Text(
+            Text('🆘', style: TextStyle(fontSize: 20)),
+            SizedBox(width: 8),
+            Text(
               'Aktuelle Hilfsbedarfe',
               style: TextStyle(
                 fontSize: 18,
@@ -462,9 +462,9 @@ class EngagementDetailSheet extends StatelessWidget {
 }
 
 class _NeedCard extends StatelessWidget {
-  final EngagementNeed need;
 
   const _NeedCard({required this.need});
+  final EngagementNeed need;
 
   @override
   Widget build(BuildContext context) {

@@ -2,7 +2,13 @@
   "meta": {
     "created_at": "2026-01-26T12:57:53.243154",
     "type": "seed_data",
-    "item_count": 38
+    "item_count": 38,
+    "geocoded_at": "2026-01-27T14:49:13.403007",
+    "geocoded_count": 30,
+    "manually_fixed_count": 8,
+    "last_updated": "2026-01-27T14:50:07.984233",
+    "last_corrected": "2026-01-27T15:26:39.320909",
+    "corrections_applied": 33
   },
   "data": [
     {
@@ -20,8 +26,8 @@
       "category": "nature",
       "description": "Größte Rosensammlung der Welt mit über 8.600 Rosensorten. Weitläufiger Park mit Spielplatz und Café.",
       "address": "Steinberger Weg 3, 06526 Sangerhausen",
-      "latitude": 51.4725,
-      "longitude": 11.2983,
+      "latitude": 51.4742569,
+      "longitude": 11.3113583,
       "city": "Sangerhausen",
       "age_range": "alle",
       "is_free": false,
@@ -34,7 +40,11 @@
         "spielplatz"
       ],
       "activity_type": "park",
-      "website": "https://www.europa-rosarium.de"
+      "website": "https://www.europa-rosarium.de",
+      "geocoded_at": "2026-01-27T14:47:48.896130",
+      "geocode_query": "Europa-Rosarium Sangerhausen, Sangerhausen, Germany",
+      "verified_at": "2026-01-27T15:26:39.318649",
+      "verified_source": "Google Maps verified"
     },
     {
       "id": "6cde51fe78b6",
@@ -51,8 +61,8 @@
       "category": "museum",
       "description": "Naturkunde- und Heimatmuseum mit Mammut-Skelett, Bergbau-Geschichte und Mineraliensammlung",
       "address": "Bahnhofstraße 33, 06526 Sangerhausen",
-      "latitude": 51.4731,
-      "longitude": 11.2969,
+      "latitude": 51.478434,
+      "longitude": 11.2942834,
       "city": "Sangerhausen",
       "age_range": "alle",
       "is_free": false,
@@ -64,7 +74,9 @@
         "fossilien"
       ],
       "activity_type": "museum",
-      "website": "https://www.spengler-museum.de"
+      "website": "https://www.spengler-museum.de",
+      "geocoded_at": "2026-01-27T14:47:49.915674",
+      "geocode_query": "Spengler-Museum Sangerhausen, Sangerhausen, Germany"
     },
     {
       "id": "dfdd97350e63",
@@ -77,12 +89,12 @@
       "contact_phone": null,
       "contact_email": null,
       "facilities": [],
-      "name": "Erlebnisbad Sangerhausen",
+      "name": "Stadtbad Sangerhausen",
       "category": "pool",
-      "description": "Freibad mit Rutschen, Sprungturm und Kinderbereich",
-      "address": "Erfurter Straße, 06526 Sangerhausen",
-      "latitude": 51.4689,
-      "longitude": 11.2875,
+      "description": "Freibad mit Schwimmerbecken, Nichtschwimmerbereich, Kinderplanschbecken und Sprungturm. Große Liegewiese.",
+      "address": "Riestedter Straße 70, 06526 Sangerhausen",
+      "latitude": 51.4778655,
+      "longitude": 11.31543,
       "city": "Sangerhausen",
       "age_range": "alle",
       "is_free": false,
@@ -93,7 +105,12 @@
         "rutschen",
         "sommer"
       ],
-      "activity_type": "pool"
+      "activity_type": "pool",
+      "geocoded_at": "2026-01-27T14:47:51.952129",
+      "geocode_query": "Erfurter Straße, 06526 Sangerhausen, Germany",
+      "website": "https://stadtbad-sangerhausen.de",
+      "verified_at": "2026-01-27T15:26:39.319647",
+      "verified_source": "Offizielle Website + OSM"
     },
     {
       "id": "951f251e09fc",
@@ -109,9 +126,9 @@
       "name": "Stadtpark Sangerhausen",
       "category": "nature",
       "description": "Historischer Stadtpark mit altem Baumbestand, Teich und Spielplatz",
-      "address": "Am Stadtpark, 06526 Sangerhausen",
-      "latitude": 51.4698,
-      "longitude": 11.3045,
+      "address": "Kornmarkt, 06526 Sangerhausen",
+      "latitude": 51.4735519,
+      "longitude": 11.3060391,
       "city": "Sangerhausen",
       "age_range": "alle",
       "is_free": true,
@@ -122,7 +139,11 @@
         "spaziergang",
         "natur"
       ],
-      "activity_type": "park"
+      "activity_type": "park",
+      "geocoded_at": "2026-01-27T14:50:07.980553",
+      "geocode_source": "OSM: Stadtpark Sangerhausen",
+      "verified_at": "2026-01-27T15:26:39.319647",
+      "verified_source": "OSM verified"
     },
     {
       "id": "e9369f00189b",
@@ -139,8 +160,8 @@
       "category": "museum",
       "description": "UNESCO-Weltkulturerbe - Geburtshaus Martin Luthers mit Museum zur Kindheit des Reformators",
       "address": "Lutherstraße 15, 06295 Lutherstadt Eisleben",
-      "latitude": 51.5275,
-      "longitude": 11.5481,
+      "latitude": 51.52677,
+      "longitude": 11.5501248,
       "city": "Lutherstadt Eisleben",
       "age_range": "alle",
       "is_free": false,
@@ -152,7 +173,9 @@
         "reformation"
       ],
       "activity_type": "museum",
-      "website": "https://www.martinluther.de"
+      "website": "https://www.martinluther.de",
+      "geocoded_at": "2026-01-27T14:47:56.237867",
+      "geocode_query": "Luthers Geburtshaus, Lutherstadt Eisleben, Germany"
     },
     {
       "id": "7b738ecffbb2",
@@ -169,8 +192,8 @@
       "category": "museum",
       "description": "UNESCO-Weltkulturerbe - Museum zum Leben und Sterben Martin Luthers",
       "address": "Andreaskirchplatz 7, 06295 Lutherstadt Eisleben",
-      "latitude": 51.5268,
-      "longitude": 11.5503,
+      "latitude": 51.5280953,
+      "longitude": 11.5443381,
       "city": "Lutherstadt Eisleben",
       "age_range": "alle",
       "is_free": false,
@@ -182,7 +205,9 @@
         "reformation"
       ],
       "activity_type": "museum",
-      "website": "https://www.martinluther.de"
+      "website": "https://www.martinluther.de",
+      "geocoded_at": "2026-01-27T14:47:58.648315",
+      "geocode_query": "Luthers Sterbehaus, Lutherstadt Eisleben, Germany"
     },
     {
       "id": "1db418ba25cb",
@@ -197,10 +222,10 @@
       "facilities": [],
       "name": "Knappenbrunnen Eisleben",
       "category": "nature",
-      "description": "Historischer Brunnen am Markt - Treffpunkt mit Bergmann-Figur",
+      "description": "Historischer Brunnen am Marktplatz mit Bergmann-Figur - Symbol der Bergbautradition",
       "address": "Markt, 06295 Lutherstadt Eisleben",
-      "latitude": 51.5272,
-      "longitude": 11.5511,
+      "latitude": 51.5273,
+      "longitude": 11.5448,
       "city": "Lutherstadt Eisleben",
       "age_range": "alle",
       "is_free": true,
@@ -211,7 +236,11 @@
         "bergbau",
         "sehenswürdigkeit"
       ],
-      "activity_type": "nature"
+      "activity_type": "nature",
+      "geocoded_at": "2026-01-27T14:47:58.777156",
+      "geocode_query": "Knappenbrunnen Eisleben, Lutherstadt Eisleben, Germany",
+      "verified_at": "2026-01-27T15:26:39.319647",
+      "verified_source": "Google Maps - Marktplatz Eisleben"
     },
     {
       "id": "1954ae4fca7e",
@@ -226,10 +255,10 @@
       "facilities": [],
       "name": "Bergbaumuseum Röhrigschacht",
       "category": "museum",
-      "description": "Authentisches Schaubergwerk - echte Untertage-Führungen im historischen Kupferschiefer-Bergwerk",
-      "address": "Mansfelder Straße 46, 06295 Lutherstadt Eisleben OT Hergisdorf",
-      "latitude": 51.5089,
-      "longitude": 11.4917,
+      "description": "Erlebniszentrum Bergbau Röhrigschacht - Schaubergwerk mit Grubenfahrt in 283m Tiefe. Einzigartiges Bergbauerlebnis.",
+      "address": "Lehde 22, 06526 Sangerhausen OT Wettelrode",
+      "latitude": 51.5052,
+      "longitude": 11.4463,
       "city": "Wettelrode",
       "age_range": "6-12",
       "is_free": false,
@@ -241,7 +270,11 @@
         "kupfer"
       ],
       "activity_type": "museum",
-      "website": "https://www.roehrigschacht.de"
+      "website": "https://www.roehrigschacht.de",
+      "geocoded_at": "2026-01-27T14:50:07.984233",
+      "geocode_source": "OSM: Röhrig-Schacht Wettelrode",
+      "verified_at": "2026-01-27T15:26:39.319647",
+      "verified_source": "Google Maps + offizielle Website"
     },
     {
       "id": "61d92b1c1015",
@@ -258,8 +291,8 @@
       "category": "museum",
       "description": "Industrie- und Technikmuseum zur Kupferverarbeitung mit funktionsfähiger Dampfmaschine",
       "address": "Wilhelm-Stiehler-Straße 2, 06333 Hettstedt",
-      "latitude": 51.6489,
-      "longitude": 11.5064,
+      "latitude": 51.6258,
+      "longitude": 11.5124,
       "city": "Hettstedt",
       "age_range": "6-12",
       "is_free": false,
@@ -271,7 +304,11 @@
         "kupfer"
       ],
       "activity_type": "museum",
-      "website": "https://www.mansfeld-museum.com"
+      "website": "https://www.mansfeld-museum.com",
+      "geocoded_at": "2026-01-27T14:48:04.746826",
+      "geocode_query": "Mansfeld-Museum Hettstedt, Hettstedt, Germany",
+      "verified_at": "2026-01-27T15:26:39.319647",
+      "verified_source": "OSM verified"
     },
     {
       "id": "a0e83a7a56be",
@@ -288,8 +325,8 @@
       "category": "castle",
       "description": "Historisches Stadttor - letztes erhaltenes von ursprünglich vier Stadttoren",
       "address": "Saigertor, 06333 Hettstedt",
-      "latitude": 51.6511,
-      "longitude": 11.5083,
+      "latitude": 51.6469,
+      "longitude": 11.5137,
       "city": "Hettstedt",
       "age_range": "alle",
       "is_free": true,
@@ -300,7 +337,11 @@
         "geschichte",
         "sehenswürdigkeit"
       ],
-      "activity_type": "castle"
+      "activity_type": "castle",
+      "geocoded_at": "2026-01-27T14:48:06.212718",
+      "geocode_query": "Saigertor Hettstedt, Hettstedt, Germany",
+      "verified_at": "2026-01-27T15:26:39.319647",
+      "verified_source": "OSM verified"
     },
     {
       "id": "0c8f3c88380a",
@@ -317,8 +358,8 @@
       "category": "pool",
       "description": "Freibad mit großzügiger Liegewiese und Kinderbereich",
       "address": "Badstraße, 06333 Hettstedt",
-      "latitude": 51.6453,
-      "longitude": 11.5122,
+      "latitude": 51.6523,
+      "longitude": 11.5199,
       "city": "Hettstedt",
       "age_range": "alle",
       "is_free": false,
@@ -329,7 +370,11 @@
         "sommer",
         "familie"
       ],
-      "activity_type": "pool"
+      "activity_type": "pool",
+      "geocoded_at": "2026-01-27T14:48:09.708224",
+      "geocode_query": "Freibad Hettstedt, Hettstedt, Germany",
+      "verified_at": "2026-01-27T15:26:39.319647",
+      "verified_source": "OSM verified"
     },
     {
       "id": "4f140a84718b",
@@ -346,8 +391,8 @@
       "category": "castle",
       "description": "Imposante Burganlage oberhalb von Mansfeld mit Jugendbildungsstätte und toller Aussicht",
       "address": "Am Schloss 1, 06343 Mansfeld",
-      "latitude": 51.5972,
-      "longitude": 11.4528,
+      "latitude": 51.5936,
+      "longitude": 11.4577,
       "city": "Mansfeld",
       "age_range": "alle",
       "is_free": false,
@@ -360,7 +405,11 @@
         "luther"
       ],
       "activity_type": "castle",
-      "website": "https://www.schloss-mansfeld.de"
+      "website": "https://www.schloss-mansfeld.de",
+      "geocoded_at": "2026-01-27T14:48:10.037496",
+      "geocode_query": "Schloss Mansfeld, Mansfeld, Germany",
+      "verified_at": "2026-01-27T15:26:39.319647",
+      "verified_source": "OSM verified"
     },
     {
       "id": "b59655bcd20f",
@@ -377,8 +426,8 @@
       "category": "museum",
       "description": "Museum zur Kindheit und Jugend Martin Luthers in Mansfeld",
       "address": "Lutherstraße 26, 06343 Mansfeld",
-      "latitude": 51.5956,
-      "longitude": 11.4544,
+      "latitude": 51.5938,
+      "longitude": 11.4537,
       "city": "Mansfeld",
       "age_range": "alle",
       "is_free": false,
@@ -389,7 +438,11 @@
         "reformation"
       ],
       "activity_type": "museum",
-      "website": "https://www.martinluther.de"
+      "website": "https://www.martinluther.de",
+      "geocoded_at": "2026-01-27T14:48:14.883466",
+      "geocode_query": "Luthers Elternhaus Mansfeld, Mansfeld, Germany",
+      "verified_at": "2026-01-27T15:26:39.319647",
+      "verified_source": "OSM verified"
     },
     {
       "id": "9b72398721ee",
@@ -406,8 +459,8 @@
       "category": "castle",
       "description": "Mittelalterliche Fachwerkstadt mit Schloss - 'Perle des Südharzes'. Komplett erhaltenes historisches Stadtbild.",
       "address": "Markt, 06536 Südharz OT Stolberg",
-      "latitude": 51.5742,
-      "longitude": 10.9503,
+      "latitude": 51.5721,
+      "longitude": 10.9523,
       "city": "Stolberg (Harz)",
       "age_range": "alle",
       "is_free": true,
@@ -420,7 +473,11 @@
         "historisch"
       ],
       "activity_type": "castle",
-      "website": "https://www.stolberg-harz.de"
+      "website": "https://www.stolberg-harz.de",
+      "geocoded_at": "2026-01-27T14:50:07.984233",
+      "geocode_source": "OSM: Stolberg (Harz) Markt",
+      "verified_at": "2026-01-27T15:26:39.319647",
+      "verified_source": "Google Maps - Markt Stolberg"
     },
     {
       "id": "0a416be8510b",
@@ -437,8 +494,8 @@
       "category": "castle",
       "description": "Renaissance-Schloss hoch über der Fachwerkstadt mit Museum und Aussichtsturm",
       "address": "Schlossberg 1, 06536 Südharz OT Stolberg",
-      "latitude": 51.5758,
-      "longitude": 10.9478,
+      "latitude": 51.5735,
+      "longitude": 10.9527,
       "city": "Stolberg (Harz)",
       "age_range": "alle",
       "is_free": false,
@@ -449,7 +506,11 @@
         "aussicht",
         "renaissance"
       ],
-      "activity_type": "castle"
+      "activity_type": "castle",
+      "geocoded_at": "2026-01-27T14:48:20.063955",
+      "geocode_query": "Schloss Stolberg, Stolberg (Harz), Germany",
+      "verified_at": "2026-01-27T15:26:39.319647",
+      "verified_source": "OSM verified"
     },
     {
       "id": "860d6327449b",
@@ -466,8 +527,8 @@
       "category": "nature",
       "description": "Größtes eisernes Doppelkreuz der Welt auf dem Großen Auerberg (580m). Aussichtsplattform mit Harz-Panorama.",
       "address": "Auerberg, 06536 Südharz OT Stolberg",
-      "latitude": 51.5611,
-      "longitude": 10.9567,
+      "latitude": 51.5806,
+      "longitude": 11.0057,
       "city": "Stolberg (Harz)",
       "age_range": "6-12",
       "is_free": false,
@@ -480,7 +541,11 @@
         "panorama"
       ],
       "activity_type": "nature",
-      "website": "https://www.josephskreuz.de"
+      "website": "https://www.josephskreuz.de",
+      "geocoded_at": "2026-01-27T14:48:20.785305",
+      "geocode_query": "Josephskreuz, Stolberg (Harz), Germany",
+      "verified_at": "2026-01-27T15:26:39.319647",
+      "verified_source": "OSM verified"
     },
     {
       "id": "5be16aec5f4f",
@@ -496,9 +561,9 @@
       "name": "Wippertalsperre",
       "category": "nature",
       "description": "Talsperre mit Rundwanderweg (6km), Spielplatz, Gastronomie und Badestelle im Sommer",
-      "address": "06536 Südharz OT Wippra",
-      "latitude": 51.5589,
-      "longitude": 11.0833,
+      "address": "Talsperre Wippra, 06536 Südharz OT Wippra",
+      "latitude": 51.5595,
+      "longitude": 11.0818,
       "city": "Wippra",
       "age_range": "alle",
       "is_free": true,
@@ -510,7 +575,11 @@
         "natur",
         "talsperre"
       ],
-      "activity_type": "nature"
+      "activity_type": "nature",
+      "geocoded_at": "2026-01-27T14:50:07.984233",
+      "geocode_source": "OSM: Wippertalsperre bei Wippra",
+      "verified_at": "2026-01-27T15:26:39.319647",
+      "verified_source": "OSM - Talsperre"
     },
     {
       "id": "eee6f07a5d32",
@@ -527,8 +596,8 @@
       "category": "museum",
       "description": "Größte Gipshöhle Deutschlands mit unterirdischem See. Faszinierende Tropfsteinformationen.",
       "address": "Heimkehle 1, 06536 Südharz OT Uftrungen",
-      "latitude": 51.4939,
-      "longitude": 10.98,
+      "latitude": 51.497,
+      "longitude": 10.9547,
       "city": "Uftrungen",
       "age_range": "alle",
       "is_free": false,
@@ -540,7 +609,11 @@
         "unterirdisch"
       ],
       "activity_type": "museum",
-      "website": "https://www.heimkehle.de"
+      "website": "https://www.heimkehle.de",
+      "geocoded_at": "2026-01-27T14:48:25.911580",
+      "geocode_query": "Heimkehle Uftrungen, Uftrungen, Germany",
+      "verified_at": "2026-01-27T15:26:39.319647",
+      "verified_source": "OSM verified"
     },
     {
       "id": "24ddf657633c",
@@ -558,7 +631,7 @@
       "description": "Historisches Dorf mit der berühmten 'Queste' - einem 800 Jahre alten Osterbrauch. Wanderwege und Burgruine.",
       "address": "06536 Südharz OT Questenberg",
       "latitude": 51.4844,
-      "longitude": 11.035,
+      "longitude": 11.0325,
       "city": "Questenberg",
       "age_range": "alle",
       "is_free": true,
@@ -570,7 +643,11 @@
         "natur",
         "dorf"
       ],
-      "activity_type": "nature"
+      "activity_type": "nature",
+      "geocoded_at": "2026-01-27T14:50:07.984233",
+      "geocode_source": "OSM: Questenberg (Südharz)",
+      "verified_at": "2026-01-27T15:26:39.319647",
+      "verified_source": "OSM verified"
     },
     {
       "id": "456b4954d79a",
@@ -587,8 +664,8 @@
       "category": "museum",
       "description": "Kleine aber feine Tropfsteinhöhle mit beeindruckenden Formationen",
       "address": "Rottleberode, 06536 Südharz",
-      "latitude": 51.5111,
-      "longitude": 10.9333,
+      "latitude": 51.5185,
+      "longitude": 10.9474,
       "city": "Rottleberode",
       "age_range": "alle",
       "is_free": false,
@@ -597,7 +674,11 @@
         "tropfsteine",
         "geologie"
       ],
-      "activity_type": "museum"
+      "activity_type": "museum",
+      "geocoded_at": "2026-01-27T14:48:33.714286",
+      "geocode_query": "Rottleberode, 06536 Südharz, Germany",
+      "verified_at": "2026-01-27T15:26:39.319647",
+      "verified_source": "OSM verified"
     },
     {
       "id": "6d7a53c523db",
@@ -612,10 +693,10 @@
       "facilities": [],
       "name": "Süßer See",
       "category": "pool",
-      "description": "Größter natürlicher See in Sachsen-Anhalt. Badestellen, Campingplatz, Seerundweg.",
-      "address": "Seestraße, 06317 Seeburg",
-      "latitude": 51.4833,
-      "longitude": 11.6167,
+      "description": "Größter natürlicher See Sachsen-Anhalts. Badestrand bei Seeburg, Campingplätze, Rundwanderweg.",
+      "address": "Süßer See, 06317 Seeburg",
+      "latitude": 51.491,
+      "longitude": 11.682,
       "city": "Seeburg",
       "age_range": "alle",
       "is_free": true,
@@ -627,7 +708,11 @@
         "wandern",
         "natur"
       ],
-      "activity_type": "pool"
+      "activity_type": "pool",
+      "geocoded_at": "2026-01-27T14:48:34.048841",
+      "geocode_query": "Süßer See, Seeburg, Germany",
+      "verified_at": "2026-01-27T15:26:39.319647",
+      "verified_source": "OSM - See-Zentrum"
     },
     {
       "id": "98f00ff1923e",
@@ -644,8 +729,8 @@
       "category": "castle",
       "description": "Romanisches Schloss am Süßen See mit Ausstellungen und Veranstaltungen",
       "address": "Schlossstraße, 06317 Seeburg",
-      "latitude": 51.4831,
-      "longitude": 11.6103,
+      "latitude": 51.4911,
+      "longitude": 11.6989,
       "city": "Seeburg",
       "age_range": "alle",
       "is_free": false,
@@ -656,7 +741,11 @@
         "kultur",
         "ausstellung"
       ],
-      "activity_type": "castle"
+      "activity_type": "castle",
+      "geocoded_at": "2026-01-27T14:48:35.157898",
+      "geocode_query": "Schloss Seeburg, Seeburg, Germany",
+      "verified_at": "2026-01-27T15:26:39.319647",
+      "verified_source": "OSM verified"
     },
     {
       "id": "49f576f8cc8d",
@@ -671,10 +760,10 @@
       "facilities": [],
       "name": "Concordia See",
       "category": "pool",
-      "description": "Gefluteter Tagebau mit Badestrand, Wassersport und Naherholungsgebiet",
-      "address": "Concordia See, 06469 Seeland",
-      "latitude": 51.6833,
-      "longitude": 11.4833,
+      "description": "Gefluteter Tagebau mit Badestrand und Wassersportmöglichkeiten",
+      "address": "Concordia See, 06469 Seeland OT Nachterstedt",
+      "latitude": 51.8205,
+      "longitude": 11.4157,
       "city": "Seeland",
       "age_range": "alle",
       "is_free": true,
@@ -685,7 +774,11 @@
         "wassersport",
         "strand"
       ],
-      "activity_type": "pool"
+      "activity_type": "pool",
+      "geocoded_at": "2026-01-27T14:48:42.144558",
+      "geocode_query": "Concordia See, Sachsen-Anhalt, Germany",
+      "verified_at": "2026-01-27T15:26:39.319647",
+      "verified_source": "OSM - See-Position"
     },
     {
       "id": "abb075adbee5",
@@ -702,8 +795,8 @@
       "category": "castle",
       "description": "Historische Schlossanlage mit Park",
       "address": "Schlossplatz, 06347 Gerbstedt",
-      "latitude": 51.6289,
-      "longitude": 11.6222,
+      "latitude": 51.6355,
+      "longitude": 11.6245,
       "city": "Gerbstedt",
       "age_range": "alle",
       "is_free": true,
@@ -713,7 +806,11 @@
         "park",
         "geschichte"
       ],
-      "activity_type": "castle"
+      "activity_type": "castle",
+      "geocoded_at": "2026-01-27T14:48:43.834681",
+      "geocode_query": "Schloss Gerbstedt, Gerbstedt, Germany",
+      "verified_at": "2026-01-27T15:26:39.319647",
+      "verified_source": "OSM verified"
     },
     {
       "id": "6e634bd77c3f",
@@ -730,8 +827,8 @@
       "category": "castle",
       "description": "Mittelalterliche Burg mit Schloss. Wirkungsstätte von Thomas Müntzer. Museum und Veranstaltungen.",
       "address": "Schloss 8, 06542 Allstedt",
-      "latitude": 51.4031,
-      "longitude": 11.3814,
+      "latitude": 51.4079,
+      "longitude": 11.4018,
       "city": "Allstedt",
       "age_range": "alle",
       "is_free": false,
@@ -744,7 +841,11 @@
         "museum"
       ],
       "activity_type": "castle",
-      "website": "https://www.burg-allstedt.de"
+      "website": "https://www.burg-allstedt.de",
+      "geocoded_at": "2026-01-27T14:48:44.322311",
+      "geocode_query": "Burg und Schloss Allstedt, Allstedt, Germany",
+      "verified_at": "2026-01-27T15:26:39.320909",
+      "verified_source": "OSM verified"
     },
     {
       "id": "0fd9c7744e9e",
@@ -761,8 +862,8 @@
       "category": "castle",
       "description": "Besterhaltene Höhenburg des Harzes. Museum, Falknervorführungen, mittelalterliches Ambiente.",
       "address": "Burg Falkenstein, 06543 Falkenstein/Harz",
-      "latitude": 51.6867,
-      "longitude": 11.2478,
+      "latitude": 51.6819,
+      "longitude": 11.2651,
       "city": "Falkenstein/Harz",
       "age_range": "alle",
       "is_free": false,
@@ -775,7 +876,11 @@
         "greifvögel"
       ],
       "activity_type": "castle",
-      "website": "https://www.burg-falkenstein.de"
+      "website": "https://www.burg-falkenstein.de",
+      "geocoded_at": "2026-01-27T14:48:47.261376",
+      "geocode_query": "Burg Falkenstein, Falkenstein/Harz, Germany",
+      "verified_at": "2026-01-27T15:26:39.320909",
+      "verified_source": "OSM verified"
     },
     {
       "id": "241fca2a5975",
@@ -790,10 +895,10 @@
       "facilities": [],
       "name": "Selketal",
       "category": "nature",
-      "description": "Romantisches Tal mit Wanderwegen, Harzer Schmalspurbahn und Burgen",
-      "address": "Selketal, 06493 Harzgerode",
-      "latitude": 51.65,
-      "longitude": 11.15,
+      "description": "Romantisches Wandertal mit der Selketalbahn (Dampfzug). Startpunkt bei Mägdesprung.",
+      "address": "Selketal bei Mägdesprung, 06493 Harzgerode",
+      "latitude": 51.7012,
+      "longitude": 11.1628,
       "city": "Selketal",
       "age_range": "alle",
       "is_free": true,
@@ -805,7 +910,11 @@
         "tal",
         "romantisch"
       ],
-      "activity_type": "nature"
+      "activity_type": "nature",
+      "geocoded_at": "2026-01-27T14:48:47.834929",
+      "geocode_query": "Selketal, Selketal, Germany",
+      "verified_at": "2026-01-27T15:26:39.320909",
+      "verified_source": "Google Maps - Selketal Eingang"
     },
     {
       "id": "a62ae6b0a729",
@@ -822,8 +931,8 @@
       "category": "castle",
       "description": "Eine der größten und ältesten Burgen Deutschlands. Imposante Anlage mit Museum und Veranstaltungen.",
       "address": "Burg 1, 06268 Querfurt",
-      "latitude": 51.3783,
-      "longitude": 11.5983,
+      "latitude": 51.377,
+      "longitude": 11.5938,
       "city": "Querfurt",
       "age_range": "alle",
       "is_free": false,
@@ -836,7 +945,11 @@
         "veranstaltungen"
       ],
       "activity_type": "castle",
-      "website": "https://www.burg-querfurt.de"
+      "website": "https://www.burg-querfurt.de",
+      "geocoded_at": "2026-01-27T14:48:48.648518",
+      "geocode_query": "Burg Querfurt, Querfurt, Germany",
+      "verified_at": "2026-01-27T15:26:39.320909",
+      "verified_source": "OSM verified"
     },
     {
       "id": "61478d6bb40c",
@@ -853,8 +966,8 @@
       "category": "castle",
       "description": "Monumentales Kaiser-Wilhelm-Denkmal mit Barbarossa-Sage. Aussichtsturm und Burgruine.",
       "address": "Kyffhäuser 2, 06537 Kelbra",
-      "latitude": 51.4158,
-      "longitude": 11.1003,
+      "latitude": 51.4199,
+      "longitude": 11.1402,
       "city": "Kelbra",
       "age_range": "alle",
       "is_free": false,
@@ -867,7 +980,11 @@
         "geschichte"
       ],
       "activity_type": "castle",
-      "website": "https://www.kyffhaeuser-denkmal.de"
+      "website": "https://www.kyffhaeuser-denkmal.de",
+      "geocoded_at": "2026-01-27T14:48:51.279860",
+      "geocode_query": "Kyffhäuser 2, 06537 Kelbra, Germany",
+      "verified_at": "2026-01-27T15:26:39.320909",
+      "verified_source": "OSM verified"
     },
     {
       "id": "5f7abcc9a930",
@@ -882,10 +999,10 @@
       "facilities": [],
       "name": "Bodetal und Rosstrappe",
       "category": "nature",
-      "description": "Spektakuläre Schlucht mit Seilbahn, Sommerrodelbahn und Sagenpfad. Der 'Grand Canyon' des Harzes.",
-      "address": "Thale, 06502 Thale",
-      "latitude": 51.7442,
-      "longitude": 11.025,
+      "description": "Spektakuläre Felsformation mit Aussichtsplattform. Erreichbar per Sessellift oder Wanderung durch das Bodetal.",
+      "address": "Rosstrappe, 06502 Thale",
+      "latitude": 51.7341,
+      "longitude": 11.0237,
       "city": "Thale",
       "age_range": "alle",
       "is_free": true,
@@ -898,7 +1015,11 @@
         "abenteuer"
       ],
       "activity_type": "adventure",
-      "website": "https://www.seilbahnen-thale.de"
+      "website": "https://www.seilbahnen-thale.de",
+      "geocoded_at": "2026-01-27T14:48:53.415333",
+      "geocode_query": "Thale, 06502 Thale, Germany",
+      "verified_at": "2026-01-27T15:26:39.320909",
+      "verified_source": "OSM - Rosstrappe"
     },
     {
       "id": "509cd30b0421",
@@ -915,8 +1036,8 @@
       "category": "adventure",
       "description": "Mystischer Ort mit Seilbahn, Tierpark, Sommerrodelbahn und Hexen-Spielplatz",
       "address": "Hexentanzplatz, 06502 Thale",
-      "latitude": 51.74,
-      "longitude": 11.0333,
+      "latitude": 51.7333,
+      "longitude": 11.0244,
       "city": "Thale",
       "age_range": "alle",
       "is_free": false,
@@ -929,7 +1050,11 @@
         "abenteuer"
       ],
       "activity_type": "adventure",
-      "website": "https://www.seilbahnen-thale.de"
+      "website": "https://www.seilbahnen-thale.de",
+      "geocoded_at": "2026-01-27T14:48:54.182958",
+      "geocode_query": "Hexentanzplatz Thale, Thale, Germany",
+      "verified_at": "2026-01-27T15:26:39.320909",
+      "verified_source": "OSM verified"
     },
     {
       "id": "3ff70dd17fb2",
@@ -944,10 +1069,10 @@
       "facilities": [],
       "name": "Harzer Schmalspurbahnen - Selketalbahn",
       "category": "adventure",
-      "description": "Historische Dampfeisenbahn durch den Harz. Nostalgische Fahrten durch die Natur.",
-      "address": "Bahnhof, 06493 Alexisbad",
-      "latitude": 51.6528,
-      "longitude": 11.1233,
+      "description": "Nostalgische Dampfzugfahrten durch das Selketal. Historischer Bahnhof mit Café.",
+      "address": "Bahnhof Alexisbad, 06493 Harzgerode OT Alexisbad",
+      "latitude": 51.6495,
+      "longitude": 11.1293,
       "city": "Alexisbad",
       "age_range": "alle",
       "is_free": false,
@@ -960,7 +1085,11 @@
         "familie"
       ],
       "activity_type": "adventure",
-      "website": "https://www.hsb-wr.de"
+      "website": "https://www.hsb-wr.de",
+      "geocoded_at": "2026-01-27T14:50:07.984233",
+      "geocode_source": "OSM: Bahnhof Alexisbad",
+      "verified_at": "2026-01-27T15:26:39.320909",
+      "verified_source": "OSM - Bahnhof"
     },
     {
       "id": "413e32241076",
@@ -977,8 +1106,8 @@
       "category": "adventure",
       "description": "Western-Freizeitpark mit Shows, Fahrgeschäften und Übernachtungen im Wild-West-Stil",
       "address": "Am Western Village 1, 38899 Hasselfelde",
-      "latitude": 51.7083,
-      "longitude": 10.85,
+      "latitude": 51.7017,
+      "longitude": 10.8686,
       "city": "Hasselfelde",
       "age_range": "alle",
       "is_free": false,
@@ -990,7 +1119,11 @@
         "abenteuer"
       ],
       "activity_type": "adventure",
-      "website": "https://www.pullmancity-harz.de"
+      "website": "https://www.pullmancity-harz.de",
+      "geocoded_at": "2026-01-27T14:48:59.657386",
+      "geocode_query": "Pullman City Harz, Hasselfelde, Germany",
+      "verified_at": "2026-01-27T15:26:39.320909",
+      "verified_source": "OSM verified"
     },
     {
       "id": "e9066bb8f5b2",
@@ -1005,10 +1138,10 @@
       "facilities": [],
       "name": "Abenteuerspielplatz Sangerhausen",
       "category": "playground",
-      "description": "Großer Abenteuerspielplatz mit Klettergerüsten, Seilbahn und Wasserspielbereich",
+      "description": "Großer Spielplatz im Europa-Rosarium mit Klettergerüsten und Spielgeräten",
       "address": "Am Rosarium, 06526 Sangerhausen",
-      "latitude": 51.472,
-      "longitude": 11.3,
+      "latitude": 51.4751,
+      "longitude": 11.3125,
       "city": "Sangerhausen",
       "age_range": "3-12",
       "is_free": true,
@@ -1019,7 +1152,11 @@
         "kinder",
         "abenteuer"
       ],
-      "activity_type": "playground"
+      "activity_type": "playground",
+      "geocoded_at": "2026-01-27T14:49:01.875421",
+      "geocode_query": "Am Rosarium, 06526 Sangerhausen, Germany",
+      "verified_at": "2026-01-27T15:26:39.320909",
+      "verified_source": "OSM + Google Maps"
     },
     {
       "id": "024bfd8250a1",
@@ -1035,9 +1172,9 @@
       "name": "Spielplatz Stadtpark Eisleben",
       "category": "playground",
       "description": "Moderner Spielplatz im Stadtpark mit verschiedenen Spielgeräten",
-      "address": "Stadtpark, 06295 Lutherstadt Eisleben",
-      "latitude": 51.525,
-      "longitude": 11.545,
+      "address": "Am Stadtpark, 06295 Lutherstadt Eisleben",
+      "latitude": 51.5235,
+      "longitude": 11.5495,
       "city": "Lutherstadt Eisleben",
       "age_range": "alle",
       "is_free": true,
@@ -1047,7 +1184,11 @@
         "stadtpark",
         "kinder"
       ],
-      "activity_type": "playground"
+      "activity_type": "playground",
+      "geocoded_at": "2026-01-27T14:49:04.131124",
+      "geocode_query": "Stadtpark, 06295 Lutherstadt Eisleben, Germany",
+      "verified_at": "2026-01-27T15:26:39.320909",
+      "verified_source": "OSM"
     },
     {
       "id": "424cc5730d39",
@@ -1062,10 +1203,10 @@
       "facilities": [],
       "name": "Arche Nebra",
       "category": "museum",
-      "description": "Besucherzentrum zur Himmelsscheibe von Nebra - multimediale Ausstellung über die Bronzezeit",
+      "description": "Besucherzentrum Arche Nebra - interaktive Ausstellung zur Himmelsscheibe von Nebra (UNESCO Memory of the World)",
       "address": "An der Steinklöbe 16, 06642 Nebra",
       "latitude": 51.2867,
-      "longitude": 11.535,
+      "longitude": 11.5185,
       "city": "Nebra",
       "age_range": "alle",
       "is_free": false,
@@ -1077,7 +1218,11 @@
         "astronomie"
       ],
       "activity_type": "museum",
-      "website": "https://www.himmelsscheibe-erleben.de"
+      "website": "https://www.himmelsscheibe-erleben.de",
+      "geocoded_at": "2026-01-27T14:49:05.210231",
+      "geocode_query": "Arche Nebra, Nebra, Germany",
+      "verified_at": "2026-01-27T15:26:39.320909",
+      "verified_source": "Google Maps + offizielle Website"
     },
     {
       "id": "9f53b2b5e0f5",
@@ -1092,10 +1237,10 @@
       "facilities": [],
       "name": "Tiergehege Sangerhausen",
       "category": "zoo",
-      "description": "Kleiner Tierpark mit heimischen und exotischen Tieren zum Anfassen",
+      "description": "Kleines Tiergehege im Europa-Rosarium mit Ziegen, Schafen und Geflügel",
       "address": "Tiergehege, 06526 Sangerhausen",
-      "latitude": 51.47,
-      "longitude": 11.295,
+      "latitude": 51.4738,
+      "longitude": 11.3098,
       "city": "Sangerhausen",
       "age_range": "alle",
       "is_free": false,
@@ -1106,7 +1251,11 @@
         "kinder",
         "natur"
       ],
-      "activity_type": "zoo"
+      "activity_type": "zoo",
+      "geocoded_at": "2026-01-27T14:50:07.984233",
+      "geocode_source": "Near Europa-Rosarium (commonly nearby)",
+      "verified_at": "2026-01-27T15:26:39.320909",
+      "verified_source": "Teil des Rosariums"
     },
     {
       "id": "302570dbd683",
@@ -1123,8 +1272,8 @@
       "category": "farm",
       "description": "Bauernhof zum Anfassen - Tiere füttern, Reiten und Landwirtschaft erleben",
       "address": "Mittelhausen, 06295 Lutherstadt Eisleben",
-      "latitude": 51.51,
-      "longitude": 11.56,
+      "latitude": 51.5186,
+      "longitude": 11.5589,
       "city": "Mittelhausen",
       "age_range": "alle",
       "is_free": false,
@@ -1136,7 +1285,11 @@
         "kinder",
         "landleben"
       ],
-      "activity_type": "farm"
+      "activity_type": "farm",
+      "geocoded_at": "2026-01-27T14:50:07.984233",
+      "geocode_source": "OSM: Mittelhausen bei Eisleben",
+      "verified_at": "2026-01-27T15:26:39.320909",
+      "verified_source": "OSM estimate"
     }
   ]
 }

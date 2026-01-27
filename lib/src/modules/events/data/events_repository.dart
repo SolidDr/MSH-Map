@@ -11,7 +11,7 @@ class EventsRepository {
 
   /// Get all events
   Future<List<MshEvent>> getAllEvents() async {
-    return await _dataSource.loadEvents();
+    return _dataSource.loadEvents();
   }
 
   /// Get events filtered by date range
@@ -30,7 +30,7 @@ class EventsRepository {
   Future<List<MshEvent>> getUpcomingEvents() async {
     final now = DateTime.now();
     final nextWeek = now.add(const Duration(days: 7));
-    return await getEventsByDateRange(start: now, end: nextWeek);
+    return getEventsByDateRange(start: now, end: nextWeek);
   }
 
   /// Get events by category
@@ -47,7 +47,7 @@ class EventsRepository {
 
   /// Get all notices
   Future<List<MshNotice>> getAllNotices() async {
-    return await _dataSource.loadNotices();
+    return _dataSource.loadNotices();
   }
 
   /// Get active notices only
@@ -66,11 +66,11 @@ class EventsRepository {
 
   /// Get events metadata
   Future<Map<String, dynamic>?> getEventsMeta() async {
-    return await _dataSource.getEventsMeta();
+    return _dataSource.getEventsMeta();
   }
 
   /// Get events statistics
   Future<Map<String, dynamic>?> getEventsStats() async {
-    return await _dataSource.getEventsStats();
+    return _dataSource.getEventsStats();
   }
 }

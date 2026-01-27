@@ -4,9 +4,6 @@ import '../domain/engagement_model.dart';
 
 /// Filter-Leiste für Engagement-Typen
 class EngagementFilterBar extends StatelessWidget {
-  final EngagementType? selectedType;
-  final void Function(EngagementType?) onTypeSelected;
-  final Map<EngagementType, int>? counts;
 
   const EngagementFilterBar({
     super.key,
@@ -14,6 +11,9 @@ class EngagementFilterBar extends StatelessWidget {
     required this.onTypeSelected,
     this.counts,
   });
+  final EngagementType? selectedType;
+  final void Function(EngagementType?) onTypeSelected;
+  final Map<EngagementType, int>? counts;
 
   @override
   Widget build(BuildContext context) {
@@ -54,12 +54,6 @@ class EngagementFilterBar extends StatelessWidget {
 }
 
 class _EngagementFilterChip extends StatelessWidget {
-  final String label;
-  final String emoji;
-  final Color? color;
-  final bool isSelected;
-  final int? count;
-  final VoidCallback onTap;
 
   const _EngagementFilterChip({
     required this.label,
@@ -69,6 +63,12 @@ class _EngagementFilterChip extends StatelessWidget {
     this.count,
     required this.onTap,
   });
+  final String label;
+  final String emoji;
+  final Color? color;
+  final bool isSelected;
+  final int? count;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {

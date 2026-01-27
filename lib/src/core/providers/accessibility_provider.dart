@@ -73,11 +73,6 @@ class AccessibilityNotifier extends StateNotifier<AccessibilitySettings> {
 
 /// Accessibility Settings Data Class
 class AccessibilitySettings {
-  final bool highContrast;
-  final double textScale;
-  final bool reduceAnimations;
-  final bool largeButtons;
-  final bool boldText;
 
   const AccessibilitySettings({
     this.highContrast = false,
@@ -86,6 +81,11 @@ class AccessibilitySettings {
     this.largeButtons = false,
     this.boldText = false,
   });
+  final bool highContrast;
+  final double textScale;
+  final bool reduceAnimations;
+  final bool largeButtons;
+  final bool boldText;
 
   AccessibilitySettings copyWith({
     bool? highContrast,

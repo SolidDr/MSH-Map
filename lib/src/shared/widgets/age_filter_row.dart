@@ -5,8 +5,7 @@ import '../../core/theme/msh_colors.dart';
 
 class AgeFilterRow extends ConsumerWidget {
   const AgeFilterRow({
-    super.key,
-    required this.ageCounts,
+    required this.ageCounts, super.key,
   });
 
   final Map<String, int> ageCounts;

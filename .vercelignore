@@ -1,0 +1,37 @@
+# Development files
+.dart_tool/
+.idea/
+.vscode/
+*.iml
+
+# Platform folders (not needed for web)
+android/
+ios/
+macos/
+windows/
+linux/
+
+# Test and docs
+test/
+docs/
+
+# Node modules (Vercel will install fresh)
+api/node_modules/
+functions/node_modules/
+node_modules/
+
+# Other large/unnecessary directories
+deepscan/
+change/
+reports/
+addons/
+
+# Git
+.git/
+
+# Flutter source (only need built web)
+lib/
+assets/
+pubspec.yaml
+pubspec.lock
+analysis_options.yaml

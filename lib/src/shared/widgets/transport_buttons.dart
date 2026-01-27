@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../core/theme/msh_colors.dart';
+import '../../core/theme/msh_spacing.dart';
 import '../../core/theme/msh_theme.dart';
 import '../utils/transport_helper.dart';
 
@@ -27,7 +28,7 @@ class TransportButtons extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
         ),
-        const SizedBox(height: MshTheme.spacingSm),
+        const SizedBox(height: MshSpacing.sm),
         Row(
           children: [
             Expanded(
@@ -52,7 +53,7 @@ class TransportButtons extends StatelessWidget {
                 },
               ),
             ),
-            const SizedBox(width: MshTheme.spacingSm),
+            const SizedBox(width: MshSpacing.sm),
             Expanded(
               child: _TransportButton(
                 icon: Icons.directions,
@@ -104,8 +105,8 @@ class _TransportButton extends StatelessWidget {
         backgroundColor: color,
         foregroundColor: Colors.white,
         padding: const EdgeInsets.symmetric(
-          horizontal: MshTheme.spacingMd,
-          vertical: MshTheme.spacingSm,
+          horizontal: MshSpacing.md,
+          vertical: MshSpacing.sm,
         ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(MshTheme.radiusSmall),

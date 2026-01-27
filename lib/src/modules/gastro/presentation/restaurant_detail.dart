@@ -3,7 +3,7 @@ import '../domain/restaurant.dart';
 
 class RestaurantDetailContent extends StatelessWidget {
 
-  const RestaurantDetailContent({super.key, required this.restaurant});
+  const RestaurantDetailContent({required this.restaurant, super.key});
   final Restaurant restaurant;
 
   @override

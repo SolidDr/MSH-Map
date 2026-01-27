@@ -4,14 +4,6 @@ import 'map_item.dart';
 
 /// MapItem-Implementierung für Locations aus Assets
 class AssetLocation implements MapItem {
-  final String _id;
-  final String _displayName;
-  final String _category;
-  final double _latitude;
-  final double _longitude;
-  final String? _city;
-  final String? _description;
-  final Map<String, dynamic> _rawData;
 
   AssetLocation({
     required String id,
@@ -44,6 +36,14 @@ class AssetLocation implements MapItem {
       description: json['description'] as String?,
     );
   }
+  final String _id;
+  final String _displayName;
+  final String _category;
+  final double _latitude;
+  final double _longitude;
+  final String? _city;
+  final String? _description;
+  final Map<String, dynamic> _rawData;
 
   @override
   String get id => _id;
@@ -123,6 +123,7 @@ class AssetLocation implements MapItem {
       case MapItemCategory.restaurant:
       case MapItemCategory.cafe:
       case MapItemCategory.imbiss:
+      case MapItemCategory.bar:
         return Colors.orange;
       case MapItemCategory.event:
       case MapItemCategory.culture:

@@ -16,8 +16,8 @@ class MshMapApp extends ConsumerWidget {
     final accessibilitySettings = ref.watch(accessibilityProvider);
 
     // Bestimme das Theme basierend auf Modus und Accessibility
-    ThemeData lightTheme = MshTheme.light;
-    ThemeData darkTheme = MshTheme.dark;
+    var lightTheme = MshTheme.light;
+    var darkTheme = MshTheme.dark;
 
     if (accessibilitySettings.highContrast) {
       lightTheme = MshTheme.highContrast;

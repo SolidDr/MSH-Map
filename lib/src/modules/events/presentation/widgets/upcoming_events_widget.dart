@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import '../../../../core/theme/msh_colors.dart';
+import '../../../../core/theme/msh_spacing.dart';
 import '../../../../core/theme/msh_theme.dart';
 import '../../../../shared/widgets/transport_buttons.dart';
 import '../../data/events_providers.dart';
@@ -57,7 +58,7 @@ class UpcomingEventsWidget extends ConsumerWidget {
       },
       loading: () => const Center(
         child: Padding(
-          padding: EdgeInsets.all(MshTheme.spacingMd),
+          padding: EdgeInsets.all(MshSpacing.md),
           child: CircularProgressIndicator(),
         ),
       ),
@@ -157,7 +158,7 @@ class _EventCard extends StatelessWidget {
         },
         borderRadius: BorderRadius.circular(MshTheme.radiusMedium),
         child: Padding(
-          padding: const EdgeInsets.all(MshTheme.spacingSm),
+          padding: const EdgeInsets.all(MshSpacing.sm),
           child: Row(
             children: [
               // Category icon
@@ -193,7 +194,7 @@ class _EventCard extends StatelessWidget {
                     Row(
                       children: [
                         if (event.timeStart != null) ...[
-                          Icon(
+                          const Icon(
                             Icons.access_time,
                             size: 14,
                             color: MshColors.textSecondary,
@@ -207,7 +208,7 @@ class _EventCard extends StatelessWidget {
                           ),
                           const SizedBox(width: 12),
                         ],
-                        Icon(
+                        const Icon(
                           Icons.location_on,
                           size: 14,
                           color: MshColors.textSecondary,
@@ -229,7 +230,7 @@ class _EventCard extends StatelessWidget {
               ),
 
               // Arrow
-              Icon(
+              const Icon(
                 Icons.chevron_right,
                 color: MshColors.textSecondary,
               ),
@@ -279,7 +280,7 @@ class _EventDetailsSheet extends StatelessWidget {
           // Content
           Expanded(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.all(MshTheme.spacingMd),
+              padding: const EdgeInsets.all(MshSpacing.md),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

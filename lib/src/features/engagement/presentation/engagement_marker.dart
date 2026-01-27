@@ -6,12 +6,6 @@ import '../domain/engagement_model.dart';
 /// Spezieller Marker für Engagement-Orte
 /// Mit goldenem Rahmen und optional pulsierendem Effekt bei Dringlichkeit
 class EngagementMarker extends StatefulWidget {
-  final EngagementType type;
-  final UrgencyLevel urgency;
-  final bool isSelected;
-  final int? adoptableCount;
-  final VoidCallback? onTap;
-  final double size;
 
   const EngagementMarker({
     super.key,
@@ -22,6 +16,12 @@ class EngagementMarker extends StatefulWidget {
     this.onTap,
     this.size = 48,
   });
+  final EngagementType type;
+  final UrgencyLevel urgency;
+  final bool isSelected;
+  final int? adoptableCount;
+  final VoidCallback? onTap;
+  final double size;
 
   @override
   State<EngagementMarker> createState() => _EngagementMarkerState();
@@ -39,7 +39,7 @@ class _EngagementMarkerState extends State<EngagementMarker>
       duration: const Duration(milliseconds: 1500),
       vsync: this,
     );
-    _pulseAnimation = Tween<double>(begin: 1.0, end: 1.15).animate(
+    _pulseAnimation = Tween<double>(begin: 1, end: 1.15).animate(
       CurvedAnimation(parent: _pulseController, curve: Curves.easeInOut),
     );
 
@@ -233,10 +233,10 @@ class _EngagementMarkerState extends State<EngagementMarker>
 }
 
 class _TrianglePainter extends CustomPainter {
-  final Color color;
-  final Color borderColor;
 
   _TrianglePainter({required this.color, required this.borderColor});
+  final Color color;
+  final Color borderColor;
 
   @override
   void paint(Canvas canvas, Size size) {
