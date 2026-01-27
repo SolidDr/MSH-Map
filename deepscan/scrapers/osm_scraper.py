@@ -22,8 +22,13 @@ class OSMScraper:
         "east": 12.10    # Halle
     }
 
-    OVERPASS_URL = "https://overpass-api.de/api/interpreter"
-    REQUEST_TIMEOUT = 180  # 3 Minuten für große Abfragen
+    # Alternative Overpass Server für bessere Verfügbarkeit
+    OVERPASS_URLS = [
+        "https://overpass-api.de/api/interpreter",
+        "https://overpass.kumi.systems/api/interpreter",
+        "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
+    ]
+    REQUEST_TIMEOUT = 120  # 2 Minuten pro Query
 
     # OSM Tags → MSH Categories Mapping
     TAG_MAPPING = {
@@ -51,11 +56,24 @@ class OSMScraper:
         ("historic", "monument"): "culture",
         ("tourism", "attraction"): "culture",
 
-        # Gastro
+        # Gastro - Restaurants & Essen
         ("amenity", "restaurant"): "restaurant",
         ("amenity", "cafe"): "cafe",
         ("amenity", "fast_food"): "imbiss",
-        ("amenity", "biergarten"): "restaurant",
+        ("amenity", "biergarten"): "biergarten",
+        ("amenity", "pub"): "pub",
+        ("amenity", "bar"): "bar",
+        ("amenity", "ice_cream"): "eiscafe",
+        ("amenity", "food_court"): "imbiss",
+
+        # Bäckereien & Lebensmittel
+        ("shop", "bakery"): "baeckerei",
+        ("shop", "butcher"): "fleischerei",
+        ("shop", "confectionery"): "konditorei",
+        ("shop", "deli"): "feinkost",
+        ("shop", "pastry"): "konditorei",
+        ("shop", "cheese"): "feinkost",
+        ("shop", "farm"): "hofladen",
 
         # Sport & Freizeit
         ("leisure", "sports_centre"): "sport",
@@ -82,14 +100,19 @@ class OSMScraper:
             'User-Agent': 'MSH-Map-Scraper/2.0 (Educational Purpose; contact@kolan-systems.de)'
         })
 
-    def build_overpass_query(self) -> str:
-        """Erstellt Overpass QL Query für alle relevanten POI-Typen"""
+    def build_overpass_query(self, tag_subset: List[tuple] = None) -> str:
+        """Erstellt Overpass QL Query für POI-Typen
 
+        Args:
+            tag_subset: Optional Liste von (key, value) Tuples für Teil-Query
+        """
         bbox_str = f"{self.BBOX['south']},{self.BBOX['west']},{self.BBOX['north']},{self.BBOX['east']}"
 
-        # Sammle alle OSM Tags
+        # Sammle OSM Tags (alle oder Subset)
+        tags_to_query = tag_subset if tag_subset else list(self.TAG_MAPPING.keys())
+
         tag_queries = []
-        for (key, value), _ in self.TAG_MAPPING.items():
+        for (key, value) in tags_to_query:
             tag_queries.append(f'  node["{key}"="{value}"]({bbox_str});')
             tag_queries.append(f'  way["{key}"="{value}"]({bbox_str});')
 
@@ -102,35 +125,78 @@ out center tags;
 """
         return query
 
-    def fetch_osm_data(self) -> Dict[str, Any]:
-        """Führt Overpass Query aus und gibt Rohdaten zurück"""
+    def get_tag_groups(self) -> Dict[str, List[tuple]]:
+        """Gruppiert Tags für aufgeteilte Queries"""
+        groups = {
+            "gastro": [],
+            "shops": [],
+            "leisure": [],
+            "tourism": [],
+            "other": []
+        }
 
-        query = self.build_overpass_query()
+        for (key, value) in self.TAG_MAPPING.keys():
+            if key == "amenity" and value in ["restaurant", "cafe", "fast_food", "biergarten", "pub", "bar", "ice_cream", "food_court"]:
+                groups["gastro"].append((key, value))
+            elif key == "shop":
+                groups["shops"].append((key, value))
+            elif key in ["leisure", "sport"]:
+                groups["leisure"].append((key, value))
+            elif key in ["tourism", "historic"]:
+                groups["tourism"].append((key, value))
+            else:
+                groups["other"].append((key, value))
+
+        return {k: v for k, v in groups.items() if v}
+
+    def fetch_osm_data(self) -> Dict[str, Any]:
+        """Führt Overpass Queries aufgeteilt aus und gibt Rohdaten zurück"""
 
         print(f"🌍 Frage Overpass API ab...")
         print(f"   Bounding Box: {self.BBOX}")
-        print(f"   Timeout: {self.REQUEST_TIMEOUT}s")
+        print(f"   Timeout: {self.REQUEST_TIMEOUT}s pro Query")
 
-        try:
-            response = self.session.post(
-                self.OVERPASS_URL,
-                data={"data": query},
-                timeout=self.REQUEST_TIMEOUT
-            )
-            response.raise_for_status()
+        all_elements = []
+        tag_groups = self.get_tag_groups()
 
-            data = response.json()
-            element_count = len(data.get('elements', []))
-            print(f"✅ {element_count} OSM-Elemente gefunden")
+        for group_name, tags in tag_groups.items():
+            print(f"\n   📦 Gruppe '{group_name}' ({len(tags)} Tags)...")
 
-            return data
+            query = self.build_overpass_query(tags)
+            success = False
 
-        except requests.exceptions.Timeout:
-            print(f"⏱️  Timeout nach {self.REQUEST_TIMEOUT}s - Query zu groß?")
-            return {"elements": []}
-        except requests.exceptions.RequestException as e:
-            print(f"❌ Fehler bei Overpass API: {e}")
-            return {"elements": []}
+            # Versuche verschiedene Server
+            for url in self.OVERPASS_URLS:
+                try:
+                    response = self.session.post(
+                        url,
+                        data={"data": query},
+                        timeout=self.REQUEST_TIMEOUT
+                    )
+                    response.raise_for_status()
+
+                    data = response.json()
+                    elements = data.get('elements', [])
+                    all_elements.extend(elements)
+                    print(f"      ✅ {len(elements)} Elemente von {url.split('/')[2]}")
+                    success = True
+                    break
+
+                except requests.exceptions.Timeout:
+                    print(f"      ⏱️  Timeout bei {url.split('/')[2]}")
+                    continue
+                except requests.exceptions.RequestException as e:
+                    print(f"      ❌ Fehler bei {url.split('/')[2]}: {type(e).__name__}")
+                    continue
+
+            if not success:
+                print(f"      ⚠️  Gruppe '{group_name}' fehlgeschlagen")
+
+            # Rate limiting zwischen Gruppen
+            time.sleep(self.rate_limit)
+
+        print(f"\n✅ Gesamt: {len(all_elements)} OSM-Elemente gefunden")
+        return {"elements": all_elements}
 
     def map_category(self, tags: Dict[str, str]) -> str:
         """Mappt OSM Tags zu MSH Kategorie"""
