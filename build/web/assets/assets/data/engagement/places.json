@@ -1,0 +1,150 @@
+{
+  "places": [
+    {
+      "id": "tierheim_sgh",
+      "name": "Tierheim Sangerhausen",
+      "type": "animal_shelter",
+      "latitude": 51.4725,
+      "longitude": 11.2978,
+      "city": "Sangerhausen",
+      "street": "Tierheimweg 1",
+      "phone": "03464 123456",
+      "email": "info@tierheim-sangerhausen.de",
+      "website": "https://tierheim-sangerhausen.de",
+      "openingHours": "Di-Fr 14-17, Sa 10-12",
+      "isVerified": true,
+      "description": "Wir kümmern uns seit über 30 Jahren um herrenlose und abgegebene Tiere in der Region Sangerhausen.",
+      "currentNeeds": [
+        {
+          "id": "need_1",
+          "title": "Gassigeher gesucht",
+          "description": "Wir suchen dringend ehrenamtliche Helfer für regelmäßiges Gassigehen mit unseren Hunden.",
+          "urgency": "elevated",
+          "category": "volunteers",
+          "contactEmail": "freiwillige@tierheim-sangerhausen.de",
+          "validUntil": "2025-12-31"
+        },
+        {
+          "id": "need_2",
+          "title": "Futterspenden benötigt",
+          "description": "Besonders Hundefutter für große Rassen wird aktuell dringend gebraucht.",
+          "urgency": "urgent",
+          "category": "donations",
+          "contactEmail": "spenden@tierheim-sangerhausen.de"
+        }
+      ],
+      "adoptableAnimals": [
+        {
+          "id": "dog_1",
+          "name": "Max",
+          "type": "dog",
+          "breed": "Schäferhund-Mix",
+          "age": "4 Jahre",
+          "gender": "männlich",
+          "size": "groß",
+          "character": "Freundlich und verspielt, braucht viel Bewegung",
+          "description": "Max ist ein toller Kerl, der leider sein Zuhause verloren hat. Er ist verträglich mit anderen Hunden und liebt lange Spaziergänge.",
+          "isUrgent": true,
+          "availableSince": "2024-09-15",
+          "imageUrl": "assets/images/engagement/max.jpg"
+        },
+        {
+          "id": "cat_1",
+          "name": "Luna",
+          "type": "cat",
+          "breed": "Europäisch Kurzhaar",
+          "age": "2 Jahre",
+          "gender": "weiblich",
+          "size": "mittel",
+          "character": "Verschmust und ruhig",
+          "description": "Luna ist eine zauberhafte Katze, die ein ruhiges Zuhause ohne Kinder sucht.",
+          "isUrgent": false,
+          "availableSince": "2024-10-20",
+          "imageUrl": "assets/images/engagement/luna.jpg"
+        }
+      ]
+    },
+    {
+      "id": "ffw_hettstedt",
+      "name": "Freiwillige Feuerwehr Hettstedt",
+      "type": "volunteer",
+      "latitude": 51.6333,
+      "longitude": 11.5000,
+      "city": "Hettstedt",
+      "street": "Feuerwehrstraße 5",
+      "phone": "03476 123456",
+      "email": "info@ffw-hettstedt.de",
+      "website": "https://ffw-hettstedt.de",
+      "isVerified": true,
+      "description": "Die Freiwillige Feuerwehr Hettstedt schützt seit 1890 Leben und Eigentum in unserer Stadt.",
+      "currentNeeds": [
+        {
+          "id": "need_ffw_1",
+          "title": "Neue Mitglieder gesucht",
+          "description": "Wir suchen engagierte Bürger ab 18 Jahren für die Einsatzabteilung.",
+          "urgency": "elevated",
+          "category": "volunteers",
+          "contactEmail": "mitgliedschaft@ffw-hettstedt.de"
+        }
+      ],
+      "adoptableAnimals": []
+    },
+    {
+      "id": "tafel_eisleben",
+      "name": "Tafel Lutherstadt Eisleben",
+      "type": "social_service",
+      "latitude": 51.5269,
+      "longitude": 11.5503,
+      "city": "Lutherstadt Eisleben",
+      "street": "Hallesche Straße 12",
+      "phone": "03475 654321",
+      "email": "info@tafel-eisleben.de",
+      "openingHours": "Mo, Mi, Fr 9-12",
+      "isVerified": true,
+      "description": "Die Tafel Eisleben versorgt bedürftige Menschen mit Lebensmitteln und unterstützt bei sozialen Notlagen.",
+      "currentNeeds": [
+        {
+          "id": "need_tafel_1",
+          "title": "Fahrer mit Führerschein gesucht",
+          "description": "Für die Abholung von Lebensmitteln benötigen wir Fahrer (Klasse B) an 2-3 Tagen pro Woche.",
+          "urgency": "urgent",
+          "category": "volunteers",
+          "contactEmail": "helfen@tafel-eisleben.de"
+        },
+        {
+          "id": "need_tafel_2",
+          "title": "Haltbare Lebensmittel",
+          "description": "Konserven, Nudeln, Reis und andere haltbare Lebensmittel werden dringend benötigt.",
+          "urgency": "elevated",
+          "category": "donations",
+          "contactEmail": "spenden@tafel-eisleben.de"
+        }
+      ],
+      "adoptableAnimals": []
+    },
+    {
+      "id": "drk_blutspende_msh",
+      "name": "DRK Blutspendedienst",
+      "type": "blood_donation",
+      "latitude": 51.4700,
+      "longitude": 11.3000,
+      "city": "Sangerhausen",
+      "street": "Wipperstraße 20",
+      "phone": "03464 789012",
+      "website": "https://blutspende.drk.de",
+      "isVerified": true,
+      "description": "Regelmäßige Blutspendetermine in der Region Mansfeld-Südharz.",
+      "currentNeeds": [
+        {
+          "id": "need_blut_1",
+          "title": "Blutspender dringend gesucht",
+          "description": "Besonders Blutgruppen 0 negativ und AB negativ werden aktuell dringend benötigt.",
+          "urgency": "critical",
+          "category": "volunteers",
+          "contactEmail": "termin@blutspende-drk.de"
+        }
+      ],
+      "adoptableAnimals": []
+    }
+  ]
+}

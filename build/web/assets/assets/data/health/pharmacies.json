@@ -1,0 +1,126 @@
+{
+  "meta": {
+    "source": "manual_seed",
+    "created_at": "2026-01-27",
+    "version": "1.0",
+    "region": "Mansfeld-Südharz"
+  },
+  "data": [
+    {
+      "id": "apotheke_001",
+      "type": "pharmacy",
+      "name": "Rats-Apotheke",
+      "phone": "03464234567",
+      "phoneFormatted": "03464 / 23 45 67",
+      "street": "Marktplatz 3",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "latitude": 51.4725,
+      "longitude": 11.2985,
+      "openingHours": {
+        "monday": {"from": "08:00", "to": "18:30"},
+        "tuesday": {"from": "08:00", "to": "18:30"},
+        "wednesday": {"from": "08:00", "to": "18:30"},
+        "thursday": {"from": "08:00", "to": "18:30"},
+        "friday": {"from": "08:00", "to": "18:30"},
+        "saturday": {"from": "09:00", "to": "13:00"}
+      },
+      "emergencyService": {
+        "hasEmergencyService": true,
+        "isCurrentlyOnDuty": true,
+        "nextDutyDate": "2026-02-05",
+        "dutyHours": "20:00 - 08:00"
+      },
+      "hasDelivery": true,
+      "isBarrierFree": true,
+      "hasParking": true
+    },
+    {
+      "id": "apotheke_002",
+      "type": "pharmacy",
+      "name": "Löwen-Apotheke",
+      "phone": "03464345678",
+      "phoneFormatted": "03464 / 34 56 78",
+      "street": "Bahnhofstraße 15",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "latitude": 51.4702,
+      "longitude": 11.3025,
+      "openingHours": {
+        "monday": {"from": "08:00", "to": "18:00"},
+        "tuesday": {"from": "08:00", "to": "18:00"},
+        "wednesday": {"from": "08:00", "to": "18:00"},
+        "thursday": {"from": "08:00", "to": "18:00"},
+        "friday": {"from": "08:00", "to": "18:00"},
+        "saturday": {"from": "09:00", "to": "12:00"}
+      },
+      "emergencyService": {
+        "hasEmergencyService": true,
+        "isCurrentlyOnDuty": false,
+        "nextDutyDate": "2026-01-29",
+        "dutyHours": "20:00 - 08:00"
+      },
+      "hasDelivery": true,
+      "isBarrierFree": false,
+      "hasParking": false
+    },
+    {
+      "id": "apotheke_003",
+      "type": "pharmacy",
+      "name": "Adler-Apotheke",
+      "phone": "03475456789",
+      "phoneFormatted": "03475 / 45 67 89",
+      "street": "Plan 8",
+      "postalCode": "06295",
+      "city": "Lutherstadt Eisleben",
+      "latitude": 51.5268,
+      "longitude": 11.5492,
+      "openingHours": {
+        "monday": {"from": "08:00", "to": "18:30"},
+        "tuesday": {"from": "08:00", "to": "18:30"},
+        "wednesday": {"from": "08:00", "to": "18:30"},
+        "thursday": {"from": "08:00", "to": "18:30"},
+        "friday": {"from": "08:00", "to": "18:30"},
+        "saturday": {"from": "09:00", "to": "13:00"}
+      },
+      "emergencyService": {
+        "hasEmergencyService": true,
+        "isCurrentlyOnDuty": false,
+        "nextDutyDate": "2026-01-28",
+        "dutyHours": "20:00 - 08:00"
+      },
+      "hasDelivery": true,
+      "isBarrierFree": true,
+      "hasParking": true
+    },
+    {
+      "id": "apotheke_004",
+      "type": "pharmacy",
+      "name": "Rosen-Apotheke",
+      "phone": "034776567890",
+      "phoneFormatted": "034776 / 56 78 90",
+      "street": "Markt 5",
+      "postalCode": "06333",
+      "city": "Hettstedt",
+      "latitude": 51.6391,
+      "longitude": 11.5089,
+      "openingHours": {
+        "monday": {"from": "08:00", "to": "18:00"},
+        "tuesday": {"from": "08:00", "to": "18:00"},
+        "wednesday": {"from": "08:00", "to": "18:00"},
+        "thursday": {"from": "08:00", "to": "18:00"},
+        "friday": {"from": "08:00", "to": "18:00"},
+        "saturday": {"from": "09:00", "to": "12:00"}
+      },
+      "emergencyService": {
+        "hasEmergencyService": true,
+        "isCurrentlyOnDuty": false,
+        "nextDutyDate": "2026-01-30",
+        "dutyHours": "20:00 - 08:00"
+      },
+      "hasDelivery": false,
+      "isBarrierFree": true,
+      "hasParking": false
+    }
+  ]
+}

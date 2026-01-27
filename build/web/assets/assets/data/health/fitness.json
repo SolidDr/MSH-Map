@@ -1,0 +1,111 @@
+{
+  "meta": {
+    "source": "manual_seed",
+    "created_at": "2026-01-27",
+    "version": "1.0",
+    "region": "Mansfeld-Südharz"
+  },
+  "data": [
+    {
+      "id": "fitness_001",
+      "type": "fitness",
+      "name": "Seniorensport SV Sangerhausen",
+      "description": "Gymnastik und Bewegung für Senioren beim SV Sangerhausen",
+      "phone": "03464678901",
+      "phoneFormatted": "03464 / 67 89 01",
+      "street": "Am Rosengarten 5",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "latitude": 51.4712,
+      "longitude": 11.2945,
+      "fitnessOffers": [
+        {
+          "name": "Seniorengymnastik",
+          "day": "Montag",
+          "time": "10:00 - 11:00",
+          "location": "Sporthalle Am Rosengarten",
+          "cost": "5€ pro Einheit / Vereinsmitglieder kostenlos",
+          "ageGroup": "60+"
+        },
+        {
+          "name": "Sturzprävention",
+          "day": "Mittwoch",
+          "time": "09:00 - 10:00",
+          "location": "Sporthalle Am Rosengarten",
+          "cost": "5€ pro Einheit",
+          "ageGroup": "65+"
+        }
+      ],
+      "isBarrierFree": true,
+      "hasParking": true
+    },
+    {
+      "id": "fitness_002",
+      "type": "fitness",
+      "name": "Wassergymnastik Hallenbad Sangerhausen",
+      "description": "Gelenkschonendes Training im Wasser für Senioren",
+      "phone": "03464789012",
+      "phoneFormatted": "03464 / 78 90 12",
+      "street": "Erfurter Straße 35",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "latitude": 51.4678,
+      "longitude": 11.2912,
+      "fitnessOffers": [
+        {
+          "name": "Wassergymnastik Senioren",
+          "day": "Mittwoch",
+          "time": "14:00 - 15:00",
+          "location": "Hallenbad Sangerhausen",
+          "cost": "8€ inkl. Eintritt",
+          "ageGroup": "55+"
+        },
+        {
+          "name": "Aqua-Fitness 60+",
+          "day": "Freitag",
+          "time": "10:00 - 11:00",
+          "location": "Hallenbad Sangerhausen",
+          "cost": "8€ inkl. Eintritt",
+          "ageGroup": "60+"
+        }
+      ],
+      "isBarrierFree": true,
+      "hasParking": true
+    },
+    {
+      "id": "fitness_003",
+      "type": "fitness",
+      "name": "Rehasport Eisleben",
+      "description": "Rehabilitationssport und Präventionskurse",
+      "phone": "03475890123",
+      "phoneFormatted": "03475 / 89 01 23",
+      "street": "Bahnhofstraße 20",
+      "postalCode": "06295",
+      "city": "Lutherstadt Eisleben",
+      "latitude": 51.5256,
+      "longitude": 11.5512,
+      "fitnessOffers": [
+        {
+          "name": "Rückenfit für Senioren",
+          "day": "Dienstag",
+          "time": "09:30 - 10:30",
+          "location": "Rehasport-Zentrum",
+          "cost": "Mit Rezept kostenlos",
+          "ageGroup": "alle",
+          "requiresRegistration": true
+        },
+        {
+          "name": "Herzsportgruppe",
+          "day": "Donnerstag",
+          "time": "15:00 - 16:00",
+          "location": "Rehasport-Zentrum",
+          "cost": "Mit Rezept kostenlos",
+          "ageGroup": "alle",
+          "requiresRegistration": true
+        }
+      ],
+      "isBarrierFree": true,
+      "hasParking": true
+    }
+  ]
+}

@@ -3,16 +3,18 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {".vercel/.vercel/project.json": "d51cea399f70852096e1a99364a77919",
-".vercel/.vercel/README.txt": "2b13c79d37d6ed82a3255b83b6815034",
-".vercel/project.json": "380c7f344c86657da988ab65f513b48d",
+const RESOURCES = {".vercel/project.json": "d51cea399f70852096e1a99364a77919",
 ".vercel/README.txt": "2b13c79d37d6ed82a3255b83b6815034",
-"assets/AssetManifest.bin": "31022b5e4aa9ffd46a6ba8022248f30f",
-"assets/AssetManifest.bin.json": "1983edf00c7d836f4cc73e08a4ac1e02",
+"assets/AssetManifest.bin": "023f386b8db57eaaa2861a75b82c49e8",
+"assets/AssetManifest.bin.json": "3e3859cefeda8fd0276172f7e6777849",
+"assets/assets/data/engagement/places.json": "147748cc4232984491825305d3c454fa",
+"assets/assets/data/health/doctors.json": "17668a667639722b33e7ec54273e72b4",
+"assets/assets/data/health/fitness.json": "ed98f75cafe300f62673be6ca3552a8f",
+"assets/assets/data/health/pharmacies.json": "76c4b1f6f4dc239028677326bf92de33",
 "assets/data/events/events_current.json": "eec73ee6e1b27ef4f93a023bc9b11dd3",
 "assets/data/notices/notices_current.json": "8d48faf4bf9eb91979a7cadc90770455",
 "assets/FontManifest.json": "7b2a36307916a9721811788013e65289",
-"assets/fonts/MaterialIcons-Regular.otf": "9e9b2348b1619c98f0d93c114462e2ee",
+"assets/fonts/MaterialIcons-Regular.otf": "e3a71b4888260233922320cb696dbcb9",
 "assets/lib/assets/data/analytics.json": "32057235e668e869bcb2d4bd47c9dd77",
 "assets/lib/assets/data/locations.json": "00a35b231e5c9593882ee6b0a313829e",
 "assets/lib/assets/data/msh_seed_locations.geojson": "20724a577882f1a07b07b175ec239b58",
@@ -34,7 +36,7 @@ const RESOURCES = {".vercel/.vercel/project.json": "d51cea399f70852096e1a99364a7
 "canvaskit/skwasm_heavy.wasm": "b0be7910760d205ea4e011458df6ee01",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "flutter.js": "24bc71911b75b5f8135c949e27a2984e",
-"flutter_bootstrap.js": "27cd0269b34e2887ec3fdbeb56a110b0",
+"flutter_bootstrap.js": "ca7642eb9770e7ee3e0ac02eb0c583e3",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
@@ -42,8 +44,9 @@ const RESOURCES = {".vercel/.vercel/project.json": "d51cea399f70852096e1a99364a7
 "import.html": "94f049fc0bfa06a59f5b4f8e3f1a1510",
 "index.html": "59cab93631e6a01db33d0064765b00a2",
 "/": "59cab93631e6a01db33d0064765b00a2",
-"main.dart.js": "49ea00588d005d3f13b3b35d6f2a0422",
+"main.dart.js": "051558ae9065b09558b8c59c3206e164",
 "manifest.json": "7650c600954b95bc8831b201afedd1fe",
+"vercel.json": "4a1ed6ab17ed2450dfda360fa30bac40",
 "version.json": "80b8606e91ece0c3c2ff5682ec0dce0c"};
 // The application shell files that are downloaded before a service worker can
 // start.
