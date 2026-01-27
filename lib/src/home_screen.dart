@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'core/config/feature_flags.dart';
 import 'core/config/map_config.dart';
 import 'core/providers/filter_provider.dart';
@@ -18,6 +19,7 @@ import 'shared/domain/coordinates.dart';
 import 'shared/domain/map_item.dart';
 import 'shared/widgets/age_filter_row.dart';
 import 'shared/widgets/category_quick_filter.dart';
+import 'shared/widgets/health_filter_row.dart';
 import 'shared/widgets/msh_map_view.dart';
 import 'shared/widgets/poi_bottom_sheet.dart';
 import 'shared/widgets/search_autocomplete.dart';
@@ -141,11 +143,15 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
 
   /// Feedback-Sheet anzeigen ("Fehlt dir was?")
   void _showFeedbackSheet(BuildContext context) {
+    final center = _mapController.camera.center;
     showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
-      builder: (context) => const _FeedbackSheet(),
+      builder: (context) => _FeedbackSheet(
+        latitude: center.latitude,
+        longitude: center.longitude,
+      ),
     );
   }
 
@@ -367,6 +373,37 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
     return filterState.categories.any(familyCategories.contains);
   }
 
+  /// Prüft ob der Health-Filter angezeigt werden soll
+  bool _shouldShowHealthFilter(FilterState filterState) {
+    return filterState.categories.contains('health');
+  }
+
+  /// Berechnet die Anzahl pro Health-Kategorie
+  Map<String, int> _calculateHealthCategoryCounts() {
+    final counts = <String, int>{};
+    for (final item in _items.where((i) => i.moduleId == 'health')) {
+      final cat = item.metadata['healthCategory'] as String?;
+      if (cat != null) {
+        counts[cat] = (counts[cat] ?? 0) + 1;
+      }
+    }
+    return counts;
+  }
+
+  /// Berechnet die Anzahl pro Facharzt-Spezialisierung
+  Map<String, int> _calculateSpecializationCounts() {
+    final counts = <String, int>{};
+    for (final item in _items.where((i) =>
+        i.moduleId == 'health' &&
+        i.metadata['healthCategory'] == 'doctor')) {
+      final spec = item.metadata['specialization'] as String?;
+      if (spec != null) {
+        counts[spec] = (counts[spec] ?? 0) + 1;
+      }
+    }
+    return counts;
+  }
+
   @override
   Widget build(BuildContext context) {
     final filterState = ref.watch(filterProvider);
@@ -487,6 +524,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                     if (_shouldShowAgeFilter(filterState) && !_isFullMapMode)
                       AgeFilterRow(
                         ageCounts: _calculateAgeCounts(),
+                      ),
+
+                    // Health Filter (wenn Gesundheit ausgewählt)
+                    if (_shouldShowHealthFilter(filterState) && !_isFullMapMode)
+                      HealthFilterRow(
+                        categoryCounts: _calculateHealthCategoryCounts(),
+                        specializationCounts: _calculateSpecializationCounts(),
                       ),
                   ],
                 ),
@@ -959,7 +1003,13 @@ class _FeedbackButton extends StatelessWidget {
 // ═══════════════════════════════════════════════════════════════
 
 class _FeedbackSheet extends StatelessWidget {
-  const _FeedbackSheet();
+  const _FeedbackSheet({
+    required this.latitude,
+    required this.longitude,
+  });
+
+  final double latitude;
+  final double longitude;
 
   @override
   Widget build(BuildContext context) {
@@ -1064,21 +1114,87 @@ class _FeedbackSheet extends StatelessWidget {
     );
   }
 
-  void _sendFeedback(BuildContext context, String type) {
+  Future<void> _sendFeedback(BuildContext context, String type) async {
     Navigator.pop(context);
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: const Text('Danke für dein Feedback! Wir schauen es uns an.'),
-        backgroundColor: MshColors.success,
-        behavior: SnackBarBehavior.floating,
-        margin: EdgeInsets.only(
-          bottom: MediaQuery.of(context).size.height * 0.1,
-          left: MshSpacing.lg,
-          right: MshSpacing.lg,
-        ),
+
+    // Kategorie-spezifische Betreff und Text
+    final (subject, intro) = switch (type) {
+      'restaurant' => (
+        'Restaurant/Café fehlt auf der Karte',
+        'Ich möchte ein Restaurant oder Café melden, das auf der Karte fehlt.',
       ),
+      'family' => (
+        'Familienausflugsziel fehlt',
+        'Ich möchte ein Ausflugsziel für Familien melden (Spielplatz, Museum, Zoo, etc.).',
+      ),
+      'event' => (
+        'Veranstaltung melden',
+        'Ich möchte eine Veranstaltung melden, die nicht gelistet ist.',
+      ),
+      'error' => (
+        'Fehler melden - Falsche Infos',
+        'Ich möchte einen Fehler oder falsche Informationen melden.',
+      ),
+      _ => ('Feedback zur MSH Map', 'Ich habe Feedback zur MSH Map.'),
+    };
+
+    final body = '''
+$intro
+
+Kategorie: ${_categoryLabel(type)}
+
+Ungefährer Standort:
+- Koordinaten: ${latitude.toStringAsFixed(5)}, ${longitude.toStringAsFixed(5)}
+- Google Maps: https://maps.google.com/?q=$latitude,$longitude
+
+Name des Ortes:
+[Bitte ausfüllen]
+
+Beschreibung:
+[Bitte ausfüllen]
+
+---
+Gesendet über MSH Map App
+''';
+
+    final mailtoUri = Uri(
+      scheme: 'mailto',
+      path: 'feedback@kolan-system.de',
+      query: 'subject=${Uri.encodeComponent(subject)}&body=${Uri.encodeComponent(body)}',
     );
+
+    try {
+      if (await canLaunchUrl(mailtoUri)) {
+        await launchUrl(mailtoUri);
+      } else {
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('E-Mail-App konnte nicht geöffnet werden'),
+              backgroundColor: Colors.red,
+            ),
+          );
+        }
+      }
+    } catch (e) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Fehler: $e'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    }
   }
+
+  String _categoryLabel(String type) => switch (type) {
+    'restaurant' => 'Restaurant / Café',
+    'family' => 'Familienausflugsziel',
+    'event' => 'Veranstaltung',
+    'error' => 'Fehler melden',
+    _ => 'Sonstiges',
+  };
 }
 
 class _FeedbackOption extends StatelessWidget {

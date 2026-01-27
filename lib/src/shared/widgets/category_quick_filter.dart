@@ -20,7 +20,8 @@ class CategoryQuickFilter extends StatelessWidget {
       margin: const EdgeInsets.only(top: 8),
       child: ListView(
         scrollDirection: Axis.horizontal,
-        padding: const EdgeInsets.symmetric(horizontal: 12),
+        clipBehavior: Clip.none,
+        padding: const EdgeInsets.only(left: 12, right: 24),
         children: [
           _CategoryChip(
             label: 'Alle',

@@ -6,6 +6,7 @@ import '../../../core/theme/msh_colors.dart';
 import '../../../core/theme/msh_spacing.dart';
 import '../../../core/theme/msh_theme.dart';
 import '../../../shared/widgets/powered_by_badge.dart';
+import 'widgets/traffic_counter_widget.dart';
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});
@@ -126,6 +127,11 @@ class AboutScreen extends StatelessWidget {
                   ),
 
                   const SizedBox(height: MshSpacing.xl),
+
+                  // Traffic Counter
+                  const TrafficCounterWidget(),
+
+                  const SizedBox(height: MshSpacing.lg),
 
                   // Powered by
                   const Center(child: PoweredByBadge()),

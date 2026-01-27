@@ -133,16 +133,53 @@ class FilterState {
     if (ageFilters.isNotEmpty) {
       final ageRange = item.metadata['ageRange'] as String?;
 
-      // Wenn Altersfilter aktiv, aber Item hat kein ageRange → ausschließen
-      // (nur Family-Items haben ageRange)
-      if (ageRange == null) return false;
-
-      // "alle" passt zu jedem Altersfilter
-      if (ageRange == 'alle') return true;
+      // Items ohne ageRange werden als "für alle Altersgruppen" behandelt
+      // (z.B. Spielplätze ohne spezifische Altersangabe)
+      if (ageRange == null || ageRange == 'alle') return true;
 
       // Prüfe Überlappung mit ausgewählten Altersfiltern
       final matches = ageFilters.any((filter) => _rangesOverlap(ageRange, filter));
       if (!matches) return false;
+    }
+
+    // Health-Filter (Kategorie und Fachrichtung)
+    final healthFilters = activeFilterIds
+        .where((id) => id.startsWith('health_'))
+        .map((id) => id.replaceFirst('health_', ''))
+        .toSet();
+
+    if (healthFilters.isNotEmpty && item.moduleId == 'health') {
+      // Kategorie-Filter (doctor, pharmacy, fitness)
+      final categoryFilters = healthFilters
+          .where((f) => !f.startsWith('spec_'))
+          .toSet();
+
+      // Fachrichtungs-Filter (spec_allgemein, spec_kardio, etc.)
+      final specFilters = healthFilters
+          .where((f) => f.startsWith('spec_'))
+          .map((f) => f.replaceFirst('spec_', ''))
+          .toSet();
+
+      final itemHealthCategory = item.metadata['healthCategory'] as String?;
+      final itemSpecialization = item.metadata['specialization'] as String?;
+
+      // Wenn Kategorie-Filter aktiv: prüfe ob Item passt
+      if (categoryFilters.isNotEmpty) {
+        if (itemHealthCategory == null || !categoryFilters.contains(itemHealthCategory)) {
+          // Ausnahme: Wenn Fachrichtungs-Filter aktiv und Item ist Arzt
+          if (specFilters.isEmpty || itemHealthCategory != 'doctor') {
+            return false;
+          }
+        }
+      }
+
+      // Wenn Fachrichtungs-Filter aktiv: prüfe ob Arzt mit passender Fachrichtung
+      if (specFilters.isNotEmpty) {
+        if (itemHealthCategory != 'doctor') return false;
+        if (itemSpecialization == null || !specFilters.contains(itemSpecialization)) {
+          return false;
+        }
+      }
     }
 
     return true;
