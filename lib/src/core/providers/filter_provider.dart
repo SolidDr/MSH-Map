@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../shared/domain/map_item.dart';
 
 // ═══════════════════════════════════════════════════════════════
@@ -189,10 +190,32 @@ class FilterState {
       categories.isNotEmpty || activeFilterIds.isNotEmpty;
 }
 
-/// Filter Notifier
+/// Filter Notifier mit Persistierung
 class FilterNotifier extends StateNotifier<FilterState> {
-  // Starteinstellung: Nur Spielplätze ausgewählt
-  FilterNotifier() : super(const FilterState(categories: {'playground'}));
+  // SharedPreferences Keys
+  static const _keyCategoriesFilter = 'map_filter_categories';
+
+  // Starteinstellung: Leeres Set = alle Kategorien sichtbar
+  FilterNotifier() : super(const FilterState()) {
+    _loadSavedFilters();
+  }
+
+  /// Lädt gespeicherte Filter aus SharedPreferences
+  Future<void> _loadSavedFilters() async {
+    final prefs = await SharedPreferences.getInstance();
+    final savedCategories = prefs.getStringList(_keyCategoriesFilter);
+
+    if (savedCategories != null) {
+      state = state.copyWith(categories: savedCategories.toSet());
+    }
+    // Wenn nichts gespeichert ist, bleibt das leere Set (alle sichtbar)
+  }
+
+  /// Speichert aktuelle Filter in SharedPreferences
+  Future<void> _saveFilters() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setStringList(_keyCategoriesFilter, state.categories.toList());
+  }
 
   void toggleCategory(String category) {
     final newCategories = Set<String>.from(state.categories);
@@ -202,10 +225,12 @@ class FilterNotifier extends StateNotifier<FilterState> {
       newCategories.add(category);
     }
     state = state.copyWith(categories: newCategories);
+    _saveFilters();
   }
 
   void setCategories(Set<String> categories) {
     state = state.copyWith(categories: categories);
+    _saveFilters();
   }
 
   void toggleFilter(String filterId) {
@@ -220,6 +245,7 @@ class FilterNotifier extends StateNotifier<FilterState> {
 
   void clearAll() {
     state = const FilterState();
+    _saveFilters();
   }
 }
 
