@@ -218,10 +218,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
 
     try {
       final allItems = <MapItem>[];
+      debugPrint('📦 Loading items from ${ModuleRegistry.instance.active.length} modules');
       for (final module in ModuleRegistry.instance.active) {
         final items = await module.getItemsInRegion(MapConfig.mshRegion);
+        debugPrint('  → ${module.moduleId}: ${items.length} items');
         allItems.addAll(items);
       }
+      debugPrint('📦 Total loaded: ${allItems.length} items');
 
       setState(() {
         _items = allItems;
@@ -272,6 +275,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
   /// Berechnet die Anzahl der Items pro Kategorie
   Map<String, int> _calculateCategoryCounts() {
     final counts = <String, int>{};
+    debugPrint('🔍 _calculateCategoryCounts: ${_items.length} total items');
     for (final item in _items) {
       final categoryName = item.category.name;
       counts[categoryName] = (counts[categoryName] ?? 0) + 1;
@@ -296,6 +300,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
         counts['civic'] = (counts['civic'] ?? 0) + 1;
       }
     }
+    debugPrint('📊 Category counts: health=${counts['health']}, civic=${counts['civic']}, pool=${counts['pool']}');
     return counts;
   }
 
