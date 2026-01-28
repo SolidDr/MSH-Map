@@ -56,7 +56,7 @@ class CategoryQuickFilter extends StatelessWidget {
               label: 'Radwege',
               icon: Icons.directions_bike,
               color: _kupferColor,
-              count: 5, // Anzahl der Radwege
+              count: 9, // Anzahl der Radwege
               isSelected: radwegeActive,
               onTap: onRadwegeToggle!,
             ),

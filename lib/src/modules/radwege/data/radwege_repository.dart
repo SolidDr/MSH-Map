@@ -1,9 +1,13 @@
 import '../domain/radweg_category.dart';
 import '../domain/radweg_route.dart';
+import 'routes/himmelsscheiben_route.dart';
 import 'routes/kupferspuren_route.dart';
 import 'routes/kyffhaeuser_route.dart';
+import 'routes/lutherweg_route.dart';
 import 'routes/romanik_route.dart';
 import 'routes/saale_harz_route.dart';
+import 'routes/salzstrasse_route.dart';
+import 'routes/suesser_see_route.dart';
 import 'routes/wipper_route.dart';
 
 /// Repository für alle Radwege in MSH
@@ -17,6 +21,10 @@ class RadwegeRepository {
     saaleHarzRoute,
     kyffhaeuserRoute,
     wipperRoute,
+    himmelsscheibenRoute,
+    salzstrasseRoute,
+    suesserSeeRoute,
+    lutherwegRoute,
   ];
 
   /// Radwege nach Kategorie filtern
