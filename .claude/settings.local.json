@@ -55,7 +55,22 @@
       "Bash(pip show:*)",
       "Bash(set PYTHONIOENCODING=utf-8)",
       "Bash(git config:*)",
-      "Bash(powershell:*)"
+      "Bash(powershell:*)",
+      "WebFetch(domain:initiativewelbsleben.blogspot.com)",
+      "WebFetch(domain:welbsleben.blogspot.com)",
+      "Bash(copy:*)",
+      "Bash(cmd /c \"copy \"\"c:\\\\Users\\\\Konstantin.Lange\\\\Nextcloud\\\\Desktop\\\\Business\\\\brainstorm\\\\Lunch-Radar\\\\data\\\\notices\\\\notices_current.json\"\" \"\"c:\\\\Users\\\\Konstantin.Lange\\\\Nextcloud\\\\Desktop\\\\Business\\\\brainstorm\\\\Lunch-Radar\\\\assets\\\\data\\\\notices_current.json\"\"\")",
+      "WebFetch(domain:www.sangerhausen.de)",
+      "WebFetch(domain:www.mansfeldsuedharz.de)",
+      "Bash(python3:*)",
+      "Bash(node -e:*)",
+      "Bash(firebase login:*)",
+      "Bash(del \"lib\\\\src\\\\shared\\\\widgets\\\\suggest_location_sheet.dart\")",
+      "WebFetch(domain:www.asv-sangerhausen.de)",
+      "WebFetch(domain:www.awo-mansfeldsuedharz.de)",
+      "Bash(for f in build/web/assets/assets/data/health/*.json build/web/assets/data/*/*.json)",
+      "Bash(do echo \"Validating $f...\")",
+      "Bash(done)"
     ]
   }
 }

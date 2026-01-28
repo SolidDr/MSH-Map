@@ -26,17 +26,14 @@ bool isAdminEmail(String? email) {
 
 /// Provider für den aktuellen Admin-Status
 final isAdminProvider = Provider<bool>((ref) {
-  final authRepo = ref.watch(authRepositoryProvider);
-  final user = authRepo.currentUser;
-  return user != null && isAdminEmail(user.email);
-});
-
-/// Stream Provider für Admin-Status (reagiert auf Auth-Änderungen)
-final isAdminStreamProvider = StreamProvider<bool>((ref) {
-  final authRepo = ref.watch(authRepositoryProvider);
-  return authRepo.authStateChanges.map((user) {
+  try {
+    final authRepo = ref.watch(authRepositoryProvider);
+    final user = authRepo.currentUser;
     return user != null && isAdminEmail(user.email);
-  });
+  } catch (e) {
+    // Falls Auth nicht verfügbar, kein Admin
+    return false;
+  }
 });
 
 /// Provider für Traffic-Statistiken

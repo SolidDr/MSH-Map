@@ -31,16 +31,21 @@ class AuthRepository {
     });
   }
 
-  /// Get current user
+  /// Get current user (mit Fehlerbehandlung für frühe Aufrufe)
   UserModel? get currentUser {
-    final user = _auth.currentUser;
-    if (user == null) return null;
-    return UserModel(
-      uid: user.uid,
-      email: user.email ?? '',
-      displayName: user.displayName,
-      photoUrl: user.photoURL,
-    );
+    try {
+      final user = _auth.currentUser;
+      if (user == null) return null;
+      return UserModel(
+        uid: user.uid,
+        email: user.email ?? '',
+        displayName: user.displayName,
+        photoUrl: user.photoURL,
+      );
+    } catch (e) {
+      // Firebase Auth noch nicht bereit
+      return null;
+    }
   }
 
   /// Sign in with email and password
