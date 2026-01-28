@@ -45,8 +45,9 @@ class EmergencyService {
 class FitnessOffer {
   const FitnessOffer({
     required this.name,
-    required this.day,
-    required this.time,
+    this.description,
+    this.day,
+    this.time,
     this.location,
     this.cost,
     this.ageGroup,
@@ -55,9 +56,10 @@ class FitnessOffer {
 
   factory FitnessOffer.fromJson(Map<String, dynamic> json) {
     return FitnessOffer(
-      name: json['name'] as String,
-      day: json['day'] as String,
-      time: json['time'] as String,
+      name: json['name'] as String? ?? '',
+      description: json['description'] as String?,
+      day: json['day'] as String?,
+      time: json['time'] as String?,
       location: json['location'] as String?,
       cost: json['cost'] as String?,
       ageGroup: json['ageGroup'] as String?,
@@ -66,8 +68,9 @@ class FitnessOffer {
   }
 
   final String name;
-  final String day;
-  final String time;
+  final String? description;
+  final String? day;
+  final String? time;
   final String? location;
   final String? cost;
   final String? ageGroup;
@@ -76,8 +79,9 @@ class FitnessOffer {
   Map<String, dynamic> toJson() {
     return {
       'name': name,
-      'day': day,
-      'time': time,
+      if (description != null) 'description': description,
+      if (day != null) 'day': day,
+      if (time != null) 'time': time,
       if (location != null) 'location': location,
       if (cost != null) 'cost': cost,
       if (ageGroup != null) 'ageGroup': ageGroup,
