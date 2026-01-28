@@ -79,6 +79,51 @@ class HealthRepository {
       debugPrint('Konnte Krankenhäuser nicht laden: $e');
     }
 
+    // Lade Physiotherapie
+    try {
+      final physioJson =
+          await rootBundle.loadString('assets/data/health/physiotherapy.json');
+      final physioData = jsonDecode(physioJson) as Map<String, dynamic>;
+      final physioList = physioData['data'] as List<dynamic>;
+      facilities.addAll(
+        physioList.map(
+          (e) => HealthFacility.fromJson(e as Map<String, dynamic>),
+        ),
+      );
+    } on Exception catch (e) {
+      debugPrint('Konnte Physiotherapie nicht laden: $e');
+    }
+
+    // Lade Pflegedienste
+    try {
+      final careJson =
+          await rootBundle.loadString('assets/data/health/care_services.json');
+      final careData = jsonDecode(careJson) as Map<String, dynamic>;
+      final careList = careData['data'] as List<dynamic>;
+      facilities.addAll(
+        careList.map(
+          (e) => HealthFacility.fromJson(e as Map<String, dynamic>),
+        ),
+      );
+    } on Exception catch (e) {
+      debugPrint('Konnte Pflegedienste nicht laden: $e');
+    }
+
+    // Lade Sanitätshäuser
+    try {
+      final medSupplyJson =
+          await rootBundle.loadString('assets/data/health/medical_supply.json');
+      final medSupplyData = jsonDecode(medSupplyJson) as Map<String, dynamic>;
+      final medSupplyList = medSupplyData['data'] as List<dynamic>;
+      facilities.addAll(
+        medSupplyList.map(
+          (e) => HealthFacility.fromJson(e as Map<String, dynamic>),
+        ),
+      );
+    } on Exception catch (e) {
+      debugPrint('Konnte Sanitätshäuser nicht laden: $e');
+    }
+
     _cachedFacilities = facilities;
     _streamController.add(facilities);
     return facilities;

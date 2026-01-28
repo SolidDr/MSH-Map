@@ -66,3 +66,9 @@ flutter:
     - assets/data/health/pharmacies.json
     - assets/data/health/fitness.json
     - assets/data/health/hospitals.json
+    - assets/data/health/physiotherapy.json
+    - assets/data/health/care_services.json
+    - assets/data/health/medical_supply.json
+    - assets/data/civic/government.json
+    - assets/data/civic/youth_centres.json
+    - assets/data/civic/social_facilities.json

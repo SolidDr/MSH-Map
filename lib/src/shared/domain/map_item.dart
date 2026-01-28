@@ -55,6 +55,10 @@ enum MapItemCategory {
   school,
   kindergarten,
   library,
+  // Civic (Behörden, Jugendzentren, Soziales)
+  government,
+  youthCentre,
+  socialFacility,
   // Other
   service,
   search,

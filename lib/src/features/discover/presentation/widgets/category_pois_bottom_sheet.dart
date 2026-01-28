@@ -299,6 +299,11 @@ class _PoiListTile extends StatelessWidget {
         MapItemCategory.school => Icons.school,
         MapItemCategory.kindergarten => Icons.child_care,
         MapItemCategory.library => Icons.local_library,
+        // Civic
+        MapItemCategory.government => Icons.account_balance,
+        MapItemCategory.youthCentre => Icons.group,
+        MapItemCategory.socialFacility => Icons.volunteer_activism,
+        // Other
         MapItemCategory.service => Icons.build,
         MapItemCategory.search => Icons.search,
         MapItemCategory.custom => Icons.place,

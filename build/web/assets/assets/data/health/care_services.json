@@ -1,0 +1,470 @@
+{
+  "meta": {
+    "source": "openstreetmap, arzt-auskunft.de, manual",
+    "created_at": "2026-01-28",
+    "version": "3.0",
+    "region": "Mansfeld-Suedharz",
+    "note": "Automatisch gemerged aus OSM + manuellen Daten",
+    "total_count": 27,
+    "verified_count": 0
+  },
+  "data": [
+    {
+      "id": "pflege_el_004",
+      "type": "care_service",
+      "name": "AWO ML Sozialdienste GmbH Alten- und Pflegeheim",
+      "latitude": 51.5223191,
+      "longitude": 11.5450042,
+      "street": "Rudolf-Breitscheid-Straße 4",
+      "postalCode": "06295",
+      "city": "Lutherstadt Eisleben",
+      "phone": "+49 3475 61379100",
+      "phoneFormatted": "03475 / 61 37 9100",
+      "website": "https://www.awo-rv-harz.de/Einrichtungen/APH%20Eisleben.htm",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "pflege_ht_001",
+      "type": "care_service",
+      "name": "AWO Wohnen mit Service",
+      "latitude": 51.6602684,
+      "longitude": 11.5163505,
+      "street": "Richard-Wagner-Straße 1",
+      "postalCode": "06333",
+      "city": "Hettstedt",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "pflege_el_005",
+      "type": "care_service",
+      "name": "Alten- und Pflegeheim Heilig-Geist-Stift",
+      "latitude": 51.5252022,
+      "longitude": 11.5531948,
+      "street": "Hallesche Straße 38",
+      "postalCode": "06295",
+      "city": "Lutherstadt Eisleben",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "pflege_msh_013",
+      "type": "care_service",
+      "name": "Arnoldheim",
+      "latitude": 51.4990224,
+      "longitude": 10.807743,
+      "street": "Ammerberg 28",
+      "postalCode": "99734",
+      "city": "Nordhausen",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "pflege_el_007",
+      "type": "care_service",
+      "name": "Caritas Pflegeheim St. Mechthild",
+      "latitude": 51.5093266,
+      "longitude": 11.5802122,
+      "street": "Lindenstraße 38",
+      "postalCode": "06295",
+      "city": "Lutherstadt Eisleben",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "pflege_msh_019",
+      "type": "care_service",
+      "name": "DRK Pflegeheim",
+      "latitude": 51.4432585,
+      "longitude": 10.8872695,
+      "street": "Juri-Gagarin-Straße 9",
+      "postalCode": "99765",
+      "city": "Heringen/Helme",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "pflege_sh_021",
+      "type": "care_service",
+      "name": "DRK Seniorenwohnpark",
+      "latitude": 51.3784856,
+      "longitude": 10.8603944,
+      "street": "Hospitalstraße",
+      "postalCode": "99706",
+      "city": "Mansfeld-Südharz",
+      "phone": "+49 3632 6170",
+      "phoneFormatted": "036326170",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "pflege_sh_002",
+      "type": "care_service",
+      "name": "DRK Seniorenzentrum „Goldene Aue“",
+      "latitude": 51.4601651,
+      "longitude": 11.1673661,
+      "street": "Chaussee 28",
+      "postalCode": "06528",
+      "city": "Mansfeld-Südharz",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "pflege_sh_008",
+      "type": "care_service",
+      "name": "Demenzzentrum Neudorf",
+      "latitude": 51.6106066,
+      "longitude": 11.1120486,
+      "city": "Mansfeld-Südharz",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "pflege_sh_024",
+      "type": "care_service",
+      "name": "Ev. Alters- und Pflegeheim Marienstift",
+      "latitude": 51.4630525,
+      "longitude": 11.0787013,
+      "street": "Hallesche Straße 52",
+      "postalCode": "06536",
+      "city": "Südharz",
+      "phone": "+49 34651 39090",
+      "phoneFormatted": "03465 / 13 90 90",
+      "website": "https://www.marienstift-rossla.de",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "pflege_msh_025",
+      "type": "care_service",
+      "name": "GBS Pflegeeinrichtung Goldener Herbst",
+      "latitude": 51.6431374,
+      "longitude": 11.1490676,
+      "street": "Feldstraße 5",
+      "postalCode": "06493",
+      "city": "Harzgerode",
+      "phone": "+49 39484 7440",
+      "phoneFormatted": "03948 / 47 44 0",
+      "website": "https://www.gbs-sozial.de",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "pflege_msh_022",
+      "type": "care_service",
+      "name": "Haus Anna am Park",
+      "latitude": 51.3603734,
+      "longitude": 11.2958853,
+      "street": "Straße der Jugend 2",
+      "postalCode": "06556",
+      "city": "Artern",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "pflege_sh_018",
+      "type": "care_service",
+      "name": "Haus Rungholt",
+      "latitude": 51.570661,
+      "longitude": 11.7667468,
+      "city": "Mansfeld-Südharz",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "pflege_mf_016",
+      "type": "care_service",
+      "name": "Johanniterhaus Mansfeld",
+      "latitude": 51.5915081,
+      "longitude": 11.4506827,
+      "street": "Sangerhäuser Straße 34",
+      "postalCode": "06343",
+      "city": "Mansfeld",
+      "website": "https://www.johanniter.de/einrichtungen/altenpflegeeinrichtungen/mansfeld/",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "pflege_msh_003",
+      "type": "care_service",
+      "name": "Pflege- und Betreuungszentrum \"Glück Auf\"",
+      "latitude": 51.5723079,
+      "longitude": 11.4971855,
+      "street": "Steigerstraße 14A",
+      "postalCode": "06308",
+      "city": "Benndorf",
+      "phone": "+49 34772 52910",
+      "phoneFormatted": "03477 / 25 29 10",
+      "website": "https://www.vs-habilis.de/altenhilfe/benndorf",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "pflege_sg_017",
+      "type": "care_service",
+      "name": "Pflegeheim Am Rosengarten",
+      "latitude": 51.4752077,
+      "longitude": 11.3148863,
+      "street": "Am Rosengarten 1",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "pflege_msh_015",
+      "type": "care_service",
+      "name": "Pflegeheim Artern",
+      "latitude": 51.3633906,
+      "longitude": 11.2909898,
+      "street": "Wasserstraße 15a",
+      "postalCode": "06556",
+      "city": "Artern",
+      "phone": "+49 3466 33970",
+      "phoneFormatted": "03466 / 33 97 0",
+      "website": "https://www.twsd-wohnenplus.de/pflegeheim-artern,202.php",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "pflege_sh_011",
+      "type": "care_service",
+      "name": "Pflegeheim Wansleben am See",
+      "latitude": 51.4647346,
+      "longitude": 11.7500052,
+      "city": "Mansfeld-Südharz",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "pflege_ht_027",
+      "type": "care_service",
+      "name": "Pflegeteam \"3 Säulen\"",
+      "latitude": 51.6581452,
+      "longitude": 11.502972,
+      "street": "Fichtestraße 80a",
+      "postalCode": "06333",
+      "city": "Hettstedt",
+      "website": "https://pflegeteam-hettstedt.de/",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "pflege_ht_026",
+      "type": "care_service",
+      "name": "Pflegezentrum Humanitas",
+      "latitude": 51.6587395,
+      "longitude": 11.5016169,
+      "street": "Fichtestraße a80a",
+      "postalCode": "06333",
+      "city": "Hettstedt",
+      "website": "https://pflegezentrum-humanitas.de/",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "pflege_msh_014",
+      "type": "care_service",
+      "name": "Senioren- & Pflegeheim „Am Pappelweg“",
+      "latitude": 51.501378,
+      "longitude": 10.8169159,
+      "street": "Im Stürzetal 33",
+      "postalCode": "99734",
+      "city": "Nordhausen",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "pflege_el_006",
+      "type": "care_service",
+      "name": "Senioren- u. Pflegehaus Sonnenschein",
+      "latitude": 51.5296459,
+      "longitude": 11.5542419,
+      "street": "Zeppelinstraße 10",
+      "postalCode": "06295",
+      "city": "Lutherstadt Eisleben",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "pflege_el_020",
+      "type": "care_service",
+      "name": "Senioren- und Pflegeheim Wolferode",
+      "latitude": 51.5092876,
+      "longitude": 11.5135874,
+      "street": "Wimmelburger Straße 10",
+      "postalCode": "06295",
+      "city": "Lutherstadt Eisleben",
+      "phone": "+49 3475 61160",
+      "phoneFormatted": "03475 / 61 16 0",
+      "website": "http://www.pflegeheim-wolferode.de/",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "pflege_msh_012",
+      "type": "care_service",
+      "name": "Seniorenresidenz \"Udo Stiemerling Haus\"",
+      "latitude": 51.3651726,
+      "longitude": 10.8688358,
+      "street": "Cannabichstraße 4",
+      "postalCode": "99706",
+      "city": "Sondershausen",
+      "website": "https://www.pflegeheim-sondershausen.de/",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "pflege_sg_010",
+      "type": "care_service",
+      "name": "Seniorenresidenz Rosalie",
+      "latitude": 51.4563268,
+      "longitude": 11.2913999,
+      "street": "Georg-Schumann-Straße 34",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "pflege_sg_009",
+      "type": "care_service",
+      "name": "Seniorenzentrum Kyffhäuserblick",
+      "latitude": 51.459828,
+      "longitude": 11.2915608,
+      "street": "Wilhelm-Koenen-Straße 35",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "pflege_sg_023",
+      "type": "care_service",
+      "name": "Tor zur Altstadt",
+      "latitude": 51.4734924,
+      "longitude": 11.2933377,
+      "street": "Mühlgasse 32",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "website": "https://www.drk-sangerhausen.de/drk2018/wohnen-pflegen/pflege-und-betreuungszentrum-tor-zur-altstadt.htm",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    }
+  ]
+}

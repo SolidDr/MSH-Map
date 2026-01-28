@@ -1,0 +1,420 @@
+{
+  "meta": {
+    "source": "openstreetmap, arzt-auskunft.de, manual",
+    "created_at": "2026-01-28",
+    "version": "3.0",
+    "region": "Mansfeld-Suedharz",
+    "note": "Automatisch gemerged aus OSM + manuellen Daten",
+    "total_count": 24,
+    "verified_count": 0
+  },
+  "data": [
+    {
+      "id": "sani_sh_011",
+      "type": "medical_supply",
+      "name": "Amplifon",
+      "latitude": 51.2650473,
+      "longitude": 11.4137376,
+      "city": "Mansfeld-Südharz",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "sani_sg_017",
+      "type": "medical_supply",
+      "name": "Amplifon",
+      "latitude": 51.4735493,
+      "longitude": 11.2983209,
+      "street": "Kylische Straße 9A",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "+49 3464 589 31 75",
+      "phoneFormatted": "03464 / 58 93 175",
+      "website": "https://www.amplifon.com/de/filiale-finden/hoergeraete-sachsen-anhalt/amplifon-sangerhausen-s565",
+      "openingHours": "Mo-Fr 09:00-13:00; Mo, Th 14:00-18:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "sani_sh_012",
+      "type": "medical_supply",
+      "name": "Apollo",
+      "latitude": 51.4831604,
+      "longitude": 10.8029261,
+      "city": "Mansfeld-Südharz",
+      "openingHours": "Mo-Sa 09:00-18:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "sani_sg_015",
+      "type": "medical_supply",
+      "name": "Augenoptik Ermisch",
+      "latitude": 51.4722207,
+      "longitude": 11.2966361,
+      "street": "Friedrich-Schmidt-Straße 3",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "+49 34 64 57 05 44",
+      "phoneFormatted": "03464 / 57 05 44",
+      "openingHours": "Mo-Fr 09:00-18:00; Sa 10:00-12:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "sani_sh_013",
+      "type": "medical_supply",
+      "name": "Augenoptik Kirchvogel",
+      "latitude": 51.6412239,
+      "longitude": 11.1417459,
+      "city": "Mansfeld-Südharz",
+      "openingHours": "Mo-Fr 09:00-13:00,14:30-18:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "sani_msh_009",
+      "type": "medical_supply",
+      "name": "Augenoptik Sonneberger",
+      "latitude": 51.4512082,
+      "longitude": 11.7973751,
+      "street": "Poststraße 2",
+      "postalCode": "06179",
+      "city": "Teutschenthal",
+      "phone": "+49 34601 22677",
+      "phoneFormatted": "03460 / 12 26 77",
+      "website": "https://www.optik-sonneberger.de",
+      "openingHours": "Mo,Tu,Th,Fr ß9:30-12:30,14:00-18:00; Sa 09:30-12:00; We,Su,PH off",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "sani_el_005",
+      "type": "medical_supply",
+      "name": "Augenoptik Wiegand",
+      "latitude": 51.5287174,
+      "longitude": 11.547693,
+      "street": "Markt 17",
+      "postalCode": "06295",
+      "city": "Lutherstadt Eisleben",
+      "phone": "+49 3475 603009",
+      "phoneFormatted": "03475 / 60 30 09",
+      "website": "https://augenoptik-wiegand.de/",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "sani_msh_021",
+      "type": "medical_supply",
+      "name": "Augenoptik am Markt Jarzombski",
+      "latitude": 51.3650779,
+      "longitude": 11.2904583,
+      "street": "Markt 9",
+      "postalCode": "06556",
+      "city": "Artern",
+      "phone": "+49 3466 7428250",
+      "phoneFormatted": "03466 / 74 28 250",
+      "website": "https://www.jaoptik.de/",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "sani_msh_019",
+      "type": "medical_supply",
+      "name": "Augenoptik und Hörgeräte Begrich-Schmidt",
+      "latitude": 51.2955216,
+      "longitude": 11.4329236,
+      "street": "Richard-Hüttig-Platz 22",
+      "postalCode": "06571",
+      "city": "Roßleben-Wiehe",
+      "phone": "+49 34672 65167",
+      "phoneFormatted": "03467 / 26 51 67",
+      "website": "http://www.begrich-rossleben.de/",
+      "openingHours": "Mo-Fr 09:00-13:00,15:00-18:00; Sa-Su off",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "sani_sh_002",
+      "type": "medical_supply",
+      "name": "Behrendt",
+      "latitude": 51.4578437,
+      "longitude": 11.0177731,
+      "city": "Südharz",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "sani_el_014",
+      "type": "medical_supply",
+      "name": "Fielmann",
+      "latitude": 51.528078,
+      "longitude": 11.5463652,
+      "street": "Markt 54",
+      "postalCode": "06295",
+      "city": "Lutherstadt Eisleben",
+      "openingHours": "Mo-Fr 08:00-18:00; Sa 09:00-13:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "sani_sh_004",
+      "type": "medical_supply",
+      "name": "Geers",
+      "latitude": 51.3688905,
+      "longitude": 10.8695991,
+      "city": "Mansfeld-Südharz",
+      "openingHours": "Mo-We,Fr 08:30-12:30,13:00-16:00; Th 08:30-12:30,14:00-16:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "sani_ht_010",
+      "type": "medical_supply",
+      "name": "Hörzentrum Nett",
+      "latitude": 51.6471086,
+      "longitude": 11.5142311,
+      "street": "Freimarkt 8-10",
+      "postalCode": "06333",
+      "city": "Hettstedt",
+      "phone": "+49 3476 8792979",
+      "phoneFormatted": "03476 / 87 92 979",
+      "website": "https://hoerzentrum-nett.de/",
+      "openingHours": "Mo-Fr 07:30-13:30, Mo-Th 14:00-17:00, Tu 14:00-17:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "sani_el_008",
+      "type": "medical_supply",
+      "name": "KIND Hörgeräte",
+      "latitude": 51.5278743,
+      "longitude": 11.5494149,
+      "street": "Plan 1",
+      "postalCode": "06295",
+      "city": "Lutherstadt Eisleben",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "sani_msh_024",
+      "type": "medical_supply",
+      "name": "Knipping",
+      "latitude": 51.357805,
+      "longitude": 11.1006718,
+      "street": "Erfurter Straße 3",
+      "postalCode": "06567",
+      "city": "Bad Frankenhausen/Kyffhäuser",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "sani_msh_018",
+      "type": "medical_supply",
+      "name": "Optik Mohr",
+      "latitude": 51.3002539,
+      "longitude": 11.2157293,
+      "street": "Hauptstraße 36",
+      "postalCode": "06577",
+      "city": "An der Schmücke",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "sani_msh_020",
+      "type": "medical_supply",
+      "name": "Optik Mohr",
+      "latitude": 51.3643014,
+      "longitude": 11.2965759,
+      "street": "Leipziger Straße 31",
+      "postalCode": "06556",
+      "city": "Artern",
+      "phone": "+49 3466 302979",
+      "phoneFormatted": "03466 / 30 29 79",
+      "openingHours": "Mo-Fr 08:30-18:00; Sa 09:00-12:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "sani_sh_003",
+      "type": "medical_supply",
+      "name": "Optik am Markt",
+      "latitude": 51.3710052,
+      "longitude": 10.8717837,
+      "city": "Mansfeld-Südharz",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "sani_sh_001",
+      "type": "medical_supply",
+      "name": "Recknagel",
+      "latitude": 51.3576395,
+      "longitude": 11.0995281,
+      "city": "Mansfeld-Südharz",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "sani_sg_016",
+      "type": "medical_supply",
+      "name": "Sabine Wiewicke",
+      "latitude": 51.4780033,
+      "longitude": 11.2955136,
+      "street": "Bahnhofstraße 31",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "sani_msh_022",
+      "type": "medical_supply",
+      "name": "Sanitätshaus Frank Zimmer",
+      "latitude": 51.3638181,
+      "longitude": 11.2906815,
+      "street": "Wasserstraße 13",
+      "postalCode": "06556",
+      "city": "Artern",
+      "phone": "+49 3466 31250",
+      "phoneFormatted": "03466 / 31 25 0",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "sani_el_007",
+      "type": "medical_supply",
+      "name": "Sanitätshaus Oestereich in Eisleben",
+      "latitude": 51.5286166,
+      "longitude": 11.5439722,
+      "street": "Küstergasse 4",
+      "postalCode": "06295",
+      "city": "Lutherstadt Eisleben",
+      "phone": "+49 3475 747874",
+      "phoneFormatted": "03475 / 74 78 74",
+      "website": "https://sh-oesterreich.de",
+      "openingHours": "Mo-Fr 09:00-18:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "sani_msh_023",
+      "type": "medical_supply",
+      "name": "Sieber",
+      "latitude": 51.3703753,
+      "longitude": 10.8709529,
+      "street": "Hauptstraße 13",
+      "postalCode": "99706",
+      "city": "Sondershausen",
+      "openingHours": "Mo-Fr 09:00-18:00; Sa 09:00-12:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "sani_sh_006",
+      "type": "medical_supply",
+      "name": "Wemser",
+      "latitude": 51.3711736,
+      "longitude": 10.8751171,
+      "city": "Mansfeld-Südharz",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    }
+  ]
+}

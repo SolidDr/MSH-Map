@@ -101,6 +101,14 @@ class MshColors {
   static const Color emergencyGreen = Color(0xFF388E3C);        // Notdienst Apotheke
 
   // ═══════════════════════════════════════════════════════════════
+  // CIVIC - Behörden, Jugendzentren, Soziale Einrichtungen
+  // ═══════════════════════════════════════════════════════════════
+
+  static const Color categoryGovernment = Color(0xFF607D8B);    // Blaugrau - Behörden
+  static const Color categoryYouthCentre = Color(0xFF8E24AA);   // Lila - Jugendzentren
+  static const Color categorySocialFacility = Color(0xFF00897B);// Teal - Soziale Einrichtungen
+
+  // ═══════════════════════════════════════════════════════════════
   // BEWERTUNGS-STERNE
   // ═══════════════════════════════════════════════════════════════
 

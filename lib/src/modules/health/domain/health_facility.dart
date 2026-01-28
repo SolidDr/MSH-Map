@@ -4,6 +4,26 @@ import '../../../shared/domain/map_item.dart';
 import 'emergency_service.dart';
 import 'health_category.dart';
 
+/// Konvertiert JSON type zu HealthCategory (snake_case -> camelCase)
+HealthCategory _parseHealthCategory(String? type) {
+  if (type == null) return HealthCategory.doctor;
+
+  // snake_case zu camelCase mapping
+  const typeMap = {
+    'doctor': HealthCategory.doctor,
+    'pharmacy': HealthCategory.pharmacy,
+    'hospital': HealthCategory.hospital,
+    'physiotherapy': HealthCategory.physiotherapy,
+    'fitness': HealthCategory.fitness,
+    'care_service': HealthCategory.careService,
+    'careService': HealthCategory.careService,
+    'medical_supply': HealthCategory.medicalSupply,
+    'medicalSupply': HealthCategory.medicalSupply,
+  };
+
+  return typeMap[type] ?? HealthCategory.doctor;
+}
+
 /// Gesundheitseinrichtung (Arzt, Apotheke, Krankenhaus, etc.)
 class HealthFacility implements MapItem {
   const HealthFacility({
@@ -46,10 +66,7 @@ class HealthFacility implements MapItem {
         latitude: (json['latitude'] as num).toDouble(),
         longitude: (json['longitude'] as num).toDouble(),
       ),
-      healthCategory: HealthCategory.values.firstWhere(
-        (c) => c.name == json['type'],
-        orElse: () => HealthCategory.doctor,
-      ),
+      healthCategory: _parseHealthCategory(json['type'] as String?),
       specialization: DoctorSpecialization.fromString(
         json['specialization'] as String?,
       ),
