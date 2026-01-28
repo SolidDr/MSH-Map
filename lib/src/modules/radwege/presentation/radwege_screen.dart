@@ -103,8 +103,11 @@ class _RadwegeTabState extends State<_RadwegeTab>
   @override
   void initState() {
     super.initState();
-    _selectedRouteIds.add('kupferspuren');
-    _focusedRoute = RadwegeRepository.byId('kupferspuren');
+    // Keine Radwege standardmäßig ausgewählt (leeres Set = alle anzeigen, wie bei Kategorien)
+    // Wenn User einen auswählt, werden nur ausgewählte angezeigt
+    _focusedRoute = RadwegeRepository.allRoutes.isNotEmpty
+        ? RadwegeRepository.allRoutes.first
+        : null;
     _animationController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 20),
@@ -119,6 +122,10 @@ class _RadwegeTabState extends State<_RadwegeTab>
   }
 
   List<RadwegRoute> get _selectedRoutes {
+    // Wie bei Kategorien: leeres Set = alle anzeigen
+    if (_selectedRouteIds.isEmpty) {
+      return RadwegeRepository.allRoutes;
+    }
     return RadwegeRepository.allRoutes
         .where((r) => _selectedRouteIds.contains(r.id))
         .toList();
@@ -462,13 +469,8 @@ class _WanderwegeTabState extends State<_WanderwegeTab>
   @override
   void initState() {
     super.initState();
-    // Standard: Josephskreuz-Rundweg
-    if (WanderwegeRepository.allRoutes.isNotEmpty) {
-      final defaultRoute = WanderwegeRepository.byId('josephskreuz_rundweg') ??
-          WanderwegeRepository.allRoutes.first;
-      _selectedRouteIds.add(defaultRoute.id);
-      _focusedRoute = defaultRoute;
-    }
+    // Keine Wanderwege standardmäßig ausgewählt (leeres Set = alle anzeigen, wie bei Kategorien)
+    // Wenn User einen auswählt, werden nur ausgewählte angezeigt
     _animationController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 25), // Etwas langsamer für Wanderer
@@ -483,6 +485,10 @@ class _WanderwegeTabState extends State<_WanderwegeTab>
   }
 
   List<WanderwegRoute> get _selectedRoutes {
+    // Wie bei Kategorien: leeres Set = alle anzeigen
+    if (_selectedRouteIds.isEmpty) {
+      return WanderwegeRepository.allRoutes;
+    }
     return WanderwegeRepository.allRoutes
         .where((r) => _selectedRouteIds.contains(r.id))
         .toList();

@@ -422,7 +422,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             GestureDetector(
               onTap: () => _onVersionTap(context),
               child: Text(
-                'Version 2.5.1',
+                'Version 2.5.2',
                 style: Theme.of(context).textTheme.labelSmall?.copyWith(
                       color: MshColors.textMuted,
                     ),
