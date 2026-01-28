@@ -5,8 +5,8 @@
     "version": "3.0",
     "region": "Mansfeld-Suedharz",
     "note": "Automatisch gemerged aus OSM + manuellen Daten",
-    "total_count": 70,
-    "verified_count": 12
+    "total_count": 67,
+    "verified_count": 9
   },
   "data": [
     {
@@ -186,21 +186,6 @@
       "source": "openstreetmap"
     },
     {
-      "id": "apotheke_sg_003",
-      "type": "pharmacy",
-      "name": "Barbarossa-Apotheke",
-      "latitude": 51.4735,
-      "longitude": 11.2978,
-      "street": "Göpenstr. 37",
-      "postalCode": "06526",
-      "city": "Sangerhausen",
-      "phone": "03464573135",
-      "phoneFormatted": "03464 / 57 31 35",
-      "verified": true,
-      "source": "apoguide.de, news.de",
-      "openingHours": "Mo-Su 11:00-23:00"
-    },
-    {
       "id": "apo_msh_013",
       "type": "pharmacy",
       "name": "Barbarossa-Apotheke",
@@ -240,23 +225,6 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "source": "openstreetmap"
-    },
-    {
-      "id": "apotheke_sg_001",
-      "type": "pharmacy",
-      "name": "Berg-Apotheke",
-      "latitude": 51.4712,
-      "longitude": 11.2945,
-      "street": "Am Ring 18",
-      "postalCode": "06526",
-      "city": "Sangerhausen",
-      "phone": "03464578720",
-      "phoneFormatted": "03464 / 57 87 20",
-      "isBarrierFree": true,
-      "hasParking": true,
-      "verified": true,
-      "source": "apoguide.de, news.de",
-      "openingHours": "Mo-Fr 07:00-22:00; Sa 07:00-20:00"
     },
     {
       "id": "apo_sg_047",
@@ -403,22 +371,6 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "source": "openstreetmap"
-    },
-    {
-      "id": "apotheke_sg_002",
-      "type": "pharmacy",
-      "name": "Glück-Auf Apotheke",
-      "latitude": 51.4698,
-      "longitude": 11.3012,
-      "street": "Karl-Liebknecht-Str. 64",
-      "postalCode": "06526",
-      "city": "Sangerhausen",
-      "phone": "03464521890",
-      "phoneFormatted": "03464 / 52 18 90",
-      "isBarrierFree": true,
-      "hasParking": true,
-      "verified": true,
-      "source": "apoguide.de, news.de"
     },
     {
       "id": "apo_sg_037",
@@ -902,8 +854,8 @@
       "id": "apotheke_sg_004",
       "type": "pharmacy",
       "name": "Mammut-Apotheke",
-      "latitude": 51.4721,
-      "longitude": 11.2965,
+      "latitude": 51.4709139,
+      "longitude": 11.2941842,
       "street": "Schützenplatz 10",
       "postalCode": "06526",
       "city": "Sangerhausen",
