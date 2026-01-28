@@ -163,7 +163,15 @@ class HealthFacility implements MapItem {
   }
 
   @override
-  MapItemCategory get category => MapItemCategory.service;
+  MapItemCategory get category => switch (healthCategory) {
+        HealthCategory.doctor => MapItemCategory.doctor,
+        HealthCategory.pharmacy => MapItemCategory.pharmacy,
+        HealthCategory.hospital => MapItemCategory.hospital,
+        HealthCategory.physiotherapy => MapItemCategory.physiotherapy,
+        HealthCategory.fitness => MapItemCategory.fitness,
+        HealthCategory.careService => MapItemCategory.careService,
+        HealthCategory.medicalSupply => MapItemCategory.service,
+      };
 
   @override
   Color get markerColor => healthCategory.color;
@@ -180,6 +188,9 @@ class HealthFacility implements MapItem {
         if (specialization != null) 'specialization': specialization!.name,
         if (emergencyService != null)
           'isOnDuty': emergencyService!.isCurrentlyOnDuty,
+        // Für Suche
+        if (city != null) 'city': city,
+        if (address != null) 'address': address,
       };
 
   // ═══════════════════════════════════════════════════════════════

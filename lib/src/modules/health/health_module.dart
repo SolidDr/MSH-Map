@@ -105,12 +105,36 @@ class HealthModule extends MshModule {
               item.healthCategory == HealthCategory.pharmacy,
         ),
         FilterOption(
+          id: 'health_cat_hospital',
+          label: 'Krankenhäuser',
+          icon: Icons.local_hospital,
+          predicate: (item) =>
+              item is HealthFacility &&
+              item.healthCategory == HealthCategory.hospital,
+        ),
+        FilterOption(
+          id: 'health_cat_physiotherapy',
+          label: 'Physiotherapie',
+          icon: Icons.spa,
+          predicate: (item) =>
+              item is HealthFacility &&
+              item.healthCategory == HealthCategory.physiotherapy,
+        ),
+        FilterOption(
           id: 'health_cat_fitness',
           label: 'Fitness',
           icon: Icons.fitness_center,
           predicate: (item) =>
               item is HealthFacility &&
               item.healthCategory == HealthCategory.fitness,
+        ),
+        FilterOption(
+          id: 'health_cat_care',
+          label: 'Pflegedienste',
+          icon: Icons.elderly,
+          predicate: (item) =>
+              item is HealthFacility &&
+              item.healthCategory == HealthCategory.careService,
         ),
       ];
 }

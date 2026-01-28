@@ -1,5 +1,11 @@
-import 'package:flutter/material.dart';
+import 'dart:js_interop';
 
+import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:flutter/material.dart';
+import 'package:web/web.dart' as web;
+
+import '../../core/theme/msh_colors.dart';
+import '../../core/theme/msh_spacing.dart';
 import '../../core/theme/msh_theme.dart';
 import '../../modules/_module_registry.dart';
 import '../domain/map_item.dart';
@@ -11,6 +17,13 @@ class PoiBottomSheet extends StatelessWidget {
 
   /// Maximale Breite für Desktop/Web - verhindert zu breite Sheets
   static const double _maxWidth = 600;
+
+  /// Druckt die aktuelle Seite (nur Web)
+  static void _printPage() {
+    if (kIsWeb) {
+      web.window.print();
+    }
+  }
 
   static void show(BuildContext context, MapItem item) {
     showModalBottomSheet<void>(
@@ -128,6 +141,17 @@ class PoiBottomSheet extends StatelessWidget {
                             ],
                           ),
                         ),
+                        // Drucken-Button (nur Web)
+                        if (kIsWeb)
+                          IconButton(
+                            onPressed: () => _printPage(),
+                            icon: const Icon(Icons.print),
+                            tooltip: 'Drucken',
+                            style: IconButton.styleFrom(
+                              backgroundColor: MshColors.info.withValues(alpha: 0.1),
+                              foregroundColor: MshColors.info,
+                            ),
+                          ),
                       ],
                     ),
                     const Divider(height: 32),

@@ -127,6 +127,18 @@ class _SearchAutocompleteState extends State<SearchAutocomplete> {
         return true;
       }
 
+      // Check city from metadata
+      final city = item.metadata['city'];
+      if (city is String && city.toLowerCase().contains(lowerQuery)) {
+        return true;
+      }
+
+      // Check address from metadata
+      final address = item.metadata['address'];
+      if (address is String && address.toLowerCase().contains(lowerQuery)) {
+        return true;
+      }
+
       // Check if any expanded search term matches
       for (final term in searchTerms) {
         if (item.displayName.toLowerCase().contains(term) ||
@@ -466,6 +478,12 @@ class _SuggestionItem extends StatelessWidget {
       MapItemCategory.government => Icons.account_balance,
       MapItemCategory.youthCentre => Icons.group,
       MapItemCategory.socialFacility => Icons.volunteer_activism,
+      MapItemCategory.doctor => Icons.medical_services,
+      MapItemCategory.pharmacy => Icons.local_pharmacy,
+      MapItemCategory.hospital => Icons.local_hospital,
+      MapItemCategory.physiotherapy => Icons.spa,
+      MapItemCategory.fitness => Icons.fitness_center,
+      MapItemCategory.careService => Icons.elderly,
       MapItemCategory.service => Icons.business,
       MapItemCategory.search => Icons.search,
       MapItemCategory.custom => Icons.place,
@@ -496,6 +514,12 @@ class _SuggestionItem extends StatelessWidget {
       MapItemCategory.government => 'Behörde',
       MapItemCategory.youthCentre => 'Jugendzentrum',
       MapItemCategory.socialFacility => 'Soziales',
+      MapItemCategory.doctor => 'Arzt',
+      MapItemCategory.pharmacy => 'Apotheke',
+      MapItemCategory.hospital => 'Krankenhaus',
+      MapItemCategory.physiotherapy => 'Physiotherapie',
+      MapItemCategory.fitness => 'Fitness',
+      MapItemCategory.careService => 'Pflegedienst',
       MapItemCategory.service => 'Service',
       MapItemCategory.search => 'Suche',
       MapItemCategory.custom => 'Ort',

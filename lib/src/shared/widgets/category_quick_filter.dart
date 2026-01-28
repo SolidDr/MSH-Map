@@ -99,6 +99,12 @@ class CategoryQuickFilter extends StatelessWidget {
       color: MshColors.categoryGastro
     ),
     (
+      id: 'civic',
+      label: 'Service',
+      icon: Icons.account_balance,
+      color: MshColors.categoryGovernment
+    ),
+    (
       id: 'education',
       label: 'Bildung',
       icon: Icons.school,

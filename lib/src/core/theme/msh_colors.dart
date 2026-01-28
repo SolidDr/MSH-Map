@@ -99,6 +99,7 @@ class MshColors {
   static const Color emergencyRed = Color(0xFFD32F2F);          // 112 Notruf
   static const Color emergencyBlue = Color(0xFF1976D2);         // 116117 Bereitschaft
   static const Color emergencyGreen = Color(0xFF388E3C);        // Notdienst Apotheke
+  static const Color emergencyPurple = Color(0xFF7B1FA2);       // Telefonseelsorge
 
   // ═══════════════════════════════════════════════════════════════
   // CIVIC - Behörden, Jugendzentren, Soziale Einrichtungen

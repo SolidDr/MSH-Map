@@ -89,6 +89,14 @@ class EmergencySection extends StatelessWidget {
                 icon: Icons.local_pharmacy,
                 onTap: onEmergencyPharmacyTap,
               ),
+              _EmergencyButton(
+                number: '0800 111 0 111',
+                label: 'Telefonseelsorge',
+                sublabel: 'Kostenlos, 24/7, anonym',
+                color: MshColors.emergencyPurple,
+                icon: Icons.psychology,
+                onTap: () => _callNumber('08001110111'),
+              ),
             ],
           ),
         ],
@@ -224,9 +232,18 @@ class EmergencyQuickAccess extends StatelessWidget {
         Expanded(
           child: _CompactEmergencyButton(
             icon: Icons.local_pharmacy,
-            label: 'Notdienst',
+            label: 'Apotheke',
             color: MshColors.emergencyGreen,
             onTap: onEmergencyPharmacyTap,
+          ),
+        ),
+        const SizedBox(width: MshSpacing.sm),
+        Expanded(
+          child: _CompactEmergencyButton(
+            icon: Icons.psychology,
+            label: 'Seelsorge',
+            color: MshColors.emergencyPurple,
+            onTap: () => _callNumber('08001110111'),
           ),
         ),
       ],

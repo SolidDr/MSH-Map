@@ -341,6 +341,13 @@ class _HoverTooltip extends StatelessWidget {
         MapItemCategory.government => Icons.account_balance,
         MapItemCategory.youthCentre => Icons.group,
         MapItemCategory.socialFacility => Icons.volunteer_activism,
+        // Gesundheit
+        MapItemCategory.doctor => Icons.medical_services,
+        MapItemCategory.pharmacy => Icons.local_pharmacy,
+        MapItemCategory.hospital => Icons.local_hospital,
+        MapItemCategory.physiotherapy => Icons.spa,
+        MapItemCategory.fitness => Icons.fitness_center,
+        MapItemCategory.careService => Icons.elderly,
         // Other
         MapItemCategory.service => Icons.build,
         MapItemCategory.search => Icons.search,
@@ -396,6 +403,13 @@ class _MarkerIcon extends StatelessWidget {
         MapItemCategory.government => Icons.account_balance,
         MapItemCategory.youthCentre => Icons.group,
         MapItemCategory.socialFacility => Icons.volunteer_activism,
+        // Gesundheit
+        MapItemCategory.doctor => Icons.medical_services,
+        MapItemCategory.pharmacy => Icons.local_pharmacy,
+        MapItemCategory.hospital => Icons.local_hospital,
+        MapItemCategory.physiotherapy => Icons.spa,
+        MapItemCategory.fitness => Icons.fitness_center,
+        MapItemCategory.careService => Icons.elderly,
         // Other
         MapItemCategory.service => Icons.build,
         MapItemCategory.search => Icons.search,

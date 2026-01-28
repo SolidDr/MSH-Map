@@ -22,6 +22,7 @@ import 'shared/widgets/category_quick_filter.dart';
 import 'shared/widgets/health_filter_row.dart';
 import 'shared/widgets/msh_map_view.dart';
 import 'shared/widgets/poi_bottom_sheet.dart';
+import 'shared/widgets/poi_list_view.dart';
 import 'shared/widgets/search_autocomplete.dart';
 import 'shared/widgets/up_next_section.dart';
 
@@ -63,6 +64,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
 
   // Fullmap Modus - blendet alles außer Suche+Filter aus
   bool _isFullMapMode = false;
+
+  // Listenansicht Modus - Alternative zur Karte für Senioren
+  bool _isListViewMode = false;
 
   // Gespeicherte Kartenposition
   double? _savedLatitude;
@@ -404,6 +408,83 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
     return counts;
   }
 
+  /// Header für die Listenansicht mit Toggle-Button
+  Widget _buildListViewHeader(BuildContext context, int itemCount) {
+    return Container(
+      padding: const EdgeInsets.fromLTRB(
+        MshSpacing.lg,
+        MshSpacing.md,
+        MshSpacing.lg,
+        MshSpacing.sm,
+      ),
+      decoration: BoxDecoration(
+        color: MshColors.surface,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.05),
+            blurRadius: 4,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          // Icon und Titel
+          Container(
+            padding: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: MshColors.primary.withValues(alpha: 0.1),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: const Icon(
+              Icons.list,
+              color: MshColors.primary,
+              size: 20,
+            ),
+          ),
+          const SizedBox(width: MshSpacing.sm),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Listenansicht',
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        color: MshColors.textStrong,
+                      ),
+                ),
+                Text(
+                  '$itemCount ${itemCount == 1 ? 'Ort' : 'Orte'} gefunden',
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        color: MshColors.textSecondary,
+                      ),
+                ),
+              ],
+            ),
+          ),
+          // Toggle zur Karte
+          FilledButton.icon(
+            onPressed: () {
+              setState(() {
+                _isListViewMode = false;
+              });
+            },
+            icon: const Icon(Icons.map, size: 18),
+            label: const Text('Karte'),
+            style: FilledButton.styleFrom(
+              backgroundColor: MshColors.primary,
+              padding: const EdgeInsets.symmetric(
+                horizontal: MshSpacing.md,
+                vertical: MshSpacing.sm,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final filterState = ref.watch(filterProvider);
@@ -432,29 +513,52 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
       body: Stack(
         children: [
           // ═══════════════════════════════════════════════════════════
-          // MAP - Volle Größe im Hintergrund
+          // MAP oder LISTE - Volle Größe im Hintergrund
           // ═══════════════════════════════════════════════════════════
           Positioned.fill(
-            child: _viewportLoaded
-                ? MshMapView(
-                    items: filteredItems,
-                    onMarkerTap: (item) => PoiBottomSheet.show(context, item),
-                    mapController: _mapController,
-                    notices: importantNotices,
-                    onNoticeTap: (notice) {
-                      _flyTo(LatLng(notice.latitude!, notice.longitude!), 16);
-                    },
-                    initialCenter: _savedLatitude != null && _savedLongitude != null
-                        ? Coordinates(
-                            latitude: _savedLatitude!,
-                            longitude: _savedLongitude!,
-                          )
-                        : null,
-                    initialZoom: _savedZoom,
-                    onPositionChanged: _saveViewport,
-                    onDoubleTap: _toggleFullMapMode,
+            child: _isListViewMode
+                // Listenansicht für Senioren
+                ? Container(
+                    color: MshColors.surface,
+                    child: SafeArea(
+                      child: Column(
+                        children: [
+                          // Header mit Toggle zurück zur Karte
+                          _buildListViewHeader(context, filteredItems.length),
+                          // Liste
+                          Expanded(
+                            child: PoiListView(
+                              items: filteredItems,
+                              onItemTap: (item) {
+                                PoiBottomSheet.show(context, item);
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   )
-                : const SizedBox.shrink(),
+                // Kartenansicht (Standard)
+                : _viewportLoaded
+                    ? MshMapView(
+                        items: filteredItems,
+                        onMarkerTap: (item) => PoiBottomSheet.show(context, item),
+                        mapController: _mapController,
+                        notices: importantNotices,
+                        onNoticeTap: (notice) {
+                          _flyTo(LatLng(notice.latitude!, notice.longitude!), 16);
+                        },
+                        initialCenter: _savedLatitude != null && _savedLongitude != null
+                            ? Coordinates(
+                                latitude: _savedLatitude!,
+                                longitude: _savedLongitude!,
+                              )
+                            : null,
+                        initialZoom: _savedZoom,
+                        onPositionChanged: _saveViewport,
+                        onDoubleTap: _toggleFullMapMode,
+                      )
+                    : const SizedBox.shrink(),
           ),
 
           // ═══════════════════════════════════════════════════════════
@@ -594,6 +698,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                 onFilterTap: () {
                   ref.read(filterProvider.notifier).clearAll();
                 },
+                onListViewTap: () {
+                  setState(() {
+                    _isListViewMode = true;
+                  });
+                },
               );
             },
           ),
@@ -661,6 +770,7 @@ class _DraggableBottomContent extends StatelessWidget {
     required this.isMinimized,
     required this.isExpanded,
     this.onFilterTap,
+    this.onListViewTap,
   });
 
   final ScrollController scrollController;
@@ -668,6 +778,7 @@ class _DraggableBottomContent extends StatelessWidget {
   final int activeFilters;
   final bool isLoading;
   final bool isMinimized;
+  final VoidCallback? onListViewTap;
   final bool isExpanded;
   final VoidCallback? onFilterTap;
 
@@ -785,6 +896,44 @@ class _DraggableBottomContent extends StatelessWidget {
                       ),
                 ),
             ],
+          ),
+        ),
+
+        const SizedBox(width: MshSpacing.sm),
+
+        // Liste-Button für Senioren
+        GestureDetector(
+          onTap: onListViewTap,
+          child: Container(
+            padding: const EdgeInsets.symmetric(
+              horizontal: MshSpacing.sm,
+              vertical: MshSpacing.sm,
+            ),
+            decoration: BoxDecoration(
+              color: MshColors.info.withValues(alpha: 0.1),
+              borderRadius: BorderRadius.circular(MshTheme.radiusMedium),
+              border: Border.all(
+                color: MshColors.info.withValues(alpha: 0.3),
+              ),
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Icon(
+                  Icons.list,
+                  size: 16,
+                  color: MshColors.info,
+                ),
+                const SizedBox(width: 4),
+                Text(
+                  'Liste',
+                  style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                        color: MshColors.info,
+                        fontWeight: FontWeight.w600,
+                      ),
+                ),
+              ],
+            ),
           ),
         ),
 

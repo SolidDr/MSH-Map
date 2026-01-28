@@ -59,6 +59,13 @@ enum MapItemCategory {
   government,
   youthCentre,
   socialFacility,
+  // Gesundheit
+  doctor,
+  pharmacy,
+  hospital,
+  physiotherapy,
+  fitness,
+  careService,
   // Other
   service,
   search,

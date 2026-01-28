@@ -167,33 +167,111 @@ class FilterGroups {
   );
 
   // ═══════════════════════════════════════════════════════════════
+  // GESUNDHEIT (5 Kategorien)
+  // ═══════════════════════════════════════════════════════════════
+  static const healthGroup = FilterGroup(
+    id: 'health',
+    title: 'Gesundheit',
+    icon: Icons.local_hospital,
+    categories: [
+      FilterCategory(
+        id: 'doctor',
+        label: 'Ärzte',
+        icon: Icons.medical_services,
+        color: MshColors.categoryDoctor,
+        mapCategories: [MapItemCategory.doctor],
+      ),
+      FilterCategory(
+        id: 'pharmacy',
+        label: 'Apotheken',
+        icon: Icons.local_pharmacy,
+        color: MshColors.categoryPharmacy,
+        mapCategories: [MapItemCategory.pharmacy],
+      ),
+      FilterCategory(
+        id: 'hospital',
+        label: 'Krankenhäuser',
+        icon: Icons.local_hospital,
+        color: MshColors.categoryHospital,
+        mapCategories: [MapItemCategory.hospital],
+      ),
+      FilterCategory(
+        id: 'physiotherapy',
+        label: 'Physiotherapie',
+        icon: Icons.spa,
+        color: MshColors.categoryPhysiotherapy,
+        mapCategories: [MapItemCategory.physiotherapy],
+      ),
+      FilterCategory(
+        id: 'fitness',
+        label: 'Fitness',
+        icon: Icons.fitness_center,
+        color: MshColors.categoryFitnessSenior,
+        mapCategories: [MapItemCategory.fitness],
+      ),
+    ],
+  );
+
+  // ═══════════════════════════════════════════════════════════════
+  // CIVIC (3 Kategorien - Behörden, Jugend, Soziales)
+  // ═══════════════════════════════════════════════════════════════
+  static const civicGroup = FilterGroup(
+    id: 'civic',
+    title: 'Service & Behörden',
+    icon: Icons.account_balance,
+    categories: [
+      FilterCategory(
+        id: 'government',
+        label: 'Behörden',
+        icon: Icons.account_balance,
+        color: MshColors.categoryGovernment,
+        mapCategories: [MapItemCategory.government],
+      ),
+      FilterCategory(
+        id: 'youthCentre',
+        label: 'Jugendzentren',
+        icon: Icons.group,
+        color: MshColors.categoryYouthCentre,
+        mapCategories: [MapItemCategory.youthCentre],
+      ),
+      FilterCategory(
+        id: 'socialFacility',
+        label: 'Soziales',
+        icon: Icons.volunteer_activism,
+        color: MshColors.categorySocialFacility,
+        mapCategories: [MapItemCategory.socialFacility],
+      ),
+    ],
+  );
+
+  // ═══════════════════════════════════════════════════════════════
   // SERVICES (3 Kategorien)
   // ═══════════════════════════════════════════════════════════════
   static const serviceGroup = FilterGroup(
     id: 'service',
-    title: 'Services & Hilfe',
-    icon: Icons.support_agent,
+    title: 'Sonstiges',
+    icon: Icons.more_horiz,
     categories: [
       FilterCategory(
         id: 'indoor',
         label: 'Indoor',
-        icon: Icons.home,
+        icon: Icons.house,
         color: MshColors.info,
         mapCategories: [MapItemCategory.indoor],
       ),
       FilterCategory(
-        id: 'service',
-        label: 'Dienstleistungen',
-        icon: Icons.miscellaneous_services,
-        color: MshColors.textSecondary,
-        mapCategories: [MapItemCategory.service],
+        id: 'careService',
+        label: 'Pflegedienste',
+        icon: Icons.elderly,
+        color: MshColors.categoryCareService,
+        mapCategories: [MapItemCategory.careService],
       ),
       FilterCategory(
         id: 'other',
-        label: 'Sonstiges',
-        icon: Icons.more_horiz,
+        label: 'Weitere',
+        icon: Icons.place,
         color: MshColors.textMuted,
-        mapCategories: [MapItemCategory.custom, MapItemCategory.search],
+        mapCategories: [MapItemCategory.service, MapItemCategory.custom, MapItemCategory.search],
       ),
     ],
   );
@@ -202,6 +280,8 @@ class FilterGroups {
   static const List<FilterGroup> all = [
     gastroGroup,
     familyGroup,
+    healthGroup,
+    civicGroup,
     cultureGroup,
     serviceGroup,
   ];
