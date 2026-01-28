@@ -27,7 +27,7 @@ class MshMapApp extends ConsumerWidget {
     }
 
     return UpdateWarning(
-      enabled: true, // #update_warning - auf false setzen um App freizugeben
+      enabled: false, // #update_warning - auf false setzen um App freizugeben
       child: WelcomeOverlay(
         child: MaterialApp.router(
           title: AppStrings.appName,
