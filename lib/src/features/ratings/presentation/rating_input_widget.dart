@@ -94,8 +94,7 @@ class _RatingInputWidgetState extends State<RatingInputWidget> {
 /// Kompakte Sterne-Anzeige (nicht interaktiv)
 class RatingDisplayWidget extends StatelessWidget {
   const RatingDisplayWidget({
-    super.key,
-    required this.rating,
+    required this.rating, super.key,
     this.totalCount,
     this.size = 18,
     this.showCount = true,
@@ -151,9 +150,7 @@ class RatingDisplayWidget extends StatelessWidget {
 /// Vertikale Verteilung der Sterne (für Detail-Ansicht)
 class RatingDistributionWidget extends StatelessWidget {
   const RatingDistributionWidget({
-    super.key,
-    required this.distribution,
-    required this.totalCount,
+    required this.distribution, required this.totalCount, super.key,
   });
 
   final Map<int, int> distribution;

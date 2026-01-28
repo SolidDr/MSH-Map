@@ -135,7 +135,7 @@ class _NightlifeScreenState extends State<NightlifeScreen> {
               Switch(
                 value: _showOpenOnly,
                 onChanged: (v) => setState(() => _showOpenOnly = v),
-                activeColor: MshColors.categoryNightlife,
+                activeThumbColor: MshColors.categoryNightlife,
               ),
               const SizedBox(width: MshSpacing.xs),
               Text(
@@ -151,7 +151,7 @@ class _NightlifeScreenState extends State<NightlifeScreen> {
               const Spacer(),
               Text(
                 '${_filteredVenues.length} Ergebnisse',
-                style: TextStyle(
+                style: const TextStyle(
                   color: MshColors.textMuted,
                   fontSize: 12,
                 ),
@@ -168,7 +168,7 @@ class _NightlifeScreenState extends State<NightlifeScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
+          const Icon(
             Icons.nightlife,
             size: 64,
             color: MshColors.textMuted,
@@ -178,7 +178,7 @@ class _NightlifeScreenState extends State<NightlifeScreen> {
             _showOpenOnly
                 ? 'Aktuell keine Venues geöffnet'
                 : 'Keine Venues gefunden',
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 16,
               color: MshColors.textSecondary,
             ),
@@ -332,7 +332,7 @@ class _VenueCard extends StatelessWidget {
                     const SizedBox(height: 4),
                     Text(
                       venue.nightlifeCategory.label,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: MshColors.categoryNightlife,
                         fontSize: 12,
                         fontWeight: FontWeight.w500,
@@ -342,7 +342,7 @@ class _VenueCard extends StatelessWidget {
                       const SizedBox(height: 2),
                       Text(
                         venue.city!,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: MshColors.textSecondary,
                           fontSize: 12,
                         ),
@@ -352,7 +352,7 @@ class _VenueCard extends StatelessWidget {
                       const SizedBox(height: 4),
                       Row(
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.schedule,
                             size: 12,
                             color: MshColors.textMuted,
@@ -360,7 +360,7 @@ class _VenueCard extends StatelessWidget {
                           const SizedBox(width: 4),
                           Text(
                             'Heute: $todayHours',
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: MshColors.textMuted,
                               fontSize: 11,
                             ),

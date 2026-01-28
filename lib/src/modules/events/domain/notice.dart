@@ -3,6 +3,23 @@ import 'package:latlong2/latlong.dart';
 
 /// Notice Model - MSH Radar Hinweise (Straßensperrungen, Warnungen, etc.)
 class MshNotice {
+  const MshNotice({
+    required this.id,
+    required this.type,
+    required this.title,
+    required this.severity,
+    this.description,
+    this.affectedArea,
+    this.validFrom,
+    this.validUntil,
+    this.timeStart,
+    this.timeEnd,
+    this.sourceUrl,
+    this.sourceUrls,
+    this.latitude,
+    this.longitude,
+    this.routeCoordinates,
+  });
 
   /// Parse from JSON
   factory MshNotice.fromJson(Map<String, dynamic> json) {
@@ -37,23 +54,6 @@ class MshNotice {
       routeCoordinates: routeCoords,
     );
   }
-  const MshNotice({
-    required this.id,
-    required this.type,
-    required this.title,
-    required this.severity,
-    this.description,
-    this.affectedArea,
-    this.validFrom,
-    this.validUntil,
-    this.timeStart,
-    this.timeEnd,
-    this.sourceUrl,
-    this.sourceUrls,
-    this.latitude,
-    this.longitude,
-    this.routeCoordinates,
-  });
 
   final String id;
   final NoticeType type;

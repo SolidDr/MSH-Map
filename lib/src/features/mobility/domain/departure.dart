@@ -6,6 +6,24 @@ import 'package:flutter/material.dart';
 
 /// Eine Abfahrt an einer Haltestelle
 class Departure {
+
+  factory Departure.fromJson(Map<String, dynamic> json) {
+    return Departure(
+      tripId: json['tripId'] as String? ?? '',
+      direction: json['direction'] as String? ?? 'Unbekannt',
+      line: TransitLine.fromJson(json['line'] as Map<String, dynamic>? ?? {}),
+      plannedWhen: _parseDateTime(json['plannedWhen']),
+      when: json['when'] != null ? _parseDateTime(json['when']) : null,
+      delay: json['delay'] as int?,
+      platform: json['platform']?.toString(),
+      plannedPlatform: json['plannedPlatform']?.toString(),
+      cancelled: json['cancelled'] as bool?,
+      remarks: (json['remarks'] as List<dynamic>?)
+          ?.map((r) => (r as Map<String, dynamic>)['text']?.toString() ?? '')
+          .where((r) => r.isNotEmpty)
+          .toList(),
+    );
+  }
   const Departure({
     required this.tripId,
     required this.direction,
@@ -80,27 +98,9 @@ class Departure {
 
   /// Farbe basierend auf Status
   Color get statusColor {
-    if (cancelled == true) return Colors.red;
+    if (cancelled ?? false) return Colors.red;
     if (isDelayed) return Colors.orange;
     return Colors.green;
-  }
-
-  factory Departure.fromJson(Map<String, dynamic> json) {
-    return Departure(
-      tripId: json['tripId'] as String? ?? '',
-      direction: json['direction'] as String? ?? 'Unbekannt',
-      line: TransitLine.fromJson(json['line'] as Map<String, dynamic>? ?? {}),
-      plannedWhen: _parseDateTime(json['plannedWhen']),
-      when: json['when'] != null ? _parseDateTime(json['when']) : null,
-      delay: json['delay'] as int?,
-      platform: json['platform']?.toString(),
-      plannedPlatform: json['plannedPlatform']?.toString(),
-      cancelled: json['cancelled'] as bool?,
-      remarks: (json['remarks'] as List<dynamic>?)
-          ?.map((r) => (r as Map<String, dynamic>)['text']?.toString() ?? '')
-          .where((r) => r.isNotEmpty)
-          .toList(),
-    );
   }
 
   static DateTime _parseDateTime(dynamic value) {
@@ -126,6 +126,16 @@ class Departure {
 
 /// Verkehrslinie (z.B. "RE 10", "Bus 200")
 class TransitLine {
+
+  factory TransitLine.fromJson(Map<String, dynamic> json) {
+    return TransitLine(
+      id: json['id']?.toString() ?? '',
+      name: json['name'] as String? ?? 'Unbekannt',
+      mode: json['mode'] as String? ?? 'train',
+      product: json['product'] as String? ?? 'regional',
+      operator: json['operator']?['name'] as String?,
+    );
+  }
   const TransitLine({
     required this.id,
     required this.name,
@@ -202,16 +212,6 @@ class TransitLine {
       default:
         return const Color(0xFF757575); // Grau
     }
-  }
-
-  factory TransitLine.fromJson(Map<String, dynamic> json) {
-    return TransitLine(
-      id: json['id']?.toString() ?? '',
-      name: json['name'] as String? ?? 'Unbekannt',
-      mode: json['mode'] as String? ?? 'train',
-      product: json['product'] as String? ?? 'regional',
-      operator: json['operator']?['name'] as String?,
-    );
   }
 
   Map<String, dynamic> toJson() => {

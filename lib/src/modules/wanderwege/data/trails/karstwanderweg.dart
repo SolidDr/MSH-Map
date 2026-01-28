@@ -18,7 +18,6 @@ const karstwanderwegRoute = WanderwegRoute(
   lengthKm: 60,
   difficulty: TrailDifficulty.mittel,
   routeColor: Color(0xFF2E7D32), // Waldgrün
-  isCircular: false,
   elevationGain: 850,
   elevationLoss: 780,
   highestPoint: 420,

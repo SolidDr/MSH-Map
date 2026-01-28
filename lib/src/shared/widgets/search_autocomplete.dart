@@ -11,9 +11,7 @@ import '../domain/map_item.dart';
 /// Suchleiste mit Auto-Vervollständigung
 class SearchAutocomplete extends StatefulWidget {
   const SearchAutocomplete({
-    super.key,
-    required this.items,
-    required this.onItemSelected,
+    required this.items, required this.onItemSelected, super.key,
   });
 
   final List<MapItem> items;

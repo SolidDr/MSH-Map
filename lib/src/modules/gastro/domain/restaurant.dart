@@ -101,7 +101,7 @@ class Restaurant implements MapItem {
   bool? get isOpenNow => null;
 
   @override
-  double get markerOpacity => 1.0;
+  double get markerOpacity => 1;
 
   Map<String, dynamic> toFirestore() => {
     'name': name,

@@ -106,7 +106,7 @@ class HikingStamp implements MapItem {
   bool? get isOpenNow => is24h ? true : null;
 
   @override
-  double get markerOpacity => 1.0; // Stempelstellen sind immer sichtbar
+  double get markerOpacity => 1; // Stempelstellen sind immer sichtbar
 
   Map<String, dynamic> toJson() {
     return {

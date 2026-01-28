@@ -179,7 +179,7 @@ class _InfoRow extends StatelessWidget {
           const SizedBox(width: 12),
           Text(
             '$label: ',
-            style: TextStyle(color: MshColors.textSecondary),
+            style: const TextStyle(color: MshColors.textSecondary),
           ),
           Expanded(
             child: Text(

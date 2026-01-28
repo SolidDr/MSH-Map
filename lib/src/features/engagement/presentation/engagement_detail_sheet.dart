@@ -10,8 +10,7 @@ import 'adoptable_animal_card.dart';
 class EngagementDetailSheet extends StatelessWidget {
 
   const EngagementDetailSheet({
-    super.key,
-    required this.place,
+    required this.place, super.key,
   });
   final EngagementPlace place;
 

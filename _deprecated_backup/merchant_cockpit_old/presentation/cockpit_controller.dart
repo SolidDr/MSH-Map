@@ -62,7 +62,7 @@ final cockpitControllerProvider =
 /// Controller for the merchant cockpit upload flow
 class CockpitController extends StateNotifier<UploadState> {
   CockpitController(
-      this._imagePicker, this._openAiService, this._menuRepository)
+      this._imagePicker, this._openAiService, this._menuRepository,)
       : super(const UploadInitial());
   final ImagePickerService _imagePicker;
   final OpenAiService _openAiService;

@@ -126,7 +126,7 @@ final transitLocationProvider =
     );
   } on Exception catch (e) {
     debugPrint('TransitLocation: Error getting location: $e - using fallback');
-    return LocationResult(
+    return const LocationResult(
       latitude: _mshCenterLat,
       longitude: _mshCenterLng,
       status: LocationStatus.fallbackLocation,

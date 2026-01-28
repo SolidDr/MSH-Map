@@ -6,7 +6,7 @@ import '../../domain/radweg_route.dart';
 
 /// Wipper-Radweg - ~35km Flussradweg
 /// Begleitet die Wipper durch den Salzlandkreis
-final wipperRoute = RadwegRoute(
+const wipperRoute = RadwegRoute(
   id: 'wipper',
   name: 'Wipper-Radweg',
   shortName: 'Wipper',

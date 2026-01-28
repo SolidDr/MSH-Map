@@ -206,7 +206,7 @@ class RatingService {
           recentReviews.add((
             poiId: doc.id,
             review: ReviewEntry.fromMap(reviewData),
-          ));
+          ),);
         }
       }
 

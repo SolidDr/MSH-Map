@@ -17,7 +17,6 @@ const selketalStiegRoute = WanderwegRoute(
   lengthKm: 75,
   difficulty: TrailDifficulty.mittel,
   routeColor: Color(0xFF1B5E20), // Dunkelgrün
-  isCircular: false,
   elevationGain: 1200,
   elevationLoss: 1150,
   highestPoint: 480,
@@ -26,7 +25,7 @@ const selketalStiegRoute = WanderwegRoute(
   status: TrailStatus.verified,
   websiteUrl: 'https://www.harzinfo.de/erlebnisse/wandern/selketal-stieg',
   center: LatLng(51.68, 11.15),
-  overviewZoom: 10.0,
+  overviewZoom: 10,
   // OSM-Daten: Selketal-Stieg (vereinfacht)
   routePoints: [
     // === Start: Stiege Bereich ===

@@ -116,7 +116,7 @@ class EmergencyPharmacyModal extends ConsumerWidget {
                       }
                     : null,
               ),
-            )),
+            ),),
 
         const SizedBox(height: MshSpacing.sm),
 

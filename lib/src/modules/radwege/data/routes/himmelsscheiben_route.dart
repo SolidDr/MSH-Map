@@ -7,7 +7,7 @@ import '../../domain/radweg_route.dart';
 /// Himmelsscheibenradweg - ~71km von Nebra nach Halle
 /// Verbindet Fundort und Aufbewahrungsort der Himmelsscheibe von Nebra
 /// OSM Relation 92435
-final himmelsscheibenRoute = RadwegRoute(
+const himmelsscheibenRoute = RadwegRoute(
   id: 'himmelsscheibe',
   name: 'Himmelsscheibenradweg',
   shortName: 'Himmelsscheibe',
@@ -18,11 +18,10 @@ final himmelsscheibenRoute = RadwegRoute(
   lengthKm: 71,
   difficulty: 'Mittel',
   routeColor: const Color(0xFF1E3A5F), // Nachthimmelblau
-  isLoop: false,
   elevationGain: 420,
   websiteUrl: 'https://www.himmelswege.de/',
   center: const LatLng(51.38, 11.72),
-  overviewZoom: 10.0,
+  overviewZoom: 10,
   // 288 Koordinaten aus OSM Relation 92435 extrahiert
   routePoints: const [
     LatLng(51.4975513, 11.9590124),

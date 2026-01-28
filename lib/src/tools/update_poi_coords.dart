@@ -3,6 +3,8 @@
 ///
 /// Aktualisiert nur die Koordinaten aller existierenden POIs
 /// Run with: flutter run -t lib/src/tools/update_poi_coords.dart
+library;
+
 import 'dart:convert';
 import 'dart:io';
 

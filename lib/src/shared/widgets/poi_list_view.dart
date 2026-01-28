@@ -9,9 +9,7 @@ import '../domain/map_item.dart';
 /// Zeigt Name, Kategorie, Adresse und Telefon direkt an
 class PoiListView extends StatelessWidget {
   const PoiListView({
-    super.key,
-    required this.items,
-    required this.onItemTap,
+    required this.items, required this.onItemTap, super.key,
     this.scrollController,
   });
 
@@ -28,7 +26,7 @@ class PoiListView extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(
+              const Icon(
                 Icons.search_off,
                 size: 48,
                 color: MshColors.textMuted,
@@ -148,7 +146,7 @@ class _PoiListTile extends StatelessWidget {
                       const SizedBox(height: 4),
                       Row(
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.place_outlined,
                             size: 14,
                             color: MshColors.textMuted,
@@ -179,7 +177,7 @@ class _PoiListTile extends StatelessWidget {
 
               // Chevron
               const SizedBox(width: MshSpacing.xs),
-              Icon(
+              const Icon(
                 Icons.chevron_right,
                 color: MshColors.textMuted,
               ),

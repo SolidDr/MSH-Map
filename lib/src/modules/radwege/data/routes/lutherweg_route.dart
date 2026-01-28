@@ -6,7 +6,7 @@ import '../../domain/radweg_route.dart';
 
 /// Lutherweg (Radwege zu Luther) - ~239km Eisleben nach Eisenach
 /// Auf den Spuren Martin Luthers durch Sachsen-Anhalt und Thüringen
-final lutherwegRoute = RadwegRoute(
+const lutherwegRoute = RadwegRoute(
   id: 'lutherweg',
   name: 'Radwege zu Luther (Eisleben-Eisenach)',
   shortName: 'Lutherweg',
@@ -17,7 +17,6 @@ final lutherwegRoute = RadwegRoute(
   lengthKm: 239,
   difficulty: 'Schwer',
   routeColor: const Color(0xFF8B4513), // Luther-Braun (Kutte)
-  isLoop: false,
   elevationGain: 1850,
   websiteUrl: 'https://www.lutherweg.de/',
   center: const LatLng(51.25, 10.90),
@@ -63,7 +62,7 @@ final lutherwegRoute = RadwegRoute(
     LatLng(51.5745, 11.0750),
     LatLng(51.5742, 11.0500),
     LatLng(51.5740, 11.0250),
-    LatLng(51.5738, 11.0000),
+    LatLng(51.5738, 11),
     // Stolberg (Harz) - Fachwerkstadt
     LatLng(51.5740, 10.9500),
 
@@ -97,7 +96,7 @@ final lutherwegRoute = RadwegRoute(
     LatLng(51.0900, 10.3800),
     LatLng(51.0600, 10.3600),
     LatLng(51.0300, 10.3400),
-    LatLng(51.0000, 10.3250),
+    LatLng(51, 10.3250),
 
     // === Abschnitt 7: Eisenach + Wartburg ===
     // Wartburg (UNESCO-Welterbe)

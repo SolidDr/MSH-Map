@@ -139,7 +139,6 @@ class MshEngagementCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(MshTheme.radiusMedium),
             border: Border.all(
               color: urgency.color.withValues(alpha: 0.3),
-              width: 1,
             ),
             boxShadow: [
               BoxShadow(

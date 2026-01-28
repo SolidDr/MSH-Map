@@ -65,7 +65,7 @@ out center;
           name: tags['name'] as String? ?? 'Unnamed',
           lat: elat ?? 0,
           lng: elng ?? 0,
-          type: tags['$type'] as String? ?? value,
+          type: tags[type] as String? ?? value,
           address: _buildAddress(tags),
           osmId: e['id'].toString(),
         );
@@ -78,7 +78,7 @@ out center;
 
   /// Direkte Suche nach Name
   Future<OsmPoi?> searchByName(String name, {String? city}) async {
-    final searchName = name.replaceAll('"', '\\"');
+    final searchName = name.replaceAll('"', r'\"');
     final cityFilter = city != null ? '["addr:city"~"$city",i]' : '';
 
     final query = '''
@@ -164,12 +164,6 @@ out center;
 }
 
 class OsmPoi {
-  final String name;
-  final double lat;
-  final double lng;
-  final String type;
-  final String address;
-  final String osmId;
 
   OsmPoi({
     required this.name,
@@ -179,6 +173,12 @@ class OsmPoi {
     required this.address,
     required this.osmId,
   });
+  final String name;
+  final double lat;
+  final double lng;
+  final String type;
+  final String address;
+  final String osmId;
 }
 
 /// Mapping: unsere Kategorie -> OSM Tags
@@ -293,7 +293,7 @@ Future<void> main() async {
           : '${(distance / 1000).toStringAsFixed(1)}km';
 
       if (distance < 100) {
-        print('  ✓ VERIFIED (${distanceStr} Abweichung)');
+        print('  ✓ VERIFIED ($distanceStr Abweichung)');
         print('    OSM: ${osmPoi.name}');
         verified++;
         results.add({
@@ -427,8 +427,12 @@ double _atan(double x) {
 }
 double _taylor(double x, bool isSin) {
   // Normalize to [-pi, pi]
-  while (x > 3.141592653589793) x -= 2 * 3.141592653589793;
-  while (x < -3.141592653589793) x += 2 * 3.141592653589793;
+  while (x > 3.141592653589793) {
+    x -= 2 * 3.141592653589793;
+  }
+  while (x < -3.141592653589793) {
+    x += 2 * 3.141592653589793;
+  }
 
   var result = isSin ? x : 1.0;
   var term = isSin ? x : 1.0;

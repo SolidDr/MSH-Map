@@ -26,7 +26,7 @@ const josephskreuzRundwegRoute = WanderwegRoute(
   status: TrailStatus.verified,
   websiteUrl: 'https://www.josephskreuz.de/',
   center: LatLng(51.6150, 10.9300),
-  overviewZoom: 13.0,
+  overviewZoom: 13,
   // OSM-Daten: Josephskreuz-Rundweg (aus OSM "Rotes Kreuz" Wanderweg)
   routePoints: [
     // === Start: Stolberg ===

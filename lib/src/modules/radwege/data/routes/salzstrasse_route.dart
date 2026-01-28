@@ -7,7 +7,7 @@ import '../../domain/radweg_route.dart';
 /// Salzstraßen-Radweg - ~90km historische Salzhandelsroute
 /// Von Merseburg über den Geiseltalsee nach Allstedt
 /// OSM Relation 92560
-final salzstrasseRoute = RadwegRoute(
+const salzstrasseRoute = RadwegRoute(
   id: 'salzstrasse',
   name: 'Salzstraßen-Radweg',
   shortName: 'Salzstraße',
@@ -18,7 +18,6 @@ final salzstrasseRoute = RadwegRoute(
   lengthKm: 90,
   difficulty: 'Mittel',
   routeColor: const Color(0xFF78909C), // Salzgrau
-  isLoop: false,
   elevationGain: 480,
   websiteUrl: 'https://www.fluss-radwege.de/salzstrassen-radweg/',
   center: const LatLng(51.35, 11.65),

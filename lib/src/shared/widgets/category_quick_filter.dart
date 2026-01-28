@@ -7,9 +7,7 @@ const _kupferColor = Color(0xFFB87333);
 class CategoryQuickFilter extends StatelessWidget {
 
   const CategoryQuickFilter({
-    super.key,
-    required this.selectedCategories,
-    required this.onCategoryToggle,
+    required this.selectedCategories, required this.onCategoryToggle, super.key,
     this.categoryCounts = const {},
     this.onRadwegeToggle,
     this.radwegeActive = false,
@@ -143,10 +141,7 @@ class _CategoryChip extends StatelessWidget {
   const _CategoryChip({
     required this.label,
     required this.icon,
-    this.color,
-    required this.count,
-    required this.isSelected,
-    required this.onTap,
+    required this.count, required this.isSelected, required this.onTap, this.color,
   });
   final String label;
   final IconData icon;

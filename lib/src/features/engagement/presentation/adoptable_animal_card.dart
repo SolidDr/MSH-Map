@@ -8,8 +8,7 @@ import '../data/engagement_repository.dart';
 class AdoptableAnimalCard extends StatelessWidget {
 
   const AdoptableAnimalCard({
-    super.key,
-    required this.animalWithPlace,
+    required this.animalWithPlace, super.key,
     this.onTap,
     this.compact = false,
   });

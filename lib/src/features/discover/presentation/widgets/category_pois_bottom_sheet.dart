@@ -243,7 +243,7 @@ class _PoiListTile extends StatelessWidget {
                       const SizedBox(height: 2),
                       Row(
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.place_outlined,
                             size: 12,
                             color: MshColors.textMuted,

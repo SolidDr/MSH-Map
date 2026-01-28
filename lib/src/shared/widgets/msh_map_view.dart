@@ -93,7 +93,6 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
               minZoom: MapConfig.minZoom,
               maxZoom: MapConfig.maxZoom,
               interactionOptions: const InteractionOptions(
-                flags: InteractiveFlag.all,
                 pinchZoomThreshold: 0.1,      // Niedrigerer Threshold für sensitiveres Pinch
                 pinchMoveThreshold: 20,       // Bewegungsschwelle für Pinch-to-pan
                 rotationThreshold: 50,
@@ -209,7 +208,7 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
           _mousePosition = null;
         }),
         onHover: (event) {
-          final RenderBox? stackBox =
+          final stackBox =
               _stackKey.currentContext?.findRenderObject() as RenderBox?;
           if (stackBox != null) {
             final localPos = stackBox.globalToLocal(event.position);
@@ -565,7 +564,7 @@ class _PopularMarkerIconState extends State<_PopularMarkerIcon>
       vsync: this,
     )..repeat(reverse: true);
 
-    _glowAnimation = Tween<double>(begin: 0.4, end: 1.0).animate(
+    _glowAnimation = Tween<double>(begin: 0.4, end: 1).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
     );
   }

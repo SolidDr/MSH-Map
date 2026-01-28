@@ -8,8 +8,7 @@ import '../domain/engagement_model.dart';
 class EngagementMarker extends StatefulWidget {
 
   const EngagementMarker({
-    super.key,
-    required this.type,
+    required this.type, super.key,
     this.urgency = UrgencyLevel.normal,
     this.isSelected = false,
     this.adoptableCount,

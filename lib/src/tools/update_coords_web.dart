@@ -2,6 +2,8 @@
 /// Web-kompatibles Update-Script für POI-Koordinaten
 ///
 /// Run with: flutter run -t lib/src/tools/update_coords_web.dart -d chrome
+library;
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';

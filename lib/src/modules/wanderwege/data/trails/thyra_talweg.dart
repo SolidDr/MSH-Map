@@ -17,7 +17,6 @@ const thyraTalwegRoute = WanderwegRoute(
   lengthKm: 10,
   difficulty: TrailDifficulty.leicht,
   routeColor: Color(0xFF81C784), // Mintgrün
-  isCircular: false,
   elevationGain: 80,
   elevationLoss: 50,
   highestPoint: 320,

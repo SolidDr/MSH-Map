@@ -383,7 +383,7 @@ Future<void> main() async {
 
     if (corrections.containsKey(id)) {
       final fix = corrections[id]!;
-      var changes = <String>[];
+      final changes = <String>[];
 
       // Koordinaten
       if (fix.containsKey('latitude')) {

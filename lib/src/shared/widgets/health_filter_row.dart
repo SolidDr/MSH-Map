@@ -152,10 +152,7 @@ class _HealthChip extends StatelessWidget {
     required this.id,
     required this.label,
     required this.icon,
-    this.color,
-    required this.count,
-    required this.isSelected,
-    required this.onTap,
+    required this.count, required this.isSelected, required this.onTap, this.color,
   });
 
   final String id;

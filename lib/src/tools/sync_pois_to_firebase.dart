@@ -3,6 +3,8 @@
 ///
 /// Aktualisiert alle POI-Felder (Name, Beschreibung, Koordinaten, Adresse)
 /// Run with: flutter run -t lib/src/tools/sync_pois_to_firebase.dart -d chrome
+library;
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -548,7 +550,7 @@ class _SyncScreenState extends State<SyncScreen> {
                 itemCount: _log.length,
                 itemBuilder: (context, index) {
                   final line = _log[index];
-                  Color color = Colors.grey.shade300;
+                  var color = Colors.grey.shade300;
                   if (line.startsWith('✓')) color = Colors.greenAccent;
                   if (line.startsWith('+')) color = Colors.cyanAccent;
                   if (line.startsWith('✗')) color = Colors.redAccent;

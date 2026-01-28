@@ -7,7 +7,7 @@ import '../../domain/radweg_route.dart';
 /// Saale-Harz-Radweg - ~70km Fernradweg
 /// Verbindet den Saale-Radwanderweg mit dem Harzrundweg
 /// Route aus OSM Relation 132135 extrahiert
-final saaleHarzRoute = RadwegRoute(
+const saaleHarzRoute = RadwegRoute(
   id: 'saale_harz',
   name: 'Saale-Harz-Radweg',
   shortName: 'Saale-Harz',

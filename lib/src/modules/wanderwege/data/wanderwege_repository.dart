@@ -57,7 +57,7 @@ class WanderwegeRepository {
 
   /// Gesamtkilometer aller Wanderwege
   static double get totalKilometers {
-    return allRoutes.fold(0.0, (sum, r) => sum + r.lengthKm);
+    return allRoutes.fold(0, (sum, r) => sum + r.lengthKm);
   }
 
   /// Wanderwege sortiert nach Länge

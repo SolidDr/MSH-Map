@@ -37,7 +37,7 @@ abstract class MapItem {
   /// Marker-Opacity basierend auf Öffnungsstatus
   /// 1.0 = voll sichtbar, 0.35 = geschlossen
   /// Überschreiben für dynamische Opacity basierend auf Schließzeit
-  double get markerOpacity => 1.0;
+  double get markerOpacity => 1;
 }
 
 enum MapItemCategory {

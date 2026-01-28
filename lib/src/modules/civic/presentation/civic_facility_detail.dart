@@ -354,7 +354,7 @@ class _OpeningHoursSection extends StatelessWidget {
               children: [
                 const Icon(Icons.today, size: 16, color: MshColors.primary),
                 const SizedBox(width: MshSpacing.xs),
-                Text(
+                const Text(
                   'Heute: ',
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
@@ -364,7 +364,7 @@ class _OpeningHoursSection extends StatelessWidget {
                 Expanded(
                   child: Text(
                     todayHours,
-                    style: TextStyle(color: MshColors.textPrimary),
+                    style: const TextStyle(color: MshColors.textPrimary),
                   ),
                 ),
               ],

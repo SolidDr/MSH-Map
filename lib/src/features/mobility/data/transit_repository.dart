@@ -40,7 +40,6 @@ class TransitRepository {
       final stops = await _api.getNearbyStops(
         latitude: lat,
         longitude: lng,
-        results: 5,
         distance: 2000, // Max 2km
       );
 

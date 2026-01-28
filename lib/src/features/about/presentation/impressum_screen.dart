@@ -25,7 +25,8 @@ class ImpressumScreen extends StatelessWidget {
           _buildSection(
             context,
             title: 'Angaben gemäß § 5 TMG',
-            content: '''KOLAN Systems
+            content: '''
+KOLAN Systems
 Inh. Konstantin Lange
 Hallesche Str. 35
 06536 Südharz OT Roßla''',
@@ -75,7 +76,8 @@ Hallesche Str. 35
           _buildSection(
             context,
             title: 'Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV',
-            content: '''Konstantin Lange
+            content: '''
+Konstantin Lange
 Hallesche Str. 35
 06536 Südharz OT Roßla''',
           ),

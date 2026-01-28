@@ -3,6 +3,8 @@
 ///
 /// Entfernt alle nicht-verifizierten Locations aus Firebase Firestore.
 /// Run with: flutter run -t lib/src/tools/firebase_cleanup_tool.dart -d chrome
+library;
+
 import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -243,7 +245,7 @@ class _CleanupScreenState extends State<CleanupScreen> {
                 itemCount: _log.length,
                 itemBuilder: (context, index) {
                   final line = _log[index];
-                  Color color = Colors.grey.shade300;
+                  var color = Colors.grey.shade300;
                   if (line.startsWith('[OK]')) color = Colors.greenAccent;
                   if (line.startsWith('[DEL]') || line.contains('[DEL]')) {
                     color = Colors.redAccent;

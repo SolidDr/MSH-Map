@@ -87,7 +87,7 @@ class OpeningHoursParser {
     if (minutesUntilClose < 60) return 0.65;
     if (minutesUntilClose < 120) return 0.8;
 
-    return 1.0;
+    return 1;
   }
 
   /// Parst OSM-Öffnungszeiten-String zu Map<Tag, List<Zeitfenster>>

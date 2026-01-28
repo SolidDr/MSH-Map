@@ -62,7 +62,7 @@ class TrafficCounterWidget extends ConsumerWidget {
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.shield_outlined,
                       size: 12,
                       color: MshColors.success,
@@ -85,7 +85,7 @@ class TrafficCounterWidget extends ConsumerWidget {
           // Stats Grid
           statsAsync.when(
             data: (stats) => _buildStatsGrid(context, stats),
-            loading: () => _buildLoadingState(),
+            loading: _buildLoadingState,
             error: (_, __) => _buildErrorState(context),
           ),
 
@@ -157,7 +157,7 @@ class TrafficCounterWidget extends ConsumerWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
+          const Icon(
             Icons.cloud_off,
             size: 16,
             color: MshColors.textMuted,

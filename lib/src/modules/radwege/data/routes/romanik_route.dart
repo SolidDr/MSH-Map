@@ -6,7 +6,7 @@ import '../../domain/radweg_route.dart';
 
 /// Erlebnistour Straße der Romanik - ~32km Rundweg
 /// Führt durch die südwestliche Region Sangerhausens
-final romanikRoute = RadwegRoute(
+const romanikRoute = RadwegRoute(
   id: 'romanik',
   name: 'Erlebnistour Straße der Romanik',
   shortName: 'Romanik',

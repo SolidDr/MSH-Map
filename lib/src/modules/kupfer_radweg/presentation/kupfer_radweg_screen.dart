@@ -381,10 +381,10 @@ class _InfoPanel extends StatelessWidget {
               children: [
                 const Icon(Icons.person_outline, size: 16, color: Colors.grey),
                 const SizedBox(width: MshSpacing.xs),
-                Expanded(
+                const Expanded(
                   child: Text(
                     '${KupferRouteData.contactName} (${KupferRouteData.contactRole})',
-                    style: const TextStyle(fontSize: 12),
+                    style: TextStyle(fontSize: 12),
                   ),
                 ),
                 TextButton.icon(
@@ -416,7 +416,7 @@ class _InfoPanel extends StatelessWidget {
                 label: const Text('Mehr Infos'),
                 style: OutlinedButton.styleFrom(
                   foregroundColor: KupferRouteData.kupferColor,
-                  side: BorderSide(color: KupferRouteData.kupferColor),
+                  side: const BorderSide(color: KupferRouteData.kupferColor),
                 ),
               ),
             ),
@@ -448,7 +448,7 @@ class _StatChip extends StatelessWidget {
           const SizedBox(width: 4),
           Text(
             label,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 12,
               color: KupferRouteData.kupferColor,
               fontWeight: FontWeight.w500,

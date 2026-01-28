@@ -26,7 +26,7 @@ const stolbergBurgwegRoute = WanderwegRoute(
   status: TrailStatus.verified,
   websiteUrl: 'https://www.stolberg-harz.de/',
   center: LatLng(51.5750, 10.9500),
-  overviewZoom: 14.0,
+  overviewZoom: 14,
   // OSM-Daten: Stolberger Burgweg (verfeinerte Koordinaten)
   routePoints: [
     // === Start: Marktplatz Stolberg ===

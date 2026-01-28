@@ -128,7 +128,7 @@ class _MshFilterDrawerState extends State<MshFilterDrawer> {
         // Filter Groups
         Expanded(
           child: ListView.builder(
-            padding: EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(
               vertical: MshSpacing.md, // 13px
             ),
             itemCount: widget.groups.length,
@@ -233,7 +233,7 @@ class _MshFilterDrawerState extends State<MshFilterDrawer> {
                 AnimatedRotation(
                   turns: isExpanded ? 0.5 : 0,
                   duration: const Duration(milliseconds: 200),
-                  child: Icon(
+                  child: const Icon(
                     Icons.keyboard_arrow_down,
                     color: MshColors.textMuted,
                   ),
@@ -293,11 +293,11 @@ class _MshFilterDrawerState extends State<MshFilterDrawer> {
   }
 
   Widget _buildFilterItem(
-      BuildContext context, String groupId, MshFilterItem filter) {
+      BuildContext context, String groupId, MshFilterItem filter,) {
     return InkWell(
       onTap: () => widget.onFilterChanged(groupId, filter.id, !filter.isSelected),
       child: Padding(
-        padding: EdgeInsets.only(
+        padding: const EdgeInsets.only(
           left: MshSpacing.xl, // 34px (indent)
           right: MshSpacing.lg, // 21px
           top: MshSpacing.sm, // 8px
@@ -368,7 +368,7 @@ class _MshFilterDrawerState extends State<MshFilterDrawer> {
   }
 
   Widget _buildShowMoreButton(
-      BuildContext context, String groupId, int totalCount) {
+      BuildContext context, String groupId, int totalCount,) {
     final remaining = totalCount - (widget.groups
             .firstWhere((g) => g.id == groupId)
             .maxVisible);
@@ -380,7 +380,7 @@ class _MshFilterDrawerState extends State<MshFilterDrawer> {
         });
       },
       style: TextButton.styleFrom(
-        padding: EdgeInsets.symmetric(
+        padding: const EdgeInsets.symmetric(
           horizontal: MshSpacing.xl, // 34px
           vertical: MshSpacing.sm, // 8px
         ),
@@ -409,7 +409,7 @@ class _MshFilterDrawerState extends State<MshFilterDrawer> {
         });
       },
       style: TextButton.styleFrom(
-        padding: EdgeInsets.symmetric(
+        padding: const EdgeInsets.symmetric(
           horizontal: MshSpacing.xl, // 34px
           vertical: MshSpacing.sm, // 8px
         ),

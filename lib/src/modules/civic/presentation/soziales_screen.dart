@@ -110,7 +110,7 @@ class _SozialesScreenState extends ConsumerState<SozialesScreen> {
 
           // Einrichtungen Liste
           facilitiesAsync.when(
-            data: (facilities) => _buildFacilitiesList(facilities),
+            data: _buildFacilitiesList,
             loading: () => const SliverToBoxAdapter(
               child: Center(
                 child: Padding(
@@ -273,7 +273,7 @@ class _SozialesScreenState extends ConsumerState<SozialesScreen> {
             padding: const EdgeInsets.all(MshSpacing.xxl),
             child: Column(
               children: [
-                Icon(
+                const Icon(
                   Icons.search_off,
                   size: 64,
                   color: MshColors.textMuted,
@@ -410,14 +410,14 @@ class _InfoBanner extends StatelessWidget {
           color: MshColors.categorySocialFacility.withValues(alpha: 0.3),
         ),
       ),
-      child: Row(
+      child: const Row(
         children: [
           Icon(
             Icons.volunteer_activism,
             color: MshColors.categorySocialFacility,
             size: 32,
           ),
-          const SizedBox(width: MshSpacing.md),
+          SizedBox(width: MshSpacing.md),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -430,7 +430,7 @@ class _InfoBanner extends StatelessWidget {
                     fontSize: 16,
                   ),
                 ),
-                const SizedBox(height: 4),
+                SizedBox(height: 4),
                 Text(
                   'Behörden, Jugendzentren, Beratung & mehr',
                   style: TextStyle(
@@ -502,9 +502,7 @@ class _CategoryChip extends StatelessWidget {
 class _AudienceChip extends StatelessWidget {
   const _AudienceChip({
     required this.label,
-    this.icon,
-    required this.isSelected,
-    required this.onTap,
+    required this.isSelected, required this.onTap, this.icon,
   });
 
   final String label;
@@ -622,14 +620,14 @@ class _FacilityCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   if (facility.isYouthRelevant)
-                    _SmallBadge(
+                    const _SmallBadge(
                       icon: Icons.people,
                       label: 'Jugend',
                       color: MshColors.categoryYouthCentre,
                     ),
                   if (facility.isSeniorRelevant)
-                    Padding(
-                      padding: const EdgeInsets.only(top: 4),
+                    const Padding(
+                      padding: EdgeInsets.only(top: 4),
                       child: _SmallBadge(
                         icon: Icons.elderly,
                         label: 'Senioren',

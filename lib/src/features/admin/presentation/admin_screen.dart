@@ -256,7 +256,6 @@ class _EnhancedAdminDashboard extends StatelessWidget {
   Widget _buildAppBar(BuildContext context, bool innerBoxIsScrolled) {
     return SliverAppBar(
       expandedHeight: 200,
-      floating: false,
       pinned: true,
       backgroundColor: MshColors.primary,
       foregroundColor: Colors.white,
@@ -453,7 +452,7 @@ class _OverviewTab extends StatelessWidget {
           const SizedBox(height: MshSpacing.lg),
 
           // Recent Activity
-          _SectionTitle(title: 'Letzte Aktivitäten', icon: Icons.history),
+          const _SectionTitle(title: 'Letzte Aktivitäten', icon: Icons.history),
           const SizedBox(height: MshSpacing.sm),
           _RecentActivityCard(stats: stats),
         ],
@@ -474,12 +473,12 @@ class _InsightsSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _SectionTitle(title: 'Insights', icon: Icons.lightbulb),
+        const _SectionTitle(title: 'Insights', icon: Icons.lightbulb),
         const SizedBox(height: MshSpacing.sm),
         ...insights.map((insight) => Padding(
               padding: const EdgeInsets.only(bottom: MshSpacing.sm),
               child: _InsightCard(insight: insight),
-            )),
+            ),),
       ],
     );
   }
@@ -499,7 +498,7 @@ class _InsightsSection extends StatelessWidget {
         title: 'Überdurchschnittlicher Traffic',
         description:
             'Heute ${(dailyVsWeeklyAvg * 100 - 100).toStringAsFixed(0)}% mehr Besucher als im Wochendurchschnitt.',
-      ));
+      ),);
     } else if (dailyVsWeeklyAvg < 0.8 && dailyVsWeeklyAvg > 0) {
       insights.add(_Insight(
         icon: Icons.trending_down,
@@ -507,7 +506,7 @@ class _InsightsSection extends StatelessWidget {
         title: 'Weniger Traffic als üblich',
         description:
             'Heute ${(100 - dailyVsWeeklyAvg * 100).toStringAsFixed(0)}% weniger Besucher als im Wochendurchschnitt.',
-      ));
+      ),);
     }
 
     // Peak Zeit Insight
@@ -517,7 +516,7 @@ class _InsightsSection extends StatelessWidget {
         color: MshColors.primary,
         title: 'Aktivste Zeit: ${stats.usageStats.peakHour}',
         description: 'Die meisten Nutzer sind zu dieser Zeit aktiv.',
-      ));
+      ),);
     }
 
     // Top Kategorie Insight
@@ -528,7 +527,7 @@ class _InsightsSection extends StatelessWidget {
         color: const Color(0xFF7C3AED),
         title: 'Beliebteste Kategorie: ${topCategories.first.key}',
         description: '${topCategories.first.value} Klicks auf diese Kategorie.',
-      ));
+      ),);
     }
 
     // Rating Insight
@@ -539,7 +538,7 @@ class _InsightsSection extends StatelessWidget {
         title: 'Durchschnittsbewertung: ${stats.averageRating.toStringAsFixed(1)}',
         description:
             '${stats.totalRatings} Bewertungen von zufriedenen Nutzern.',
-      ));
+      ),);
     }
 
     return insights;
@@ -738,7 +737,7 @@ class _RecentActivityCard extends StatelessWidget {
           child: Center(
             child: Column(
               children: [
-                Icon(Icons.inbox, size: 48, color: MshColors.textMuted),
+                const Icon(Icons.inbox, size: 48, color: MshColors.textMuted),
                 const SizedBox(height: MshSpacing.sm),
                 Text(
                   'Noch keine Aktivitäten',
@@ -857,17 +856,17 @@ class _TrafficTab extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _SectionTitle(title: 'Traffic Übersicht', icon: Icons.trending_up),
+          const _SectionTitle(title: 'Traffic Übersicht', icon: Icons.trending_up),
           const SizedBox(height: MshSpacing.sm),
           _TrafficOverviewCard(stats: stats.trafficStats),
           const SizedBox(height: MshSpacing.lg),
 
-          _SectionTitle(title: 'Aktivität nach Stunde', icon: Icons.schedule),
+          const _SectionTitle(title: 'Aktivität nach Stunde', icon: Icons.schedule),
           const SizedBox(height: MshSpacing.sm),
           _HourlyActivityChart(hourlyData: stats.usageStats.hourlyActivity),
           const SizedBox(height: MshSpacing.lg),
 
-          _SectionTitle(title: 'Aktivität nach Wochentag', icon: Icons.calendar_today),
+          const _SectionTitle(title: 'Aktivität nach Wochentag', icon: Icons.calendar_today),
           const SizedBox(height: MshSpacing.sm),
           _WeekdayActivityChart(weekdayData: stats.usageStats.weekdayDistribution),
         ],
@@ -1039,7 +1038,7 @@ class _HourlyActivityChart extends StatelessWidget {
               ),
             ),
             const SizedBox(height: MshSpacing.sm),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text('0:00', style: TextStyle(fontSize: 10, color: MshColors.textMuted)),
@@ -1158,7 +1157,7 @@ class _RatingsTab extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _SectionTitle(title: 'Bewertungs-Übersicht', icon: Icons.star_rounded),
+          const _SectionTitle(title: 'Bewertungs-Übersicht', icon: Icons.star_rounded),
           const SizedBox(height: MshSpacing.sm),
           _RatingSummaryCard(
             totalRatings: stats.totalRatings,
@@ -1166,12 +1165,12 @@ class _RatingsTab extends StatelessWidget {
           ),
           const SizedBox(height: MshSpacing.lg),
 
-          _SectionTitle(title: 'Top bewertete Orte', icon: Icons.emoji_events),
+          const _SectionTitle(title: 'Top bewertete Orte', icon: Icons.emoji_events),
           const SizedBox(height: MshSpacing.sm),
           _TopRatedPoisCard(pois: stats.topRatedPois),
           const SizedBox(height: MshSpacing.lg),
 
-          _SectionTitle(title: 'Neueste Bewertungen', icon: Icons.schedule),
+          const _SectionTitle(title: 'Neueste Bewertungen', icon: Icons.schedule),
           const SizedBox(height: MshSpacing.sm),
           _RecentReviewsCard(reviews: stats.recentReviews),
         ],
@@ -1462,22 +1461,22 @@ class _BehaviorTab extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _SectionTitle(title: 'Modul-Nutzung', icon: Icons.apps),
+          const _SectionTitle(title: 'Modul-Nutzung', icon: Icons.apps),
           const SizedBox(height: MshSpacing.sm),
           _ModuleUsageCard(moduleVisits: usageStats.moduleVisits),
           const SizedBox(height: MshSpacing.lg),
 
-          _SectionTitle(title: 'Beliebte Kategorien', icon: Icons.category),
+          const _SectionTitle(title: 'Beliebte Kategorien', icon: Icons.category),
           const SizedBox(height: MshSpacing.sm),
           _CategoryUsageCard(poiClicks: usageStats.poiClicks),
           const SizedBox(height: MshSpacing.lg),
 
-          _SectionTitle(title: 'Filter-Nutzung', icon: Icons.filter_list),
+          const _SectionTitle(title: 'Filter-Nutzung', icon: Icons.filter_list),
           const SizedBox(height: MshSpacing.sm),
           _FilterUsageCard(filterUsage: usageStats.filterUsage),
           const SizedBox(height: MshSpacing.lg),
 
-          _SectionTitle(title: 'Aktionen', icon: Icons.touch_app),
+          const _SectionTitle(title: 'Aktionen', icon: Icons.touch_app),
           const SizedBox(height: MshSpacing.sm),
           _ActionsCard(actions: usageStats.actions),
         ],

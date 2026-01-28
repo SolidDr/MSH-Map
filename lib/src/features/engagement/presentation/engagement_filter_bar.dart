@@ -6,9 +6,8 @@ import '../domain/engagement_model.dart';
 class EngagementFilterBar extends StatelessWidget {
 
   const EngagementFilterBar({
-    super.key,
+    required this.onTypeSelected, super.key,
     this.selectedType,
-    required this.onTypeSelected,
     this.counts,
   });
   final EngagementType? selectedType;
@@ -58,10 +57,8 @@ class _EngagementFilterChip extends StatelessWidget {
   const _EngagementFilterChip({
     required this.label,
     required this.emoji,
-    this.color,
-    required this.isSelected,
+    required this.isSelected, required this.onTap, this.color,
     this.count,
-    required this.onTap,
   });
   final String label;
   final String emoji;

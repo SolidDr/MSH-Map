@@ -7,7 +7,7 @@ import '../domain/nightlife_venue.dart';
 
 /// Detail-Inhalt für NightlifeVenue im BottomSheet
 class NightlifeVenueDetailContent extends StatelessWidget {
-  const NightlifeVenueDetailContent({super.key, required this.venue});
+  const NightlifeVenueDetailContent({required this.venue, super.key});
 
   final NightlifeVenue venue;
 
@@ -38,7 +38,7 @@ class NightlifeVenueDetailContent extends StatelessWidget {
                     const SizedBox(width: 6),
                     Text(
                       venue.nightlifeCategory.label,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: MshColors.categoryNightlife,
                         fontWeight: FontWeight.w600,
                         fontSize: 13,
@@ -200,9 +200,9 @@ class _OpeningHoursSection extends StatelessWidget {
             ),
             child: Row(
               children: [
-                Icon(Icons.today, size: 16, color: MshColors.categoryNightlife),
+                const Icon(Icons.today, size: 16, color: MshColors.categoryNightlife),
                 const SizedBox(width: MshSpacing.xs),
-                Text(
+                const Text(
                   'Heute: ',
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
@@ -241,19 +241,19 @@ class _FeaturesSection extends StatelessWidget {
     final features = <Widget>[];
 
     if (venue.hasFood) {
-      features.add(_FeatureBadge(
+      features.add(const _FeatureBadge(
         icon: Icons.restaurant,
         label: 'Essen verfügbar',
         color: MshColors.success,
-      ));
+      ),);
     }
 
     if (venue.hasLiveMusic) {
-      features.add(_FeatureBadge(
+      features.add(const _FeatureBadge(
         icon: Icons.music_note,
         label: 'Live-Musik',
         color: MshColors.categoryNightlife,
-      ));
+      ),);
     }
 
     if (features.isEmpty) {
@@ -402,7 +402,7 @@ class _ContactButton extends StatelessWidget {
                   ),
                 ),
               ),
-              Icon(Icons.chevron_right, color: MshColors.textMuted),
+              const Icon(Icons.chevron_right, color: MshColors.textMuted),
             ],
           ),
         ),

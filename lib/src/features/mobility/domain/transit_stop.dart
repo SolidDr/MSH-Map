@@ -4,6 +4,21 @@ library;
 
 /// Haltestelle/Station im ÖPNV-Netz
 class TransitStop {
+
+  factory TransitStop.fromJson(Map<String, dynamic> json) {
+    final location = json['location'] as Map<String, dynamic>?;
+
+    return TransitStop(
+      id: json['id']?.toString() ?? '',
+      name: json['name'] as String? ?? 'Unbekannte Haltestelle',
+      latitude: _parseDouble(location?['latitude'] ?? json['latitude']),
+      longitude: _parseDouble(location?['longitude'] ?? json['longitude']),
+      distance: json['distance'] as int?,
+      products: json['products'] != null
+          ? TransitProducts.fromJson(json['products'] as Map<String, dynamic>)
+          : null,
+    );
+  }
   const TransitStop({
     required this.id,
     required this.name,
@@ -44,26 +59,11 @@ class TransitStop {
     return products!.hasFernverkehr || products!.hasNahverkehr;
   }
 
-  factory TransitStop.fromJson(Map<String, dynamic> json) {
-    final location = json['location'] as Map<String, dynamic>?;
-
-    return TransitStop(
-      id: json['id']?.toString() ?? '',
-      name: json['name'] as String? ?? 'Unbekannte Haltestelle',
-      latitude: _parseDouble(location?['latitude'] ?? json['latitude']),
-      longitude: _parseDouble(location?['longitude'] ?? json['longitude']),
-      distance: json['distance'] as int?,
-      products: json['products'] != null
-          ? TransitProducts.fromJson(json['products'] as Map<String, dynamic>)
-          : null,
-    );
-  }
-
   static double _parseDouble(dynamic value) {
     if (value is double) return value;
     if (value is int) return value.toDouble();
     if (value is String) return double.tryParse(value) ?? 0.0;
-    return 0.0;
+    return 0;
   }
 
   Map<String, dynamic> toJson() => {
@@ -80,6 +80,21 @@ class TransitStop {
 
 /// Verfügbare Verkehrsmittel an einer Haltestelle
 class TransitProducts {
+
+  factory TransitProducts.fromJson(Map<String, dynamic> json) {
+    return TransitProducts(
+      nationalExpress: json['nationalExpress'] as bool? ?? false,
+      national: json['national'] as bool? ?? false,
+      regionalExpress: json['regionalExpress'] as bool? ?? false,
+      regional: json['regional'] as bool? ?? false,
+      suburban: json['suburban'] as bool? ?? false,
+      bus: json['bus'] as bool? ?? false,
+      ferry: json['ferry'] as bool? ?? false,
+      subway: json['subway'] as bool? ?? false,
+      tram: json['tram'] as bool? ?? false,
+      taxi: json['taxi'] as bool? ?? false,
+    );
+  }
   const TransitProducts({
     this.nationalExpress = false,
     this.national = false,
@@ -112,21 +127,6 @@ class TransitProducts {
 
   /// Prüft ob Bus verfügbar ist
   bool get hasBus => bus;
-
-  factory TransitProducts.fromJson(Map<String, dynamic> json) {
-    return TransitProducts(
-      nationalExpress: json['nationalExpress'] as bool? ?? false,
-      national: json['national'] as bool? ?? false,
-      regionalExpress: json['regionalExpress'] as bool? ?? false,
-      regional: json['regional'] as bool? ?? false,
-      suburban: json['suburban'] as bool? ?? false,
-      bus: json['bus'] as bool? ?? false,
-      ferry: json['ferry'] as bool? ?? false,
-      subway: json['subway'] as bool? ?? false,
-      tram: json['tram'] as bool? ?? false,
-      taxi: json['taxi'] as bool? ?? false,
-    );
-  }
 
   Map<String, dynamic> toJson() => {
         'nationalExpress': nationalExpress,

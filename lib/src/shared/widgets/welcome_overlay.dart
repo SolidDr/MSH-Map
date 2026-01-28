@@ -5,7 +5,7 @@ import '../../core/constants/app_strings.dart';
 
 class WelcomeOverlay extends StatefulWidget {
 
-  const WelcomeOverlay({super.key, required this.child});
+  const WelcomeOverlay({required this.child, super.key});
   final Widget child;
 
   @override
@@ -498,7 +498,6 @@ class _FeatureItem extends StatelessWidget {
       bgColor = Colors.white.withValues(alpha: 0.03);
       border = Border.all(
         color: Colors.white.withValues(alpha: 0.15),
-        style: BorderStyle.solid,
       );
       iconColor = Colors.white38;
       boxShadow = null;

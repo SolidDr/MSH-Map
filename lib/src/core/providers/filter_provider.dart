@@ -194,13 +194,13 @@ class FilterState {
 
 /// Filter Notifier mit Persistierung
 class FilterNotifier extends StateNotifier<FilterState> {
-  // SharedPreferences Keys
-  static const _keyCategoriesFilter = 'map_filter_categories';
 
   // Starteinstellung: Leeres Set = alle Kategorien sichtbar
   FilterNotifier() : super(const FilterState()) {
     _loadSavedFilters();
   }
+  // SharedPreferences Keys
+  static const _keyCategoriesFilter = 'map_filter_categories';
 
   /// Lädt gespeicherte Filter aus SharedPreferences
   Future<void> _loadSavedFilters() async {

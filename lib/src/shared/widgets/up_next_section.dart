@@ -87,7 +87,7 @@ class UpNextSection extends ConsumerWidget {
                       .map((event) => Padding(
                             padding: const EdgeInsets.only(bottom: MshSpacing.sm),
                             child: _ExpandedEventCard(event: event),
-                          ))
+                          ),)
                       .toList(),
                 ),
               )
@@ -342,7 +342,7 @@ class _ExpandedEventCard extends StatelessWidget {
                       Row(
                         children: [
                           if (event.timeStart != null) ...[
-                            Icon(
+                            const Icon(
                               Icons.access_time,
                               size: 12,
                               color: MshColors.textMuted,
@@ -360,7 +360,7 @@ class _ExpandedEventCard extends StatelessWidget {
                             ),
                             const SizedBox(width: MshSpacing.sm),
                           ],
-                          Icon(
+                          const Icon(
                             Icons.place_outlined,
                             size: 12,
                             color: MshColors.textMuted,

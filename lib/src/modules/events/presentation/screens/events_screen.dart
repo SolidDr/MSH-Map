@@ -107,7 +107,7 @@ class _EventsScreenState extends ConsumerState<EventsScreen>
         // Events List
         Expanded(
           child: eventsAsync.when(
-            data: (events) => _buildEventsList(events),
+            data: _buildEventsList,
             loading: () => const Center(
               child: CircularProgressIndicator(color: MshColors.primary),
             ),
@@ -268,7 +268,7 @@ class _EventsScreenState extends ConsumerState<EventsScreen>
     final needsAsync = ref.watch(currentNeedsProvider);
 
     return needsAsync.when(
-      data: (needs) => _buildEngagementContent(needs),
+      data: _buildEngagementContent,
       loading: () => const Center(
         child: CircularProgressIndicator(color: MshColors.primary),
       ),
@@ -281,12 +281,12 @@ class _EventsScreenState extends ConsumerState<EventsScreen>
     final urgentNeeds = needs
         .where((n) =>
             n.need.urgency == UrgencyLevel.urgent ||
-            n.need.urgency == UrgencyLevel.critical)
+            n.need.urgency == UrgencyLevel.critical,)
         .toList();
     final otherNeeds = needs
         .where((n) =>
             n.need.urgency != UrgencyLevel.urgent &&
-            n.need.urgency != UrgencyLevel.critical)
+            n.need.urgency != UrgencyLevel.critical,)
         .toList();
 
     return ListView(
@@ -348,7 +348,7 @@ class _EventsScreenState extends ConsumerState<EventsScreen>
           ...urgentNeeds.map((needWithPlace) => Padding(
                 padding: const EdgeInsets.only(bottom: MshSpacing.md),
                 child: _buildEngagementCard(needWithPlace, compact: false),
-              )),
+              ),),
           const SizedBox(height: MshSpacing.lg),
         ],
 
@@ -359,7 +359,7 @@ class _EventsScreenState extends ConsumerState<EventsScreen>
           ...otherNeeds.map((needWithPlace) => Padding(
                 padding: const EdgeInsets.only(bottom: MshSpacing.sm),
                 child: _buildEngagementCard(needWithPlace, compact: true),
-              )),
+              ),),
         ],
 
         // Fallback wenn keine Daten

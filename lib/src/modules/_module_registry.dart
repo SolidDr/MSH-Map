@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../shared/domain/map_item.dart';
+
 import '../shared/domain/bounding_box.dart';
+import '../shared/domain/map_item.dart';
 
 /// Abstrakte Basis für alle Module.
 abstract class MshModule {

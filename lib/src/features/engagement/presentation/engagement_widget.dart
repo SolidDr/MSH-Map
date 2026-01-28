@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../core/theme/msh_colors.dart';
+
 import '../../../core/config/feature_flags.dart';
+import '../../../core/theme/msh_colors.dart';
 import '../application/engagement_provider.dart';
 import '../data/engagement_repository.dart';
 import 'adoptable_animal_card.dart';

@@ -115,7 +115,7 @@ class _HealthScreenState extends ConsumerState<HealthScreen> {
 
           // Einrichtungen Liste
           facilitiesAsync.when(
-            data: (facilities) => _buildFacilitiesList(facilities),
+            data: _buildFacilitiesList,
             loading: () => const SliverToBoxAdapter(
               child: Center(
                 child: Padding(
@@ -288,7 +288,7 @@ class _HealthScreenState extends ConsumerState<HealthScreen> {
             padding: const EdgeInsets.all(MshSpacing.xxl),
             child: Column(
               children: [
-                Icon(
+                const Icon(
                   Icons.search_off,
                   size: 64,
                   color: MshColors.textMuted,

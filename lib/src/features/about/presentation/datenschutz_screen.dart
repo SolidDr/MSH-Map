@@ -56,7 +56,8 @@ class DatenschutzScreen extends StatelessWidget {
           _buildSection(
             context,
             title: '1. Verantwortlicher',
-            content: '''KOLAN Systems
+            content: '''
+KOLAN Systems
 Inh. Konstantin Lange
 Hallesche Str. 35
 06536 Südharz OT Roßla

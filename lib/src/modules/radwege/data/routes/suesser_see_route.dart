@@ -6,7 +6,7 @@ import '../../domain/radweg_route.dart';
 
 /// Süßer See Rundweg - ~15km Rundweg um den Süßen See
 /// Beliebte familienfreundliche Tour durchs Mansfelder Seegebiet
-final suesserSeeRoute = RadwegRoute(
+const suesserSeeRoute = RadwegRoute(
   id: 'suesser-see',
   name: 'Süßer See Rundweg',
   shortName: 'Süßer See',

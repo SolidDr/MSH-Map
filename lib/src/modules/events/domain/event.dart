@@ -5,6 +5,24 @@ import '../../../shared/domain/map_item.dart';
 
 /// Event Model - MSH Radar Events
 class MshEvent implements MapItem {
+  const MshEvent({
+    required this.id,
+    required this.name,
+    required this.date,
+    required this.locationName,
+    required this.latitude,
+    required this.longitude,
+    required this.city,
+    required this.eventCategory,
+    this.dateEnd,
+    this.timeStart,
+    this.timeEnd,
+    this.description,
+    this.price,
+    this.sourceUrl,
+    this.imageUrl,
+    this.tags = const [],
+  });
 
   /// Parse from JSON
   factory MshEvent.fromJson(Map<String, dynamic> json) {
@@ -27,24 +45,6 @@ class MshEvent implements MapItem {
       tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList() ?? [],
     );
   }
-  const MshEvent({
-    required this.id,
-    required this.name,
-    required this.date,
-    required this.locationName,
-    required this.latitude,
-    required this.longitude,
-    required this.city,
-    required this.eventCategory,
-    this.dateEnd,
-    this.timeStart,
-    this.timeEnd,
-    this.description,
-    this.price,
-    this.sourceUrl,
-    this.imageUrl,
-    this.tags = const [],
-  });
 
   @override
   final String id;
@@ -99,7 +99,7 @@ class MshEvent implements MapItem {
   bool? get isOpenNow => null;
 
   @override
-  double get markerOpacity => 1.0;
+  double get markerOpacity => 1;
 
   /// Convert to JSON
   Map<String, dynamic> toJson() {

@@ -141,7 +141,7 @@ class MshTimelineCard extends StatelessWidget {
 
   Widget _buildCard(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(
+      padding: const EdgeInsets.only(
         bottom: MshSpacing.md, // 13px
       ),
       child: Material(

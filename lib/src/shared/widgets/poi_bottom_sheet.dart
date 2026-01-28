@@ -145,7 +145,7 @@ class PoiBottomSheet extends StatelessWidget {
                         // Drucken-Button (nur Web)
                         if (kIsWeb)
                           IconButton(
-                            onPressed: () => _printPage(),
+                            onPressed: _printPage,
                             icon: const Icon(Icons.print),
                             tooltip: 'Drucken',
                             style: IconButton.styleFrom(

@@ -384,7 +384,7 @@ class _OpeningHoursSection extends StatelessWidget {
         final dayData = facility.openingHours![days[index]] as Map<String, dynamic>?;
         final isToday = index == today;
 
-        String hours = 'Geschlossen';
+        var hours = 'Geschlossen';
         if (dayData != null) {
           hours = '${dayData['from']} - ${dayData['to']}';
           if (dayData['afternoon'] != null) {
@@ -485,7 +485,7 @@ class _OpeningHoursRawSection extends StatelessWidget {
               children: [
                 const Icon(Icons.today, size: 16, color: MshColors.primary),
                 const SizedBox(width: MshSpacing.xs),
-                Text(
+                const Text(
                   'Heute: ',
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
@@ -494,7 +494,7 @@ class _OpeningHoursRawSection extends StatelessWidget {
                 ),
                 Text(
                   todayHours,
-                  style: TextStyle(color: MshColors.textPrimary),
+                  style: const TextStyle(color: MshColors.textPrimary),
                 ),
               ],
             ),
@@ -523,16 +523,16 @@ class _AccessibilitySection extends StatelessWidget {
     final badges = <Widget>[];
 
     if (facility.isBarrierFree) {
-      badges.add(_Badge(icon: Icons.accessible, label: 'Barrierefrei'));
+      badges.add(const _Badge(icon: Icons.accessible, label: 'Barrierefrei'));
     }
     if (facility.hasHouseCalls) {
-      badges.add(_Badge(icon: Icons.home, label: 'Hausbesuche'));
+      badges.add(const _Badge(icon: Icons.home, label: 'Hausbesuche'));
     }
     if (facility.hasParking) {
-      badges.add(_Badge(icon: Icons.local_parking, label: 'Parkplätze'));
+      badges.add(const _Badge(icon: Icons.local_parking, label: 'Parkplätze'));
     }
     if (facility.hasDelivery) {
-      badges.add(_Badge(icon: Icons.delivery_dining, label: 'Lieferservice'));
+      badges.add(const _Badge(icon: Icons.delivery_dining, label: 'Lieferservice'));
     }
 
     if (badges.isEmpty) return const SizedBox.shrink();
@@ -566,7 +566,7 @@ class _Badge extends StatelessWidget {
           const SizedBox(width: 6),
           Text(
             label,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 13,
               color: MshColors.textSecondary,
             ),
@@ -639,14 +639,14 @@ class _EmergencyServiceSection extends StatelessWidget {
             const SizedBox(height: MshSpacing.sm),
             Text(
               'Notdienst-Zeiten: ${service.dutyHours}',
-              style: TextStyle(color: MshColors.textSecondary),
+              style: const TextStyle(color: MshColors.textSecondary),
             ),
           ],
           if (service.nextDutyDate != null && !isOnDuty) ...[
             const SizedBox(height: MshSpacing.sm),
             Text(
               'Nächster Notdienst: ${_formatDate(service.nextDutyDate!)}',
-              style: TextStyle(color: MshColors.textSecondary),
+              style: const TextStyle(color: MshColors.textSecondary),
             ),
           ],
         ],
@@ -703,20 +703,20 @@ class _FitnessOffersSection extends StatelessWidget {
                   const SizedBox(height: 4),
                   Text(
                     '${offer.day}, ${offer.time}',
-                    style: TextStyle(color: MshColors.textSecondary),
+                    style: const TextStyle(color: MshColors.textSecondary),
                   ),
                   if (offer.location != null) ...[
                     const SizedBox(height: 2),
                     Text(
                       offer.location!,
-                      style: TextStyle(color: MshColors.textSecondary),
+                      style: const TextStyle(color: MshColors.textSecondary),
                     ),
                   ],
                   if (offer.cost != null) ...[
                     const SizedBox(height: 4),
                     Text(
                       offer.cost!,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: MshColors.categoryHealth,
                         fontWeight: FontWeight.w500,
                       ),
@@ -724,7 +724,7 @@ class _FitnessOffersSection extends StatelessWidget {
                   ],
                 ],
               ),
-            )),
+            ),),
       ],
     );
   }
@@ -791,7 +791,7 @@ class _ContactRow extends StatelessWidget {
             Expanded(
               child: Text(
                 label,
-                style: TextStyle(
+                style: const TextStyle(
                   color: MshColors.primary,
                   fontSize: 15,
                 ),

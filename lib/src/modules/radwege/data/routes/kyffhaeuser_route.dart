@@ -7,7 +7,7 @@ import '../../domain/radweg_route.dart';
 /// Kyffhäuser-Radweg - ~36km Rundweg
 /// Umrundet das Kyffhäusergebirge
 /// Grenzgebiet MSH/Thüringen
-final kyffhaeuserRoute = RadwegRoute(
+const kyffhaeuserRoute = RadwegRoute(
   id: 'kyffhaeuser',
   name: 'Kyffhäuser-Radweg',
   shortName: 'Kyffhäuser',
