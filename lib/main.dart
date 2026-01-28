@@ -17,29 +17,54 @@ import 'src/modules/health/health_module.dart';
 import 'src/modules/search/search_module.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  // Global error handler for async errors
+  FlutterError.onError = (details) {
+    debugPrint('Flutter error: ${details.exception}');
+    debugPrint('Stack: ${details.stack}');
+  };
 
-  // Initialize date formatting for German locale
-  await initializeDateFormatting('de_DE');
+  runZonedGuarded(() async {
+    WidgetsFlutterBinding.ensureInitialized();
 
-  // Firebase init
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+    // Initialize date formatting for German locale
+    await initializeDateFormatting('de_DE');
 
-  // Traffic Counter (anonymisiert, einmal pro Tag)
-  unawaited(TrafficCounterService().incrementIfNeeded());
+    // Firebase init mit Error-Handling
+    try {
+      await Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform,
+      );
+      debugPrint('Firebase initialized successfully');
+    } catch (e, stack) {
+      debugPrint('Firebase init error: $e');
+      debugPrint('Stack: $stack');
+    }
 
-  // Module registrieren
-  ModuleRegistry.instance.register(AssetLocationsModule());
-  ModuleRegistry.instance.register(GastroModule());
-  ModuleRegistry.instance.register(FamilyModule());
-  ModuleRegistry.instance.register(EventsModule());
-  ModuleRegistry.instance.register(HealthModule());
-  ModuleRegistry.instance.register(SearchModule());
+    // Traffic Counter (anonymisiert, einmal pro Tag)
+    try {
+      unawaited(TrafficCounterService().incrementIfNeeded());
+    } catch (e) {
+      debugPrint('Traffic counter error: $e');
+    }
 
-  // Module initialisieren
-  await ModuleRegistry.instance.initializeAll();
+    // Module registrieren
+    ModuleRegistry.instance.register(AssetLocationsModule());
+    ModuleRegistry.instance.register(GastroModule());
+    ModuleRegistry.instance.register(FamilyModule());
+    ModuleRegistry.instance.register(EventsModule());
+    ModuleRegistry.instance.register(HealthModule());
+    ModuleRegistry.instance.register(SearchModule());
 
-  runApp(const ProviderScope(child: MshMapApp()));
+    // Module initialisieren
+    try {
+      await ModuleRegistry.instance.initializeAll();
+    } catch (e) {
+      debugPrint('Module init error: $e');
+    }
+
+    runApp(const ProviderScope(child: MshMapApp()));
+  }, (error, stack) {
+    debugPrint('Uncaught error: $error');
+    debugPrint('Stack: $stack');
+  });
 }
