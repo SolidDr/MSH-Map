@@ -226,6 +226,22 @@
       "languages": ["Deutsch"],
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true
+    },
+    {
+      "id": "arzt_sh_001",
+      "type": "doctor",
+      "name": "Dr. med. Anja Ehrke",
+      "specialization": "allgemein",
+      "street": "Roßla",
+      "postalCode": "06536",
+      "city": "Südharz OT Roßla",
+      "latitude": 51.4558,
+      "longitude": 11.0658,
+      "hasHouseCalls": true,
+      "isBarrierFree": true,
+      "languages": ["Deutsch"],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true
     }
   ]
 }

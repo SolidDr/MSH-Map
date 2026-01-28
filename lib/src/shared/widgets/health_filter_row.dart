@@ -87,6 +87,18 @@ class HealthFilterRow extends ConsumerWidget {
                 .read(filterProvider.notifier)
                 .toggleFilter('health_fitness'),
           ),
+          const SizedBox(width: 8),
+          _HealthChip(
+            id: 'hospital',
+            label: 'Kliniken',
+            icon: HealthCategory.hospital.icon,
+            color: HealthCategory.hospital.color,
+            count: categoryCounts['hospital'] ?? 0,
+            isSelected: selectedHealthFilters.contains('hospital'),
+            onTap: () => ref
+                .read(filterProvider.notifier)
+                .toggleFilter('health_hospital'),
+          ),
 
           // Divider
           const SizedBox(width: 16),
