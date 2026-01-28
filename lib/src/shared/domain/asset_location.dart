@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../utils/opening_hours_parser.dart';
 import 'coordinates.dart';
 import 'map_item.dart';
 
@@ -75,11 +76,16 @@ class AssetLocation implements MapItem {
   @override
   Map<String, dynamic> get metadata => _rawData;
 
-  @override
-  bool? get isOpenNow => null;
+  /// Öffnungszeiten aus rawData
+  String? get openingHours => _rawData['openingHours'] as String?;
 
   @override
-  double get markerOpacity => 1.0;
+  bool? get isOpenNow => openingHours != null
+      ? OpeningHoursParser.isOpenNow(openingHours)
+      : null;
+
+  @override
+  double get markerOpacity => OpeningHoursParser.getMarkerOpacity(openingHours);
 
   String get description => _description ?? '';
 

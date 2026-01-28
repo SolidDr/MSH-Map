@@ -49,6 +49,7 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
   MapItem? _hoveredItem;
   Offset? _mousePosition;
   double _currentZoom = MapConfig.defaultZoom;
+  final GlobalKey _stackKey = GlobalKey();
 
   @override
   void initState() {
@@ -70,6 +71,7 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
     final popularPois = ref.watch(popularPoisProvider).valueOrNull ?? {};
 
     return Stack(
+      key: _stackKey,
       children: [
         GestureDetector(
           onDoubleTap: widget.onDoubleTap,
@@ -176,7 +178,14 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
           _hoveredItem = null;
           _mousePosition = null;
         }),
-        onHover: (event) => setState(() => _mousePosition = event.localPosition),
+        onHover: (event) {
+          final RenderBox? stackBox =
+              _stackKey.currentContext?.findRenderObject() as RenderBox?;
+          if (stackBox != null) {
+            final localPos = stackBox.globalToLocal(event.position);
+            setState(() => _mousePosition = localPos);
+          }
+        },
         child: GestureDetector(
           onTap: () => widget.onMarkerTap?.call(item),
           child: isPopular

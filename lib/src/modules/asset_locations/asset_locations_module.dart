@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../core/services/locations_service.dart';
+import '../../core/theme/msh_colors.dart';
 import '../../shared/domain/asset_location.dart';
 import '../../shared/domain/bounding_box.dart';
 import '../../shared/domain/map_item.dart';
@@ -161,14 +162,9 @@ class _AssetLocationDetail extends StatelessWidget {
             const SizedBox(height: 8),
           ],
 
-          // Öffnungszeiten
-          if (metadata['openingHours'] != null) ...[
-            _buildInfoRow(
-              context,
-              Icons.access_time,
-              'Öffnungszeiten',
-              metadata['openingHours'] as String,
-            ),
+          // Öffnungszeiten mit Status-Badge
+          if (location.openingHours != null) ...[
+            _buildOpeningHoursRow(context, location),
             const SizedBox(height: 8),
           ],
 
@@ -267,6 +263,64 @@ class _AssetLocationDetail extends StatelessWidget {
               ),
               Text(
                 value,
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildOpeningHoursRow(BuildContext context, AssetLocation location) {
+    final isOpen = location.isOpenNow;
+
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Icon(Icons.access_time, size: 20, color: Colors.grey[700]),
+        const SizedBox(width: 8),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Text(
+                    'Öffnungszeiten',
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                          color: Colors.grey[600],
+                          fontWeight: FontWeight.w500,
+                        ),
+                  ),
+                  if (isOpen != null) ...[
+                    const SizedBox(width: 8),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 6,
+                        vertical: 2,
+                      ),
+                      decoration: BoxDecoration(
+                        color: isOpen
+                            ? MshColors.success.withValues(alpha: 0.15)
+                            : MshColors.error.withValues(alpha: 0.15),
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                      child: Text(
+                        isOpen ? 'Geöffnet' : 'Geschlossen',
+                        style: TextStyle(
+                          color: isOpen ? MshColors.success : MshColors.error,
+                          fontSize: 10,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                  ],
+                ],
+              ),
+              const SizedBox(height: 2),
+              Text(
+                location.openingHours!,
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
             ],
