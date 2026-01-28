@@ -173,12 +173,24 @@ class _WelcomeContentState extends State<_WelcomeContent> {
         isNew: true,
       ),
     ],
-    // Seite 3: Coming Soon + Privatsphäre
+    // Seite 3: Kupfer-Highlight + Coming Soon
     [
+      _FeatureData(
+        icon: Icons.directions_bike,
+        title: 'Kupferspurenradweg',
+        desc: '48km Bergbau-Geschichte',
+        isKupfer: true,
+      ),
+      _FeatureData(
+        icon: Icons.school,
+        title: 'MSH-Wissen',
+        desc: 'Wissen & Können von MSH',
+        isComingSoon: true,
+      ),
       _FeatureData(
         icon: Icons.storefront,
         title: 'Flohmarkt',
-        desc: 'Was einer nicht braucht, macht dem anderen Freude',
+        desc: 'Was einer nicht braucht...',
         isComingSoon: true,
       ),
       _FeatureData(
@@ -285,6 +297,7 @@ class _WelcomeContentState extends State<_WelcomeContent> {
                                       highlight: features[0].highlight,
                                       isNew: features[0].isNew,
                                       isComingSoon: features[0].isComingSoon,
+                                      isKupfer: features[0].isKupfer,
                                     ),
                                   ),
                                   const SizedBox(width: 12),
@@ -297,6 +310,7 @@ class _WelcomeContentState extends State<_WelcomeContent> {
                                             highlight: features[1].highlight,
                                             isNew: features[1].isNew,
                                             isComingSoon: features[1].isComingSoon,
+                                            isKupfer: features[1].isKupfer,
                                           )
                                         : const SizedBox(),
                                   ),
@@ -315,6 +329,7 @@ class _WelcomeContentState extends State<_WelcomeContent> {
                                         highlight: features[2].highlight,
                                         isNew: features[2].isNew,
                                         isComingSoon: features[2].isComingSoon,
+                                        isKupfer: features[2].isKupfer,
                                       ),
                                     ),
                                     const SizedBox(width: 12),
@@ -327,6 +342,7 @@ class _WelcomeContentState extends State<_WelcomeContent> {
                                               highlight: features[3].highlight,
                                               isNew: features[3].isNew,
                                               isComingSoon: features[3].isComingSoon,
+                                              isKupfer: features[3].isKupfer,
                                             )
                                           : const SizedBox(),
                                     ),
@@ -425,6 +441,7 @@ class _FeatureData {
     this.highlight = false,
     this.isNew = false,
     this.isComingSoon = false,
+    this.isKupfer = false,
   });
 
   final IconData icon;
@@ -433,6 +450,7 @@ class _FeatureData {
   final bool highlight;
   final bool isNew;
   final bool isComingSoon;
+  final bool isKupfer;
 }
 
 class _FeatureItem extends StatelessWidget {
@@ -443,6 +461,7 @@ class _FeatureItem extends StatelessWidget {
     this.highlight = false,
     this.isNew = false,
     this.isComingSoon = false,
+    this.isKupfer = false,
   });
 
   final IconData icon;
@@ -451,33 +470,53 @@ class _FeatureItem extends StatelessWidget {
   final bool highlight;
   final bool isNew;
   final bool isComingSoon;
+  final bool isKupfer;
+
+  // Kupferfarbe
+  static const _kupferColor = Color(0xFFB87333);
 
   @override
   Widget build(BuildContext context) {
     // Coming Soon hat eigenen Stil
     final Color bgColor;
-    final Border? border;
+    final BoxBorder? border;
     final Color iconColor;
+    final List<BoxShadow>? boxShadow;
 
-    if (isComingSoon) {
+    if (isKupfer) {
+      bgColor = _kupferColor.withValues(alpha: 0.2);
+      border = Border.all(color: _kupferColor, width: 2);
+      iconColor = _kupferColor;
+      boxShadow = [
+        BoxShadow(
+          color: _kupferColor.withValues(alpha: 0.4),
+          blurRadius: 12,
+          spreadRadius: 1,
+        ),
+      ];
+    } else if (isComingSoon) {
       bgColor = Colors.white.withValues(alpha: 0.03);
       border = Border.all(
         color: Colors.white.withValues(alpha: 0.15),
         style: BorderStyle.solid,
       );
       iconColor = Colors.white38;
+      boxShadow = null;
     } else if (highlight) {
       bgColor = MshColors.success.withValues(alpha: 0.15);
       border = Border.all(color: MshColors.success.withValues(alpha: 0.3));
       iconColor = MshColors.success;
+      boxShadow = null;
     } else if (isNew) {
       bgColor = MshColors.primary.withValues(alpha: 0.15);
       border = Border.all(color: MshColors.primary.withValues(alpha: 0.3));
       iconColor = MshColors.primary;
+      boxShadow = null;
     } else {
       bgColor = Colors.white.withValues(alpha: 0.05);
       border = null;
       iconColor = MshColors.primary;
+      boxShadow = null;
     }
 
     return Container(
@@ -486,6 +525,7 @@ class _FeatureItem extends StatelessWidget {
         color: bgColor,
         borderRadius: BorderRadius.circular(12),
         border: border,
+        boxShadow: boxShadow,
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -538,6 +578,36 @@ class _FeatureItem extends StatelessWidget {
                       'BALD',
                       style: TextStyle(
                         color: Colors.white70,
+                        fontSize: 8,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              if (isKupfer)
+                Positioned(
+                  top: -6,
+                  right: -18,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 5,
+                      vertical: 2,
+                    ),
+                    decoration: BoxDecoration(
+                      color: _kupferColor,
+                      borderRadius: BorderRadius.circular(4),
+                      boxShadow: [
+                        BoxShadow(
+                          color: _kupferColor.withValues(alpha: 0.6),
+                          blurRadius: 6,
+                          spreadRadius: 1,
+                        ),
+                      ],
+                    ),
+                    child: const Text(
+                      'NEU',
+                      style: TextStyle(
+                        color: Colors.white,
                         fontSize: 8,
                         fontWeight: FontWeight.bold,
                       ),

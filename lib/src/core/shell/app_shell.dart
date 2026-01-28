@@ -154,6 +154,11 @@ class _MobileShell extends StatelessWidget {
             label: 'Ausgehen',
           ),
           NavigationDestination(
+            icon: Icon(Icons.directions_bike_outlined),
+            selectedIcon: Icon(Icons.directions_bike),
+            label: 'Kupfer',
+          ),
+          NavigationDestination(
             icon: Icon(Icons.person_outline),
             selectedIcon: Icon(Icons.person),
             label: 'Profil',
@@ -227,6 +232,11 @@ class _TabletShell extends StatelessWidget {
                 icon: Icon(Icons.nightlife_outlined),
                 selectedIcon: Icon(Icons.nightlife),
                 label: Text('Ausgehen'),
+              ),
+              NavigationRailDestination(
+                icon: Icon(Icons.directions_bike_outlined),
+                selectedIcon: Icon(Icons.directions_bike),
+                label: Text('Kupfer'),
               ),
               NavigationRailDestination(
                 icon: Icon(Icons.person_outline),
@@ -378,11 +388,20 @@ class _DesktopShell extends StatelessWidget {
                         },
                       ),
                       _SidebarItem(
-                        icon: Icons.person,
-                        label: 'Profil',
+                        icon: Icons.directions_bike,
+                        label: 'Kupfer-Radweg',
                         isSelected: selectedIndex == 7,
                         onTap: () {
                           onIndexChanged(7);
+                          context.go('/kupfer-radweg');
+                        },
+                      ),
+                      _SidebarItem(
+                        icon: Icons.person,
+                        label: 'Profil',
+                        isSelected: selectedIndex == 8,
+                        onTap: () {
+                          onIndexChanged(8);
                           context.go('/profile');
                         },
                       ),
@@ -522,6 +541,8 @@ void _navigateToIndex(BuildContext context, int index) {
     case 6:
       context.go('/nightlife');
     case 7:
+      context.go('/kupfer-radweg');
+    case 8:
       context.go('/profile');
   }
 }
