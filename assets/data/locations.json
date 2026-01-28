@@ -17667,25 +17667,6 @@
       "sourceId": ""
     },
     {
-      "id": "osm-way-1081118161",
-      "name": "Loch Ness",
-      "displayName": "Loch Ness",
-      "category": "pool",
-      "latitude": 51.4627279,
-      "longitude": 11.2078134,
-      "city": "",
-      "address": "",
-      "description": "",
-      "website": "",
-      "phone": "",
-      "openingHours": "",
-      "tags": [
-        "swimming_pool"
-      ],
-      "source": "openstreetmap",
-      "sourceId": ""
-    },
-    {
       "id": "osm-way-1111016637",
       "name": "Motocross",
       "displayName": "Motocross",

@@ -5,7 +5,7 @@
     "version": "3.0",
     "region": "Mansfeld-Suedharz",
     "note": "Automatisch gemerged aus OSM + manuellen Daten",
-    "total_count": 24,
+    "total_count": 22,
     "verified_count": 0
   },
   "data": [
@@ -253,22 +253,6 @@
       "source": "openstreetmap"
     },
     {
-      "id": "sani_msh_024",
-      "type": "medical_supply",
-      "name": "Knipping",
-      "latitude": 51.357805,
-      "longitude": 11.1006718,
-      "street": "Erfurter Straße 3",
-      "postalCode": "06567",
-      "city": "Bad Frankenhausen/Kyffhäuser",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
-    },
-    {
       "id": "sani_msh_018",
       "type": "medical_supply",
       "name": "Optik Mohr",
@@ -378,23 +362,6 @@
       "phoneFormatted": "03475 / 74 78 74",
       "website": "https://sh-oesterreich.de",
       "openingHours": "Mo-Fr 09:00-18:00",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
-    },
-    {
-      "id": "sani_msh_023",
-      "type": "medical_supply",
-      "name": "Sieber",
-      "latitude": 51.3703753,
-      "longitude": 10.8709529,
-      "street": "Hauptstraße 13",
-      "postalCode": "99706",
-      "city": "Sondershausen",
-      "openingHours": "Mo-Fr 09:00-18:00; Sa 09:00-12:00",
       "languages": [
         "Deutsch"
       ],

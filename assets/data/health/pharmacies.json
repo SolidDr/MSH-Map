@@ -5,7 +5,7 @@
     "version": "3.0",
     "region": "Mansfeld-Suedharz",
     "note": "Automatisch gemerged aus OSM + manuellen Daten",
-    "total_count": 67,
+    "total_count": 55,
     "verified_count": 9
   },
   "data": [
@@ -54,24 +54,6 @@
       "source": "apoguide.de, news.de"
     },
     {
-      "id": "apo_msh_069",
-      "type": "pharmacy",
-      "name": "Anger Apotheke",
-      "latitude": 51.358344,
-      "longitude": 11.1011006,
-      "street": "Anger 12-13",
-      "postalCode": "06567",
-      "city": "Bad Frankenhausen/Kyffhäuser",
-      "openingHours": "Mo-Fr 08:00-18:00, Sa 08:00-12:00",
-      "isBarrierFree": true,
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
-    },
-    {
       "id": "apo_msh_039",
       "type": "pharmacy",
       "name": "Apotheke Thüringer Pforte",
@@ -92,27 +74,6 @@
       "source": "openstreetmap"
     },
     {
-      "id": "apo_msh_027",
-      "type": "pharmacy",
-      "name": "Apotheke am Rosengarten",
-      "latitude": 51.5146335,
-      "longitude": 10.8003395,
-      "street": "Dr.-Robert-Koch-Straße 4",
-      "postalCode": "99734",
-      "city": "Nordhausen",
-      "phone": "+49 3631 897663",
-      "phoneFormatted": "03631 / 89 76 63",
-      "website": "http://www.apotheke-am-rosengarten-app.de/",
-      "openingHours": "Mo-Fr 08:00-18:00; Sa 08:00-12:00",
-      "isBarrierFree": true,
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
-    },
-    {
       "id": "apotheke_ht_002",
       "type": "pharmacy",
       "name": "Apotheke am Saigertor",
@@ -125,27 +86,6 @@
       "phoneFormatted": "03476 / 81 34 11",
       "verified": true,
       "source": "apoguide.de, news.de"
-    },
-    {
-      "id": "apo_msh_042",
-      "type": "pharmacy",
-      "name": "Apotheke im Marktkauf",
-      "latitude": 51.4835238,
-      "longitude": 10.8029743,
-      "street": "Darrweg 67",
-      "postalCode": "99734",
-      "city": "Nordhausen",
-      "phone": "+49 3631 465163",
-      "phoneFormatted": "03631 / 46 51 63",
-      "website": "http://apotheke-marktkauf-nordhausen.de",
-      "openingHours": "Mo-Sa 08:00-20:00",
-      "isBarrierFree": true,
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
     },
     {
       "id": "apo_msh_050",
@@ -313,27 +253,6 @@
       "phone": "+49 3466 302477",
       "phoneFormatted": "03466 / 30 24 77",
       "openingHours": "Mo-Fr 08:00-18:00; Sa 08:00-12:00; Su off",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
-    },
-    {
-      "id": "apo_msh_019",
-      "type": "pharmacy",
-      "name": "Flora-Apotheke",
-      "latitude": 51.3707344,
-      "longitude": 10.8819356,
-      "street": "Frankenhäuser Straße 1a-c",
-      "postalCode": "99706",
-      "city": "Sondershausen",
-      "phone": "+49 3632 770030",
-      "phoneFormatted": "03632 / 77 00 30",
-      "website": "http://www.apotheke-sondershausen.de/",
-      "openingHours": "Mo-Fr 08:00-20:00; Sa 08:00-18:00",
-      "isBarrierFree": true,
       "languages": [
         "Deutsch"
       ],
@@ -560,27 +479,6 @@
       "openingHours": "Mo-Fr 07:00-22:00; Sa 07:00-20:00"
     },
     {
-      "id": "apo_msh_026",
-      "type": "pharmacy",
-      "name": "Kreuz-Apotheke",
-      "latitude": 51.503157,
-      "longitude": 10.8009753,
-      "street": "August-Bebel-Platz 34",
-      "postalCode": "99734",
-      "city": "Nordhausen",
-      "phone": "+49 3631 895050",
-      "phoneFormatted": "03631 / 89 50 50",
-      "website": "http://www.kreuzapo.de/",
-      "openingHours": "Mo-Fr 08:00-18:00; Sa 09:00-12:00",
-      "isBarrierFree": true,
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
-    },
-    {
       "id": "apo_ht_024",
       "type": "pharmacy",
       "name": "Linden Apotheke",
@@ -595,24 +493,6 @@
       "acceptsPrivateInsurance": true,
       "source": "openstreetmap",
       "openingHours": "Mo-Fr 06:00-22:00; Sa 06:00-20:00"
-    },
-    {
-      "id": "apo_msh_049",
-      "type": "pharmacy",
-      "name": "Linden Apotheke",
-      "latitude": 51.306392,
-      "longitude": 11.5828621,
-      "street": "Straße der DSF 19",
-      "postalCode": "06268",
-      "city": "Querfurt",
-      "phone": "+49 34461 22375",
-      "phoneFormatted": "03446 / 12 23 75",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
     },
     {
       "id": "apo_msh_060",
@@ -663,48 +543,6 @@
       "hasParking": true,
       "verified": true,
       "source": "apoguide.de, news.de"
-    },
-    {
-      "id": "apo_msh_057",
-      "type": "pharmacy",
-      "name": "Loewen-Apotheke",
-      "latitude": 51.3686753,
-      "longitude": 10.8696474,
-      "street": "Gartenstraße 28",
-      "postalCode": "99706",
-      "city": "Sondershausen",
-      "phone": "+49 3632 66910",
-      "phoneFormatted": "03632 / 66 91 0",
-      "website": "http://www.apotheke-sondershausen.de/",
-      "openingHours": "Mo-Fr 08:00-18:30; Sa 08:00-12:00",
-      "isBarrierFree": true,
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
-    },
-    {
-      "id": "apo_msh_018",
-      "type": "pharmacy",
-      "name": "Loh-Apotheke",
-      "latitude": 51.3695673,
-      "longitude": 10.8665496,
-      "street": "Ferdinand-Schlufter-Straße 21",
-      "postalCode": "99706",
-      "city": "Sondershausen",
-      "phone": "+49 3632 782568",
-      "phoneFormatted": "03632 / 78 25 68",
-      "website": "http://www.loh-apotheke.de/",
-      "openingHours": "Mo-Fr 08:00-18:30; Sa 08:00-12:00",
-      "isBarrierFree": true,
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
     },
     {
       "id": "apo_sh_044",
@@ -902,26 +740,6 @@
       "openingHours": "Mo 08:00-12:00, 13:00-17:00; Tu 08:00-13:00; We 08:00-12:00, 14:00-18:00; Th 08:00-12:00, 14:00-17:30; Fr 08:00-13:00"
     },
     {
-      "id": "apo_msh_038",
-      "type": "pharmacy",
-      "name": "Markt-Apotheke Brandt",
-      "latitude": 51.3557795,
-      "longitude": 11.1001347,
-      "street": "Ratstraße 2",
-      "postalCode": "06567",
-      "city": "Bad Frankenhausen/Kyffhäuser",
-      "phone": "+49 34671 659 0",
-      "phoneFormatted": "03467 / 16 59 0",
-      "website": "http://www.markt-apo-bfh.de",
-      "openingHours": "Mo-Fr 08:00-18:30; Sa 08:30-12:00",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
-    },
-    {
       "id": "apo_el_028",
       "type": "pharmacy",
       "name": "Mohren-Apotheke",
@@ -1049,26 +867,6 @@
       "source": "openstreetmap"
     },
     {
-      "id": "apo_msh_032",
-      "type": "pharmacy",
-      "name": "Sonnen-Apotheke",
-      "latitude": 51.5019577,
-      "longitude": 10.8193425,
-      "street": "Conrad-Fromann-Straße 21",
-      "postalCode": "99734",
-      "city": "Nordhausen",
-      "phone": "+49 3631 895177",
-      "phoneFormatted": "03631 / 89 51 77",
-      "website": "http://www.sonnen-apotheke-ost.de/",
-      "openingHours": "Mo-Fr 08:00-18:00; Sa 09:00-12:00",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
-    },
-    {
       "id": "apo_sh_022",
       "type": "pharmacy",
       "name": "St. Barbara Apotheke",
@@ -1078,46 +876,6 @@
       "postalCode": "06536",
       "city": "Südharz",
       "isBarrierFree": true,
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
-    },
-    {
-      "id": "apo_msh_064",
-      "type": "pharmacy",
-      "name": "Stadt-Apotheke",
-      "latitude": 51.3711293,
-      "longitude": 10.8731826,
-      "street": "Hauptstraße 35",
-      "postalCode": "99706",
-      "city": "Sondershausen",
-      "phone": "+49 3632 600600",
-      "phoneFormatted": "03632 / 60 06 00",
-      "website": "http://www.stadt-apotheke-sondershausen.de/",
-      "openingHours": "Mo-Fr 08:00-18:30; Sa 08:00-12:30",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
-    },
-    {
-      "id": "apo_msh_034",
-      "type": "pharmacy",
-      "name": "Steinbrück Apotheke",
-      "latitude": 51.3563478,
-      "longitude": 11.1003611,
-      "street": "Markt 10",
-      "postalCode": "06567",
-      "city": "Bad Frankenhausen/Kyffhäuser",
-      "phone": "+49 34671 776 69",
-      "phoneFormatted": "03467 / 17 76 69",
-      "website": "https://Steinbrueck-Apotheke.de",
-      "openingHours": "Mo-Fr 07:30-19:00; Sa 08:00-12:00",
       "languages": [
         "Deutsch"
       ],

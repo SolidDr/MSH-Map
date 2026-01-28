@@ -5,7 +5,7 @@
     "version": "3.0",
     "region": "Mansfeld-Suedharz",
     "note": "Automatisch gemerged aus OSM + manuellen Daten",
-    "total_count": 15,
+    "total_count": 12,
     "verified_count": 3
   },
   "data": [
@@ -36,22 +36,6 @@
       "longitude": 11.6074159,
       "city": "Mansfeld-Südharz",
       "isBarrierFree": true,
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
-    },
-    {
-      "id": "kh_msh_011",
-      "type": "hospital",
-      "name": "Deutsche Rentenversicherung BUND – Reha-Zentrum Bad Frankenhausen",
-      "latitude": 51.3588575,
-      "longitude": 11.1154982,
-      "street": "Udersleber Weg 35",
-      "postalCode": "06567",
-      "city": "Bad Frankenhausen/Kyffhäuser",
       "languages": [
         "Deutsch"
       ],
@@ -175,28 +159,6 @@
       "source": "openstreetmap"
     },
     {
-      "id": "kh_msh_014",
-      "type": "hospital",
-      "name": "KMG Klinikum Sondershausen",
-      "latitude": 51.3736886,
-      "longitude": 10.8786114,
-      "street": "Hospitalstraße 2",
-      "postalCode": "99706",
-      "city": "Sondershausen",
-      "phone": "+49 3632 670",
-      "phoneFormatted": "03632670",
-      "website": "https://kmg-kliniken.de/kmg-klinikum-sondershausen",
-      "openingHours": "Mo-Fr 06:30-20:00; Sa-Su 08:00-20:00",
-      "isBarrierFree": true,
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "hasEmergency": true,
-      "source": "openstreetmap"
-    },
-    {
       "id": "kh_el_008",
       "type": "hospital",
       "name": "Klinik Lutherstadt Eisleben",
@@ -262,25 +224,6 @@
       "postalCode": "06526",
       "city": "Sangerhausen",
       "website": "https://www.reha-aktiv2000.de/filialen/sangerhausen/",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
-    },
-    {
-      "id": "kh_msh_010",
-      "type": "hospital",
-      "name": "Reha-Klinik am Kyffhäuser für Kinder und Jugendliche",
-      "latitude": 51.3597949,
-      "longitude": 11.0924344,
-      "street": "Rottlebener Straße 4a",
-      "postalCode": "06567",
-      "city": "Bad Frankenhausen/Kyffhäuser",
-      "phone": "+49 34671 6630",
-      "phoneFormatted": "03467 / 16 63 0",
-      "website": "https://www.kinderreha-kyffhaeuser.de/",
       "languages": [
         "Deutsch"
       ],

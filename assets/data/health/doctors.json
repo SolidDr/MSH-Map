@@ -5,7 +5,7 @@
     "version": "3.0",
     "region": "Mansfeld-Suedharz",
     "note": "Automatisch gemerged aus OSM + manuellen Daten",
-    "total_count": 147,
+    "total_count": 114,
     "verified_count": 13
   },
   "data": [
@@ -26,40 +26,6 @@
       "specialization": "zahn",
       "source": "openstreetmap",
       "openingHours": "Mo-Fr 08:30-18:30; Sa 08:30-14:00"
-    },
-    {
-      "id": "arzt_msh_053",
-      "type": "doctor",
-      "name": "Alina Petroff",
-      "latitude": 51.3587876,
-      "longitude": 11.1003419,
-      "street": "Anger 8",
-      "postalCode": "06567",
-      "city": "Bad Frankenhausen/Kyffhäuser",
-      "openingHours": "Mo 08:00-12:00,14:30-17:30; Th 08:00-12:00,14:00-16:00; Tu,We,Fr 08:00-12:00",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "specialization": "kinder",
-      "source": "openstreetmap"
-    },
-    {
-      "id": "arzt_msh_141",
-      "type": "doctor",
-      "name": "Allgemeinarztpraxis Steikert",
-      "latitude": 51.3572383,
-      "longitude": 11.1034831,
-      "street": "Poststraße 29",
-      "postalCode": "06567",
-      "city": "Bad Frankenhausen/Kyffhäuser",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
     },
     {
       "id": "arzt_sg_007",
@@ -137,24 +103,6 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "source": "openstreetmap"
-    },
-    {
-      "id": "arzt_msh_059",
-      "type": "doctor",
-      "name": "Augenarzt",
-      "latitude": 51.3675549,
-      "longitude": 10.8522866,
-      "street": "Talstraße 12",
-      "postalCode": "99706",
-      "city": "Sondershausen",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "specialization": "augen",
-      "source": "openstreetmap",
-      "openingHours": "Mo-Fr 08:00-19:00; Sa 08:00-16:00"
     },
     {
       "id": "arzt_msh_068",
@@ -721,62 +669,6 @@
       "source": "openstreetmap"
     },
     {
-      "id": "arzt_msh_046",
-      "type": "doctor",
-      "name": "Dr. Uwe Ludwig/Kinderarzt",
-      "latitude": 51.5072937,
-      "longitude": 10.8009355,
-      "street": "Stolberger Straße 36a",
-      "postalCode": "99734",
-      "city": "Nordhausen",
-      "phone": "+49 3631 982 281",
-      "phoneFormatted": "03631 / 98 22 81",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "specialization": "kinder",
-      "source": "openstreetmap",
-      "openingHours": "Mo-Fr 08:00-12:00, Mo,Th 15:00-18:00; PH off"
-    },
-    {
-      "id": "arzt_msh_143",
-      "type": "doctor",
-      "name": "Dr. med. Andrea Knischka",
-      "latitude": 51.3554657,
-      "longitude": 11.1012064,
-      "street": "Markt 7",
-      "postalCode": "06567",
-      "city": "Bad Frankenhausen/Kyffhäuser",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "source": "openstreetmap",
-      "openingHours": "Mo,Fr 09:00-12:00; Tu 09:00-13:00,14:00-18:00; Th 09:00-13:00,14:00-16:00"
-    },
-    {
-      "id": "arzt_msh_074",
-      "type": "doctor",
-      "name": "Dr. med. Andrea Ose",
-      "latitude": 51.3725215,
-      "longitude": 10.8791315,
-      "street": "Vor dem Wippertor 1",
-      "postalCode": "99706",
-      "city": "Sondershausen",
-      "phone": "+49 3632 788463",
-      "phoneFormatted": "03632 / 78 84 63",
-      "openingHours": "Mo,Tu,Th 08:00-11:30,16:00-17:00; We,Fr 08:00-11:30",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
-    },
-    {
       "id": "arzt_sh_001",
       "type": "doctor",
       "name": "Dr. med. Anja Ehrke",
@@ -797,25 +689,6 @@
       "source": "arzt-auskunft.de, arzt-atlas.de"
     },
     {
-      "id": "arzt_msh_049",
-      "type": "doctor",
-      "name": "Dr. med. Christina Voita",
-      "latitude": 51.5031743,
-      "longitude": 10.8012269,
-      "street": "August-Bebel-Platz 33",
-      "postalCode": "99734",
-      "city": "Nordhausen",
-      "phone": "+49 3631 473311",
-      "phoneFormatted": "03631 / 47 33 11",
-      "openingHours": "Mo-Fr 08:00-12:00, Mo-Th 15:00-18:00; PH off",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
-    },
-    {
       "id": "arzt_sh_085",
       "type": "doctor",
       "name": "Dr. med. Clemens Witzenhausen",
@@ -829,26 +702,6 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "neuro",
-      "source": "openstreetmap"
-    },
-    {
-      "id": "arzt_msh_048",
-      "type": "doctor",
-      "name": "Dr. med. Dirk Ludewig",
-      "latitude": 51.507827,
-      "longitude": 10.8015171,
-      "street": "Stolberger Straße 49",
-      "postalCode": "99734",
-      "city": "Nordhausen",
-      "phone": "+49 3631 988 756",
-      "phoneFormatted": "03631 / 98 87 56",
-      "openingHours": "Mo-Fr 08:00-12:00, Mo,Th 15:00-18:00; PH off",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "specialization": "allgemein",
       "source": "openstreetmap"
     },
     {
@@ -892,42 +745,6 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "innere",
-      "source": "openstreetmap"
-    },
-    {
-      "id": "arzt_msh_118",
-      "type": "doctor",
-      "name": "Dr. med. Katrin Schröter-Höch",
-      "latitude": 51.5310215,
-      "longitude": 10.8308567,
-      "street": "Petersdorfer Straße",
-      "postalCode": "99734",
-      "city": "Nordhausen",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
-    },
-    {
-      "id": "arzt_msh_020",
-      "type": "doctor",
-      "name": "Dr. med. Mandy Rieche",
-      "latitude": 51.3625779,
-      "longitude": 10.8956727,
-      "street": "Frankenhäuser Straße 64",
-      "postalCode": "99706",
-      "city": "Sondershausen",
-      "phone": "+49 3632 700 710",
-      "phoneFormatted": "03632 / 70 07 10",
-      "openingHours": "Tu,We,Fr 08:00-12:00; Mo,Th 08:00-12:00,15:30-17:30",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "specialization": "allgemein",
       "source": "openstreetmap"
     },
     {
@@ -1008,24 +825,6 @@
       "acceptsPrivateInsurance": true,
       "source": "openstreetmap",
       "openingHours": "Tu-Fr 09:00-19:00; Sa 10:00-13:00"
-    },
-    {
-      "id": "arzt_msh_122",
-      "type": "doctor",
-      "name": "Dr. med. Uwe Demel/Facharzt für Allgemeinmedizin",
-      "latitude": 51.5020701,
-      "longitude": 10.805092,
-      "street": "Förstemannstraße 5",
-      "postalCode": "99734",
-      "city": "Nordhausen",
-      "phone": "+49 3631 982176",
-      "phoneFormatted": "03631 / 98 21 76",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
     },
     {
       "id": "arzt_sg_005",
@@ -1164,24 +963,6 @@
       "specialization": "augen",
       "source": "openstreetmap",
       "openingHours": "Tu 14:00-15:30; Th 14:00-18:00"
-    },
-    {
-      "id": "arzt_msh_142",
-      "type": "doctor",
-      "name": "Frau Dr. med. Barbara Trautvetter Internistin",
-      "latitude": 51.3557733,
-      "longitude": 11.0990095,
-      "street": "Klosterstraße 17",
-      "postalCode": "06567",
-      "city": "Bad Frankenhausen/Kyffhäuser",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "specialization": "innere",
-      "source": "openstreetmap",
-      "openingHours": "Mo-Fr 08:00-18:30; Sa 08:30-12:00"
     },
     {
       "id": "arzt_msh_069",
@@ -1325,47 +1106,6 @@
       "openingHours": "Mo 08:00-16:00; Tu,Th 12:00-18:00; We,Fr 08:00-13:00; Sa,Su,PH off"
     },
     {
-      "id": "arzt_msh_051",
-      "type": "doctor",
-      "name": "Gemeinschaftspraxis Thekla Höpker & Claudia Terschluse-Knabe/Kinder- und Jugendmedizin",
-      "latitude": 51.5022127,
-      "longitude": 10.8197576,
-      "street": "Conrad-Fromann-Straße 15",
-      "postalCode": "99734",
-      "city": "Nordhausen",
-      "phone": "+49 3631 895187",
-      "phoneFormatted": "03631 / 89 51 87",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "specialization": "kinder",
-      "source": "openstreetmap",
-      "openingHours": "Mo-Su 11:00-21:00"
-    },
-    {
-      "id": "arzt_msh_073",
-      "type": "doctor",
-      "name": "Gemeinschaftspraxis Voigtsberger & Werner",
-      "latitude": 51.3660104,
-      "longitude": 10.8877362,
-      "street": "Frankenhäuser Straße 50",
-      "postalCode": "99706",
-      "city": "Sondershausen",
-      "phone": "+49 3632 757676",
-      "phoneFormatted": "03632 / 75 76 76",
-      "website": "https://www.vw-gp.de/",
-      "openingHours": "Mo,Th 08:00-12:00,15:30-18:00; Tu,We,Fr 08:00-12:00",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "specialization": "allgemein",
-      "source": "openstreetmap"
-    },
-    {
       "id": "arzt_msh_117",
       "type": "doctor",
       "name": "Gemeinschaftspraxis für Allgemeinmedizin",
@@ -1399,45 +1139,6 @@
       ],
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
-    },
-    {
-      "id": "arzt_msh_121",
-      "type": "doctor",
-      "name": "Goldmann",
-      "latitude": 51.363953,
-      "longitude": 10.8684122,
-      "street": "Philipp-Spitta-Straße 7",
-      "postalCode": "99706",
-      "city": "Sondershausen",
-      "phone": "+49 3632 758356",
-      "phoneFormatted": "03632 / 75 83 56",
-      "openingHours": "Mo-We,Fr 08:00-13:00; Th 14:00-19:00",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "specialization": "allgemein",
-      "source": "openstreetmap"
-    },
-    {
-      "id": "arzt_msh_018",
-      "type": "doctor",
-      "name": "Götzl",
-      "latitude": 51.3689474,
-      "longitude": 10.870325,
-      "street": "Gartenstraße 1a",
-      "postalCode": "99706",
-      "city": "Sondershausen",
-      "website": "https://www.frauenarzt-sondershausen.de/",
-      "openingHours": "Mo,Fr 08:00-14:00; Tu 08:00-12:00,14:30-18:00; We 08:00-12:00; Th 08:00-12:00,14:30-17:30",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "specialization": "gyn",
       "source": "openstreetmap"
     },
     {
@@ -1513,26 +1214,6 @@
       "acceptsPrivateInsurance": true,
       "specialization": "zahn",
       "source": "openstreetmap"
-    },
-    {
-      "id": "arzt_msh_052",
-      "type": "doctor",
-      "name": "Irmgard Kamp/Zahnärztin",
-      "latitude": 51.5019829,
-      "longitude": 10.8187845,
-      "street": "Conrad-Fromann-Straße 27",
-      "postalCode": "99734",
-      "city": "Nordhausen",
-      "phone": "+49 3631 985192",
-      "phoneFormatted": "03631 / 98 51 92",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "specialization": "zahn",
-      "source": "openstreetmap",
-      "openingHours": "Mo-Fr 08:00-18:00; Sa 09:00-12:00"
     },
     {
       "id": "arzt_sg_104",
@@ -1624,41 +1305,6 @@
       "phoneFormatted": "03464 / 34 48 63",
       "website": "http://praxis-wenschuh.de/index.php?article_id=2",
       "openingHours": "Mo 08:00-12:00, 13:00-17:00; Tu 08:00-12:00; We 08:00-12:00; Th 08:00-12:00, 13:00-18:00; Fr 08:00-12:00, 13:00-15:00",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "specialization": "zahn",
-      "source": "openstreetmap"
-    },
-    {
-      "id": "arzt_msh_019",
-      "type": "doctor",
-      "name": "Kieferorthopädie Dr.med. Christina Keilitz",
-      "latitude": 51.3690365,
-      "longitude": 10.8692472,
-      "street": "Bebrastraße 19",
-      "postalCode": "99706",
-      "city": "Sondershausen",
-      "openingHours": "Mo 08:00-12:00; Tu 08:00-12:00,13:00-16:00; We,Th 08:00-12:00,14:00-18:00",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "specialization": "zahn",
-      "source": "openstreetmap"
-    },
-    {
-      "id": "arzt_msh_057",
-      "type": "doctor",
-      "name": "Kieferorthopädie Nicola Planz",
-      "latitude": 51.3523941,
-      "longitude": 11.0974438,
-      "street": "Bahnhofstraße 9",
-      "postalCode": "06567",
-      "city": "Bad Frankenhausen/Kyffhäuser",
       "languages": [
         "Deutsch"
       ],
@@ -1794,26 +1440,6 @@
       "openingHours": "Mo-Fr 06:00-13:00,14:00-17:00; Sa 06:00-11:00"
     },
     {
-      "id": "arzt_msh_144",
-      "type": "doctor",
-      "name": "Matthias Knabe, Arzt, Internist",
-      "latitude": 51.5036349,
-      "longitude": 10.8047944,
-      "street": "Kützingstraße 4",
-      "postalCode": "99734",
-      "city": "Nordhausen",
-      "phone": "+49 3631 988143",
-      "phoneFormatted": "03631 / 98 81 43",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "specialization": "innere",
-      "source": "openstreetmap",
-      "openingHours": "Mo-Th 09:00-15:30; Fr 09:00-14:30"
-    },
-    {
       "id": "arzt_el_065",
       "type": "doctor",
       "name": "MedFit Eisleben",
@@ -1829,24 +1455,6 @@
       "acceptsPrivateInsurance": true,
       "source": "openstreetmap",
       "openingHours": "Tu,Th 13:00-16:00,18:00-21:00; We 09:00-21:00; Fr 14:00-19:00; Sa,Su 09:00-18:00; Mo off"
-    },
-    {
-      "id": "arzt_msh_145",
-      "type": "doctor",
-      "name": "Medi-Dentis GmbH Dental-Labor",
-      "latitude": 51.357503,
-      "longitude": 11.1017709,
-      "street": "Erfurter Straße 11",
-      "postalCode": "06567",
-      "city": "Bad Frankenhausen/Kyffhäuser",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "specialization": "zahn",
-      "source": "openstreetmap",
-      "openingHours": "Mo-Fr 09:00-13:00,14:30-18:00; Sa 09:30-12:00"
     },
     {
       "id": "arzt_msh_106",
@@ -1865,26 +1473,6 @@
       "specialization": "allgemein",
       "source": "openstreetmap",
       "openingHours": "Mo-Fr 08:00-18:00; Sa 08:00-14:00"
-    },
-    {
-      "id": "arzt_msh_078",
-      "type": "doctor",
-      "name": "Neumann",
-      "latitude": 51.3694791,
-      "longitude": 10.8652467,
-      "street": "Ferdinand-Schlufter-Straße 23",
-      "postalCode": "99706",
-      "city": "Sondershausen",
-      "phone": "+49 3632 757175",
-      "phoneFormatted": "03632 / 75 71 75",
-      "openingHours": "Mo,Tu,Th 08:00-12:00,15:00-18:00; We,Fr 08:00-12:00",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "specialization": "innere",
-      "source": "openstreetmap"
     },
     {
       "id": "arzt_msh_132",
@@ -1945,25 +1533,6 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "allgemein",
-      "source": "openstreetmap"
-    },
-    {
-      "id": "arzt_msh_072",
-      "type": "doctor",
-      "name": "Ose",
-      "latitude": 51.3718014,
-      "longitude": 10.8769597,
-      "street": "Planplatz 8",
-      "postalCode": "99706",
-      "city": "Sondershausen",
-      "website": "http://www.hno-ose.de/",
-      "openingHours": "Mo 08:00-12:00,13:30-17:30; Tu 08:00-13:00; We,Fr 08:00-12:00; Th 14:00-18:00",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "specialization": "hno",
       "source": "openstreetmap"
     },
     {
@@ -2172,24 +1741,6 @@
       "source": "openstreetmap"
     },
     {
-      "id": "arzt_msh_075",
-      "type": "doctor",
-      "name": "Rommel",
-      "latitude": 51.3685649,
-      "longitude": 10.867334,
-      "street": "Güntherstraße 9",
-      "postalCode": "99706",
-      "city": "Sondershausen",
-      "website": "https://www.psychotherapie-sondershausen.de/",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "source": "openstreetmap",
-      "openingHours": "Mo 08:00-12:00,14:00-18:00; Tu 08:00-16:00; We 08:00-11:00,14:00-19:00; Th,Fr 08:00-12:00"
-    },
-    {
       "id": "arzt_sg_002",
       "type": "doctor",
       "name": "Sandra Grünewald",
@@ -2228,26 +1779,6 @@
       "source": "openstreetmap"
     },
     {
-      "id": "arzt_msh_077",
-      "type": "doctor",
-      "name": "Schrödter",
-      "latitude": 51.3695241,
-      "longitude": 10.8664611,
-      "street": "Ferdinand-Schlufter-Straße 21",
-      "postalCode": "99706",
-      "city": "Sondershausen",
-      "phone": "+49 3632 602510",
-      "phoneFormatted": "03632 / 60 25 10",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "specialization": "allgemein",
-      "source": "openstreetmap",
-      "openingHours": "Mo,Th 13:00-18:00; Tu,We 08:00-13:00; Fr 08:00-12:00"
-    },
-    {
       "id": "arzt_sg_095",
       "type": "doctor",
       "name": "Sylke Handke",
@@ -2266,23 +1797,6 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "zahn",
-      "source": "openstreetmap"
-    },
-    {
-      "id": "arzt_msh_146",
-      "type": "doctor",
-      "name": "Tagesklinik für Psychiatrie und Psychotherapie Bad Frankenhausen",
-      "latitude": 51.3536744,
-      "longitude": 11.1077541,
-      "street": "Stiftstraße 2-4",
-      "postalCode": "06567",
-      "city": "Bad Frankenhausen/Kyffhäuser",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "specialization": "psycho",
       "source": "openstreetmap"
     },
     {
@@ -2360,23 +1874,6 @@
       "source": "openstreetmap"
     },
     {
-      "id": "arzt_msh_071",
-      "type": "doctor",
-      "name": "Weituschat",
-      "latitude": 51.3711444,
-      "longitude": 10.8758698,
-      "street": "Johann-Karl-Wezel-Straße 53",
-      "postalCode": "99706",
-      "city": "Sondershausen",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "source": "openstreetmap",
-      "openingHours": "Mo-Fr 09:00-18:00; Sa 09:00-12:00"
-    },
-    {
       "id": "arzt_sh_086",
       "type": "doctor",
       "name": "Witzenhausen",
@@ -2432,24 +1929,6 @@
       "acceptsPrivateInsurance": true,
       "specialization": "hno",
       "source": "openstreetmap"
-    },
-    {
-      "id": "arzt_msh_055",
-      "type": "doctor",
-      "name": "Zahnarztnarztpraxis Kott",
-      "latitude": 51.356364,
-      "longitude": 11.0991443,
-      "street": "Klosterstraße 15",
-      "postalCode": "06567",
-      "city": "Bad Frankenhausen/Kyffhäuser",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "specialization": "zahn",
-      "source": "openstreetmap",
-      "openingHours": "Mo-Fr 07:30-19:00; Sa 08:00-12:00"
     },
     {
       "id": "arzt_msh_066",
@@ -2536,24 +2015,6 @@
       "openingHours": "Mo-Th 07:00-15:30, Fr 07:00-13:00"
     },
     {
-      "id": "arzt_msh_054",
-      "type": "doctor",
-      "name": "Zahnarztpraxis Dr. med. dent. Thomas E. Berger",
-      "latitude": 51.3560131,
-      "longitude": 11.100232,
-      "street": "Markt 8",
-      "postalCode": "06567",
-      "city": "Bad Frankenhausen/Kyffhäuser",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "specialization": "zahn",
-      "source": "openstreetmap",
-      "openingHours": "Mo,Fr 09:00-12:00; Tu 09:00-13:00,14:00-18:00; Th 09:00-13:00,14:00-16:00"
-    },
-    {
       "id": "arzt_sh_032",
       "type": "doctor",
       "name": "Zahnarztpraxis Köhler",
@@ -2600,80 +2061,6 @@
       "city": "Oberharz am Brocken",
       "phone": "+49 39459 71949",
       "phoneFormatted": "03945 / 97 19 49",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "specialization": "zahn",
-      "source": "openstreetmap"
-    },
-    {
-      "id": "arzt_msh_056",
-      "type": "doctor",
-      "name": "Zahnarztpraxis Mandy Schmugge",
-      "latitude": 51.3532891,
-      "longitude": 11.1008877,
-      "street": "Schloßstraße 15",
-      "postalCode": "06567",
-      "city": "Bad Frankenhausen/Kyffhäuser",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "specialization": "zahn",
-      "source": "openstreetmap",
-      "openingHours": "Mo-Sa 08:00-20:00"
-    },
-    {
-      "id": "arzt_msh_067",
-      "type": "doctor",
-      "name": "Zahnarztpraxis Mitzschke",
-      "latitude": 51.3063553,
-      "longitude": 11.583024,
-      "street": "Straße der DSF 19",
-      "postalCode": "06268",
-      "city": "Querfurt",
-      "phone": "+49 34461 22275",
-      "phoneFormatted": "03446 / 12 22 75",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "specialization": "zahn",
-      "source": "openstreetmap"
-    },
-    {
-      "id": "arzt_msh_064",
-      "type": "doctor",
-      "name": "Zahnarztpraxis Rübsam",
-      "latitude": 51.3704203,
-      "longitude": 10.8726266,
-      "street": "Nikolaus-von-Halem-Straße 17",
-      "postalCode": "99706",
-      "city": "Sondershausen",
-      "phone": "+49 3632 783320",
-      "phoneFormatted": "03632 / 78 33 20",
-      "openingHours": "Mo,We,Th 08:00-12:00,14:30-18:30; Tu 08:00-13:00; Fr 08:00-12:00,14:30-16:30",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "specialization": "zahn",
-      "source": "openstreetmap"
-    },
-    {
-      "id": "arzt_msh_140",
-      "type": "doctor",
-      "name": "Zahnarztpraxis Schlee",
-      "latitude": 51.3604994,
-      "longitude": 11.0983974,
-      "street": "Wilhelm-Schall-Straße 2b",
-      "postalCode": "06567",
-      "city": "Bad Frankenhausen/Kyffhäuser",
       "languages": [
         "Deutsch"
       ],
