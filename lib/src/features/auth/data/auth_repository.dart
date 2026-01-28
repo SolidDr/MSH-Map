@@ -32,15 +32,23 @@ class AuthRepository {
   Stream<UserModel?> get authStateChanges {
     final auth = _auth;
     if (auth == null) return Stream.value(null);
-    return auth.authStateChanges().map((user) {
-      if (user == null) return null;
-      return UserModel(
-        uid: user.uid,
-        email: user.email ?? '',
-        displayName: user.displayName,
-        photoUrl: user.photoURL,
-      );
-    });
+    try {
+      return auth.authStateChanges().map((user) {
+        if (user == null) return null;
+        return UserModel(
+          uid: user.uid,
+          email: user.email ?? '',
+          displayName: user.displayName,
+          photoUrl: user.photoURL,
+        );
+      }).handleError((Object error) {
+        debugPrint('Auth state error: $error');
+        return null;
+      });
+    } catch (e) {
+      debugPrint('Auth stream error: $e');
+      return Stream.value(null);
+    }
   }
 
   /// Get current user (null wenn Auth nicht verfügbar)
