@@ -1,5 +1,4 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../auth/data/auth_repository.dart';
 import '../../about/data/traffic_counter_service.dart';
 import '../../ratings/application/rating_providers.dart';
 import '../../ratings/domain/rating_model.dart';
@@ -8,32 +7,26 @@ import '../../ratings/domain/rating_model.dart';
 // ADMIN-KONFIGURATION
 // ═══════════════════════════════════════════════════════════════
 
-/// Liste der Admin-Email-Adressen
-const _adminEmails = <String>{
-  'konstantin.lange@kolan-system.de',
-  'admin@msh-map.de',
-};
+/// Geheimer Admin-Schlüssel (URL-Parameter: ?key=...)
+const _adminKey = 'msh2024admin';
 
-/// Prüft ob eine Email Admin-Rechte hat
-bool isAdminEmail(String? email) {
-  if (email == null) return false;
-  return _adminEmails.contains(email.toLowerCase());
+/// Prüft ob der Schlüssel gültig ist
+bool isValidAdminKey(String? key) {
+  if (key == null || key.isEmpty) return false;
+  return key == _adminKey;
 }
 
 // ═══════════════════════════════════════════════════════════════
 // ADMIN PROVIDERS
 // ═══════════════════════════════════════════════════════════════
 
+/// State Provider für Admin-Status (wird von URL-Parameter gesetzt)
+final adminKeyProvider = StateProvider<String?>((ref) => null);
+
 /// Provider für den aktuellen Admin-Status
 final isAdminProvider = Provider<bool>((ref) {
-  try {
-    final authRepo = ref.watch(authRepositoryProvider);
-    final user = authRepo.currentUser;
-    return user != null && isAdminEmail(user.email);
-  } catch (e) {
-    // Falls Auth nicht verfügbar, kein Admin
-    return false;
-  }
+  final key = ref.watch(adminKeyProvider);
+  return isValidAdminKey(key);
 });
 
 /// Provider für Traffic-Statistiken

@@ -86,10 +86,13 @@ final appRouter = GoRouter(
           path: '/nutzungsbedingungen',
           builder: (context, state) => const NutzungsbedingungenScreen(),
         ),
-        // Admin Dashboard (versteckte Route)
+        // Admin Dashboard (versteckte Route, Zugang über ?key=...)
         GoRoute(
           path: '/admin',
-          builder: (context, state) => const AdminScreen(),
+          builder: (context, state) {
+            final key = state.uri.queryParameters['key'];
+            return AdminScreen(adminKey: key);
+          },
         ),
         // Modul-Routes dynamisch sammeln
         ...ModuleRegistry.instance.collectAllRoutes(),

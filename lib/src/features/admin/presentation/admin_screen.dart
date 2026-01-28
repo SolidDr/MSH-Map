@@ -9,12 +9,28 @@ import '../../ratings/domain/rating_model.dart';
 import '../../ratings/presentation/rating_input_widget.dart';
 import '../application/admin_providers.dart';
 
-/// Admin Dashboard Screen (nur für authentifizierte Admins)
-class AdminScreen extends ConsumerWidget {
-  const AdminScreen({super.key});
+/// Admin Dashboard Screen (Zugang über URL-Parameter ?key=...)
+class AdminScreen extends ConsumerStatefulWidget {
+  const AdminScreen({super.key, this.adminKey});
+
+  final String? adminKey;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<AdminScreen> createState() => _AdminScreenState();
+}
+
+class _AdminScreenState extends ConsumerState<AdminScreen> {
+  @override
+  void initState() {
+    super.initState();
+    // Admin-Key aus URL setzen
+    Future.microtask(() {
+      ref.read(adminKeyProvider.notifier).state = widget.adminKey;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final isAdmin = ref.watch(isAdminProvider);
 
     if (!isAdmin) {
