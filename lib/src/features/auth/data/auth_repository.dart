@@ -1,26 +1,38 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart' show debugPrint;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../domain/user_model.dart';
 
-/// Provider for FirebaseAuth instance
-final firebaseAuthProvider = Provider<FirebaseAuth>((ref) {
-  return FirebaseAuth.instance;
+/// Provider for FirebaseAuth instance (nullable für Web-Sicherheit)
+final firebaseAuthProvider = Provider<FirebaseAuth?>((ref) {
+  try {
+    return FirebaseAuth.instance;
+  } catch (e) {
+    debugPrint('FirebaseAuth init error: $e');
+    return null;
+  }
 });
 
 /// Provider for the auth repository
 final authRepositoryProvider = Provider<AuthRepository>((ref) {
-  return AuthRepository(ref.watch(firebaseAuthProvider));
+  final auth = ref.watch(firebaseAuthProvider);
+  return AuthRepository(auth);
 });
 
 /// Repository handling authentication operations
 class AuthRepository {
   AuthRepository(this._auth);
-  final FirebaseAuth _auth;
+  final FirebaseAuth? _auth;
 
-  /// Get current user stream
+  /// Prüft ob Auth verfügbar ist
+  bool get isAvailable => _auth != null;
+
+  /// Get current user stream (leerer Stream wenn Auth nicht verfügbar)
   Stream<UserModel?> get authStateChanges {
-    return _auth.authStateChanges().map((user) {
+    final auth = _auth;
+    if (auth == null) return Stream.value(null);
+    return auth.authStateChanges().map((user) {
       if (user == null) return null;
       return UserModel(
         uid: user.uid,
@@ -31,10 +43,12 @@ class AuthRepository {
     });
   }
 
-  /// Get current user (mit Fehlerbehandlung für frühe Aufrufe)
+  /// Get current user (null wenn Auth nicht verfügbar)
   UserModel? get currentUser {
     try {
-      final user = _auth.currentUser;
+      final auth = _auth;
+      if (auth == null) return null;
+      final user = auth.currentUser;
       if (user == null) return null;
       return UserModel(
         uid: user.uid,
@@ -50,7 +64,9 @@ class AuthRepository {
 
   /// Sign in with email and password
   Future<UserModel?> signInWithEmail(String email, String password) async {
-    final credential = await _auth.signInWithEmailAndPassword(
+    final auth = _auth;
+    if (auth == null) return null;
+    final credential = await auth.signInWithEmailAndPassword(
       email: email,
       password: password,
     );
@@ -66,7 +82,9 @@ class AuthRepository {
 
   /// Register with email and password
   Future<UserModel?> registerWithEmail(String email, String password) async {
-    final credential = await _auth.createUserWithEmailAndPassword(
+    final auth = _auth;
+    if (auth == null) return null;
+    final credential = await auth.createUserWithEmailAndPassword(
       email: email,
       password: password,
     );
@@ -80,6 +98,6 @@ class AuthRepository {
 
   /// Sign out
   Future<void> signOut() async {
-    await _auth.signOut();
+    await _auth?.signOut();
   }
 }
