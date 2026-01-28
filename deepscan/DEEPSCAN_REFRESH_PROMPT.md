@@ -126,7 +126,51 @@ curl -s "https://www.msh-map.de/assets/lib/assets/data/locations.json" | head -c
 python deepscan_main.py --source wikidata
 ```
 
-### Notices (Straßensperrungen, Warnungen) aktualisieren
+### Health-Daten (Aerzte, Apotheken, Krankenhaeuser) aktualisieren
+
+```bash
+cd deepscan
+
+# 1. OSM-Daten scrapen (findet Aerzte, Apotheken, Krankhaeuser, Physio, Pflege)
+python scrapers/health_scraper.py
+
+# 2. Mit manuellen Daten mergen (manuelle haben Prioritaet)
+python health_merge.py
+```
+
+**Was passiert:**
+- Scrapt OSM nach: doctors, pharmacy, hospital, physiotherapy, care_service, medical_supply
+- Merged mit manuellen verifizierten Daten aus assets/data/health/
+- Entfernt Duplikate (100m Radius + Namens-Matching)
+- Fuehrt Gap-Analyse durch (zeigt Orte ohne Abdeckung)
+
+**Outputs:**
+- `assets/data/health/doctors.json` - Alle Aerzte (~150+)
+- `assets/data/health/pharmacies.json` - Alle Apotheken (~70)
+- `assets/data/health/hospitals.json` - Alle Krankenhaeuser (~15)
+- `assets/data/health/physiotherapy.json` - Physiotherapeuten (~25)
+- `assets/data/health/care_services.json` - Pflegedienste (~27)
+- `assets/data/health/medical_supply.json` - Sanitaetshaeuser (~24)
+
+**Bei Luecken:**
+Wenn die Gap-Analyse Orte ohne Abdeckung zeigt:
+1. Manuell auf arzt-auskunft.de, jameda.de recherchieren
+2. In `assets/data/health/doctors.json` (oder entsprechende Datei) eintragen
+3. Merge erneut ausfuehren
+
+**Erwartete Ergebnisse:**
+| Kategorie | OSM | Manuell | Nach Merge |
+|-----------|-----|---------|------------|
+| Aerzte | ~185 | 13 | ~150 |
+| Apotheken | ~60 | 12 | ~70 |
+| Krankenhaeuser | ~12 | 3 | ~15 |
+| Physiotherapie | ~25 | 0 | ~25 |
+| Pflegedienste | ~28 | 0 | ~27 |
+| Sanitaetshaeuser | ~28 | 0 | ~24 |
+
+---
+
+### Notices (Strassensperrungen, Warnungen) aktualisieren
 
 ```bash
 cd scrapers
@@ -170,17 +214,29 @@ python validate_notices.py --verbose
 
 ---
 
-## Datenquellen-Übersicht
+## Datenquellen-Uebersicht
 
-| Quelle | Update-Frequenz | Priorität | Vertrauenswuerdig |
-|--------|-----------------|-----------|-------------------|
-| **OSM** | Live-Daten | Hoechste | JA (automatisch) |
+| Quelle | Update-Frequenz | Prioritaet | Vertrauenswuerdig |
+|--------|-----------------|------------|-------------------|
+| **OSM (Locations)** | Live-Daten | Hoechste | JA (automatisch) |
+| **OSM (Health)** | Live-Daten | Hoch | JA (automatisch) |
 | **Wikidata** | Selten (monatlich) | Hoch | JA (automatisch) |
 | **Seed-Daten (VERIFIZIERT)** | Manuell kuratiert | Mittel | JA (mit URL) |
+| **Health Manual** | Manuell kuratiert | Hoechste | JA (arzt-auskunft.de) |
 | **Events** | Woechentlich (KW) | Mittel | Manuell pruefen |
 | **Notices** | Bei Bedarf | Mittel | Manuell pruefen |
 
 **NIEMALS** ungepruefte Daten aus anderen Quellen hinzufuegen!
+
+---
+
+## Schnell-Befehle
+
+| Befehl | Beschreibung |
+|--------|--------------|
+| `start deepsearch_refresh` | Kompletter Location-Refresh |
+| `python scrapers/health_scraper.py && python health_merge.py` | Health-Daten aktualisieren |
+| `python scrapers/notice_scraper.py --merge` | Notices aktualisieren |
 
 ---
 

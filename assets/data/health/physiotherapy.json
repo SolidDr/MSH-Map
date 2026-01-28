@@ -1,0 +1,436 @@
+{
+  "meta": {
+    "source": "openstreetmap, arzt-auskunft.de, manual",
+    "created_at": "2026-01-28",
+    "version": "3.0",
+    "region": "Mansfeld-Suedharz",
+    "note": "Automatisch gemerged aus OSM + manuellen Daten",
+    "total_count": 25,
+    "verified_count": 0
+  },
+  "data": [
+    {
+      "id": "physio_msh_001",
+      "type": "physiotherapy",
+      "name": "Auszeit",
+      "latitude": 51.6730081,
+      "longitude": 11.7723568,
+      "street": "Platz des Friedens 6",
+      "postalCode": "06420",
+      "city": "Könnern",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "physio_sg_011",
+      "type": "physiotherapy",
+      "name": "Katja Woitzik",
+      "latitude": 51.4711253,
+      "longitude": 11.2917388,
+      "street": "Kyselhäuser Straße 1",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "+49 151 140 123 88",
+      "phoneFormatted": "01511 / 40 12 388",
+      "website": "https://www.osteopathie-sangerhausen.de/",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "physio_sg_010",
+      "type": "physiotherapy",
+      "name": "Milus",
+      "latitude": 51.4751348,
+      "longitude": 11.2991342,
+      "street": "Alte Magdeburger Straße 21",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "physio_sg_012",
+      "type": "physiotherapy",
+      "name": "Naumann",
+      "latitude": 51.4733455,
+      "longitude": 11.2949477,
+      "street": "Grauengasse 8",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "+49 3464 5456600",
+      "phoneFormatted": "03464 / 54 56 600",
+      "website": "https://www.physionaumann.de/",
+      "openingHours": "Mo-Th 07:00-20:00; Fr 07:00-14:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "physio_sg_014",
+      "type": "physiotherapy",
+      "name": "Physiotherapeutische Gemeinschaftspraxis",
+      "latitude": 51.4612239,
+      "longitude": 11.2941915,
+      "street": "Karl-Liebknecht-Straße 64",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "+493464613760",
+      "phoneFormatted": "03464 / 61 37 60",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "physio_sh_003",
+      "type": "physiotherapy",
+      "name": "Physiotherapie",
+      "latitude": 51.2694243,
+      "longitude": 11.4049196,
+      "city": "Mansfeld-Südharz",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "physio_sh_006",
+      "type": "physiotherapy",
+      "name": "Physiotherapie Alex Ulrich",
+      "latitude": 51.3697401,
+      "longitude": 10.8692108,
+      "city": "Mansfeld-Südharz",
+      "phone": "+49 3632 8223360",
+      "phoneFormatted": "03632 / 82 23 360",
+      "openingHours": "Mo-Th 07:00-20:00; Fr 07:00-16:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "physio_msh_019",
+      "type": "physiotherapy",
+      "name": "Physiotherapie Birgit Lambert",
+      "latitude": 51.2674061,
+      "longitude": 11.4129476,
+      "street": "Oertelstraße 7",
+      "postalCode": "06571",
+      "city": "Roßleben-Wiehe",
+      "phone": "+49 34672 82027",
+      "phoneFormatted": "03467 / 28 20 27",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "physio_msh_021",
+      "type": "physiotherapy",
+      "name": "Physiotherapie Edda Haustein",
+      "latitude": 51.32266,
+      "longitude": 11.3185227,
+      "street": "Bahnhofstraße 21",
+      "postalCode": "06571",
+      "city": "Gehofen",
+      "phone": "+49 3466 320691",
+      "phoneFormatted": "03466 / 32 06 91",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "physio_msh_020",
+      "type": "physiotherapy",
+      "name": "Physiotherapie Ellen Seyffert",
+      "latitude": 51.2651745,
+      "longitude": 11.4181054,
+      "street": "Am Friedhof 8",
+      "postalCode": "06571",
+      "city": "Roßleben-Wiehe",
+      "phone": "+49 34672 60437",
+      "phoneFormatted": "03467 / 26 04 37",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "physio_sh_005",
+      "type": "physiotherapy",
+      "name": "Physiotherapie Heerdegen",
+      "latitude": 51.4625996,
+      "longitude": 11.671996,
+      "city": "Mansfeld-Südharz",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "physio_msh_023",
+      "type": "physiotherapy",
+      "name": "Physiotherapie Heike Brock",
+      "latitude": 51.3645336,
+      "longitude": 11.2909803,
+      "street": "Wasserstraße 7",
+      "postalCode": "06556",
+      "city": "Artern",
+      "phone": "+49 3466 339011",
+      "phoneFormatted": "03466 / 33 90 11",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "physio_sh_004",
+      "type": "physiotherapy",
+      "name": "Physiotherapie Hübner und Lerch",
+      "latitude": 51.3652802,
+      "longitude": 11.2941583,
+      "city": "Mansfeld-Südharz",
+      "phone": "+49 3466 31073",
+      "phoneFormatted": "03466 / 31 07 3",
+      "website": "http://www.physio-artern.de/",
+      "openingHours": "Mo-Th 07:00-20:00; Fr 07:00-16:00; Sa-Su off",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "physio_msh_017",
+      "type": "physiotherapy",
+      "name": "Physiotherapie Nindelt",
+      "latitude": 51.300381,
+      "longitude": 11.4346689,
+      "street": "Ziegelrodaer Straße 66",
+      "postalCode": "06571",
+      "city": "Roßleben-Wiehe",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "physio_msh_016",
+      "type": "physiotherapy",
+      "name": "Physiotherapie Petz",
+      "latitude": 51.3656679,
+      "longitude": 10.8712887,
+      "street": "Possenallee 25",
+      "postalCode": "99706",
+      "city": "Sondershausen",
+      "website": "https://www.physio-petz.de/",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "physio_el_002",
+      "type": "physiotherapy",
+      "name": "Physiotherapie Schlegel",
+      "latitude": 51.5171371,
+      "longitude": 11.559659,
+      "street": "Schillerstraße 38",
+      "postalCode": "06295",
+      "city": "Lutherstadt Eisleben",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "physio_msh_022",
+      "type": "physiotherapy",
+      "name": "Physiotherapie Stiebe",
+      "latitude": 51.6924747,
+      "longitude": 10.8470509,
+      "street": "Hagenstraße 10",
+      "postalCode": "38899",
+      "city": "Oberharz am Brocken",
+      "phone": "+49 39459 72323",
+      "phoneFormatted": "03945 / 97 23 23",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "physio_msh_018",
+      "type": "physiotherapy",
+      "name": "Physiotherapie Voigt",
+      "latitude": 51.2970234,
+      "longitude": 11.4352693,
+      "street": "Friedenstraße 1",
+      "postalCode": "06571",
+      "city": "Roßleben-Wiehe",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "physio_sh_009",
+      "type": "physiotherapy",
+      "name": "Physiotherapie am Taschenberg",
+      "latitude": 51.4983877,
+      "longitude": 10.8020644,
+      "city": "Mansfeld-Südharz",
+      "phone": "+49 3631 600601",
+      "phoneFormatted": "03631 / 60 06 01",
+      "openingHours": "Mo-Th 08:00-18:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "physio_gb_024",
+      "type": "physiotherapy",
+      "name": "Praxis Physiotherapie Nicola Feige",
+      "latitude": 51.6034386,
+      "longitude": 11.544797,
+      "street": "Mittelstraße 2",
+      "postalCode": "06347",
+      "city": "Gerbstedt",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "physio_msh_025",
+      "type": "physiotherapy",
+      "name": "Praxis für Krankengymnastik und Physiotherapie",
+      "latitude": 51.3562393,
+      "longitude": 11.0999311,
+      "street": "Markt 9",
+      "postalCode": "06567",
+      "city": "Bad Frankenhausen/Kyffhäuser",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "physio_msh_008",
+      "type": "physiotherapy",
+      "name": "Praxis für Physiotherapie König",
+      "latitude": 51.688985,
+      "longitude": 10.8471499,
+      "street": "Sellgraben 3",
+      "postalCode": "38899",
+      "city": "Oberharz am Brocken",
+      "phone": "+49 39459 71160",
+      "phoneFormatted": "03945 / 97 11 60",
+      "website": "http://www.xn--solveig-knig-physiotherapie-xyc.de",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "physio_sh_007",
+      "type": "physiotherapy",
+      "name": "TGZ Physiotherapeut",
+      "latitude": 51.5715076,
+      "longitude": 11.4914629,
+      "city": "Mansfeld-Südharz",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "physio_sh_015",
+      "type": "physiotherapy",
+      "name": "Tina Jödecke",
+      "latitude": 51.4599299,
+      "longitude": 11.2040614,
+      "city": "Mansfeld-Südharz",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "physio_sg_013",
+      "type": "physiotherapy",
+      "name": "rehaFLEX",
+      "latitude": 51.4722635,
+      "longitude": 11.2952779,
+      "street": "Kylische Straße 31",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "+49 3464276 77 90",
+      "phoneFormatted": "03464 / 27 67 790",
+      "website": "https://reha-flex.de/",
+      "openingHours": "Mo-Th 07:30-19:00; Fr 07:30-17:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    }
+  ]
+}

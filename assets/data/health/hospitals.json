@@ -1,24 +1,125 @@
 {
   "meta": {
-    "source": "helios-gesundheit.de, bundes-klinik-atlas.de",
-    "created_at": "2026-01-27",
-    "version": "1.0",
-    "region": "Mansfeld-Südharz",
-    "note": "Echte Krankenhaus-Daten"
+    "source": "openstreetmap, arzt-auskunft.de, manual",
+    "created_at": "2026-01-28",
+    "version": "3.0",
+    "region": "Mansfeld-Suedharz",
+    "note": "Automatisch gemerged aus OSM + manuellen Daten",
+    "total_count": 15,
+    "verified_count": 3
   },
   "data": [
+    {
+      "id": "kh_msh_006",
+      "type": "hospital",
+      "name": "Barbarossa Klinik",
+      "latitude": 51.4304219,
+      "longitude": 11.0299712,
+      "street": "Lange Straße 111",
+      "postalCode": "06537",
+      "city": "Kelbra (Kyffhäuser)",
+      "phone": "+49 34651 459-0",
+      "phoneFormatted": "03465 / 14 59 0",
+      "website": "https://www.barbarossa-klinik-kelbra.de/",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "kh_sh_013",
+      "type": "hospital",
+      "name": "Carl-von-Basedow-Klinikum",
+      "latitude": 51.3702754,
+      "longitude": 11.6074159,
+      "city": "Mansfeld-Südharz",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "kh_msh_011",
+      "type": "hospital",
+      "name": "Deutsche Rentenversicherung BUND – Reha-Zentrum Bad Frankenhausen",
+      "latitude": 51.3588575,
+      "longitude": 11.1154982,
+      "street": "Udersleber Weg 35",
+      "postalCode": "06567",
+      "city": "Bad Frankenhausen/Kyffhäuser",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "kh_ht_001",
+      "type": "hospital",
+      "name": "HELIOS Klinik Hettstedt",
+      "latitude": 51.6412,
+      "longitude": 11.5134,
+      "street": "Robert-Koch-Straße 6",
+      "postalCode": "06333",
+      "city": "Hettstedt",
+      "phone": "034760",
+      "phoneFormatted": "03476 / 0",
+      "website": "https://www.helios-gesundheit.de/kliniken/hettstedt/",
+      "description": "Der Standort Hettstedt entwickelt sich zu einer hochspezialisierten Klinik für Psychiatrie und Schmerztherapie.",
+      "isBarrierFree": true,
+      "hasParking": true,
+      "departments": [
+        "Psychiatrie",
+        "Schmerztherapie"
+      ],
+      "verified": true,
+      "source": "helios-gesundheit.de, bundes-klinik-atlas.de"
+    },
+    {
+      "id": "kh_el_001",
+      "type": "hospital",
+      "name": "HELIOS Klinik Lutherstadt Eisleben",
+      "latitude": 51.5285,
+      "longitude": 11.5472,
+      "street": "Hohetorstraße 25",
+      "postalCode": "06295",
+      "city": "Lutherstadt Eisleben",
+      "phone": "034755210",
+      "phoneFormatted": "03475 / 521-0",
+      "website": "https://www.helios-gesundheit.de/kliniken/lutherstadt-eisleben/",
+      "description": "Die HELIOS Klinik Lutherstadt Eisleben mit über hundertjähriger Geschichte ist fester Bestandteil der Gesundheitsversorgung in Mansfeld-Südharz.",
+      "isBarrierFree": true,
+      "hasParking": true,
+      "hasEmergency": true,
+      "departments": [
+        "Allgemein- und Viszeralchirurgie",
+        "Urologie",
+        "Innere Medizin mit Kardiologie",
+        "Geriatrie",
+        "HNO (Hals-Nasen-Ohren)"
+      ],
+      "verified": true,
+      "source": "helios-gesundheit.de, bundes-klinik-atlas.de"
+    },
     {
       "id": "kh_sg_001",
       "type": "hospital",
       "name": "HELIOS Klinik Sangerhausen",
-      "phone": "03464210",
-      "phoneFormatted": "03464 / 21-0",
-      "website": "https://www.helios-gesundheit.de/standorte-angebote/kliniken/mansfeld-suedharz/",
+      "latitude": 51.4752,
+      "longitude": 11.3045,
       "street": "Am Beinschuh 2b",
       "postalCode": "06526",
       "city": "Sangerhausen",
-      "latitude": 51.4752,
-      "longitude": 11.3045,
+      "phone": "03464210",
+      "phoneFormatted": "03464 / 21-0",
+      "website": "https://www.helios-gesundheit.de/standorte-angebote/kliniken/mansfeld-suedharz/",
+      "description": "Mit über 250 Betten und 9 modernen Fachabteilungen bietet die HELIOS Klinik Sangerhausen kompetente medizinische Versorgung rund um die Uhr.",
       "isBarrierFree": true,
       "hasParking": true,
       "hasEmergency": true,
@@ -33,52 +134,171 @@
         "Geriatrie",
         "Notfallmedizin"
       ],
-      "description": "Mit über 250 Betten und 9 modernen Fachabteilungen bietet die HELIOS Klinik Sangerhausen kompetente medizinische Versorgung rund um die Uhr."
+      "verified": true,
+      "source": "helios-gesundheit.de, bundes-klinik-atlas.de"
     },
     {
-      "id": "kh_el_001",
+      "id": "kh_sg_007",
       "type": "hospital",
-      "name": "HELIOS Klinik Lutherstadt Eisleben",
-      "phone": "034755210",
-      "phoneFormatted": "03475 / 521-0",
-      "website": "https://www.helios-gesundheit.de/kliniken/lutherstadt-eisleben/",
+      "name": "HELIOS Klinik Sangerhausen Mansfeld-Südharz",
+      "latitude": 51.4719587,
+      "longitude": 11.3094395,
+      "street": "Am Beinschuh 2a",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "hasEmergency": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "kh_ht_015",
+      "type": "hospital",
+      "name": "Helios Klinik Hettstedt",
+      "latitude": 51.6601433,
+      "longitude": 11.4936801,
+      "city": "Hettstedt",
+      "phone": "+49 3476 9330",
+      "phoneFormatted": "034769330",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "hasEmergency": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "kh_msh_014",
+      "type": "hospital",
+      "name": "KMG Klinikum Sondershausen",
+      "latitude": 51.3736886,
+      "longitude": 10.8786114,
+      "street": "Hospitalstraße 2",
+      "postalCode": "99706",
+      "city": "Sondershausen",
+      "phone": "+49 3632 670",
+      "phoneFormatted": "03632670",
+      "website": "https://kmg-kliniken.de/kmg-klinikum-sondershausen",
+      "openingHours": "Mo-Fr 06:30-20:00; Sa-Su 08:00-20:00",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "hasEmergency": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "kh_el_008",
+      "type": "hospital",
+      "name": "Klinik Lutherstadt Eisleben",
+      "latitude": 51.5327846,
+      "longitude": 11.5415713,
       "street": "Hohetorstraße 25",
       "postalCode": "06295",
       "city": "Lutherstadt Eisleben",
-      "latitude": 51.5285,
-      "longitude": 11.5472,
-      "isBarrierFree": true,
-      "hasParking": true,
-      "hasEmergency": true,
-      "departments": [
-        "Allgemein- und Viszeralchirurgie",
-        "Urologie",
-        "Innere Medizin mit Kardiologie",
-        "Geriatrie",
-        "HNO (Hals-Nasen-Ohren)"
+      "phone": "+49 3475 900",
+      "phoneFormatted": "03475900",
+      "website": "https://www.helios-gesundheit.de/kliniken/lutherstadt-eisleben/",
+      "languages": [
+        "Deutsch"
       ],
-      "description": "Die HELIOS Klinik Lutherstadt Eisleben mit über hundertjähriger Geschichte ist fester Bestandteil der Gesundheitsversorgung in Mansfeld-Südharz."
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "hasEmergency": true,
+      "source": "openstreetmap"
     },
     {
-      "id": "kh_ht_001",
+      "id": "kh_msh_005",
       "type": "hospital",
-      "name": "HELIOS Klinik Hettstedt",
-      "phone": "034760",
-      "phoneFormatted": "03476 / 0",
-      "website": "https://www.helios-gesundheit.de/kliniken/hettstedt/",
-      "street": "Robert-Koch-Straße 6",
-      "postalCode": "06333",
-      "city": "Hettstedt",
-      "latitude": 51.6412,
-      "longitude": 11.5134,
-      "isBarrierFree": true,
-      "hasParking": true,
-      "hasEmergency": false,
-      "departments": [
-        "Psychiatrie",
-        "Schmerztherapie"
+      "name": "Lungenklinik Neustadt",
+      "latitude": 51.5601724,
+      "longitude": 10.8401532,
+      "street": "Badestraße 23",
+      "postalCode": "99768",
+      "city": "Harztor",
+      "phone": "+49 36331 360",
+      "phoneFormatted": "036331360",
+      "website": "https://doceins.de/neustadt/",
+      "languages": [
+        "Deutsch"
       ],
-      "description": "Der Standort Hettstedt entwickelt sich zu einer hochspezialisierten Klinik für Psychiatrie und Schmerztherapie."
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "kh_sg_009",
+      "type": "hospital",
+      "name": "PHV-Dialysezentrum Sangerhausen",
+      "latitude": 51.4726125,
+      "longitude": 11.318598,
+      "street": "Sotterhäuser Weg 7",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "website": "https://www.phv-dialyse.de/sangerhausen/",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "kh_sg_004",
+      "type": "hospital",
+      "name": "Reha aktiv 2000",
+      "latitude": 51.4679814,
+      "longitude": 11.298031,
+      "street": "Alban-Hess-Straße 45A",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "website": "https://www.reha-aktiv2000.de/filialen/sangerhausen/",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "kh_msh_010",
+      "type": "hospital",
+      "name": "Reha-Klinik am Kyffhäuser für Kinder und Jugendliche",
+      "latitude": 51.3597949,
+      "longitude": 11.0924344,
+      "street": "Rottlebener Straße 4a",
+      "postalCode": "06567",
+      "city": "Bad Frankenhausen/Kyffhäuser",
+      "phone": "+49 34671 6630",
+      "phoneFormatted": "03467 / 16 63 0",
+      "website": "https://www.kinderreha-kyffhaeuser.de/",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "kh_sh_012",
+      "type": "hospital",
+      "name": "Ökumenisches Hainich Klinikum - Klinik Bad Frankenhausen",
+      "latitude": 51.3537502,
+      "longitude": 11.1079495,
+      "city": "Mansfeld-Südharz",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
     }
   ]
 }

@@ -1,179 +1,1260 @@
 {
   "meta": {
-    "source": "apoguide.de, news.de",
-    "created_at": "2026-01-27",
-    "version": "2.0",
-    "region": "Mansfeld-Südharz",
-    "note": "Echte Apotheken-Daten"
+    "source": "openstreetmap, arzt-auskunft.de, manual",
+    "created_at": "2026-01-28",
+    "version": "3.0",
+    "region": "Mansfeld-Suedharz",
+    "note": "Automatisch gemerged aus OSM + manuellen Daten",
+    "total_count": 70,
+    "verified_count": 12
   },
   "data": [
     {
-      "id": "apotheke_sg_001",
+      "id": "apo_ht_025",
       "type": "pharmacy",
-      "name": "Berg-Apotheke",
-      "phone": "03464578720",
-      "phoneFormatted": "03464 / 57 87 20",
-      "street": "Am Ring 18",
-      "postalCode": "06526",
-      "city": "Sangerhausen",
-      "latitude": 51.4712,
-      "longitude": 11.2945,
-      "isBarrierFree": true,
-      "hasParking": true
-    },
-    {
-      "id": "apotheke_sg_002",
-      "type": "pharmacy",
-      "name": "Glück-Auf Apotheke",
-      "phone": "03464521890",
-      "phoneFormatted": "03464 / 52 18 90",
-      "street": "Karl-Liebknecht-Str. 64",
-      "postalCode": "06526",
-      "city": "Sangerhausen",
-      "latitude": 51.4698,
-      "longitude": 11.3012,
-      "isBarrierFree": true,
-      "hasParking": true
-    },
-    {
-      "id": "apotheke_sg_003",
-      "type": "pharmacy",
-      "name": "Barbarossa-Apotheke",
-      "phone": "03464573135",
-      "phoneFormatted": "03464 / 57 31 35",
-      "street": "Göpenstr. 37",
-      "postalCode": "06526",
-      "city": "Sangerhausen",
-      "latitude": 51.4735,
-      "longitude": 11.2978,
-      "isBarrierFree": false,
-      "hasParking": false
-    },
-    {
-      "id": "apotheke_sg_004",
-      "type": "pharmacy",
-      "name": "Mammut-Apotheke",
-      "phone": "03464589988",
-      "phoneFormatted": "03464 / 58 99 88",
-      "street": "Schützenplatz 10",
-      "postalCode": "06526",
-      "city": "Sangerhausen",
-      "latitude": 51.4721,
-      "longitude": 11.2965,
-      "isBarrierFree": true,
-      "hasParking": true
-    },
-    {
-      "id": "apotheke_sg_005",
-      "type": "pharmacy",
-      "name": "Jacobi-Apotheke",
-      "phone": "03464573000",
-      "phoneFormatted": "03464 / 57 30 00",
-      "street": "Kylische Straße 30",
-      "postalCode": "06526",
-      "city": "Sangerhausen",
-      "latitude": 51.4708,
-      "longitude": 11.2932,
-      "isBarrierFree": true,
-      "hasParking": false
-    },
-    {
-      "id": "apotheke_sg_006",
-      "type": "pharmacy",
-      "name": "Marien-Apotheke",
-      "phone": "0347752028",
-      "phoneFormatted": "034775 / 20 28",
-      "street": "Böttchenbachstr. 2",
-      "postalCode": "06526",
-      "city": "Sangerhausen",
-      "latitude": 51.4745,
-      "longitude": 11.2956,
-      "isBarrierFree": false,
-      "hasParking": true
-    },
-    {
-      "id": "apotheke_el_001",
-      "type": "pharmacy",
-      "name": "Rosen-Apotheke",
-      "phone": "03475604185",
-      "phoneFormatted": "03475 / 60 41 85",
-      "street": "Hohetorstr. 25a",
-      "postalCode": "06295",
-      "city": "Lutherstadt Eisleben",
-      "latitude": 51.5281,
-      "longitude": 11.5468,
-      "isBarrierFree": true,
-      "hasParking": true
-    },
-    {
-      "id": "apotheke_el_002",
-      "type": "pharmacy",
-      "name": "Löwen-Apotheke",
-      "phone": "03475602274",
-      "phoneFormatted": "03475 / 60 22 74",
-      "street": "Markt 18",
-      "postalCode": "06295",
-      "city": "Lutherstadt Eisleben",
-      "latitude": 51.5274,
-      "longitude": 11.5481,
-      "isBarrierFree": false,
-      "hasParking": false
-    },
-    {
-      "id": "apotheke_el_003",
-      "type": "pharmacy",
-      "name": "Helpide-Apotheke",
-      "phone": "03475714580",
-      "phoneFormatted": "03475 / 71 45 80",
-      "street": "Hallesche Str. 77",
-      "postalCode": "06295",
-      "city": "Lutherstadt Eisleben",
-      "latitude": 51.5298,
-      "longitude": 11.5512,
-      "isBarrierFree": true,
-      "hasParking": true
-    },
-    {
-      "id": "apotheke_ht_001",
-      "type": "pharmacy",
-      "name": "Linden-Apotheke",
-      "phone": "03476852005",
-      "phoneFormatted": "03476 / 85 20 05",
-      "street": "Lindenweg 3",
-      "postalCode": "06333",
+      "name": "AESCULAP-Apotheke",
+      "latitude": 51.6537584,
+      "longitude": 11.5114052,
       "city": "Hettstedt",
-      "latitude": 51.6385,
-      "longitude": 11.5078,
-      "isBarrierFree": true,
-      "hasParking": true
+      "openingHours": "Mo-Fr 08:00-18:00; Sa 08:00-12:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
     },
     {
-      "id": "apotheke_ht_002",
+      "id": "apo_sh_056",
       "type": "pharmacy",
-      "name": "Apotheke am Saigertor",
-      "phone": "03476813411",
-      "phoneFormatted": "03476 / 81 34 11",
-      "street": "Markt 16",
-      "postalCode": "06333",
-      "city": "Hettstedt",
-      "latitude": 51.6391,
-      "longitude": 11.5089,
-      "isBarrierFree": false,
-      "hasParking": false
+      "name": "Adler Apotheke",
+      "latitude": 51.459823,
+      "longitude": 11.2041397,
+      "city": "Mansfeld-Südharz",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
     },
     {
       "id": "apotheke_ht_003",
       "type": "pharmacy",
       "name": "Aesculap-Apotheke",
-      "phone": "03476851107",
-      "phoneFormatted": "03476 / 85 11 07",
+      "latitude": 51.6398,
+      "longitude": 11.5102,
       "street": "Schillerstr. 22",
       "postalCode": "06333",
       "city": "Hettstedt",
-      "latitude": 51.6398,
-      "longitude": 11.5102,
+      "phone": "03476851107",
+      "phoneFormatted": "03476 / 85 11 07",
       "isBarrierFree": true,
-      "hasParking": false
+      "verified": true,
+      "source": "apoguide.de, news.de"
+    },
+    {
+      "id": "apo_msh_069",
+      "type": "pharmacy",
+      "name": "Anger Apotheke",
+      "latitude": 51.358344,
+      "longitude": 11.1011006,
+      "street": "Anger 12-13",
+      "postalCode": "06567",
+      "city": "Bad Frankenhausen/Kyffhäuser",
+      "openingHours": "Mo-Fr 08:00-18:00, Sa 08:00-12:00",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_msh_039",
+      "type": "pharmacy",
+      "name": "Apotheke Thüringer Pforte",
+      "latitude": 51.3094247,
+      "longitude": 11.1738893,
+      "street": "Marktstraße 15",
+      "postalCode": "06577",
+      "city": "An der Schmücke",
+      "phone": "+49 34673 7550",
+      "phoneFormatted": "03467 / 37 55 0",
+      "website": "http://www.apotheke-oldisleben.de",
+      "openingHours": "Mo-Fr 08:00-12:30,14:00-18:00; Sa 08:30-11:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_msh_027",
+      "type": "pharmacy",
+      "name": "Apotheke am Rosengarten",
+      "latitude": 51.5146335,
+      "longitude": 10.8003395,
+      "street": "Dr.-Robert-Koch-Straße 4",
+      "postalCode": "99734",
+      "city": "Nordhausen",
+      "phone": "+49 3631 897663",
+      "phoneFormatted": "03631 / 89 76 63",
+      "website": "http://www.apotheke-am-rosengarten-app.de/",
+      "openingHours": "Mo-Fr 08:00-18:00; Sa 08:00-12:00",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apotheke_ht_002",
+      "type": "pharmacy",
+      "name": "Apotheke am Saigertor",
+      "latitude": 51.6391,
+      "longitude": 11.5089,
+      "street": "Markt 16",
+      "postalCode": "06333",
+      "city": "Hettstedt",
+      "phone": "03476813411",
+      "phoneFormatted": "03476 / 81 34 11",
+      "verified": true,
+      "source": "apoguide.de, news.de"
+    },
+    {
+      "id": "apo_msh_042",
+      "type": "pharmacy",
+      "name": "Apotheke im Marktkauf",
+      "latitude": 51.4835238,
+      "longitude": 10.8029743,
+      "street": "Darrweg 67",
+      "postalCode": "99734",
+      "city": "Nordhausen",
+      "phone": "+49 3631 465163",
+      "phoneFormatted": "03631 / 46 51 63",
+      "website": "http://apotheke-marktkauf-nordhausen.de",
+      "openingHours": "Mo-Sa 08:00-20:00",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_msh_050",
+      "type": "pharmacy",
+      "name": "Apotheke in Heringen",
+      "latitude": 51.4470671,
+      "longitude": 10.8810182,
+      "street": "Straße der Einheit 46",
+      "postalCode": "99765",
+      "city": "Heringen/Helme",
+      "phone": "+49 36333 771 71",
+      "phoneFormatted": "03633 / 37 71 71",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_msh_058",
+      "type": "pharmacy",
+      "name": "Apotheke zur Goldenen Aue",
+      "latitude": 51.2956727,
+      "longitude": 11.4337355,
+      "street": "Richard-Hüttig-Platz 4",
+      "postalCode": "06571",
+      "city": "Roßleben-Wiehe",
+      "phone": "+49 34672 65173",
+      "phoneFormatted": "03467 / 26 51 73",
+      "openingHours": "Mo-Fr 08:00-18:00; Sa 08:00-12:00; Su off",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apotheke_sg_003",
+      "type": "pharmacy",
+      "name": "Barbarossa-Apotheke",
+      "latitude": 51.4735,
+      "longitude": 11.2978,
+      "street": "Göpenstr. 37",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "03464573135",
+      "phoneFormatted": "03464 / 57 31 35",
+      "verified": true,
+      "source": "apoguide.de, news.de"
+    },
+    {
+      "id": "apo_msh_013",
+      "type": "pharmacy",
+      "name": "Barbarossa-Apotheke",
+      "latitude": 51.4354533,
+      "longitude": 11.0407142,
+      "street": "Lange Straße 17",
+      "postalCode": "06537",
+      "city": "Kelbra (Kyffhäuser)",
+      "phone": "+49 34651 53100",
+      "phoneFormatted": "03465 / 15 31 00",
+      "website": "http://www.barbarossa-apotheke-kelbra.de/",
+      "openingHours": "Mo-Fr 08:00-13:00,14:00-18:30; Sa 08:30-11:30; Su,PH off",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_sg_036",
+      "type": "pharmacy",
+      "name": "Barbarossa-Apotheke",
+      "latitude": 51.4755191,
+      "longitude": 11.2970456,
+      "street": "Göpenstraße 37",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "+49 3464 573135",
+      "phoneFormatted": "03464 / 57 31 35",
+      "website": "https://www.ihre-barbarossa-apotheke-app.de/",
+      "openingHours": "Mo-Fr 08:00-18:00; Sa 09:00-12:00; Su,PH off",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apotheke_sg_001",
+      "type": "pharmacy",
+      "name": "Berg-Apotheke",
+      "latitude": 51.4712,
+      "longitude": 11.2945,
+      "street": "Am Ring 18",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "03464578720",
+      "phoneFormatted": "03464 / 57 87 20",
+      "isBarrierFree": true,
+      "hasParking": true,
+      "verified": true,
+      "source": "apoguide.de, news.de"
+    },
+    {
+      "id": "apo_sg_047",
+      "type": "pharmacy",
+      "name": "Berg-Apotheke",
+      "latitude": 51.4758205,
+      "longitude": 11.3180887,
+      "street": "Am Ring 18",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "+49 3464 578720",
+      "phoneFormatted": "03464 / 57 87 20",
+      "website": "https://berg-apotheke-msh.de/",
+      "openingHours": "Mo,Tu,Th,Fr 08:00-18:00; We 08:00-13:00; Sa 09:00-12:00; Su,PH off",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_sh_052",
+      "type": "pharmacy",
+      "name": "Berg-Apotheke",
+      "latitude": 51.6411462,
+      "longitude": 11.1403593,
+      "city": "Mansfeld-Südharz",
+      "openingHours": "Sa 09:00-12:00; Mo,Tu,Th,Fr 08:00-18:00; We 08:00-14:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_sg_055",
+      "type": "pharmacy",
+      "name": "Bären-Apotheke",
+      "latitude": 51.4599028,
+      "longitude": 11.2921791,
+      "street": "Friedrich-Engels-Straße 49",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "+49 346451 81 71",
+      "phoneFormatted": "03464 / 51 81 71",
+      "website": "https://www.baeren-apotheke-sangerhausen.de/",
+      "openingHours": "Mo-Fr 08:00-18:00; Sa 08:30-12:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_el_046",
+      "type": "pharmacy",
+      "name": "Damian-Apotheke",
+      "latitude": 51.5369294,
+      "longitude": 11.5473701,
+      "street": "Gerbstedter Chaussee 5",
+      "postalCode": "06295",
+      "city": "Lutherstadt Eisleben",
+      "phone": "+49 3475 708270",
+      "phoneFormatted": "03475 / 70 82 70",
+      "website": "https://www.damian-apotheke-eisleben.de/",
+      "openingHours": "Mo-Fr 08:30-18:30; Sa 08:30-12:30; Su,PH off",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_msh_061",
+      "type": "pharmacy",
+      "name": "Engel Apotheke",
+      "latitude": 51.365264,
+      "longitude": 11.2913547,
+      "street": "Markt 13",
+      "postalCode": "06556",
+      "city": "Artern",
+      "phone": "+49 3466 302477",
+      "phoneFormatted": "03466 / 30 24 77",
+      "openingHours": "Mo-Fr 08:00-18:00; Sa 08:00-12:00; Su off",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_msh_019",
+      "type": "pharmacy",
+      "name": "Flora-Apotheke",
+      "latitude": 51.3707344,
+      "longitude": 10.8819356,
+      "street": "Frankenhäuser Straße 1a-c",
+      "postalCode": "99706",
+      "city": "Sondershausen",
+      "phone": "+49 3632 770030",
+      "phoneFormatted": "03632 / 77 00 30",
+      "website": "http://www.apotheke-sondershausen.de/",
+      "openingHours": "Mo-Fr 08:00-20:00; Sa 08:00-18:00",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_msh_029",
+      "type": "pharmacy",
+      "name": "Georg-Apotheke",
+      "latitude": 51.2865815,
+      "longitude": 11.5781707,
+      "street": "Markt 3",
+      "postalCode": "06642",
+      "city": "Nebra (Unstrut)",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_al_016",
+      "type": "pharmacy",
+      "name": "Germania",
+      "latitude": 51.4042534,
+      "longitude": 11.3876946,
+      "city": "Allstedt",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apotheke_sg_002",
+      "type": "pharmacy",
+      "name": "Glück-Auf Apotheke",
+      "latitude": 51.4698,
+      "longitude": 11.3012,
+      "street": "Karl-Liebknecht-Str. 64",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "03464521890",
+      "phoneFormatted": "03464 / 52 18 90",
+      "isBarrierFree": true,
+      "hasParking": true,
+      "verified": true,
+      "source": "apoguide.de, news.de"
+    },
+    {
+      "id": "apo_sg_037",
+      "type": "pharmacy",
+      "name": "Glück-Auf Apotheke",
+      "latitude": 51.4614396,
+      "longitude": 11.2943228,
+      "street": "Karl-Liebknecht-Straße 64",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "+49 3464 521890",
+      "phoneFormatted": "03464 / 52 18 90",
+      "website": "http://www.apotheke-sangerhausen-app.de/",
+      "openingHours": "Mo-Fr 07:30-18:30; Sa 09:00-12:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_el_045",
+      "type": "pharmacy",
+      "name": "Glückauf Apotheke",
+      "latitude": 51.5170069,
+      "longitude": 11.5597817,
+      "street": "Schillerstraße 40",
+      "postalCode": "06295",
+      "city": "Lutherstadt Eisleben",
+      "phone": "+49 3475 716288",
+      "phoneFormatted": "03475 / 71 62 88",
+      "website": "https://www.glueckauf-apo.de/",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_sg_023",
+      "type": "pharmacy",
+      "name": "Grüne Apotheke",
+      "latitude": 51.4377641,
+      "longitude": 11.3056319,
+      "street": "Sangerhäuser Straße 9",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "+49 3464 591072",
+      "phoneFormatted": "03464 / 59 10 72",
+      "website": "https://www.gruene-apotheke-sangerhausen.de/",
+      "openingHours": "Mo,Tu,Th,Fr 08:00-18:00; We 08:00-13:00; Sa 09:00-11:30; Su,PH off",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_el_033",
+      "type": "pharmacy",
+      "name": "Helpide Apotheke",
+      "latitude": 51.5235698,
+      "longitude": 11.5576168,
+      "street": "Hallesche Straße 77",
+      "postalCode": "06295",
+      "city": "Lutherstadt Eisleben",
+      "phone": "+49 3475 714580",
+      "phoneFormatted": "03475 / 71 45 80",
+      "website": "https://www.helpide-apotheke-app.de/",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apotheke_el_003",
+      "type": "pharmacy",
+      "name": "Helpide-Apotheke",
+      "latitude": 51.5298,
+      "longitude": 11.5512,
+      "street": "Hallesche Str. 77",
+      "postalCode": "06295",
+      "city": "Lutherstadt Eisleben",
+      "phone": "03475714580",
+      "phoneFormatted": "03475 / 71 45 80",
+      "isBarrierFree": true,
+      "hasParking": true,
+      "verified": true,
+      "source": "apoguide.de, news.de"
+    },
+    {
+      "id": "apo_sh_065",
+      "type": "pharmacy",
+      "name": "Hirsch-Apotheke",
+      "latitude": 51.5735359,
+      "longitude": 10.9542089,
+      "street": "Rittergasse 2",
+      "postalCode": "06536",
+      "city": "Südharz",
+      "phone": "+49 34654 327",
+      "phoneFormatted": "034654327",
+      "website": "https://www.apotheke-stolberg.de/",
+      "openingHours": "Mo-Tu,Th-Fr 08:00-18:00; We 08:00-13:00; Sa 09:00-11:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_msh_020",
+      "type": "pharmacy",
+      "name": "Hirten - Apotheke",
+      "latitude": 51.3824596,
+      "longitude": 11.7793208,
+      "street": "Südpromenade 10a",
+      "postalCode": "06246",
+      "city": "Goethestadt Bad Lauchstädt",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_gb_062",
+      "type": "pharmacy",
+      "name": "Humanitas Apotheke",
+      "latitude": 51.6038202,
+      "longitude": 11.5438184,
+      "street": "Zum Gleis-Dreieck 35",
+      "postalCode": "06347",
+      "city": "Gerbstedt",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_sg_054",
+      "type": "pharmacy",
+      "name": "Jacobi Apotheke",
+      "latitude": 51.4732707,
+      "longitude": 11.2965143,
+      "street": "Kylische Straße 30",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "+49 3464573000",
+      "phoneFormatted": "03464 / 57 30 00",
+      "website": "https://www.jacobi-apotheke.de/",
+      "openingHours": "Mo-Fr 08:00-18:00; Sa 09:00-12:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apotheke_sg_005",
+      "type": "pharmacy",
+      "name": "Jacobi-Apotheke",
+      "latitude": 51.4708,
+      "longitude": 11.2932,
+      "street": "Kylische Straße 30",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "03464573000",
+      "phoneFormatted": "03464 / 57 30 00",
+      "isBarrierFree": true,
+      "verified": true,
+      "source": "apoguide.de, news.de"
+    },
+    {
+      "id": "apo_msh_026",
+      "type": "pharmacy",
+      "name": "Kreuz-Apotheke",
+      "latitude": 51.503157,
+      "longitude": 10.8009753,
+      "street": "August-Bebel-Platz 34",
+      "postalCode": "99734",
+      "city": "Nordhausen",
+      "phone": "+49 3631 895050",
+      "phoneFormatted": "03631 / 89 50 50",
+      "website": "http://www.kreuzapo.de/",
+      "openingHours": "Mo-Fr 08:00-18:00; Sa 09:00-12:00",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_ht_024",
+      "type": "pharmacy",
+      "name": "Linden Apotheke",
+      "latitude": 51.6575904,
+      "longitude": 11.4982483,
+      "city": "Hettstedt",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_msh_049",
+      "type": "pharmacy",
+      "name": "Linden Apotheke",
+      "latitude": 51.306392,
+      "longitude": 11.5828621,
+      "street": "Straße der DSF 19",
+      "postalCode": "06268",
+      "city": "Querfurt",
+      "phone": "+49 34461 22375",
+      "phoneFormatted": "03446 / 12 23 75",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_msh_060",
+      "type": "pharmacy",
+      "name": "Linden Apotheke",
+      "latitude": 51.68979,
+      "longitude": 10.8561045,
+      "street": "Am Markt 15",
+      "postalCode": "38899",
+      "city": "Oberharz am Brocken",
+      "phone": "+49 39459 71346",
+      "phoneFormatted": "03945 / 97 13 46",
+      "website": "http://www.apotheke-hasselfelde.de/",
+      "openingHours": "Mo-Fr 08:00-13:00,14:30-18:00, Sa 08:00-12:00; Su,PH off",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_sh_066",
+      "type": "pharmacy",
+      "name": "Linden Apotheke",
+      "latitude": 51.5014832,
+      "longitude": 11.739527,
+      "city": "Mansfeld-Südharz",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apotheke_ht_001",
+      "type": "pharmacy",
+      "name": "Linden-Apotheke",
+      "latitude": 51.6385,
+      "longitude": 11.5078,
+      "street": "Lindenweg 3",
+      "postalCode": "06333",
+      "city": "Hettstedt",
+      "phone": "03476852005",
+      "phoneFormatted": "03476 / 85 20 05",
+      "isBarrierFree": true,
+      "hasParking": true,
+      "verified": true,
+      "source": "apoguide.de, news.de"
+    },
+    {
+      "id": "apo_msh_057",
+      "type": "pharmacy",
+      "name": "Loewen-Apotheke",
+      "latitude": 51.3686753,
+      "longitude": 10.8696474,
+      "street": "Gartenstraße 28",
+      "postalCode": "99706",
+      "city": "Sondershausen",
+      "phone": "+49 3632 66910",
+      "phoneFormatted": "03632 / 66 91 0",
+      "website": "http://www.apotheke-sondershausen.de/",
+      "openingHours": "Mo-Fr 08:00-18:30; Sa 08:00-12:00",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_msh_018",
+      "type": "pharmacy",
+      "name": "Loh-Apotheke",
+      "latitude": 51.3695673,
+      "longitude": 10.8665496,
+      "street": "Ferdinand-Schlufter-Straße 21",
+      "postalCode": "99706",
+      "city": "Sondershausen",
+      "phone": "+49 3632 782568",
+      "phoneFormatted": "03632 / 78 25 68",
+      "website": "http://www.loh-apotheke.de/",
+      "openingHours": "Mo-Fr 08:00-18:30; Sa 08:00-12:00",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_sh_044",
+      "type": "pharmacy",
+      "name": "Luther Apotheke",
+      "latitude": 51.5932171,
+      "longitude": 11.4523085,
+      "city": "Mansfeld-Südharz",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_msh_043",
+      "type": "pharmacy",
+      "name": "Löwen Apotheke",
+      "latitude": 51.4382164,
+      "longitude": 11.667419,
+      "street": "Marktstraße 20",
+      "postalCode": "06279",
+      "city": "Schraplau",
+      "phone": "+49 34774 27252",
+      "phoneFormatted": "03477 / 42 72 52",
+      "website": "https://www.apotheke-schraplau.de",
+      "openingHours": "Mo,Tu,Th,Fr 08:00-18:00; We 08:00-13:00; Sa 09:00-12:00; Su,PH off",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apotheke_el_002",
+      "type": "pharmacy",
+      "name": "Löwen-Apotheke",
+      "latitude": 51.5274,
+      "longitude": 11.5481,
+      "street": "Markt 18",
+      "postalCode": "06295",
+      "city": "Lutherstadt Eisleben",
+      "phone": "03475602274",
+      "phoneFormatted": "03475 / 60 22 74",
+      "verified": true,
+      "source": "apoguide.de, news.de"
+    },
+    {
+      "id": "apo_sg_030",
+      "type": "pharmacy",
+      "name": "Löwen-Apotheke",
+      "latitude": 51.4941372,
+      "longitude": 11.3643372,
+      "street": "Riestedter Bahnhofstraße 3",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "+49 3464 572695",
+      "phoneFormatted": "03464 / 57 26 95",
+      "website": "https://www.loewen-apotheke-sangerhausen.de/",
+      "openingHours": "Mo-Fr 08:00-18:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_msh_041",
+      "type": "pharmacy",
+      "name": "Löwen-Apotheke",
+      "latitude": 51.2629374,
+      "longitude": 11.0908742,
+      "street": "Goethestraße 14",
+      "postalCode": "99638",
+      "city": "Kindelbrück",
+      "phone": "+49 36375 50323",
+      "phoneFormatted": "03637 / 55 03 23",
+      "website": "http://www.loewen-apotheke-kindelbrueck.de",
+      "openingHours": "Mo-Fr 08:00-13:00,14:00-18:00; Sa 08:00-12:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_msh_051",
+      "type": "pharmacy",
+      "name": "Löwen-Apotheke",
+      "latitude": 51.6411761,
+      "longitude": 11.143554,
+      "street": "Unterstraße 17",
+      "postalCode": "06493",
+      "city": "Harzgerode",
+      "phone": "+49 39484 91679",
+      "phoneFormatted": "03948 / 49 16 79",
+      "website": "https://www.loewenapotheke.com/",
+      "openingHours": "Mo-Fr 08:00-18:00; Sa 08:00-12:00; Su,PH off",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_mf_067",
+      "type": "pharmacy",
+      "name": "Löwen-Apotheke",
+      "latitude": 51.4629052,
+      "longitude": 11.6691779,
+      "street": "Am Bahnhof 5",
+      "postalCode": "06317",
+      "city": "Seegebiet Mansfelder Land",
+      "phone": "+49 34774 20317",
+      "phoneFormatted": "03477 / 42 03 17",
+      "openingHours": "Mo-Fr 08:00-18:00; Sa 08:00-12:00; Su,PH off",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_el_014",
+      "type": "pharmacy",
+      "name": "Löwenapotheke",
+      "latitude": 51.5287696,
+      "longitude": 11.5478613,
+      "city": "Lutherstadt Eisleben",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apotheke_sg_004",
+      "type": "pharmacy",
+      "name": "Mammut-Apotheke",
+      "latitude": 51.4721,
+      "longitude": 11.2965,
+      "street": "Schützenplatz 10",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "03464589988",
+      "phoneFormatted": "03464 / 58 99 88",
+      "isBarrierFree": true,
+      "hasParking": true,
+      "verified": true,
+      "source": "apoguide.de, news.de"
+    },
+    {
+      "id": "apo_sg_031",
+      "type": "pharmacy",
+      "name": "Marien Apotheke",
+      "latitude": 51.5730878,
+      "longitude": 11.2742889,
+      "street": "Bottchenbachstraße 2",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "openingHours": "Mo-Fr 09:00-15:00; Sa,Su off",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apotheke_sg_006",
+      "type": "pharmacy",
+      "name": "Marien-Apotheke",
+      "latitude": 51.4745,
+      "longitude": 11.2956,
+      "street": "Böttchenbachstr. 2",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "0347752028",
+      "phoneFormatted": "034775 / 20 28",
+      "hasParking": true,
+      "verified": true,
+      "source": "apoguide.de, news.de"
+    },
+    {
+      "id": "apo_msh_038",
+      "type": "pharmacy",
+      "name": "Markt-Apotheke Brandt",
+      "latitude": 51.3557795,
+      "longitude": 11.1001347,
+      "street": "Ratstraße 2",
+      "postalCode": "06567",
+      "city": "Bad Frankenhausen/Kyffhäuser",
+      "phone": "+49 34671 659 0",
+      "phoneFormatted": "03467 / 16 59 0",
+      "website": "http://www.markt-apo-bfh.de",
+      "openingHours": "Mo-Fr 08:00-18:30; Sa 08:30-12:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_el_028",
+      "type": "pharmacy",
+      "name": "Mohren-Apotheke",
+      "latitude": 51.5282226,
+      "longitude": 11.5487754,
+      "street": "Markt 34",
+      "postalCode": "06295",
+      "city": "Lutherstadt Eisleben",
+      "phone": "+49 3475 602305",
+      "phoneFormatted": "03475 / 60 23 05",
+      "website": "https://www.mohren-apotheke-eisleben.de/",
+      "openingHours": "Mo-Fr 08:00-18:00; Sa 09:00-11:30",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_sh_021",
+      "type": "pharmacy",
+      "name": "Neue Apotheke",
+      "latitude": 51.3821736,
+      "longitude": 11.6007457,
+      "city": "Mansfeld-Südharz",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_msh_059",
+      "type": "pharmacy",
+      "name": "Ranke Apotheke",
+      "latitude": 51.2665679,
+      "longitude": 11.4094206,
+      "street": "Leopold-von-Ranke-Straße 90",
+      "postalCode": "06571",
+      "city": "Roßleben-Wiehe",
+      "phone": "+49 34672 81972",
+      "phoneFormatted": "03467 / 28 19 72",
+      "website": "https://www.aponet.de/06571/Ranke_Apotheke/",
+      "openingHours": "Mo-Fr 08:00-13:00,15:00-18:30; Sa 08:00-12:00; Su off",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apotheke_el_001",
+      "type": "pharmacy",
+      "name": "Rosen-Apotheke",
+      "latitude": 51.5281,
+      "longitude": 11.5468,
+      "street": "Hohetorstr. 25a",
+      "postalCode": "06295",
+      "city": "Lutherstadt Eisleben",
+      "phone": "03475604185",
+      "phoneFormatted": "03475 / 60 41 85",
+      "isBarrierFree": true,
+      "hasParking": true,
+      "verified": true,
+      "source": "apoguide.de, news.de"
+    },
+    {
+      "id": "apo_sg_035",
+      "type": "pharmacy",
+      "name": "Rosen-Apotheke",
+      "latitude": 51.4790601,
+      "longitude": 11.2946833,
+      "street": "Bahnhofstraße 33",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "+49 3464 572421",
+      "phoneFormatted": "03464 / 57 24 21",
+      "website": "http://www.rosen-apotheke-sgh.de/",
+      "openingHours": "Mo-Fr 07:00-18:30; Sa 08:00-11:00; Su,PH off",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_sh_017",
+      "type": "pharmacy",
+      "name": "Salzke Apotheke",
+      "latitude": 51.4836144,
+      "longitude": 11.7779722,
+      "city": "Mansfeld-Südharz",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_msh_040",
+      "type": "pharmacy",
+      "name": "Schwanen-Apotheke",
+      "latitude": 51.3005166,
+      "longitude": 11.2161193,
+      "street": "Hauptstraße 39",
+      "postalCode": "06577",
+      "city": "An der Schmücke",
+      "phone": "+49 34673 91255",
+      "phoneFormatted": "03467 / 39 12 55",
+      "openingHours": "Mo,Tu,Th,Fr 08:00-18:00; We 08:00-15:00; Sa 09:00-12:00; PH off",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_msh_032",
+      "type": "pharmacy",
+      "name": "Sonnen-Apotheke",
+      "latitude": 51.5019577,
+      "longitude": 10.8193425,
+      "street": "Conrad-Fromann-Straße 21",
+      "postalCode": "99734",
+      "city": "Nordhausen",
+      "phone": "+49 3631 895177",
+      "phoneFormatted": "03631 / 89 51 77",
+      "website": "http://www.sonnen-apotheke-ost.de/",
+      "openingHours": "Mo-Fr 08:00-18:00; Sa 09:00-12:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_sh_022",
+      "type": "pharmacy",
+      "name": "St. Barbara Apotheke",
+      "latitude": 51.5195932,
+      "longitude": 10.9469367,
+      "street": "Hauptstraße 45 a",
+      "postalCode": "06536",
+      "city": "Südharz",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_msh_064",
+      "type": "pharmacy",
+      "name": "Stadt-Apotheke",
+      "latitude": 51.3711293,
+      "longitude": 10.8731826,
+      "street": "Hauptstraße 35",
+      "postalCode": "99706",
+      "city": "Sondershausen",
+      "phone": "+49 3632 600600",
+      "phoneFormatted": "03632 / 60 06 00",
+      "website": "http://www.stadt-apotheke-sondershausen.de/",
+      "openingHours": "Mo-Fr 08:00-18:30; Sa 08:00-12:30",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_msh_034",
+      "type": "pharmacy",
+      "name": "Steinbrück Apotheke",
+      "latitude": 51.3563478,
+      "longitude": 11.1003611,
+      "street": "Markt 10",
+      "postalCode": "06567",
+      "city": "Bad Frankenhausen/Kyffhäuser",
+      "phone": "+49 34671 776 69",
+      "phoneFormatted": "03467 / 17 76 69",
+      "website": "https://Steinbrueck-Apotheke.de",
+      "openingHours": "Mo-Fr 07:30-19:00; Sa 08:00-12:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_mf_068",
+      "type": "pharmacy",
+      "name": "Südharz-Apotheke",
+      "latitude": 51.6035858,
+      "longitude": 11.4632936,
+      "street": "Friedensallee 84a",
+      "postalCode": "06343",
+      "city": "Mansfeld",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_msh_063",
+      "type": "pharmacy",
+      "name": "Unstrut Apotheke",
+      "latitude": 51.2986587,
+      "longitude": 11.4331988,
+      "street": "Ziegelrodaer Straße 3",
+      "postalCode": "06571",
+      "city": "Roßleben-Wiehe",
+      "phone": "+49 34672 93820",
+      "phoneFormatted": "03467 / 29 38 20",
+      "openingHours": "Mo-Fr 08:00-18:00; Sa 08:30-12:00; Su off",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_msh_048",
+      "type": "pharmacy",
+      "name": "Unstrut-Apotheke",
+      "latitude": 51.2764955,
+      "longitude": 11.6409585,
+      "street": "Straße der Befreiung 1B",
+      "postalCode": "06638",
+      "city": "Karsdorf",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_msh_053",
+      "type": "pharmacy",
+      "name": "Vitalis Apotheke",
+      "latitude": 51.6714236,
+      "longitude": 11.7700195,
+      "street": "Neumarktpassage 7",
+      "postalCode": "06420",
+      "city": "Könnern",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_sh_015",
+      "type": "pharmacy",
+      "name": "lindenapotheke",
+      "latitude": 51.5569266,
+      "longitude": 11.4890555,
+      "city": "Mansfeld-Südharz",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "apo_sh_070",
+      "type": "pharmacy",
+      "name": "Äskulap Apotheke",
+      "latitude": 51.4623079,
+      "longitude": 11.7465531,
+      "city": "Mansfeld-Südharz",
+      "website": "https://aeskulap-apotheke-wansleben.de/aeskulap-apotheke-wansleben/",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
     }
   ]
 }

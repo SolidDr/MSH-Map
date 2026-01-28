@@ -1,247 +1,2744 @@
 {
   "meta": {
-    "source": "arzt-auskunft.de, arzt-atlas.de",
-    "created_at": "2026-01-27",
-    "version": "2.0",
-    "region": "Mansfeld-Südharz",
-    "note": "Echte Ärzte-Daten"
+    "source": "openstreetmap, arzt-auskunft.de, manual",
+    "created_at": "2026-01-28",
+    "version": "3.0",
+    "region": "Mansfeld-Suedharz",
+    "note": "Automatisch gemerged aus OSM + manuellen Daten",
+    "total_count": 147,
+    "verified_count": 13
   },
   "data": [
     {
-      "id": "arzt_sg_001",
+      "id": "arzt_sg_097",
       "type": "doctor",
-      "name": "Katharina Friedemann",
-      "specialization": "allgemein",
-      "phone": "03464344845",
-      "phoneFormatted": "03464 / 34 48 45",
-      "street": "Bahnhofstraße 33",
+      "name": "Ada Volkmann",
+      "latitude": 51.4723489,
+      "longitude": 11.2949833,
+      "street": "Kylische Straße 33",
       "postalCode": "06526",
       "city": "Sangerhausen",
-      "latitude": 51.4698,
-      "longitude": 11.3012,
-      "hasHouseCalls": true,
-      "isBarrierFree": true,
-      "languages": ["Deutsch", "Englisch"],
+      "languages": [
+        "Deutsch"
+      ],
       "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
     },
     {
-      "id": "arzt_sg_002",
+      "id": "arzt_msh_053",
       "type": "doctor",
-      "name": "Sandra Grünewald",
-      "specialization": "allgemein",
-      "phone": "03464613759",
-      "phoneFormatted": "03464 / 61 37 59",
-      "street": "Karl-Liebknecht-Straße 64",
-      "postalCode": "06526",
-      "city": "Sangerhausen",
-      "latitude": 51.4702,
-      "longitude": 11.2985,
-      "hasHouseCalls": true,
-      "isBarrierFree": true,
-      "hasParking": true,
-      "languages": ["Deutsch"],
+      "name": "Alina Petroff",
+      "latitude": 51.3587876,
+      "longitude": 11.1003419,
+      "street": "Anger 8",
+      "postalCode": "06567",
+      "city": "Bad Frankenhausen/Kyffhäuser",
+      "openingHours": "Mo 08:00-12:00,14:30-17:30; Th 08:00-12:00,14:00-16:00; Tu,We,Fr 08:00-12:00",
+      "languages": [
+        "Deutsch"
+      ],
       "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true
+      "acceptsPrivateInsurance": true,
+      "specialization": "kinder",
+      "source": "openstreetmap"
     },
     {
-      "id": "arzt_sg_003",
+      "id": "arzt_msh_141",
       "type": "doctor",
-      "name": "Gemeinschaftspraxis Dr. Anne Jansch & Dr. Christel Tettenborn",
-      "specialization": "allgemein",
-      "phone": "03464573456",
-      "phoneFormatted": "03464 / 57 34 56",
-      "street": "Alte Promenade 43",
-      "postalCode": "06526",
-      "city": "Sangerhausen",
-      "latitude": 51.4721,
-      "longitude": 11.2978,
-      "hasHouseCalls": true,
-      "isBarrierFree": false,
-      "languages": ["Deutsch"],
+      "name": "Allgemeinarztpraxis Steikert",
+      "latitude": 51.3572383,
+      "longitude": 11.1034831,
+      "street": "Poststraße 29",
+      "postalCode": "06567",
+      "city": "Bad Frankenhausen/Kyffhäuser",
+      "languages": [
+        "Deutsch"
+      ],
       "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true
-    },
-    {
-      "id": "arzt_sg_004",
-      "type": "doctor",
-      "name": "Gemeinschaftspraxis Dr. Susanne Fischer & Dipl.-Med. Gabriele Fischer",
-      "specialization": "allgemein",
-      "phone": "03464578720",
-      "phoneFormatted": "03464 / 57 87 20",
-      "street": "Am Ring 18",
-      "postalCode": "06526",
-      "city": "Sangerhausen",
-      "latitude": 51.4712,
-      "longitude": 11.2945,
-      "hasHouseCalls": true,
-      "isBarrierFree": true,
-      "hasParking": true,
-      "languages": ["Deutsch"],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true
-    },
-    {
-      "id": "arzt_sg_005",
-      "type": "doctor",
-      "name": "Dr. med. Uwe Kautz",
-      "specialization": "innere",
-      "phone": "03464520032",
-      "phoneFormatted": "03464 / 52 00 32",
-      "street": "Alte Hauptstraße 30",
-      "postalCode": "06526",
-      "city": "Sangerhausen",
-      "latitude": 51.4735,
-      "longitude": 11.2956,
-      "hasHouseCalls": false,
-      "isBarrierFree": true,
-      "languages": ["Deutsch"],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true
-    },
-    {
-      "id": "arzt_sg_006",
-      "type": "doctor",
-      "name": "Dr. Andrei-Anton Radulescu",
-      "specialization": "allgemein",
-      "phone": "03464520030",
-      "phoneFormatted": "03464 / 52 00 30",
-      "street": "Sangerhäuser Straße 9",
-      "postalCode": "06526",
-      "city": "Sangerhausen",
-      "latitude": 51.4689,
-      "longitude": 11.2934,
-      "hasHouseCalls": true,
-      "isBarrierFree": true,
-      "languages": ["Deutsch", "Rumänisch"],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
     },
     {
       "id": "arzt_sg_007",
       "type": "doctor",
       "name": "Arman Mohebbi-Tafrechi",
-      "specialization": "allgemein",
-      "phone": "03464520032",
-      "phoneFormatted": "03464 / 52 00 32",
+      "latitude": 51.4565,
+      "longitude": 11.2812,
       "street": "Sangerhäuser Straße 9",
       "postalCode": "06526",
       "city": "Sangerhausen-Oberröblingen",
-      "latitude": 51.4565,
-      "longitude": 11.2812,
-      "hasHouseCalls": true,
+      "phone": "03464520032",
+      "phoneFormatted": "03464 / 52 00 32",
       "isBarrierFree": true,
-      "languages": ["Deutsch"],
+      "languages": [
+        "Deutsch"
+      ],
       "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true
-    },
-    {
-      "id": "arzt_sg_008",
-      "type": "doctor",
-      "name": "Dr. med. Ehrenpfordt",
-      "specialization": "hno",
-      "phone": "03464573500",
-      "phoneFormatted": "03464 / 57 35 00",
-      "street": "Alte Promenade 1",
-      "postalCode": "06526",
-      "city": "Sangerhausen",
-      "latitude": 51.4718,
-      "longitude": 11.2968,
-      "hasHouseCalls": false,
-      "isBarrierFree": true,
-      "languages": ["Deutsch"],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true
-    },
-    {
-      "id": "arzt_el_001",
-      "type": "doctor",
-      "name": "Dr. med. Susanne Liebhold",
-      "specialization": "innere",
-      "phone": "03475604185",
-      "phoneFormatted": "03475 / 60 41 85",
-      "website": "https://www.internistische-hausarztpraxis-eisleben.de",
-      "street": "Hohetorstraße 25a",
-      "postalCode": "06295",
-      "city": "Lutherstadt Eisleben",
-      "latitude": 51.5281,
-      "longitude": 11.5468,
-      "hasHouseCalls": true,
-      "isBarrierFree": true,
-      "hasParking": true,
-      "languages": ["Deutsch"],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true
-    },
-    {
-      "id": "arzt_el_002",
-      "type": "doctor",
-      "name": "MR Dr. med. Frank Stahl",
+      "acceptsPrivateInsurance": true,
       "specialization": "allgemein",
-      "phone": "03475602274",
-      "phoneFormatted": "03475 / 60 22 74",
-      "street": "Straße des Aufbaues 39",
-      "postalCode": "06295",
-      "city": "Lutherstadt Eisleben",
-      "latitude": 51.5265,
-      "longitude": 11.5452,
       "hasHouseCalls": true,
-      "isBarrierFree": false,
-      "languages": ["Deutsch"],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true
+      "verified": true,
+      "source": "arzt-auskunft.de, arzt-atlas.de"
     },
     {
-      "id": "arzt_el_003",
+      "id": "arzt_msh_107",
       "type": "doctor",
-      "name": "Dipl.-Med. Gabriele Komaritzan",
-      "specialization": "allgemein",
-      "phone": "03475714580",
-      "phoneFormatted": "03475 / 71 45 80",
-      "street": "Gewerbegebiet 6",
-      "postalCode": "06295",
-      "city": "Lutherstadt Eisleben OT Rothenschirmbach",
-      "latitude": 51.5125,
-      "longitude": 11.5234,
-      "hasHouseCalls": true,
-      "isBarrierFree": true,
-      "languages": ["Deutsch"],
+      "name": "Arztpraxis Czernohorsky",
+      "latitude": 51.6163798,
+      "longitude": 11.0445498,
+      "street": "Wickenhöfen 228",
+      "postalCode": "06493",
+      "city": "Harzgerode",
+      "phone": "+49 39489 4689",
+      "phoneFormatted": "03948 / 94 68 9",
+      "languages": [
+        "Deutsch"
+      ],
       "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_082",
+      "type": "doctor",
+      "name": "Arztpraxis Sidorowicz",
+      "latitude": 51.2811686,
+      "longitude": 11.0681863,
+      "street": "Am Schulplatz 24",
+      "postalCode": "99638",
+      "city": "Kindelbrück",
+      "phone": "+49 36375 50349",
+      "phoneFormatted": "03637 / 55 03 49",
+      "openingHours": "Mo,We-Fr 07:30-13:00; Tu 14:30-18:00; Sa,Su,PH off",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_al_119",
+      "type": "doctor",
+      "name": "Arztpraxis für Allgemeinmedizin",
+      "latitude": 51.4048048,
+      "longitude": 11.3940039,
+      "street": "Goetheweg 2b",
+      "postalCode": "06542",
+      "city": "Allstedt",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_059",
+      "type": "doctor",
+      "name": "Augenarzt",
+      "latitude": 51.3675549,
+      "longitude": 10.8522866,
+      "street": "Talstraße 12",
+      "postalCode": "99706",
+      "city": "Sondershausen",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "augen",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_068",
+      "type": "doctor",
+      "name": "Augenarztpraxis Teutschenthal",
+      "latitude": 51.4510747,
+      "longitude": 11.7975536,
+      "street": "Poststraße 5",
+      "postalCode": "06179",
+      "city": "Teutschenthal",
+      "phone": "+49 34601 529670",
+      "phoneFormatted": "03460 / 15 29 670",
+      "openingHours": "Mo,We,Fr 08:30-12:00; Tu,Th 08:30-14:30; Sa,Su,PH off",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "augen",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sh_044",
+      "type": "doctor",
+      "name": "Augenärzte Dr. Heise/Dr. Gründel",
+      "latitude": 51.5065054,
+      "longitude": 10.8013904,
+      "city": "Mansfeld-Südharz",
+      "phone": "+49 3631 983 475",
+      "phoneFormatted": "03631 / 98 34 75",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "augen",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sh_045",
+      "type": "doctor",
+      "name": "Bianca Bichbeimer/Internistin",
+      "latitude": 51.510105,
+      "longitude": 10.8010346,
+      "city": "Mansfeld-Südharz",
+      "phone": "+49 3631 881100",
+      "phoneFormatted": "03631 / 88 11 00",
+      "openingHours": "Mo-Fr 08:00-11:30, Mo,Th 16:00-18:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sh_021",
+      "type": "doctor",
+      "name": "Buchmann",
+      "latitude": 51.3666944,
+      "longitude": 10.8666109,
+      "city": "Mansfeld-Südharz",
+      "phone": "+49 3632 783110",
+      "phoneFormatted": "03632 / 78 31 10",
+      "website": "https://buchmann-zahnarzt.de/",
+      "openingHours": "Mo,Tu 08:00-12:00,14:00-19:00; We 08:00-12:00,14:00-18:00; Th,Fr 08:00-12:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sh_138",
+      "type": "doctor",
+      "name": "Burghard Lakomy",
+      "latitude": 51.5660456,
+      "longitude": 11.7260784,
+      "city": "Mansfeld-Südharz",
+      "website": "https://www.zahnarzt-lakomy.de/",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
     },
     {
       "id": "arzt_el_004",
       "type": "doctor",
       "name": "Chirurgische Gemeinschaftspraxis Dres. Büchel & John",
-      "specialization": "innere",
-      "phone": "03475602300",
-      "phoneFormatted": "03475 / 60 23 00",
+      "latitude": 51.5274,
+      "longitude": 11.5481,
       "street": "Markt 16",
       "postalCode": "06295",
       "city": "Lutherstadt Eisleben",
-      "latitude": 51.5274,
-      "longitude": 11.5481,
-      "hasHouseCalls": false,
+      "phone": "03475602300",
+      "phoneFormatted": "03475 / 60 23 00",
       "isBarrierFree": true,
-      "languages": ["Deutsch"],
+      "languages": [
+        "Deutsch"
+      ],
       "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true
+      "acceptsPrivateInsurance": true,
+      "specialization": "innere",
+      "verified": true,
+      "source": "arzt-auskunft.de, arzt-atlas.de"
+    },
+    {
+      "id": "arzt_msh_089",
+      "type": "doctor",
+      "name": "Christian Maertens",
+      "latitude": 51.6469807,
+      "longitude": 11.1399851,
+      "street": "Mägdesprunger Straße 37",
+      "postalCode": "06493",
+      "city": "Harzgerode",
+      "phone": "+49 39484 2812",
+      "phoneFormatted": "03948 / 42 81 2",
+      "openingHours": "Mo,We,Th 08:00-12:00,13:30-18:00; Tu 08:00-14:00; Fr 08:00-13:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sg_096",
+      "type": "doctor",
+      "name": "Christine Ehrenpfordt",
+      "latitude": 51.4717591,
+      "longitude": 11.293953,
+      "street": "Alte Promenade 1",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "+49 3464 343400",
+      "phoneFormatted": "03464 / 34 34 00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "hno",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_113",
+      "type": "doctor",
+      "name": "Claudia Götting",
+      "latitude": 51.3440436,
+      "longitude": 11.7373714,
+      "street": "Kupfer-Wein-Straße 6a",
+      "postalCode": "06268",
+      "city": "Mücheln (Geiseltal)",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sh_080",
+      "type": "doctor",
+      "name": "Constanze und Michael Schumann",
+      "latitude": 51.5688589,
+      "longitude": 11.7334002,
+      "city": "Mansfeld-Südharz",
+      "phone": "+493477320226",
+      "phoneFormatted": "03477 / 32 02 26",
+      "openingHours": "Mo 08:00-12:00; 16:00-18:00; Tu-We 08:00-12:00; Th 14:00-18:00; Fr 08:00-12:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_127",
+      "type": "doctor",
+      "name": "Diabetologische Schwerpunktpraxis Magdalena Koehn",
+      "latitude": 51.2665454,
+      "longitude": 11.4095646,
+      "street": "Leopold-von-Ranke-Straße 90",
+      "postalCode": "06571",
+      "city": "Roßleben-Wiehe",
+      "phone": "+49 34672 65586",
+      "phoneFormatted": "03467 / 26 55 86",
+      "website": "http://www.schwerpunktpraxis.de/m-koehn",
+      "openingHours": "Mo-Th 07:30-11:30,16:00-18:30; We 07:30-11:30,13:30-16:00; Fr 07:30-11:30; Sa 10:00-11:00; Su off",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sh_084",
+      "type": "doctor",
+      "name": "Dipl. - Med. Erland Güllmeister",
+      "latitude": 51.6763774,
+      "longitude": 11.5671447,
+      "city": "Mansfeld-Südharz",
+      "phone": "+49 34785 906670",
+      "phoneFormatted": "03478 / 59 06 670",
+      "openingHours": "Mo 08:00-12:00 14:00-18:00; Wed 08:00-12:00 14:00-18:00; Fr 08:00-12:00 14:00-18:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_033",
+      "type": "doctor",
+      "name": "Dipl. Med. Renate Schmidt Kinderheilkunde",
+      "latitude": 51.3642318,
+      "longitude": 11.2962604,
+      "street": "Leipziger Straße 32",
+      "postalCode": "06556",
+      "city": "Artern",
+      "phone": "+49 3466 319393",
+      "phoneFormatted": "03466 / 31 93 93",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "kinder",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_137",
+      "type": "doctor",
+      "name": "Dipl. Stom. Almut Spillmann Zahnärztin",
+      "latitude": 51.2978689,
+      "longitude": 11.4334959,
+      "street": "Ernst-Thälmann-Straße 28",
+      "postalCode": "06571",
+      "city": "Roßleben-Wiehe",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_129",
+      "type": "doctor",
+      "name": "Dipl. med. Jens Thieme Dermatologie",
+      "latitude": 51.3672639,
+      "longitude": 11.2908033,
+      "street": "Puschkinstraße 37",
+      "postalCode": "06556",
+      "city": "Artern",
+      "phone": "+49 3466 31097",
+      "phoneFormatted": "03466 / 31 09 7",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "haut",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_130",
+      "type": "doctor",
+      "name": "Dipl. med. Jürgen Sonnefeld Allgemeinmedizin",
+      "latitude": 51.3661179,
+      "longitude": 11.2924374,
+      "street": "Puschkinstraße 52",
+      "postalCode": "06556",
+      "city": "Artern",
+      "phone": "+49 3466 321183",
+      "phoneFormatted": "03466 / 32 11 83",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_124",
+      "type": "doctor",
+      "name": "Dipl.-Med. Birgit Pröseler Innere Medizin",
+      "latitude": 51.3006739,
+      "longitude": 11.4286982,
+      "street": "Dahlienring 31",
+      "postalCode": "06571",
+      "city": "Roßleben-Wiehe",
+      "phone": "+49 34672 82311",
+      "phoneFormatted": "03467 / 28 23 11",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "innere",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_126",
+      "type": "doctor",
+      "name": "Dipl.-Med. Brandl und Hillwig Gynäkologische Praxisgemeinschaft",
+      "latitude": 51.2969552,
+      "longitude": 11.4354363,
+      "street": "Friedenstraße 1a",
+      "postalCode": "06571",
+      "city": "Roßleben-Wiehe",
+      "phone": "+49 34672 81312",
+      "phoneFormatted": "03467 / 28 13 12",
+      "website": "http://www.frauenaerzte-badfrankenhausen.de/",
+      "openingHours": "Mo 15:00-19:00; We 08:00-14:00; Fr 08:00-16:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "gyn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_114",
+      "type": "doctor",
+      "name": "Dipl.-Med. Dieter Kowalski, Kristina Keil",
+      "latitude": 51.2764655,
+      "longitude": 11.6412507,
+      "street": "Straße der Befreiung 1c",
+      "postalCode": "06638",
+      "city": "Karsdorf",
+      "phone": "+49 34461 5000",
+      "phoneFormatted": "03446 / 15 00 0",
+      "website": "https://www.klinikum-naumburg.de/fachbereiche-praxen/praxen/dipl-med-dieter-kowalski-kristina-keil/",
+      "openingHours": "Mo-Fr 08:00-12:00; Mo 15:00-18:00; Tu 14:00-16:00; We,Th 16:00-18:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_el_003",
+      "type": "doctor",
+      "name": "Dipl.-Med. Gabriele Komaritzan",
+      "latitude": 51.5125,
+      "longitude": 11.5234,
+      "street": "Gewerbegebiet 6",
+      "postalCode": "06295",
+      "city": "Lutherstadt Eisleben OT Rothenschirmbach",
+      "phone": "03475714580",
+      "phoneFormatted": "03475 / 71 45 80",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "hasHouseCalls": true,
+      "verified": true,
+      "source": "arzt-auskunft.de, arzt-atlas.de"
+    },
+    {
+      "id": "arzt_el_035",
+      "type": "doctor",
+      "name": "Dipl.-Med. Sabine Bruska",
+      "latitude": 51.5214478,
+      "longitude": 11.5432866,
+      "street": "Friedensstraße 14",
+      "postalCode": "06295",
+      "city": "Lutherstadt Eisleben",
+      "phone": "+49 3475 696318",
+      "phoneFormatted": "03475 / 69 63 18",
+      "openingHours": "Mo,Tu,Th 08:30-11:30,14:00-17:30; We 08:30-11:30; Fr 08:30-11:30,13:00-15:00; Sa,Su off",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_125",
+      "type": "doctor",
+      "name": "Dipl.-Med. Sylvia Montag Allgemeinmedizin",
+      "latitude": 51.2977736,
+      "longitude": 11.4326407,
+      "street": "Fritz-Hofmann-Straße 2",
+      "postalCode": "06571",
+      "city": "Roßleben-Wiehe",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_091",
+      "type": "doctor",
+      "name": "Dipl.-Med. Tcherkes",
+      "latitude": 51.6751865,
+      "longitude": 11.7771192,
+      "street": "Am Bahnhof 3",
+      "postalCode": "06420",
+      "city": "Könnern",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_el_036",
+      "type": "doctor",
+      "name": "Dipl.-Med. Ute Wendt",
+      "latitude": 51.5236189,
+      "longitude": 11.5526639,
+      "street": "Bahnhofstraße 22",
+      "postalCode": "06295",
+      "city": "Lutherstadt Eisleben",
+      "phone": "+49 3475 602725",
+      "phoneFormatted": "03475 / 60 27 25",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "innere",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sh_028",
+      "type": "doctor",
+      "name": "Dipl.-Stom. Dagmar Möbes Zahnärztin",
+      "latitude": 51.3062289,
+      "longitude": 11.4024324,
+      "city": "Mansfeld-Südharz",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sh_047",
+      "type": "doctor",
+      "name": "Dr. Adam",
+      "latitude": 51.2869812,
+      "longitude": 11.5800421,
+      "city": "Mansfeld-Südharz",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sg_006",
+      "type": "doctor",
+      "name": "Dr. Andrei-Anton Radulescu",
+      "latitude": 51.4689,
+      "longitude": 11.2934,
+      "street": "Sangerhäuser Straße 9",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "03464520030",
+      "phoneFormatted": "03464 / 52 00 30",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch",
+        "Rumänisch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "hasHouseCalls": true,
+      "verified": true,
+      "source": "arzt-auskunft.de, arzt-atlas.de"
+    },
+    {
+      "id": "arzt_ht_050",
+      "type": "doctor",
+      "name": "Dr. Handro",
+      "latitude": 51.6614975,
+      "longitude": 11.4946528,
+      "city": "Hettstedt",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_026",
+      "type": "doctor",
+      "name": "Dr. Kathrin Sebert",
+      "latitude": 51.4783109,
+      "longitude": 10.900603,
+      "street": "Kirchfeld 12a",
+      "postalCode": "99765",
+      "city": "Urbach",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sh_087",
+      "type": "doctor",
+      "name": "Dr. Medic (Univ. Timisoara) Sandor Schmidt",
+      "latitude": 51.6410954,
+      "longitude": 11.1403831,
+      "city": "Mansfeld-Südharz",
+      "phone": "+4939484738355",
+      "phoneFormatted": "03948 / 47 38 355",
+      "openingHours": "Mo, Th 08:00-12:00, 14:00-18:00; Tu 10:00-14:00; We, Fr 08:00-12:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_046",
+      "type": "doctor",
+      "name": "Dr. Uwe Ludwig/Kinderarzt",
+      "latitude": 51.5072937,
+      "longitude": 10.8009355,
+      "street": "Stolberger Straße 36a",
+      "postalCode": "99734",
+      "city": "Nordhausen",
+      "phone": "+49 3631 982 281",
+      "phoneFormatted": "03631 / 98 22 81",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "kinder",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_143",
+      "type": "doctor",
+      "name": "Dr. med. Andrea Knischka",
+      "latitude": 51.3554657,
+      "longitude": 11.1012064,
+      "street": "Markt 7",
+      "postalCode": "06567",
+      "city": "Bad Frankenhausen/Kyffhäuser",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_074",
+      "type": "doctor",
+      "name": "Dr. med. Andrea Ose",
+      "latitude": 51.3725215,
+      "longitude": 10.8791315,
+      "street": "Vor dem Wippertor 1",
+      "postalCode": "99706",
+      "city": "Sondershausen",
+      "phone": "+49 3632 788463",
+      "phoneFormatted": "03632 / 78 84 63",
+      "openingHours": "Mo,Tu,Th 08:00-11:30,16:00-17:00; We,Fr 08:00-11:30",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
     },
     {
       "id": "arzt_sh_001",
       "type": "doctor",
       "name": "Dr. med. Anja Ehrke",
-      "specialization": "allgemein",
+      "latitude": 51.4558,
+      "longitude": 11.0658,
       "street": "Roßla",
       "postalCode": "06536",
       "city": "Südharz OT Roßla",
-      "latitude": 51.4558,
-      "longitude": 11.0658,
-      "hasHouseCalls": true,
       "isBarrierFree": true,
-      "languages": ["Deutsch"],
+      "languages": [
+        "Deutsch"
+      ],
       "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "hasHouseCalls": true,
+      "verified": true,
+      "source": "arzt-auskunft.de, arzt-atlas.de"
+    },
+    {
+      "id": "arzt_msh_049",
+      "type": "doctor",
+      "name": "Dr. med. Christina Voita",
+      "latitude": 51.5031743,
+      "longitude": 10.8012269,
+      "street": "August-Bebel-Platz 33",
+      "postalCode": "99734",
+      "city": "Nordhausen",
+      "phone": "+49 3631 473311",
+      "phoneFormatted": "03631 / 47 33 11",
+      "openingHours": "Mo-Fr 08:00-12:00, Mo-Th 15:00-18:00; PH off",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sh_085",
+      "type": "doctor",
+      "name": "Dr. med. Clemens Witzenhausen",
+      "latitude": 51.366672,
+      "longitude": 10.8690238,
+      "city": "Mansfeld-Südharz",
+      "openingHours": "We-Fr 08:00-12:00; Mo 08:00-12:00, 14:00-16:00; Tu 08:00-12:00, 14:00-18:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "neuro",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_048",
+      "type": "doctor",
+      "name": "Dr. med. Dirk Ludewig",
+      "latitude": 51.507827,
+      "longitude": 10.8015171,
+      "street": "Stolberger Straße 49",
+      "postalCode": "99734",
+      "city": "Nordhausen",
+      "phone": "+49 3631 988 756",
+      "phoneFormatted": "03631 / 98 87 56",
+      "openingHours": "Mo-Fr 08:00-12:00, Mo,Th 15:00-18:00; PH off",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sg_008",
+      "type": "doctor",
+      "name": "Dr. med. Ehrenpfordt",
+      "latitude": 51.4718,
+      "longitude": 11.2968,
+      "street": "Alte Promenade 1",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "03464573500",
+      "phoneFormatted": "03464 / 57 35 00",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "hno",
+      "verified": true,
+      "source": "arzt-auskunft.de, arzt-atlas.de"
+    },
+    {
+      "id": "arzt_msh_030",
+      "type": "doctor",
+      "name": "Dr. med. Harald Weidinger Internist",
+      "latitude": 51.2636386,
+      "longitude": 11.420157,
+      "street": "August-Bebel-Allee 5",
+      "postalCode": "06571",
+      "city": "Roßleben-Wiehe",
+      "phone": "+49 34672 65468",
+      "phoneFormatted": "03467 / 26 54 68",
+      "website": "https://www.praxis-dr-weidinger.de/",
+      "openingHours": "Mo-Tu 07:00-12:00,16:00-18:30; We 07:00-12:00; Th 07:00-12:00,16:00-18:30; Fr 07:00-12:00; Sa-Su off",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "innere",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_118",
+      "type": "doctor",
+      "name": "Dr. med. Katrin Schröter-Höch",
+      "latitude": 51.5310215,
+      "longitude": 10.8308567,
+      "street": "Petersdorfer Straße",
+      "postalCode": "99734",
+      "city": "Nordhausen",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_020",
+      "type": "doctor",
+      "name": "Dr. med. Mandy Rieche",
+      "latitude": 51.3625779,
+      "longitude": 10.8956727,
+      "street": "Frankenhäuser Straße 64",
+      "postalCode": "99706",
+      "city": "Sondershausen",
+      "phone": "+49 3632 700 710",
+      "phoneFormatted": "03632 / 70 07 10",
+      "openingHours": "Tu,We,Fr 08:00-12:00; Mo,Th 08:00-12:00,15:30-17:30",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_mf_139",
+      "type": "doctor",
+      "name": "Dr. med. Müller",
+      "latitude": 51.4645805,
+      "longitude": 11.6702462,
+      "street": "Kesselstraße 10",
+      "postalCode": "06317",
+      "city": "Seegebiet Mansfelder Land",
+      "openingHours": "Mo-Fr 09:00-17:00",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_131",
+      "type": "doctor",
+      "name": "Dr. med. Persch Allgemeinmedizin",
+      "latitude": 51.3677247,
+      "longitude": 11.2902617,
+      "street": "Puschkinstraße 28",
+      "postalCode": "06556",
+      "city": "Artern",
+      "phone": "+49 3466 31075",
+      "phoneFormatted": "03466 / 31 07 5",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_el_001",
+      "type": "doctor",
+      "name": "Dr. med. Susanne Liebhold",
+      "latitude": 51.5281,
+      "longitude": 11.5468,
+      "street": "Hohetorstraße 25a",
+      "postalCode": "06295",
+      "city": "Lutherstadt Eisleben",
+      "phone": "03475604185",
+      "phoneFormatted": "03475 / 60 41 85",
+      "website": "https://www.internistische-hausarztpraxis-eisleben.de",
+      "isBarrierFree": true,
+      "hasParking": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "innere",
+      "hasHouseCalls": true,
+      "verified": true,
+      "source": "arzt-auskunft.de, arzt-atlas.de"
+    },
+    {
+      "id": "arzt_sh_063",
+      "type": "doctor",
+      "name": "Dr. med. Urszula Tegtmeyer",
+      "latitude": 51.3703529,
+      "longitude": 10.8753309,
+      "city": "Mansfeld-Südharz",
+      "phone": "+49 3632 782828",
+      "phoneFormatted": "03632 / 78 28 28",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_122",
+      "type": "doctor",
+      "name": "Dr. med. Uwe Demel/Facharzt für Allgemeinmedizin",
+      "latitude": 51.5020701,
+      "longitude": 10.805092,
+      "street": "Förstemannstraße 5",
+      "postalCode": "99734",
+      "city": "Nordhausen",
+      "phone": "+49 3631 982176",
+      "phoneFormatted": "03631 / 98 21 76",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sg_005",
+      "type": "doctor",
+      "name": "Dr. med. Uwe Kautz",
+      "latitude": 51.4735,
+      "longitude": 11.2956,
+      "street": "Alte Hauptstraße 30",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "03464520032",
+      "phoneFormatted": "03464 / 52 00 32",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "innere",
+      "verified": true,
+      "source": "arzt-auskunft.de, arzt-atlas.de"
+    },
+    {
+      "id": "arzt_sh_029",
+      "type": "doctor",
+      "name": "Dr. med. dent. Hoffmann und Marcinkowski Zahnärztliche Gemeinschaftspraxis",
+      "latitude": 51.2953024,
+      "longitude": 11.4310155,
+      "city": "Mansfeld-Südharz",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_ht_039",
+      "type": "doctor",
+      "name": "Ellen Steindel",
+      "latitude": 51.6431952,
+      "longitude": 11.5124796,
+      "street": "Untere Bahnhofstraße 9",
+      "postalCode": "06333",
+      "city": "Hettstedt",
+      "phone": "+49 3476 810268",
+      "phoneFormatted": "03476 / 81 02 68",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_043",
+      "type": "doctor",
+      "name": "Facharzt für Innere Medizin Feuerberg",
+      "latitude": 51.4383598,
+      "longitude": 11.662942,
+      "street": "Querfurter Straße 2",
+      "postalCode": "06279",
+      "city": "Schraplau",
+      "phone": "+49 34774 27368",
+      "phoneFormatted": "03477 / 42 73 68",
+      "openingHours": "Mo,Th 07:30-11:00,15:00-17:00; Tu,We,Fr 07:30-11:00; Sa,Su,PH off",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "innere",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_135",
+      "type": "doctor",
+      "name": "Facharztzentrum für Hals-, Nasen- und Ohrenheilkunde",
+      "latitude": 51.3641818,
+      "longitude": 11.2896534,
+      "street": "Schloßstraße 15",
+      "postalCode": "06556",
+      "city": "Artern",
+      "phone": "+49 3466 364525",
+      "phoneFormatted": "03466 / 36 45 25",
+      "website": "https://www.facharztzentrum-hno.de/",
+      "openingHours": "Mo 08:00-12:00,14:00-16:00; Tu 13:00-19:00; We 08:00-11:00; Th 08:00-12:00,14:00-18:00; Fr 08:00-12:00; Sa-Su off",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "hno",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_081",
+      "type": "doctor",
+      "name": "Fachzahnarzt Lambrecht",
+      "latitude": 51.6873877,
+      "longitude": 10.8619154,
+      "street": "Stieger Straße 11b",
+      "postalCode": "38899",
+      "city": "Oberharz am Brocken",
+      "phone": "+49 39459 71219",
+      "phoneFormatted": "03945 / 97 12 19",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_134",
+      "type": "doctor",
+      "name": "Fachärztin für Augenheilkunde (Zweigpraxis)",
+      "latitude": 51.365348,
+      "longitude": 11.2928794,
+      "street": "Nordhäuser Straße 13",
+      "postalCode": "06556",
+      "city": "Artern",
+      "phone": "+49 34 66  3 64 47 60",
+      "phoneFormatted": "03466 / 36 44 760",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "augen",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_142",
+      "type": "doctor",
+      "name": "Frau Dr. med. Barbara Trautvetter Internistin",
+      "latitude": 51.3557733,
+      "longitude": 11.0990095,
+      "street": "Klosterstraße 17",
+      "postalCode": "06567",
+      "city": "Bad Frankenhausen/Kyffhäuser",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "innere",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_069",
+      "type": "doctor",
+      "name": "Frauenarztpraxis Müller",
+      "latitude": 51.446073,
+      "longitude": 11.7928027,
+      "street": "Friedrich-Henze-Straße 96",
+      "postalCode": "06179",
+      "city": "Teutschenthal",
+      "phone": "+49 34601 398111",
+      "phoneFormatted": "03460 / 13 98 111",
+      "website": "http://www.xn--gynpraxismller-psb.de",
+      "openingHours": "Mo 08:00-16:00; Tu,Th 12:00-18:00; We,Fr 08:00-13:00; Sa,Su,PH off",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "gyn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sg_003",
+      "type": "doctor",
+      "name": "Gemeinschaftspraxis Dr. Anne Jansch & Dr. Christel Tettenborn",
+      "latitude": 51.4721,
+      "longitude": 11.2978,
+      "street": "Alte Promenade 43",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "03464573456",
+      "phoneFormatted": "03464 / 57 34 56",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "hasHouseCalls": true,
+      "verified": true,
+      "source": "arzt-auskunft.de, arzt-atlas.de"
+    },
+    {
+      "id": "arzt_sh_037",
+      "type": "doctor",
+      "name": "Gemeinschaftspraxis Dr. Prenz",
+      "latitude": 51.3789776,
+      "longitude": 11.6044921,
+      "city": "Mansfeld-Südharz",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sg_004",
+      "type": "doctor",
+      "name": "Gemeinschaftspraxis Dr. Susanne Fischer & Dipl.-Med. Gabriele Fischer",
+      "latitude": 51.4712,
+      "longitude": 11.2945,
+      "street": "Am Ring 18",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "03464578720",
+      "phoneFormatted": "03464 / 57 87 20",
+      "isBarrierFree": true,
+      "hasParking": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "hasHouseCalls": true,
+      "verified": true,
+      "source": "arzt-auskunft.de, arzt-atlas.de"
+    },
+    {
+      "id": "arzt_msh_133",
+      "type": "doctor",
+      "name": "Gemeinschaftspraxis Gerhard Gottelt und Stephan Gottelt Allgemeinmedizin",
+      "latitude": 51.3693482,
+      "longitude": 11.2939184,
+      "street": "Schillerstraße 65",
+      "postalCode": "06556",
+      "city": "Artern",
+      "phone": "+49 3466 302673",
+      "phoneFormatted": "03466 / 30 26 73",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_147",
+      "type": "doctor",
+      "name": "Gemeinschaftspraxis Peschka",
+      "latitude": 51.3656336,
+      "longitude": 11.2934458,
+      "street": "Puschkinstraße 61",
+      "postalCode": "06556",
+      "city": "Artern",
+      "phone": "+493466 7404404",
+      "phoneFormatted": "03466 / 74 04 404",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_123",
+      "type": "doctor",
+      "name": "Gemeinschaftspraxis Strobach & Putzschke",
+      "latitude": 51.4462806,
+      "longitude": 11.794066,
+      "street": "Friedrich-Henze-Straße 90",
+      "postalCode": "06179",
+      "city": "Teutschenthal",
+      "phone": "+49 34601 22469",
+      "phoneFormatted": "03460 / 12 24 69",
+      "website": "https://www.arzt-teutschenthal.de",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_051",
+      "type": "doctor",
+      "name": "Gemeinschaftspraxis Thekla Höpker & Claudia Terschluse-Knabe/Kinder- und Jugendmedizin",
+      "latitude": 51.5022127,
+      "longitude": 10.8197576,
+      "street": "Conrad-Fromann-Straße 15",
+      "postalCode": "99734",
+      "city": "Nordhausen",
+      "phone": "+49 3631 895187",
+      "phoneFormatted": "03631 / 89 51 87",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "kinder",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_073",
+      "type": "doctor",
+      "name": "Gemeinschaftspraxis Voigtsberger & Werner",
+      "latitude": 51.3660104,
+      "longitude": 10.8877362,
+      "street": "Frankenhäuser Straße 50",
+      "postalCode": "99706",
+      "city": "Sondershausen",
+      "phone": "+49 3632 757676",
+      "phoneFormatted": "03632 / 75 76 76",
+      "website": "https://www.vw-gp.de/",
+      "openingHours": "Mo,Th 08:00-12:00,15:30-18:00; Tu,We,Fr 08:00-12:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_117",
+      "type": "doctor",
+      "name": "Gemeinschaftspraxis für Allgemeinmedizin",
+      "latitude": 51.5610157,
+      "longitude": 10.8274478,
+      "street": "Neustädter Ring 5",
+      "postalCode": "99762",
+      "city": "Harztor",
+      "phone": "+49 36331 31450",
+      "phoneFormatted": "03633 / 13 14 50",
+      "website": "https://www.arztpraxis-haas.de/gemeinschaftspraxis-in-neustadt-harz.html",
+      "openingHours": "Mo,Tu,Th 08:00-12:00,15:00-18:00; We,Fr 08:00-12:00; Sa,Su,PH off",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sh_136",
+      "type": "doctor",
+      "name": "Gesundheitszentrum Röblingen",
+      "latitude": 51.4625853,
+      "longitude": 11.6720211,
+      "city": "Mansfeld-Südharz",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_121",
+      "type": "doctor",
+      "name": "Goldmann",
+      "latitude": 51.363953,
+      "longitude": 10.8684122,
+      "street": "Philipp-Spitta-Straße 7",
+      "postalCode": "99706",
+      "city": "Sondershausen",
+      "phone": "+49 3632 758356",
+      "phoneFormatted": "03632 / 75 83 56",
+      "openingHours": "Mo-We,Fr 08:00-13:00; Th 14:00-19:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_018",
+      "type": "doctor",
+      "name": "Götzl",
+      "latitude": 51.3689474,
+      "longitude": 10.870325,
+      "street": "Gartenstraße 1a",
+      "postalCode": "99706",
+      "city": "Sondershausen",
+      "website": "https://www.frauenarzt-sondershausen.de/",
+      "openingHours": "Mo,Fr 08:00-14:00; Tu 08:00-12:00,14:30-18:00; We 08:00-12:00; Th 08:00-12:00,14:30-17:30",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "gyn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_061",
+      "type": "doctor",
+      "name": "Hausarztpraxis Barnstädt",
+      "latitude": 51.342651,
+      "longitude": 11.6422319,
+      "street": "Sperlingsberg 21",
+      "postalCode": "06268",
+      "city": "Barnstädt",
+      "openingHours": "Mo,Th 08:00-12:00,16:00-18:00; Tu 08:00-12:00,15:00-17:00; We,Fr 08:00-12:00; Sa,Su,PH off",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_070",
+      "type": "doctor",
+      "name": "Hausarztpraxis Heringen J. Michel",
+      "latitude": 51.4467618,
+      "longitude": 10.879928,
+      "street": "Straße der Einheit 43",
+      "postalCode": "99765",
+      "city": "Heringen/Helme",
+      "openingHours": "Mo 08:00-12:00, 16:00-18:00; Th 16:00-18:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sh_022",
+      "type": "doctor",
+      "name": "Heike Bauer",
+      "latitude": 51.5166774,
+      "longitude": 10.945314,
+      "city": "Mansfeld-Südharz",
+      "phone": "+49 34653 83622",
+      "phoneFormatted": "03465 / 38 36 22",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sg_100",
+      "type": "doctor",
+      "name": "Ingrid Hegewald",
+      "latitude": 51.4739317,
+      "longitude": 11.2995397,
+      "street": "Kornmarkt 7",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "+49 3464 574646",
+      "phoneFormatted": "03464 / 57 46 46",
+      "openingHours": "Mo 07:30-12:00, 13:00-16:00; Tu 08:00-12:00, 13:00-18:00; We 07:30-12:00; Th 07:30-12:00, 13:00-18:00; Fr 07:30-12:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_052",
+      "type": "doctor",
+      "name": "Irmgard Kamp/Zahnärztin",
+      "latitude": 51.5019829,
+      "longitude": 10.8187845,
+      "street": "Conrad-Fromann-Straße 27",
+      "postalCode": "99734",
+      "city": "Nordhausen",
+      "phone": "+49 3631 985192",
+      "phoneFormatted": "03631 / 98 51 92",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sg_104",
+      "type": "doctor",
+      "name": "Jörg Hörold",
+      "latitude": 51.4755765,
+      "longitude": 11.2981973,
+      "street": "Göpenstraße 34",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "+49 3464 570720",
+      "phoneFormatted": "03464 / 57 07 20",
+      "openingHours": "Mo, Tu, Th 07:30-12:00, 14:00-18:00; We, Fr 07:30-13:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sg_109",
+      "type": "doctor",
+      "name": "K.u.P. Wächtler",
+      "latitude": 51.5744668,
+      "longitude": 11.2799567,
+      "street": "Untere Bornholzstraße 1",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_108",
+      "type": "doctor",
+      "name": "KMG Manniske Gesundheitszentrum",
+      "latitude": 51.3582438,
+      "longitude": 11.0950256,
+      "street": "An der Wipper 2",
+      "postalCode": "06567",
+      "city": "Bad Frankenhausen",
+      "website": "https://kmg-kliniken.de/ambulante-gesundheitszentren/kmg-manniske-gesundheitszentrum-bad-frankenhausen",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sg_001",
+      "type": "doctor",
+      "name": "Katharina Friedemann",
+      "latitude": 51.4698,
+      "longitude": 11.3012,
+      "street": "Bahnhofstraße 33",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "03464344845",
+      "phoneFormatted": "03464 / 34 48 45",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch",
+        "Englisch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "hasHouseCalls": true,
+      "verified": true,
+      "source": "arzt-auskunft.de, arzt-atlas.de"
+    },
+    {
+      "id": "arzt_sg_099",
+      "type": "doctor",
+      "name": "Kerstin Wenschuh",
+      "latitude": 51.4726718,
+      "longitude": 11.2977961,
+      "street": "Markt 15",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "+49 346434 48 63",
+      "phoneFormatted": "03464 / 34 48 63",
+      "website": "http://praxis-wenschuh.de/index.php?article_id=2",
+      "openingHours": "Mo 08:00-12:00, 13:00-17:00; Tu 08:00-12:00; We 08:00-12:00; Th 08:00-12:00, 13:00-18:00; Fr 08:00-12:00, 13:00-15:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_019",
+      "type": "doctor",
+      "name": "Kieferorthopädie Dr.med. Christina Keilitz",
+      "latitude": 51.3690365,
+      "longitude": 10.8692472,
+      "street": "Bebrastraße 19",
+      "postalCode": "99706",
+      "city": "Sondershausen",
+      "openingHours": "Mo 08:00-12:00; Tu 08:00-12:00,13:00-16:00; We,Th 08:00-12:00,14:00-18:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_057",
+      "type": "doctor",
+      "name": "Kieferorthopädie Nicola Planz",
+      "latitude": 51.3523941,
+      "longitude": 11.0974438,
+      "street": "Bahnhofstraße 9",
+      "postalCode": "06567",
+      "city": "Bad Frankenhausen/Kyffhäuser",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sh_076",
+      "type": "doctor",
+      "name": "Köhler",
+      "latitude": 51.3680791,
+      "longitude": 10.8671153,
+      "city": "Mansfeld-Südharz",
+      "phone": "+49 3632 782376",
+      "phoneFormatted": "03632 / 78 23 76",
+      "openingHours": "Mo,Th 07:30-12:00,16:00-18:00; Tu,We,Fr 07:30-12:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sh_023",
+      "type": "doctor",
+      "name": "Lindner",
+      "latitude": 51.5221269,
+      "longitude": 10.9454501,
+      "city": "Mansfeld-Südharz",
+      "phone": "+49 34653 234",
+      "phoneFormatted": "034653234",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sh_058",
+      "type": "doctor",
+      "name": "Ludolf Kleemann",
+      "latitude": 51.462679,
+      "longitude": 11.6731077,
+      "city": "Mansfeld-Südharz",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_ht_025",
+      "type": "doctor",
+      "name": "M. Gottschalk",
+      "latitude": 51.6472774,
+      "longitude": 11.5134123,
+      "city": "Hettstedt",
+      "website": "https://www.zahnarzt-hettstedt.de/",
+      "openingHours": "Mo-Fr 08:00-12:00, Mo,Fr 13:00-17:00, Tu,Th 13:00-18:00, We 13:00-15:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_el_002",
+      "type": "doctor",
+      "name": "MR Dr. med. Frank Stahl",
+      "latitude": 51.5265,
+      "longitude": 11.5452,
+      "street": "Straße des Aufbaues 39",
+      "postalCode": "06295",
+      "city": "Lutherstadt Eisleben",
+      "phone": "03475602274",
+      "phoneFormatted": "03475 / 60 22 74",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "hasHouseCalls": true,
+      "verified": true,
+      "source": "arzt-auskunft.de, arzt-atlas.de"
+    },
+    {
+      "id": "arzt_sg_093",
+      "type": "doctor",
+      "name": "Mario Skala",
+      "latitude": 51.4750855,
+      "longitude": 11.2991905,
+      "street": "Alte Magdeburger Straße 21",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "+49 3464 57 01 05",
+      "phoneFormatted": "03464 / 57 01 05",
+      "website": "https://www.drskala.de/",
+      "openingHours": "Mo, Tu, Th 09:00-12:00, 14:00-18:00; We, Fr 08:00-12:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sh_014",
+      "type": "doctor",
+      "name": "Martina Schäfer",
+      "latitude": 51.4539394,
+      "longitude": 11.0076107,
+      "city": "Südharz",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_144",
+      "type": "doctor",
+      "name": "Matthias Knabe, Arzt, Internist",
+      "latitude": 51.5036349,
+      "longitude": 10.8047944,
+      "street": "Kützingstraße 4",
+      "postalCode": "99734",
+      "city": "Nordhausen",
+      "phone": "+49 3631 988143",
+      "phoneFormatted": "03631 / 98 81 43",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "innere",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_el_065",
+      "type": "doctor",
+      "name": "MedFit Eisleben",
+      "latitude": 51.5210763,
+      "longitude": 11.5446446,
+      "street": "Friedensstraße 12",
+      "postalCode": "06295",
+      "city": "Lutherstadt Eisleben",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_145",
+      "type": "doctor",
+      "name": "Medi-Dentis GmbH Dental-Labor",
+      "latitude": 51.357503,
+      "longitude": 11.1017709,
+      "street": "Erfurter Straße 11",
+      "postalCode": "06567",
+      "city": "Bad Frankenhausen/Kyffhäuser",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_106",
+      "type": "doctor",
+      "name": "Mediziner György Zoltán Kukucska",
+      "latitude": 51.6892925,
+      "longitude": 11.038097,
+      "street": "Hauptstraße 32B",
+      "postalCode": "06502",
+      "city": "Thale",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_078",
+      "type": "doctor",
+      "name": "Neumann",
+      "latitude": 51.3694791,
+      "longitude": 10.8652467,
+      "street": "Ferdinand-Schlufter-Straße 23",
+      "postalCode": "99706",
+      "city": "Sondershausen",
+      "phone": "+49 3632 757175",
+      "phoneFormatted": "03632 / 75 71 75",
+      "openingHours": "Mo,Tu,Th 08:00-12:00,15:00-18:00; We,Fr 08:00-12:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "innere",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_132",
+      "type": "doctor",
+      "name": "Nina Pollmann Kieferorthopädie",
+      "latitude": 51.3644463,
+      "longitude": 11.29545,
+      "street": "Leipziger Straße 18",
+      "postalCode": "06556",
+      "city": "Artern",
+      "phone": "+49 3466 31030",
+      "phoneFormatted": "03466 / 31 03 0",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sg_103",
+      "type": "doctor",
+      "name": "Nossia",
+      "latitude": 51.4740423,
+      "longitude": 11.2965195,
+      "street": "Jacobstraße 11",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "+49 346457 01 99",
+      "phoneFormatted": "03464 / 57 01 99",
+      "website": "https://www.zahnarzt-nossia.de/",
+      "openingHours": "Mo 08:00-12:00, 13:00-17:00; Tu 08:00-13:00; We 08:00-12:00, 14:00-18:00; Th 08:00-12:00, 14:00-17:30; Fr 08:00-13:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_090",
+      "type": "doctor",
+      "name": "Olf Czernohorsky",
+      "latitude": 51.6426711,
+      "longitude": 11.1423171,
+      "street": "Schloßstraße 1",
+      "postalCode": "06493",
+      "city": "Harzgerode",
+      "phone": "+49 39484 2485",
+      "phoneFormatted": "03948 / 42 48 5",
+      "openingHours": "Mo 08:00-11:30, 15:00-18:00; Tu 15:00-18:00; We 08:00-11:30; Th 08:00-11:30, 15:00-18:00; Fr 08:00-11:30",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_072",
+      "type": "doctor",
+      "name": "Ose",
+      "latitude": 51.3718014,
+      "longitude": 10.8769597,
+      "street": "Planplatz 8",
+      "postalCode": "99706",
+      "city": "Sondershausen",
+      "website": "http://www.hno-ose.de/",
+      "openingHours": "Mo 08:00-12:00,13:30-17:30; Tu 08:00-13:00; We,Fr 08:00-12:00; Th 14:00-18:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "hno",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_el_083",
+      "type": "doctor",
+      "name": "Petra Bubel",
+      "latitude": 51.5278579,
+      "longitude": 11.5494879,
+      "street": "Plan 1",
+      "postalCode": "06295",
+      "city": "Lutherstadt Eisleben",
+      "website": "https://www.hno-bubel.de",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "hno",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_115",
+      "type": "doctor",
+      "name": "Praxis Dr. Bernd Meier",
+      "latitude": 51.3026097,
+      "longitude": 11.6565517,
+      "street": "Rosental 12",
+      "postalCode": "06268",
+      "city": "Steigra",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sh_027",
+      "type": "doctor",
+      "name": "Praxis Dr.Treptow",
+      "latitude": 51.321123,
+      "longitude": 11.768174,
+      "city": "Mansfeld-Südharz",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_038",
+      "type": "doctor",
+      "name": "Praxis für Allgemeinmedizin",
+      "latitude": 51.6891883,
+      "longitude": 10.8486722,
+      "street": "Nordhäuser Straße 3",
+      "postalCode": "38899",
+      "city": "Oberharz am Brocken",
+      "phone": "+49 39459 71396",
+      "phoneFormatted": "03945 / 97 13 96",
+      "website": "https://www.harz-med.de",
+      "openingHours": "Mo,We,Fr 08:00-12:00; Tu,Th 08:00-12:00,16:00-18:00; Sa,Su,PH off",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sh_024",
+      "type": "doctor",
+      "name": "Praxis für Allgemeinmedizin - Katrin Bulk",
+      "latitude": 51.5194477,
+      "longitude": 10.9472245,
+      "street": "Rottleberöder Dorfstraße 18a",
+      "postalCode": "06536",
+      "city": "Südharz",
+      "phone": "+49 34653 222",
+      "phoneFormatted": "034653222",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_016",
+      "type": "doctor",
+      "name": "Praxis für Allgemeinmedizin König",
+      "latitude": 51.4328702,
+      "longitude": 11.0432195,
+      "street": "Frankenhäuser Straße 8A",
+      "postalCode": "06537",
+      "city": "Kelbra (Kyffhäuser)",
+      "phone": "+49 34651 6295",
+      "phoneFormatted": "03465 / 16 29 5",
+      "openingHours": "Mo,We,Fr 08:00-10:00; Tu 08:00-10:00,16:00-18:00; Th 16:00-18:00; Sa,Su,PH off",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_116",
+      "type": "doctor",
+      "name": "Praxis für Zahnheilkunde Schade",
+      "latitude": 51.5588437,
+      "longitude": 10.8364113,
+      "street": "Stolberger Straße 8",
+      "postalCode": "99768",
+      "city": "Harztor",
+      "phone": "+49 36331 46711",
+      "phoneFormatted": "03633 / 14 67 11",
+      "website": "https://www.zahnarzt-schade.de/zahnarzt-in-neustadt-am-harz.html",
+      "openingHours": "Mo,Tu 08:00-12:00,14:00-18:00; We,Fr 08:00-12:00; Th 14:00-18:00; Sa,Su,PH off",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sh_112",
+      "type": "doctor",
+      "name": "Radiologische Gemeinschaftspraxis",
+      "latitude": 51.3732245,
+      "longitude": 10.879349,
+      "city": "Mansfeld-Südharz",
+      "openingHours": "Mo-Tu, Th 07:00-11:30, 12:30-17:00; We 07:00-11:30, 12:30-15:00; Fr 07:00-11:30, 12:30-14:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sg_101",
+      "type": "doctor",
+      "name": "Ralph Spitzbarth",
+      "latitude": 51.4738534,
+      "longitude": 11.3003,
+      "street": "Ulrichstraße 3",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "+49 3464 574787",
+      "phoneFormatted": "03464 / 57 47 87",
+      "openingHours": "Mo 08:00-12:00; Tu 11:00-18:00; We 08:00-12:00; Th 09:00-15:00; Fr 08:00-12:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "haut",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sg_098",
+      "type": "doctor",
+      "name": "René Müller",
+      "latitude": 51.4733192,
+      "longitude": 11.2976894,
+      "street": "Kylische Straße 19",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "+49 3464 574582",
+      "phoneFormatted": "03464 / 57 45 82",
+      "openingHours": "Mo-Tu,Th 07:00-12:00,13:00-17:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sh_088",
+      "type": "doctor",
+      "name": "Roland Cibrovius",
+      "latitude": 51.3622055,
+      "longitude": 10.8850291,
+      "city": "Mansfeld-Südharz",
+      "website": "https://www.cibrovius.de/",
+      "openingHours": "Mo,Th 08:00-12:00,14:00-17:00; Tu-We 08:00-12:00; Fr 08:00-10:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_075",
+      "type": "doctor",
+      "name": "Rommel",
+      "latitude": 51.3685649,
+      "longitude": 10.867334,
+      "street": "Güntherstraße 9",
+      "postalCode": "99706",
+      "city": "Sondershausen",
+      "website": "https://www.psychotherapie-sondershausen.de/",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sg_002",
+      "type": "doctor",
+      "name": "Sandra Grünewald",
+      "latitude": 51.4702,
+      "longitude": 11.2985,
+      "street": "Karl-Liebknecht-Straße 64",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "03464613759",
+      "phoneFormatted": "03464 / 61 37 59",
+      "isBarrierFree": true,
+      "hasParking": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "hasHouseCalls": true,
+      "verified": true,
+      "source": "arzt-auskunft.de, arzt-atlas.de"
+    },
+    {
+      "id": "arzt_sh_060",
+      "type": "doctor",
+      "name": "Schröder",
+      "latitude": 51.4579646,
+      "longitude": 11.6710666,
+      "city": "Mansfeld-Südharz",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "augen",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_077",
+      "type": "doctor",
+      "name": "Schrödter",
+      "latitude": 51.3695241,
+      "longitude": 10.8664611,
+      "street": "Ferdinand-Schlufter-Straße 21",
+      "postalCode": "99706",
+      "city": "Sondershausen",
+      "phone": "+49 3632 602510",
+      "phoneFormatted": "03632 / 60 25 10",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sg_095",
+      "type": "doctor",
+      "name": "Sylke Handke",
+      "latitude": 51.4785844,
+      "longitude": 11.2974028,
+      "street": "Hüttenstraße 16",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "+49 3464570043",
+      "phoneFormatted": "03464 / 57 00 43",
+      "website": "http://zahnarztpraxis-sangerhausen.de/",
+      "openingHours": "Mo-Tu 08:00-12:00, 14:00-17:00; We 08:00-12:00; Th 08:00-12:00, 13:00-15:00; Fr-Su OFF",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_146",
+      "type": "doctor",
+      "name": "Tagesklinik für Psychiatrie und Psychotherapie Bad Frankenhausen",
+      "latitude": 51.3536744,
+      "longitude": 11.1077541,
+      "street": "Stiftstraße 2-4",
+      "postalCode": "06567",
+      "city": "Bad Frankenhausen/Kyffhäuser",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "psycho",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sh_105",
+      "type": "doctor",
+      "name": "Tatjana Zobnina",
+      "latitude": 51.4597657,
+      "longitude": 11.2040986,
+      "city": "Mansfeld-Südharz",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sg_110",
+      "type": "doctor",
+      "name": "Uta Beyse",
+      "latitude": 51.5748728,
+      "longitude": 11.2803669,
+      "street": "Mansfelder Weg 2",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "+49 34775 20656",
+      "phoneFormatted": "03477 / 52 06 56",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sg_092",
+      "type": "doctor",
+      "name": "Uwe Meyer",
+      "latitude": 51.4780609,
+      "longitude": 11.299328,
+      "street": "Doktor-Wilhelm-Külz-Straße 24",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "+493464 572767",
+      "phoneFormatted": "03464 / 57 27 67",
+      "openingHours": "Mo 07:30-11:30, 14:00-17:00; Tu 07:30-11:30, 14:00-18:00; We 07:30-11:30; Th 07:30-11:30, 14:00-17:00; Fr 07:30-11:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sg_094",
+      "type": "doctor",
+      "name": "W. Halpick",
+      "latitude": 51.4780149,
+      "longitude": 11.2926902,
+      "street": "Am Bonnhöfchen 16",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "+49 346452 00 11",
+      "phoneFormatted": "03464 / 52 00 11",
+      "website": "https://www.frauenarztpraxis-halpick.de/",
+      "openingHours": "Mo 08:00-12:00, 14:00-17:00; Tu 13:00-18:00; We 07:00-12:00; Th 08:00-12:00, 14:00-17:00; Fr 07:00-12:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "gyn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_071",
+      "type": "doctor",
+      "name": "Weituschat",
+      "latitude": 51.3711444,
+      "longitude": 10.8758698,
+      "street": "Johann-Karl-Wezel-Straße 53",
+      "postalCode": "99706",
+      "city": "Sondershausen",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sh_086",
+      "type": "doctor",
+      "name": "Witzenhausen",
+      "latitude": 51.3769115,
+      "longitude": 10.8683638,
+      "city": "Mansfeld-Südharz",
+      "phone": "+49 3632 782739",
+      "phoneFormatted": "03632 / 78 27 39",
+      "website": "https://www.zahnarzt-witzenhausen.de/",
+      "openingHours": "Mo 08:00-12:00,14:00-18:00; Tu,We,Fr 08:00-12:00; Th 08:00-12:00,14:00-19:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sg_102",
+      "type": "doctor",
+      "name": "Wolfram Herrmann",
+      "latitude": 51.4611586,
+      "longitude": 11.2942235,
+      "street": "Karl-Liebknecht-Straße 64",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "openingHours": "Mo, Tu, Th, Fr 08:00-12:00; 16:00-18:00; We 08:00-12:00",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "allgemein",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sh_079",
+      "type": "doctor",
+      "name": "Wächter",
+      "latitude": 51.3705054,
+      "longitude": 10.8609625,
+      "city": "Mansfeld-Südharz",
+      "phone": "+49 3632 6677422",
+      "phoneFormatted": "03632 / 66 77 422",
+      "website": "https://www.facharztzentrum-hno.de/",
+      "openingHours": "Mo 08:00-13:00; Tu 08:00-12:00,14:00-19:00; We off; Th 08:00-12:00,14:00-18:00; Fr 08:00-12:00",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "hno",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_055",
+      "type": "doctor",
+      "name": "Zahnarztnarztpraxis Kott",
+      "latitude": 51.356364,
+      "longitude": 11.0991443,
+      "street": "Klosterstraße 15",
+      "postalCode": "06567",
+      "city": "Bad Frankenhausen/Kyffhäuser",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_066",
+      "type": "doctor",
+      "name": "Zahnarztpraxis Angrik",
+      "latitude": 51.4617296,
+      "longitude": 10.9323021,
+      "street": "Heinrich-Heine-Straße 360",
+      "postalCode": "99765",
+      "city": "Görsbach",
+      "phone": "+49 36333 70414",
+      "phoneFormatted": "03633 / 37 04 14",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_el_041",
+      "type": "doctor",
+      "name": "Zahnarztpraxis Annette Eberhardt",
+      "latitude": 51.5282264,
+      "longitude": 11.544052,
+      "street": "Sangerhäuser Straße 1",
+      "postalCode": "06295",
+      "city": "Lutherstadt Eisleben",
+      "phone": "+49 3475 6022 33",
+      "phoneFormatted": "03475 / 60 22 33",
+      "website": "https://www.zahnarztpraxis-eberhardt-eisleben.de/",
+      "openingHours": "Mo-We 08:00-12:30,14:00-18:00; Th 08:00-15:00; Fr 08:00-13:00; Sa,Su,PH off",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sh_062",
+      "type": "doctor",
+      "name": "Zahnarztpraxis Birkefeld",
+      "latitude": 51.5033937,
+      "longitude": 10.9805069,
+      "street": "Heerstall 15",
+      "postalCode": "06536",
+      "city": "Südharz",
+      "phone": "+49 34653 429",
+      "phoneFormatted": "034653429",
+      "website": "http://www.dr-birkefeld.de/",
+      "openingHours": "Mo 08:30-12:00,14:00-18:00; Tu 14:00-18:00; We 08:30-12:00; Th,Fr 08:00-12:00,14:00-16:00; Sa,Su,PH off",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sh_040",
+      "type": "doctor",
+      "name": "Zahnarztpraxis Dr. Andreas Schnäckel / Dr. Andreas Schnäckel, Dentist",
+      "latitude": 51.4631118,
+      "longitude": 11.0731673,
+      "street": "Hallesche Straße 21",
+      "postalCode": "06536",
+      "city": "Südharz",
+      "phone": "+49 34651 456529",
+      "phoneFormatted": "03465 / 14 56 529",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_054",
+      "type": "doctor",
+      "name": "Zahnarztpraxis Dr. med. dent. Thomas E. Berger",
+      "latitude": 51.3560131,
+      "longitude": 11.100232,
+      "street": "Markt 8",
+      "postalCode": "06567",
+      "city": "Bad Frankenhausen/Kyffhäuser",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sh_032",
+      "type": "doctor",
+      "name": "Zahnarztpraxis Köhler",
+      "latitude": 51.3949887,
+      "longitude": 10.8004406,
+      "city": "Mansfeld-Südharz",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_042",
+      "type": "doctor",
+      "name": "Zahnarztpraxis Kühnl",
+      "latitude": 51.4356028,
+      "longitude": 11.6585383,
+      "street": "Wilhelm-Fichte-Siedlung 3a",
+      "postalCode": "06279",
+      "city": "Schraplau",
+      "phone": "+49 34774 718211",
+      "phoneFormatted": "03477 / 47 18 211",
+      "website": "https://zis.dental",
+      "openingHours": "Mo,Tu 08:00-12:00,14:00-18:00; We,Th,Fr 08:00-12:00; Sa,Su,PH off",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_128",
+      "type": "doctor",
+      "name": "Zahnarztpraxis Lehner",
+      "latitude": 51.6631041,
+      "longitude": 10.8850599,
+      "street": "Försterstraße 3",
+      "postalCode": "38899",
+      "city": "Oberharz am Brocken",
+      "phone": "+49 39459 71949",
+      "phoneFormatted": "03945 / 97 19 49",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_056",
+      "type": "doctor",
+      "name": "Zahnarztpraxis Mandy Schmugge",
+      "latitude": 51.3532891,
+      "longitude": 11.1008877,
+      "street": "Schloßstraße 15",
+      "postalCode": "06567",
+      "city": "Bad Frankenhausen/Kyffhäuser",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_067",
+      "type": "doctor",
+      "name": "Zahnarztpraxis Mitzschke",
+      "latitude": 51.3063553,
+      "longitude": 11.583024,
+      "street": "Straße der DSF 19",
+      "postalCode": "06268",
+      "city": "Querfurt",
+      "phone": "+49 34461 22275",
+      "phoneFormatted": "03446 / 12 22 75",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_064",
+      "type": "doctor",
+      "name": "Zahnarztpraxis Rübsam",
+      "latitude": 51.3704203,
+      "longitude": 10.8726266,
+      "street": "Nikolaus-von-Halem-Straße 17",
+      "postalCode": "99706",
+      "city": "Sondershausen",
+      "phone": "+49 3632 783320",
+      "phoneFormatted": "03632 / 78 33 20",
+      "openingHours": "Mo,We,Th 08:00-12:00,14:30-18:30; Tu 08:00-13:00; Fr 08:00-12:00,14:30-16:30",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_140",
+      "type": "doctor",
+      "name": "Zahnarztpraxis Schlee",
+      "latitude": 51.3604994,
+      "longitude": 11.0983974,
+      "street": "Wilhelm-Schall-Straße 2b",
+      "postalCode": "06567",
+      "city": "Bad Frankenhausen/Kyffhäuser",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_034",
+      "type": "doctor",
+      "name": "Zahnarztpraxis Schmidt",
+      "latitude": 51.6897762,
+      "longitude": 10.848076,
+      "street": "Nordhäuser Straße 5",
+      "postalCode": "38899",
+      "city": "Oberharz am Brocken",
+      "phone": "+49 39459 71397",
+      "phoneFormatted": "03945 / 97 13 97",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_017",
+      "type": "doctor",
+      "name": "Zahnarztpraxis Treppschuh",
+      "latitude": 51.4317761,
+      "longitude": 11.0438137,
+      "street": "Frankenhäuser Straße 25",
+      "postalCode": "06537",
+      "city": "Kelbra (Kyffhäuser)",
+      "phone": "+49 34651 6223",
+      "phoneFormatted": "03465 / 16 22 3",
+      "openingHours": "Mo,We,Fr 08:00-12:00; Tu 14:00-18:00; Th 08:00-12:00,14:00-18:00; Sa,Su,PH off",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_031",
+      "type": "doctor",
+      "name": "Zahnarztpraxis Zöller",
+      "latitude": 51.2939292,
+      "longitude": 11.3733086,
+      "street": "Bahnhofstraße 9",
+      "postalCode": "06571",
+      "city": "Roßleben-Wiehe",
+      "phone": "+49 34672 81464",
+      "phoneFormatted": "03467 / 28 14 64",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sh_111",
+      "type": "doctor",
+      "name": "Zahntechnik Zelmer",
+      "latitude": 51.367118,
+      "longitude": 10.8692327,
+      "street": "Göldnerstraße 5",
+      "city": "Mansfeld-Südharz",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "specialization": "zahn",
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sh_015",
+      "type": "doctor",
+      "name": "Ärztehaus",
+      "latitude": 51.6736739,
+      "longitude": 11.7771855,
+      "city": "Mansfeld-Südharz",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_msh_120",
+      "type": "doctor",
+      "name": "Ärztehaus Teutschenthal",
+      "latitude": 51.4458255,
+      "longitude": 11.7960257,
+      "street": "Karl-John-Straße 67",
+      "postalCode": "06179",
+      "city": "Teutschenthal",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "source": "openstreetmap"
     }
   ]
 }
