@@ -20,7 +20,7 @@ dependencies:
 
   # Firebase
   firebase_core: ^3.3.0
-  firebase_auth: ^5.1.4
+  # firebase_auth: ^5.1.4  # Deaktiviert - verursacht JS-Fehler auf Web
   cloud_firestore: ^5.2.1
 
   # Camera & Images
