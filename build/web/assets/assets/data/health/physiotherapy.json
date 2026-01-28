@@ -5,7 +5,7 @@
     "version": "3.0",
     "region": "Mansfeld-Suedharz",
     "note": "Automatisch gemerged aus OSM + manuellen Daten",
-    "total_count": 25,
+    "total_count": 23,
     "verified_count": 0
   },
   "data": [
@@ -259,23 +259,6 @@
       "openingHours": "Mo-Su 03:30-23:30; Sa 00:00-24:00"
     },
     {
-      "id": "physio_msh_016",
-      "type": "physiotherapy",
-      "name": "Physiotherapie Petz",
-      "latitude": 51.3656679,
-      "longitude": 10.8712887,
-      "street": "Possenallee 25",
-      "postalCode": "99706",
-      "city": "Sondershausen",
-      "website": "https://www.physio-petz.de/",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
-    },
-    {
       "id": "physio_el_002",
       "type": "physiotherapy",
       "name": "Physiotherapie Schlegel",
@@ -359,23 +342,6 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "source": "openstreetmap"
-    },
-    {
-      "id": "physio_msh_025",
-      "type": "physiotherapy",
-      "name": "Praxis für Krankengymnastik und Physiotherapie",
-      "latitude": 51.3562393,
-      "longitude": 11.0999311,
-      "street": "Markt 9",
-      "postalCode": "06567",
-      "city": "Bad Frankenhausen/Kyffhäuser",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "source": "openstreetmap",
-      "openingHours": "Mo-Fr 07:30-19:00; Sa 08:00-12:00"
     },
     {
       "id": "physio_msh_008",

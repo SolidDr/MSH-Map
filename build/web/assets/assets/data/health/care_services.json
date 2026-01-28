@@ -5,7 +5,7 @@
     "version": "3.0",
     "region": "Mansfeld-Suedharz",
     "note": "Automatisch gemerged aus OSM + manuellen Daten",
-    "total_count": 27,
+    "total_count": 24,
     "verified_count": 0
   },
   "data": [
@@ -20,7 +20,7 @@
       "city": "Lutherstadt Eisleben",
       "phone": "+49 3475 61379100",
       "phoneFormatted": "03475 / 61 37 9100",
-      "website": "https://www.awo-rv-harz.de/Einrichtungen/APH%20Eisleben.htm",
+      "website": "https://www.awo-halle-merseburg.de/",
       "isBarrierFree": true,
       "languages": [
         "Deutsch"
@@ -61,23 +61,6 @@
       "acceptsPrivateInsurance": true,
       "source": "openstreetmap",
       "openingHours": "Tu-Su 11:30-14:30, 17:00-23:00"
-    },
-    {
-      "id": "pflege_msh_013",
-      "type": "care_service",
-      "name": "Arnoldheim",
-      "latitude": 51.4990224,
-      "longitude": 10.807743,
-      "street": "Ammerberg 28",
-      "postalCode": "99734",
-      "city": "Nordhausen",
-      "isBarrierFree": true,
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
     },
     {
       "id": "pflege_el_007",
@@ -353,22 +336,6 @@
       "source": "openstreetmap"
     },
     {
-      "id": "pflege_msh_014",
-      "type": "care_service",
-      "name": "Senioren- & Pflegeheim „Am Pappelweg“",
-      "latitude": 51.501378,
-      "longitude": 10.8169159,
-      "street": "Im Stürzetal 33",
-      "postalCode": "99734",
-      "city": "Nordhausen",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
-    },
-    {
       "id": "pflege_el_006",
       "type": "care_service",
       "name": "Senioren- u. Pflegehaus Sonnenschein",
@@ -396,23 +363,6 @@
       "phone": "+49 3475 61160",
       "phoneFormatted": "03475 / 61 16 0",
       "website": "http://www.pflegeheim-wolferode.de/",
-      "languages": [
-        "Deutsch"
-      ],
-      "acceptsPublicInsurance": true,
-      "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
-    },
-    {
-      "id": "pflege_msh_012",
-      "type": "care_service",
-      "name": "Seniorenresidenz \"Udo Stiemerling Haus\"",
-      "latitude": 51.3651726,
-      "longitude": 10.8688358,
-      "street": "Cannabichstraße 4",
-      "postalCode": "99706",
-      "city": "Sondershausen",
-      "website": "https://www.pflegeheim-sondershausen.de/",
       "languages": [
         "Deutsch"
       ],

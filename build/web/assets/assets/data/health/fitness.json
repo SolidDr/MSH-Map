@@ -1,6 +1,6 @@
 {
   "meta": {
-    "source": "asv-sangerhausen.de, sawanne.de",
+    "source": "asv-sangerhausen.de, awo-mansfeldsuedharz.de",
     "created_at": "2026-01-27",
     "version": "2.0",
     "region": "Mansfeld-Südharz",
@@ -42,50 +42,6 @@
           "ageGroup": "alle"
         }
       ],
-      "isBarrierFree": true,
-      "hasParking": true
-    },
-    {
-      "id": "fitness_002",
-      "type": "fitness",
-      "name": "SaWanne Hallenbad - Aqua-Fitness",
-      "description": "Modernes Hallenbad mit Aqua-Fitness-Kursen in Flach- und Tiefwasser. Ideal für gelenkschonendes Training.",
-      "phone": "03464521809",
-      "phoneFormatted": "03464 / 52 18 09",
-      "email": "info@sawanne.de",
-      "website": "https://sawanne.de/kurse/",
-      "street": "Otto-Nuschke-Straße 29",
-      "postalCode": "06526",
-      "city": "Sangerhausen",
-      "latitude": 51.4652,
-      "longitude": 11.2878,
-      "fitnessOffers": [
-        {
-          "name": "AQUA-Fitness Flachwasser",
-          "description": "Gelenkschonendes Training im flachen Wasser",
-          "day": "Dienstag - Freitag",
-          "location": "SaWanne Hallenbad",
-          "ageGroup": "alle",
-          "requiresRegistration": true
-        },
-        {
-          "name": "AQUA-Fitness Tiefwasser",
-          "description": "Intensives Training im tiefen Wasser",
-          "day": "Dienstag - Freitag",
-          "location": "SaWanne Hallenbad",
-          "ageGroup": "alle",
-          "requiresRegistration": true
-        }
-      ],
-      "openingHours": {
-        "monday": {"from": "08:00", "to": "22:00"},
-        "tuesday": {"from": "08:00", "to": "22:00"},
-        "wednesday": {"from": "08:00", "to": "22:00"},
-        "thursday": {"from": "08:00", "to": "22:00"},
-        "friday": {"from": "08:00", "to": "22:00"},
-        "saturday": {"from": "10:00", "to": "20:00"},
-        "sunday": {"from": "10:00", "to": "18:00"}
-      },
       "isBarrierFree": true,
       "hasParking": true
     },
