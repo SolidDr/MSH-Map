@@ -288,6 +288,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
           categoryName == 'library') {
         counts['education'] = (counts['education'] ?? 0) + 1;
       }
+
+      // Civic: government, youthCentre, socialFacility → civic
+      if (categoryName == 'government' ||
+          categoryName == 'youthCentre' ||
+          categoryName == 'socialFacility') {
+        counts['civic'] = (counts['civic'] ?? 0) + 1;
+      }
     }
     return counts;
   }
