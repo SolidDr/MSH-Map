@@ -6,7 +6,7 @@ import '../../domain/radweg_route.dart';
 
 /// Kupferspurenradweg - ~48km Rundweg um Sangerhausen
 /// Verbindet Bergbau-Industriekultur der Region
-final kupferspurenRoute = RadwegRoute(
+const kupferspurenRoute = RadwegRoute(
   id: 'kupferspuren',
   name: 'Kupferspurenradweg',
   shortName: 'Kupferspuren',
@@ -16,7 +16,7 @@ final kupferspurenRoute = RadwegRoute(
   category: RadwegCategory.themenweg,
   lengthKm: 48,
   difficulty: 'Leicht',
-  routeColor: const Color(0xFFB87333), // Kupferfarbe
+  routeColor: Color(0xFFB87333), // Kupferfarbe
   isLoop: true,
   elevationGain: 350,
   websiteUrl: 'https://www.seg-msh.de/kupferspuren-radweg/',
@@ -24,79 +24,76 @@ final kupferspurenRoute = RadwegRoute(
   contactRole: 'Radwegekoordination',
   contactPhone: '+49 3464 545 99-27',
   contactEmail: 'maximilian.bartczak@lkmsh.de',
-  center: const LatLng(51.5000, 11.2950),
-  overviewZoom: 12.5,
-  routePoints: const [
-    // === Start: Europa-Rosarium Sangerhausen (Südosten) ===
+  center: LatLng(51.5050, 11.3100),
+  overviewZoom: 11.5,
+  routePoints: [
+    // === Start: Sangerhausen Rosarium ===
     LatLng(51.4752, 11.3148),
 
-    // === Abschnitt 1: Sangerhausen Richtung Westen ===
-    LatLng(51.4760, 11.3100),
-    LatLng(51.4770, 11.3050),
-    LatLng(51.4780, 11.3000),
-    LatLng(51.4790, 11.2950),
+    // === Abschnitt 1: Sangerhausen nach Westen ===
+    LatLng(51.4755, 11.3080),
+    LatLng(51.4760, 11.3000),
+    LatLng(51.4768, 11.2920),
+    LatLng(51.4780, 11.2850),
 
-    // === Abschnitt 2: Nordwest zur Hohen Linde ===
-    LatLng(51.4820, 11.2920),
-    LatLng(51.4860, 11.2890),
-    LatLng(51.4900, 11.2870),
-    // Hohe Linde (Schachthalde, 145m)
-    LatLng(51.4939, 11.2861),
+    // === Abschnitt 2: Nordwest Richtung Hohe Linde ===
+    LatLng(51.4810, 11.2800),
+    LatLng(51.4850, 11.2750),
+    LatLng(51.4890, 11.2700),
+    // Hohe Linde
+    LatLng(51.4939, 11.2680),
 
-    // === Abschnitt 3: Weiter NW zur Moltkewarte ===
-    LatLng(51.4935, 11.2800),
-    LatLng(51.4932, 11.2750),
-    // Moltkewarte (Aussichtsturm)
-    LatLng(51.4931, 11.2710),
-
-    // === Abschnitt 4: Nord nach Lengefeld ===
-    LatLng(51.4960, 11.2705),
-    LatLng(51.5000, 11.2700),
+    // === Abschnitt 3: Weiter nach Lengefeld ===
+    LatLng(51.4980, 11.2650),
+    LatLng(51.5020, 11.2620),
     // Lengefeld
-    LatLng(51.5041, 11.2705),
+    LatLng(51.5041, 11.2580),
+    LatLng(51.5070, 11.2550),
 
-    // === Abschnitt 5: Nordost zum Röhrigschacht ===
-    LatLng(51.5070, 11.2730),
-    LatLng(51.5100, 11.2760),
-    LatLng(51.5130, 11.2790),
-    LatLng(51.5155, 11.2810),
+    // === Abschnitt 4: Nord Richtung Wettelrode ===
+    LatLng(51.5100, 11.2580),
+    LatLng(51.5130, 11.2650),
     // Röhrigschacht Wettelrode
-    LatLng(51.5173, 11.2821),
+    LatLng(51.5163, 11.2852),
 
-    // === Abschnitt 6: Nord zum Kunstteich ===
-    LatLng(51.5195, 11.2830),
-    LatLng(51.5220, 11.2850),
-    // Kunstteich Wettelrode
+    // === Abschnitt 5: Kunstteich und weiter Nord ===
+    LatLng(51.5200, 11.2880),
+    // Kunstteich
     LatLng(51.5240, 11.2870),
+    LatLng(51.5280, 11.2900),
 
-    // === Abschnitt 7: Bogen nach Osten ===
-    LatLng(51.5250, 11.2920),
-    LatLng(51.5255, 11.2980),
-    LatLng(51.5250, 11.3040),
+    // === Abschnitt 6: Grillenberg Bereich ===
+    LatLng(51.5320, 11.2950),
+    LatLng(51.5350, 11.3000),
+    // Grillenberg
+    LatLng(51.5380, 11.3100),
 
-    // === Abschnitt 8: Süd Richtung Grillenberg ===
-    LatLng(51.5220, 11.3080),
-    LatLng(51.5180, 11.3100),
-    LatLng(51.5140, 11.3110),
-    LatLng(51.5100, 11.3100),
-    LatLng(51.5060, 11.3080),
+    // === Abschnitt 7: Ost nach Obersdorf ===
+    LatLng(51.5370, 11.3180),
+    LatLng(51.5350, 11.3250),
+    // Obersdorf
+    LatLng(51.5320, 11.3320),
+    LatLng(51.5280, 11.3400),
 
-    // === Abschnitt 9: Grillenberg Bereich ===
-    LatLng(51.5020, 11.3050),
-    LatLng(51.4980, 11.3030),
-    LatLng(51.4940, 11.3020),
+    // === Abschnitt 8: Südost nach Gonna ===
+    LatLng(51.5230, 11.3480),
+    LatLng(51.5180, 11.3550),
+    // Gonna
+    LatLng(51.5120, 11.3620),
+    LatLng(51.5050, 11.3650),
 
-    // === Abschnitt 10: Zurück nach Sangerhausen ===
-    LatLng(51.4900, 11.3040),
-    LatLng(51.4860, 11.3070),
-    LatLng(51.4820, 11.3100),
-    LatLng(51.4790, 11.3120),
-    LatLng(51.4770, 11.3135),
+    // === Abschnitt 9: Süd zurück nach Sangerhausen ===
+    LatLng(51.4980, 11.3600),
+    LatLng(51.4920, 11.3520),
+    LatLng(51.4870, 11.3450),
+    LatLng(51.4830, 11.3380),
+    LatLng(51.4800, 11.3300),
+    LatLng(51.4770, 11.3220),
 
     // === Zurück zum Start ===
     LatLng(51.4752, 11.3148),
   ],
-  pois: const [
+  pois: [
     RadwegPoi(
       name: 'Europa-Rosarium Sangerhausen',
       coords: LatLng(51.4752, 11.3148),
@@ -105,19 +102,19 @@ final kupferspurenRoute = RadwegRoute(
     ),
     RadwegPoi(
       name: 'Hohe Linde',
-      coords: LatLng(51.4939, 11.2861),
+      coords: LatLng(51.4939, 11.2680),
       description: '145m hohe Bergbauhalde, Wahrzeichen Sangerhausens',
       icon: Icons.landscape,
     ),
     RadwegPoi(
-      name: 'Moltkewarte',
-      coords: LatLng(51.4931, 11.2710),
-      description: 'Aussichtsturm mit Blick über das Bergbaurevier',
-      icon: Icons.visibility,
+      name: 'Lengefeld',
+      coords: LatLng(51.5041, 11.2580),
+      description: 'Historisches Bergbaudorf',
+      icon: Icons.home_work,
     ),
     RadwegPoi(
       name: 'Röhrigschacht Wettelrode',
-      coords: LatLng(51.5173, 11.2821),
+      coords: LatLng(51.5163, 11.2852),
       description: 'ErlebnisZentrum Bergbau, 283m Tiefe erlebbar',
       icon: Icons.engineering,
     ),
@@ -126,6 +123,24 @@ final kupferspurenRoute = RadwegRoute(
       coords: LatLng(51.5240, 11.2870),
       description: 'Historischer Bergbauteich von 1728',
       icon: Icons.water,
+    ),
+    RadwegPoi(
+      name: 'Grillenberg',
+      coords: LatLng(51.5380, 11.3100),
+      description: 'Staatlich anerkannter Erholungsort am Harzrand',
+      icon: Icons.landscape,
+    ),
+    RadwegPoi(
+      name: 'Obersdorf',
+      coords: LatLng(51.5320, 11.3320),
+      description: 'Ortsteil von Sangerhausen',
+      icon: Icons.location_city,
+    ),
+    RadwegPoi(
+      name: 'Gonna',
+      coords: LatLng(51.5120, 11.3620),
+      description: 'Historisches Dorf mit Bergbautradition',
+      icon: Icons.location_city,
     ),
   ],
 );
