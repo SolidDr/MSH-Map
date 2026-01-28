@@ -1,7 +1,7 @@
 name: msh_map
 description: Regionale Plattform fuer Mansfeld-Suedharz
 publish_to: 'none'
-version: 1.0.0+1
+version: 2.5.1+2
 
 environment:
   sdk: '>=3.5.0 <4.0.0'
@@ -69,6 +69,8 @@ flutter:
     - assets/data/health/physiotherapy.json
     - assets/data/health/care_services.json
     - assets/data/health/medical_supply.json
+    - assets/data/health/aeds.json
+    - assets/data/outdoor/wandernadel.json
     - assets/data/civic/government.json
     - assets/data/civic/youth_centres.json
     - assets/data/civic/social_facilities.json

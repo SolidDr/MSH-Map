@@ -94,6 +94,7 @@ class MshColors {
   static const Color categoryPhysiotherapy = Color(0xFF9C27B0); // Lila - Physio
   static const Color categoryFitnessSenior = Color(0xFFFF9800); // Orange - Fitness
   static const Color categoryCareService = Color(0xFF00BCD4);   // Cyan - Pflege
+  static const Color categoryDefibrillator = Color(0xFFD32F2F); // Rot - AED/Defibrillator
 
   // Emergency Colors (hohe Sichtbarkeit für Senioren)
   static const Color emergencyRed = Color(0xFFD32F2F);          // 112 Notruf
@@ -108,6 +109,13 @@ class MshColors {
   static const Color categoryGovernment = Color(0xFF607D8B);    // Blaugrau - Behörden
   static const Color categoryYouthCentre = Color(0xFF8E24AA);   // Lila - Jugendzentren
   static const Color categorySocialFacility = Color(0xFF00897B);// Teal - Soziale Einrichtungen
+
+  // ═══════════════════════════════════════════════════════════════
+  // OUTDOOR - Wandern, Harzer Wandernadel
+  // ═══════════════════════════════════════════════════════════════
+
+  static const Color categoryHikingStamp = Color(0xFF2E7D32);   // Dunkelgrün - Wandernadel
+  static const Color categoryOutdoor = Color(0xFF558B2F);       // Hellgrün - Outdoor allgemein
 
   // ═══════════════════════════════════════════════════════════════
   // NIGHTLIFE - Bars, Clubs, Pubs

@@ -124,6 +124,27 @@ class HealthRepository {
       debugPrint('Konnte Sanitätshäuser nicht laden: $e');
     }
 
+    // Lade Defibrillatoren (AEDs)
+    try {
+      final aedsJson =
+          await rootBundle.loadString('assets/data/health/aeds.json');
+      final aedsDecoded = jsonDecode(aedsJson);
+      // AED-JSON ist ein flaches Array, kein Objekt mit "data"
+      final List<dynamic> aedsList;
+      if (aedsDecoded is List) {
+        aedsList = aedsDecoded;
+      } else {
+        aedsList = (aedsDecoded as Map<String, dynamic>)['data'] as List<dynamic>;
+      }
+      facilities.addAll(
+        aedsList.map(
+          (e) => HealthFacility.fromJson(e as Map<String, dynamic>),
+        ),
+      );
+    } on Exception catch (e) {
+      debugPrint('Konnte Defibrillatoren nicht laden: $e');
+    }
+
     _cachedFacilities = facilities;
     _streamController.add(facilities);
     return facilities;

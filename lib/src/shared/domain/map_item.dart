@@ -60,6 +60,8 @@ enum MapItemCategory {
   indoor,
   farm,
   adventure,
+  // Outdoor / Wandern
+  hikingStamp,
   // Bildung
   school,
   kindergarten,
@@ -75,6 +77,7 @@ enum MapItemCategory {
   physiotherapy,
   fitness,
   careService,
+  defibrillator,
   // Nachtleben
   pub,
   cocktailbar,

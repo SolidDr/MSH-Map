@@ -484,6 +484,9 @@ class _SuggestionItem extends StatelessWidget {
       MapItemCategory.physiotherapy => Icons.spa,
       MapItemCategory.fitness => Icons.fitness_center,
       MapItemCategory.careService => Icons.elderly,
+      MapItemCategory.defibrillator => Icons.favorite,
+      // Outdoor / Wandern
+      MapItemCategory.hikingStamp => Icons.hiking,
       // Nachtleben
       MapItemCategory.pub => Icons.sports_bar,
       MapItemCategory.cocktailbar => Icons.wine_bar,
@@ -516,6 +519,8 @@ class _SuggestionItem extends StatelessWidget {
       MapItemCategory.school => 'Schule',
       MapItemCategory.kindergarten => 'Kita',
       MapItemCategory.library => 'Bibliothek',
+      // Outdoor / Wandern
+      MapItemCategory.hikingStamp => 'Wandernadel',
       MapItemCategory.government => 'Behörde',
       MapItemCategory.youthCentre => 'Jugendzentrum',
       MapItemCategory.socialFacility => 'Soziales',
@@ -525,6 +530,7 @@ class _SuggestionItem extends StatelessWidget {
       MapItemCategory.physiotherapy => 'Physiotherapie',
       MapItemCategory.fitness => 'Fitness',
       MapItemCategory.careService => 'Pflegedienst',
+      MapItemCategory.defibrillator => 'Defibrillator',
       // Nachtleben
       MapItemCategory.pub => 'Pub',
       MapItemCategory.cocktailbar => 'Cocktailbar',

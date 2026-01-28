@@ -211,6 +211,16 @@ class _HealthScreenState extends ConsumerState<HealthScreen> {
             _selectedSpecialization = null;
           }),
         ),
+        _CategoryChip(
+          label: 'Defibrillatoren',
+          icon: Icons.favorite,
+          isSelected: _selectedCategory == HealthCategory.defibrillator,
+          onTap: () => setState(() {
+            _selectedCategory = HealthCategory.defibrillator;
+            _selectedSpecialization = null;
+          }),
+          color: MshColors.categoryDefibrillator,
+        ),
       ],
     );
   }
@@ -412,17 +422,20 @@ class _CategoryChip extends StatelessWidget {
     required this.icon,
     required this.isSelected,
     required this.onTap,
+    this.color,
   });
 
   final String label;
   final IconData icon;
   final bool isSelected;
   final VoidCallback onTap;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
+    final chipColor = color ?? MshColors.categoryHealth;
     return Material(
-      color: isSelected ? MshColors.categoryHealth : MshColors.surface,
+      color: isSelected ? chipColor : MshColors.surface,
       borderRadius: BorderRadius.circular(MshTheme.radiusMedium),
       child: InkWell(
         onTap: onTap,
@@ -609,6 +622,7 @@ class _FacilityCard extends StatelessWidget {
       HealthCategory.fitness => Icons.fitness_center,
       HealthCategory.careService => Icons.elderly,
       HealthCategory.medicalSupply => Icons.medical_information,
+      HealthCategory.defibrillator => Icons.favorite,
     };
   }
 }

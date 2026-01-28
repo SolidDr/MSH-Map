@@ -18,6 +18,8 @@ enum PoiCategory {
   school,
   kindergarten,
   library,
+  // Outdoor / Wandern
+  hikingStamp,
 }
 
 class Poi implements MapItem {
@@ -129,6 +131,7 @@ class Poi implements MapItem {
         PoiCategory.school => MapItemCategory.school,
         PoiCategory.kindergarten => MapItemCategory.kindergarten,
         PoiCategory.library => MapItemCategory.library,
+        PoiCategory.hikingStamp => MapItemCategory.hikingStamp,
       };
 
   @override
@@ -144,6 +147,7 @@ class Poi implements MapItem {
         PoiCategory.school => MshColors.categorySchool,
         PoiCategory.kindergarten => MshColors.categoryKindergarten,
         PoiCategory.library => MshColors.categoryLibrary,
+        PoiCategory.hikingStamp => MshColors.categoryHikingStamp,
       };
 
   @override

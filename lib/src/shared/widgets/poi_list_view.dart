@@ -219,6 +219,9 @@ class _PoiListTile extends StatelessWidget {
         MapItemCategory.physiotherapy => Icons.spa,
         MapItemCategory.fitness => Icons.fitness_center,
         MapItemCategory.careService => Icons.elderly,
+        MapItemCategory.defibrillator => Icons.favorite,
+        // Outdoor / Wandern
+        MapItemCategory.hikingStamp => Icons.hiking,
         // Nachtleben
         MapItemCategory.pub => Icons.sports_bar,
         MapItemCategory.cocktailbar => Icons.wine_bar,

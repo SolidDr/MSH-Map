@@ -14,10 +14,20 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../../core/theme/msh_colors.dart';
 import '../../../core/theme/msh_spacing.dart';
 import '../../../core/theme/msh_theme.dart';
+import '../../../shared/widgets/powered_by_badge.dart';
 
 /// Profil Screen - Einstellungen & Account
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
+
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  /// Zähler für Version-Taps (8 Taps für Admin-Zugang)
+  int _versionTapCount = 0;
+  DateTime? _lastTapTime;
 
   /// Zeigt "Coming Soon" Snackbar
   void _showComingSoon(BuildContext context, String feature) {
@@ -397,6 +407,11 @@ class ProfileScreen extends StatelessWidget {
       child: Center(
         child: Column(
           children: [
+            // Powered by KOLAN Tensor Badge
+            const Padding(
+              padding: EdgeInsets.only(bottom: MshSpacing.md),
+              child: PoweredByBadge(),
+            ),
             Text(
               'MSH Map',
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
@@ -404,16 +419,101 @@ class ProfileScreen extends StatelessWidget {
                   ),
             ),
             const SizedBox(height: 2),
-            Text(
-              'Version 1.0.0 (Build 42)',
-              style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                    color: MshColors.textMuted,
-                  ),
+            GestureDetector(
+              onTap: () => _onVersionTap(context),
+              child: Text(
+                'Version 2.5.1',
+                style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                      color: MshColors.textMuted,
+                    ),
+              ),
             ),
           ],
         ),
       ),
     );
+  }
+
+  /// Verarbeitet Taps auf die Versionsnummer
+  void _onVersionTap(BuildContext context) {
+    final now = DateTime.now();
+
+    // Reset wenn mehr als 3 Sekunden seit letztem Tap
+    if (_lastTapTime != null &&
+        now.difference(_lastTapTime!).inSeconds > 3) {
+      _versionTapCount = 0;
+    }
+
+    _lastTapTime = now;
+    _versionTapCount++;
+
+    // Bei 8 Taps: Passwort-Dialog anzeigen
+    if (_versionTapCount >= 8) {
+      _versionTapCount = 0;
+      _showAdminPasswordDialog(context);
+    }
+  }
+
+  /// Zeigt den Passwort-Dialog für Admin-Zugang
+  void _showAdminPasswordDialog(BuildContext context) {
+    final controller = TextEditingController();
+
+    showDialog<void>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: const Row(
+          children: [
+            Icon(Icons.admin_panel_settings, color: MshColors.primary),
+            SizedBox(width: MshSpacing.sm),
+            Text('Admin-Zugang'),
+          ],
+        ),
+        content: TextField(
+          controller: controller,
+          obscureText: true,
+          autofocus: true,
+          decoration: const InputDecoration(
+            labelText: 'Passwort',
+            hintText: 'Admin-Passwort eingeben',
+            border: OutlineInputBorder(),
+            prefixIcon: Icon(Icons.lock_outline),
+          ),
+          onSubmitted: (value) {
+            Navigator.pop(dialogContext);
+            _validateAdminPassword(context, value);
+          },
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(dialogContext),
+            child: const Text('Abbrechen'),
+          ),
+          FilledButton(
+            onPressed: () {
+              Navigator.pop(dialogContext);
+              _validateAdminPassword(context, controller.text);
+            },
+            child: const Text('Anmelden'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  /// Prüft das Admin-Passwort und navigiert zum Dashboard
+  void _validateAdminPassword(BuildContext context, String password) {
+    // Passwort: KredaMSH2023#+
+    if (password == 'KredaMSH2023#+') {
+      context.push('/admin?key=$password');
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Falsches Passwort'),
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: MshColors.error,
+        ),
+      );
+    }
   }
 }
 

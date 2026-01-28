@@ -307,6 +307,7 @@ class _CategoryBadge extends StatelessWidget {
       PoiCategory.school => (Icons.school, 'Schule', MshColors.categorySchool),
       PoiCategory.kindergarten => (Icons.child_care, 'Kita', MshColors.categoryKindergarten),
       PoiCategory.library => (Icons.local_library, 'Bibliothek', MshColors.categoryLibrary),
+      PoiCategory.hikingStamp => (Icons.hiking, 'Wandernadel', MshColors.categoryHikingStamp),
     };
 
     return Container(

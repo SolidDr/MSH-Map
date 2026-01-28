@@ -15,6 +15,7 @@ import 'src/modules/family/family_module.dart';
 import 'src/modules/gastro/gastro_module.dart';
 import 'src/modules/health/health_module.dart';
 import 'src/modules/civic/civic_module.dart';
+import 'src/modules/outdoor/outdoor_module.dart';
 import 'src/modules/search/search_module.dart';
 
 Future<void> main() async {
@@ -55,6 +56,7 @@ Future<void> main() async {
     ModuleRegistry.instance.register(EventsModule());
     ModuleRegistry.instance.register(HealthModule());
     ModuleRegistry.instance.register(CivicModule());
+    ModuleRegistry.instance.register(OutdoorModule());
     ModuleRegistry.instance.register(SearchModule());
 
     // Module initialisieren

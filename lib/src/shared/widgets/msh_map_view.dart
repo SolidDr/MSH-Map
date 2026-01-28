@@ -431,6 +431,8 @@ class _HoverTooltip extends StatelessWidget {
         MapItemCategory.school => Icons.school,
         MapItemCategory.kindergarten => Icons.child_care,
         MapItemCategory.library => Icons.local_library,
+        // Outdoor / Wandern
+        MapItemCategory.hikingStamp => Icons.hiking,
         // Civic
         MapItemCategory.government => Icons.account_balance,
         MapItemCategory.youthCentre => Icons.group,
@@ -442,6 +444,7 @@ class _HoverTooltip extends StatelessWidget {
         MapItemCategory.physiotherapy => Icons.spa,
         MapItemCategory.fitness => Icons.fitness_center,
         MapItemCategory.careService => Icons.elderly,
+        MapItemCategory.defibrillator => Icons.favorite,
         // Nachtleben
         MapItemCategory.pub => Icons.sports_bar,
         MapItemCategory.cocktailbar => Icons.wine_bar,
@@ -505,6 +508,8 @@ class _MarkerIcon extends StatelessWidget {
         MapItemCategory.school => Icons.school,
         MapItemCategory.kindergarten => Icons.child_care,
         MapItemCategory.library => Icons.local_library,
+        // Outdoor / Wandern
+        MapItemCategory.hikingStamp => Icons.hiking,
         // Civic
         MapItemCategory.government => Icons.account_balance,
         MapItemCategory.youthCentre => Icons.group,
@@ -516,6 +521,7 @@ class _MarkerIcon extends StatelessWidget {
         MapItemCategory.physiotherapy => Icons.spa,
         MapItemCategory.fitness => Icons.fitness_center,
         MapItemCategory.careService => Icons.elderly,
+        MapItemCategory.defibrillator => Icons.favorite,
         // Nachtleben
         MapItemCategory.pub => Icons.sports_bar,
         MapItemCategory.cocktailbar => Icons.wine_bar,
@@ -653,6 +659,8 @@ class _PopularMarkerIconState extends State<_PopularMarkerIcon>
         MapItemCategory.school => Icons.school,
         MapItemCategory.kindergarten => Icons.child_care,
         MapItemCategory.library => Icons.local_library,
+        // Outdoor / Wandern
+        MapItemCategory.hikingStamp => Icons.hiking,
         // Civic
         MapItemCategory.government => Icons.account_balance,
         MapItemCategory.youthCentre => Icons.group,
@@ -664,6 +672,7 @@ class _PopularMarkerIconState extends State<_PopularMarkerIcon>
         MapItemCategory.physiotherapy => Icons.spa,
         MapItemCategory.fitness => Icons.fitness_center,
         MapItemCategory.careService => Icons.elderly,
+        MapItemCategory.defibrillator => Icons.favorite,
         // Nachtleben
         MapItemCategory.pub => Icons.sports_bar,
         MapItemCategory.cocktailbar => Icons.wine_bar,

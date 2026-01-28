@@ -9,7 +9,8 @@ enum HealthCategory {
   physiotherapy('Physiotherapie', Icons.spa, MshColors.categoryPhysiotherapy),
   fitness('Fitness', Icons.fitness_center, MshColors.categoryFitnessSenior),
   careService('Pflegedienst', Icons.elderly, MshColors.categoryCareService),
-  medicalSupply('Sanitätshaus', Icons.medical_information, MshColors.categoryHealth);
+  medicalSupply('Sanitätshaus', Icons.medical_information, MshColors.categoryHealth),
+  defibrillator('Defibrillator', Icons.favorite, MshColors.categoryDefibrillator);
 
   const HealthCategory(this.label, this.icon, this.color);
 

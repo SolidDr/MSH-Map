@@ -146,7 +146,7 @@ class AboutScreen extends StatelessWidget {
                   // Version Info
                   Center(
                     child: Text(
-                      'Version 1.0.0',
+                      'Version 2.5.1',
                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
                             color: MshColors.textSecondary,
                           ),

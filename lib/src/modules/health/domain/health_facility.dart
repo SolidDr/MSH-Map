@@ -20,6 +20,7 @@ HealthCategory _parseHealthCategory(String? type) {
     'careService': HealthCategory.careService,
     'medical_supply': HealthCategory.medicalSupply,
     'medicalSupply': HealthCategory.medicalSupply,
+    'defibrillator': HealthCategory.defibrillator,
   };
 
   return typeMap[type] ?? HealthCategory.doctor;
@@ -186,6 +187,7 @@ class HealthFacility implements MapItem {
         HealthCategory.fitness => MapItemCategory.fitness,
         HealthCategory.careService => MapItemCategory.careService,
         HealthCategory.medicalSupply => MapItemCategory.service,
+        HealthCategory.defibrillator => MapItemCategory.defibrillator,
       };
 
   @override
