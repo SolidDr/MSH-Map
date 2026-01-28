@@ -9,7 +9,7 @@ import '../../ratings/domain/rating_model.dart';
 // ═══════════════════════════════════════════════════════════════
 
 /// Geheimer Admin-Schlüssel (URL-Parameter: ?key=...)
-const _adminKey = 'KredaMSH2023#+';
+const _adminKey = 'KredaMSH2024admin';
 
 /// Prüft ob der Schlüssel gültig ist
 bool isValidAdminKey(String? key) {
