@@ -68,6 +68,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
   // Listenansicht Modus - Alternative zur Karte für Senioren
   bool _isListViewMode = false;
 
+  // Radwege auf der Karte anzeigen
+  bool _showRadwege = false;
+
   // Gespeicherte Kartenposition
   double? _savedLatitude;
   double? _savedLongitude;
@@ -569,6 +572,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                         initialZoom: _savedZoom,
                         onPositionChanged: _saveViewport,
                         onDoubleTap: _toggleFullMapMode,
+                        showRadwege: _showRadwege,
                       )
                     : const SizedBox.shrink(),
           ),
@@ -634,6 +638,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                         ref.read(filterProvider.notifier).toggleCategory(category);
                       },
                       categoryCounts: _calculateCategoryCounts(),
+                      radwegeActive: _showRadwege,
+                      onRadwegeToggle: () {
+                        setState(() => _showRadwege = !_showRadwege);
+                      },
                     ),
 
                     // Age Filter (ausblenden im Fullmap-Modus)

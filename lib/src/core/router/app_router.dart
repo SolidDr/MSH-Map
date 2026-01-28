@@ -19,7 +19,7 @@ import '../../modules/gastro/presentation/menu_upload/upload_screen.dart';
 import '../../modules/health/presentation/health_screen.dart';
 import '../../modules/civic/presentation/soziales_screen.dart';
 import '../../modules/nightlife/presentation/nightlife_screen.dart';
-import '../../modules/kupfer_radweg/presentation/kupfer_radweg_screen.dart';
+import '../../modules/radwege/presentation/radwege_screen.dart';
 import '../config/feature_flags.dart';
 import '../shell/app_shell.dart';
 
@@ -82,8 +82,8 @@ final appRouter = GoRouter(
           builder: (context, state) => const NightlifeScreen(),
         ),
         GoRoute(
-          path: '/kupfer-radweg',
-          builder: (context, state) => const KupferRadwegScreen(),
+          path: '/radwege',
+          builder: (context, state) => const RadwegeScreen(),
         ),
         GoRoute(
           path: '/profile',

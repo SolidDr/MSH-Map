@@ -156,7 +156,7 @@ class _MobileShell extends StatelessWidget {
           NavigationDestination(
             icon: Icon(Icons.directions_bike_outlined),
             selectedIcon: Icon(Icons.directions_bike),
-            label: 'Kupfer',
+            label: 'Radwege',
           ),
           NavigationDestination(
             icon: Icon(Icons.person_outline),
@@ -236,7 +236,7 @@ class _TabletShell extends StatelessWidget {
               NavigationRailDestination(
                 icon: Icon(Icons.directions_bike_outlined),
                 selectedIcon: Icon(Icons.directions_bike),
-                label: Text('Kupfer'),
+                label: Text('Radwege'),
               ),
               NavigationRailDestination(
                 icon: Icon(Icons.person_outline),
@@ -389,11 +389,11 @@ class _DesktopShell extends StatelessWidget {
                       ),
                       _SidebarItem(
                         icon: Icons.directions_bike,
-                        label: 'Kupfer-Radweg',
+                        label: 'Radwege',
                         isSelected: selectedIndex == 7,
                         onTap: () {
                           onIndexChanged(7);
-                          context.go('/kupfer-radweg');
+                          context.go('/radwege');
                         },
                       ),
                       _SidebarItem(
@@ -541,7 +541,7 @@ void _navigateToIndex(BuildContext context, int index) {
     case 6:
       context.go('/nightlife');
     case 7:
-      context.go('/kupfer-radweg');
+      context.go('/radwege');
     case 8:
       context.go('/profile');
   }

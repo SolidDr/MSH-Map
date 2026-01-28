@@ -10,6 +10,8 @@ import '../../features/engagement/domain/engagement_model.dart';
 import '../../features/engagement/presentation/engagement_detail_sheet.dart';
 import '../../features/engagement/presentation/engagement_map_layer.dart';
 import '../../modules/events/domain/notice.dart';
+import '../../modules/radwege/data/radwege_repository.dart';
+import '../../modules/radwege/domain/radweg_route.dart';
 import '../domain/coordinates.dart';
 import '../domain/map_item.dart';
 import 'map/fog_of_war_layer.dart';
@@ -27,6 +29,8 @@ class MshMapView extends ConsumerStatefulWidget {
     this.onNoticeTap,
     this.onPositionChanged,
     this.onDoubleTap,
+    this.showRadwege = false,
+    this.onRadwegTap,
   });
   final List<MapItem> items;
   final void Function(MapItem)? onMarkerTap;
@@ -39,6 +43,10 @@ class MshMapView extends ConsumerStatefulWidget {
   final void Function(double latitude, double longitude, double zoom)? onPositionChanged;
   /// Callback für Doppeltipp auf die Karte (für Fullmap-Modus)
   final VoidCallback? onDoubleTap;
+  /// Radwege auf der Karte anzeigen
+  final bool showRadwege;
+  /// Callback wenn ein Radweg angetippt wird
+  final void Function(RadwegRoute)? onRadwegTap;
 
   @override
   ConsumerState<MshMapView> createState() => _MshMapViewState();
@@ -115,6 +123,28 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
                 AdaptiveFogOfWarLayer(
                   currentZoom: _currentZoom,
                   useDetailedBorder: _currentZoom > 12,
+                ),
+              // Radwege-Polylines (Glow-Effekt)
+              if (widget.showRadwege)
+                PolylineLayer(
+                  polylines: RadwegeRepository.allRoutes.map((route) {
+                    return Polyline(
+                      points: route.routePoints,
+                      color: route.glowColor,
+                      strokeWidth: 12,
+                    );
+                  }).toList(),
+                ),
+              // Radwege-Polylines (Hauptlinie)
+              if (widget.showRadwege)
+                PolylineLayer(
+                  polylines: RadwegeRepository.allRoutes.map((route) {
+                    return Polyline(
+                      points: route.routePoints,
+                      color: route.routeColor,
+                      strokeWidth: 4,
+                    );
+                  }).toList(),
                 ),
               MarkerLayer(
                 markers: widget.items

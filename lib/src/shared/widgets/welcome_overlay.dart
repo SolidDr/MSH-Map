@@ -177,8 +177,8 @@ class _WelcomeContentState extends State<_WelcomeContent> {
     [
       _FeatureData(
         icon: Icons.directions_bike,
-        title: 'Kupferspurenradweg',
-        desc: '48km Bergbau-Geschichte',
+        title: 'Radwege MSH',
+        desc: '5 Radwege entdecken',
         isKupfer: true,
       ),
       _FeatureData(

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../core/theme/msh_colors.dart';
 
+/// Kupferfarbe für Radwege
+const _kupferColor = Color(0xFFB87333);
+
 class CategoryQuickFilter extends StatelessWidget {
 
   const CategoryQuickFilter({
@@ -8,10 +11,18 @@ class CategoryQuickFilter extends StatelessWidget {
     required this.selectedCategories,
     required this.onCategoryToggle,
     this.categoryCounts = const {},
+    this.onRadwegeToggle,
+    this.radwegeActive = false,
   });
   final Set<String> selectedCategories;
   final ValueChanged<String> onCategoryToggle;
   final Map<String, int> categoryCounts;
+
+  /// Callback wenn Radwege-Filter getoggelt wird
+  final VoidCallback? onRadwegeToggle;
+
+  /// Ob Radwege aktuell angezeigt werden
+  final bool radwegeActive;
 
   @override
   Widget build(BuildContext context) {
@@ -27,14 +38,28 @@ class CategoryQuickFilter extends StatelessWidget {
             label: 'Alle',
             icon: Icons.apps,
             count: categoryCounts.values.fold(0, (a, b) => a + b),
-            isSelected: selectedCategories.isEmpty,
+            isSelected: selectedCategories.isEmpty && !radwegeActive,
             onTap: () {
               // Clear all by toggling all selected categories
               for (final cat in selectedCategories.toList()) {
                 onCategoryToggle(cat);
               }
+              // Radwege auch deaktivieren wenn aktiv
+              if (radwegeActive) {
+                onRadwegeToggle?.call();
+              }
             },
           ),
+          // Radwege-Chip (speziell, da es Polylines sind)
+          if (onRadwegeToggle != null)
+            _CategoryChip(
+              label: 'Radwege',
+              icon: Icons.directions_bike,
+              color: _kupferColor,
+              count: 5, // Anzahl der Radwege
+              isSelected: radwegeActive,
+              onTap: onRadwegeToggle!,
+            ),
           ..._categories.map((cat) => _CategoryChip(
                 label: cat.label,
                 icon: cat.icon,
