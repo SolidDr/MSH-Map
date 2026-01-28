@@ -28302,35 +28302,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.2078134,
-          51.4627279
-        ]
-      },
-      "properties": {
-        "id": "osm-way-1081118161",
-        "name": "Loch Ness",
-        "displayName": "Loch Ness",
-        "category": "pool",
-        "source": "openstreetmap",
-        "sourceId": "way/1081118161",
-        "address": "",
-        "city": "",
-        "website": "",
-        "phone": "",
-        "openingHours": "",
-        "description": "",
-        "tags": [
-          "swimming_pool"
-        ],
-        "accessibility": "",
-        "parking": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           11.3911234,
           51.6671465
         ]

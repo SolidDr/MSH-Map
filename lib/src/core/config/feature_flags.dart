@@ -151,5 +151,5 @@ class FeatureFlags {
   static const bool showBetaBanner = false;
 
   /// Mock-Daten statt Firebase verwenden
-  static const bool useMockData = true;
+  static const bool useMockData = false;
 }
