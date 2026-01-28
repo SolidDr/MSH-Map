@@ -92,78 +92,292 @@ class _AppShellState extends State<AppShell> {
 }
 
 // ═══════════════════════════════════════════════════════════════
-// MOBILE SHELL
+// MOBILE SHELL - Hamburger-Menü statt überfüllter Bottom-Bar
 // ═══════════════════════════════════════════════════════════════
 
-class _MobileShell extends StatelessWidget {
-
+class _MobileShell extends StatefulWidget {
   const _MobileShell({
     required this.selectedIndex,
     required this.onIndexChanged,
     required this.child,
   });
+
   final int selectedIndex;
   final ValueChanged<int> onIndexChanged;
   final Widget child;
 
   @override
+  State<_MobileShell> createState() => _MobileShellState();
+}
+
+class _MobileShellState extends State<_MobileShell>
+    with SingleTickerProviderStateMixin {
+  bool _isMenuOpen = false;
+  late AnimationController _animationController;
+  late Animation<double> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+      duration: const Duration(milliseconds: 200),
+      vsync: this,
+    );
+    _animation = CurvedAnimation(
+      parent: _animationController,
+      curve: Curves.easeOut,
+    );
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
+  void _toggleMenu() {
+    setState(() {
+      _isMenuOpen = !_isMenuOpen;
+      if (_isMenuOpen) {
+        _animationController.forward();
+      } else {
+        _animationController.reverse();
+      }
+    });
+  }
+
+  void _closeMenu() {
+    if (_isMenuOpen) {
+      setState(() {
+        _isMenuOpen = false;
+        _animationController.reverse();
+      });
+    }
+  }
+
+  void _onItemTap(int index) {
+    widget.onIndexChanged(index);
+    _navigateToIndex(context, index);
+    _closeMenu();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: child,
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: selectedIndex,
-        onDestinationSelected: (index) {
-          onIndexChanged(index);
-          _navigateToIndex(context, index);
-        },
-        labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
-        destinations: const [
-          NavigationDestination(
-            icon: Icon(Icons.map_outlined),
-            selectedIcon: Icon(Icons.map),
-            label: 'Karte',
+      body: Stack(
+        children: [
+          // Main Content
+          GestureDetector(
+            onTap: _closeMenu,
+            child: widget.child,
           ),
-          NavigationDestination(
-            icon: Icon(Icons.explore_outlined),
-            selectedIcon: Icon(Icons.explore),
-            label: 'Finden',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.celebration_outlined),
-            selectedIcon: Icon(Icons.celebration),
-            label: 'Events',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.directions_bus_outlined),
-            selectedIcon: Icon(Icons.directions_bus),
-            label: 'ÖPNV',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.local_hospital_outlined),
-            selectedIcon: Icon(Icons.local_hospital),
-            label: 'Arzt',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.volunteer_activism_outlined),
-            selectedIcon: Icon(Icons.volunteer_activism),
-            label: 'Soziales',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.nightlife_outlined),
-            selectedIcon: Icon(Icons.nightlife),
-            label: 'Ausgehen',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.directions_outlined),
-            selectedIcon: Icon(Icons.directions),
-            label: 'Touren',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.person_outline),
-            selectedIcon: Icon(Icons.person),
-            label: 'Profil',
+
+          // Top Bar mit Hamburger-Menü
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: SafeArea(
+              bottom: false,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  // Header mit Menü-Button
+                  Container(
+                    height: 56,
+                    margin: const EdgeInsets.fromLTRB(12, 8, 12, 0),
+                    padding: const EdgeInsets.symmetric(horizontal: 4),
+                    decoration: BoxDecoration(
+                      color: MshColors.surface,
+                      borderRadius: BorderRadius.circular(12),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withValues(alpha: 0.15),
+                          blurRadius: 8,
+                          offset: const Offset(0, 2),
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      children: [
+                        // Menü-Button
+                        Material(
+                          color: Colors.transparent,
+                          child: InkWell(
+                            onTap: _toggleMenu,
+                            borderRadius: BorderRadius.circular(8),
+                            child: Container(
+                              width: 44,
+                              height: 44,
+                              alignment: Alignment.center,
+                              child: AnimatedSwitcher(
+                                duration: const Duration(milliseconds: 200),
+                                child: Icon(
+                                  _isMenuOpen ? Icons.close : Icons.menu,
+                                  key: ValueKey(_isMenuOpen),
+                                  color: MshColors.textPrimary,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+
+                        const SizedBox(width: 8),
+
+                        // App Title / Current Page
+                        Expanded(
+                          child: Text(
+                            _getPageTitle(widget.selectedIndex),
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              color: MshColors.textPrimary,
+                            ),
+                          ),
+                        ),
+
+                        // Logo
+                        Container(
+                          padding: const EdgeInsets.all(6),
+                          decoration: BoxDecoration(
+                            color: MshColors.primarySubtle,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: const Icon(
+                            Icons.map,
+                            color: MshColors.primary,
+                            size: 20,
+                          ),
+                        ),
+
+                        const SizedBox(width: 4),
+                      ],
+                    ),
+                  ),
+
+                  // Dropdown-Menü (animiert)
+                  SizeTransition(
+                    sizeFactor: _animation,
+                    axisAlignment: -1,
+                    child: Container(
+                      margin: const EdgeInsets.fromLTRB(12, 4, 12, 0),
+                      decoration: BoxDecoration(
+                        color: MshColors.surface,
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withValues(alpha: 0.15),
+                            blurRadius: 8,
+                            offset: const Offset(0, 2),
+                          ),
+                        ],
+                      ),
+                      child: _buildMenuGrid(),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildMenuGrid() {
+    const items = [
+      (Icons.map, 'Karte', 0),
+      (Icons.explore, 'Entdecken', 1),
+      (Icons.celebration, 'Events', 2),
+      (Icons.directions_bus, 'ÖPNV', 3),
+      (Icons.local_hospital, 'Gesundheit', 4),
+      (Icons.volunteer_activism, 'Soziales', 5),
+      (Icons.nightlife, 'Ausgehen', 6),
+      (Icons.directions, 'Touren', 7),
+      (Icons.person, 'Profil', 8),
+    ];
+
+    return Padding(
+      padding: const EdgeInsets.all(8),
+      child: Wrap(
+        spacing: 8,
+        runSpacing: 8,
+        children: items.map((item) {
+          final isSelected = widget.selectedIndex == item.$3;
+          return _MobileMenuItem(
+            icon: item.$1,
+            label: item.$2,
+            isSelected: isSelected,
+            onTap: () => _onItemTap(item.$3),
+          );
+        }).toList(),
+      ),
+    );
+  }
+
+  String _getPageTitle(int index) {
+    const titles = [
+      'Karte',
+      'Entdecken',
+      'Events',
+      'Mobilität',
+      'Gesundheit',
+      'Soziales',
+      'Nachtleben',
+      'Touren',
+      'Profil',
+    ];
+    return index < titles.length ? titles[index] : 'MSH Map';
+  }
+}
+
+class _MobileMenuItem extends StatelessWidget {
+  const _MobileMenuItem({
+    required this.icon,
+    required this.label,
+    required this.isSelected,
+    required this.onTap,
+  });
+
+  final IconData icon;
+  final String label;
+  final bool isSelected;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: isSelected ? MshColors.primarySubtle : Colors.transparent,
+      borderRadius: BorderRadius.circular(10),
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(10),
+        child: Container(
+          width: 100,
+          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(
+                icon,
+                size: 24,
+                color: isSelected ? MshColors.primary : MshColors.textSecondary,
+              ),
+              const SizedBox(height: 4),
+              Text(
+                label,
+                style: TextStyle(
+                  fontSize: 11,
+                  fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
+                  color: isSelected ? MshColors.primary : MshColors.textPrimary,
+                ),
+                textAlign: TextAlign.center,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

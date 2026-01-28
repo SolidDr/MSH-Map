@@ -8,13 +8,21 @@ import '../../data/events_providers.dart';
 import '../../domain/notice.dart';
 
 /// Banner to display important notices and warnings
-class NoticeBanner extends ConsumerWidget {
+class NoticeBanner extends ConsumerStatefulWidget {
   const NoticeBanner({super.key, this.onNoticeLocationTap});
 
   final void Function(double latitude, double longitude)? onNoticeLocationTap;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<NoticeBanner> createState() => _NoticeBannerState();
+}
+
+class _NoticeBannerState extends ConsumerState<NoticeBanner> {
+  // IDs der vom Benutzer geschlossenen Notices (für diese Session)
+  final Set<String> _dismissedIds = {};
+
+  @override
+  Widget build(BuildContext context) {
     final noticesAsync = ref.watch(activeNoticesProvider);
 
     return noticesAsync.when(
@@ -22,10 +30,12 @@ class NoticeBanner extends ConsumerWidget {
         if (notices.isEmpty) return const SizedBox.shrink();
 
         // Show only critical and warning notices, sorted by priority
+        // Filter out dismissed notices
         final important = notices
             .where((n) =>
-                n.severity == NoticeSeverity.critical ||
-                n.severity == NoticeSeverity.warning,)
+                (n.severity == NoticeSeverity.critical ||
+                n.severity == NoticeSeverity.warning) &&
+                !_dismissedIds.contains(n.id),)
             .toList()
           // Sort by priority: critical > warning
           ..sort((a, b) {
@@ -39,19 +49,22 @@ class NoticeBanner extends ConsumerWidget {
 
         if (important.isEmpty) return const SizedBox.shrink();
 
+        final firstNotice = important.first;
+
         // Ohne extra Margin - HomeScreen kontrolliert Abstände
         return _NoticeCard(
-          notice: important.first,
+          notice: firstNotice,
           additionalCount: important.length - 1,
-          onTap: important.first.latitude != null && important.first.longitude != null
-              ? () => onNoticeLocationTap?.call(
-                    important.first.latitude!,
-                    important.first.longitude!,
+          onTap: firstNotice.latitude != null && firstNotice.longitude != null
+              ? () => widget.onNoticeLocationTap?.call(
+                    firstNotice.latitude!,
+                    firstNotice.longitude!,
                   )
               : null,
           onMoreTap: important.length > 1
-              ? () => _showAllNotices(context, important, onNoticeLocationTap)
+              ? () => _showAllNotices(context, important, widget.onNoticeLocationTap)
               : null,
+          onDismiss: () => setState(() => _dismissedIds.add(firstNotice.id)),
         );
       },
       loading: () => const SizedBox.shrink(),
@@ -82,146 +95,137 @@ class _NoticeCard extends StatelessWidget {
     this.onTap,
     this.additionalCount = 0,
     this.onMoreTap,
+    this.onDismiss,
   });
 
   final MshNotice notice;
   final VoidCallback? onTap;
   final int additionalCount;
   final VoidCallback? onMoreTap;
+  final VoidCallback? onDismiss;
 
   @override
   Widget build(BuildContext context) {
     final color = notice.color;
     final icon = notice.icon;
 
+    // Kompaktes Banner (~35px Höhe)
     return Material(
-      elevation: 4,
-      shadowColor: color.withValues(alpha: 0.3),
-      borderRadius: BorderRadius.circular(MshTheme.radiusMedium),
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: BorderRadius.circular(MshTheme.radiusMedium),
-        child: Container(
-          padding: const EdgeInsets.all(MshSpacing.sm + 2),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(MshTheme.radiusMedium),
-            border: Border.all(color: color, width: 2),
-          ),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              // Icon Circle with colored background
-              Container(
-                padding: const EdgeInsets.all(6),
-                decoration: BoxDecoration(
+      elevation: 2,
+      shadowColor: color.withValues(alpha: 0.2),
+      borderRadius: BorderRadius.circular(MshTheme.radiusSmall),
+      child: Container(
+        height: 36,
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        decoration: BoxDecoration(
+          color: color.withValues(alpha: 0.1),
+          borderRadius: BorderRadius.circular(MshTheme.radiusSmall),
+          border: Border.all(color: color, width: 1.5),
+        ),
+        child: Row(
+          children: [
+            // Icon (ohne Circle, kompakt)
+            Icon(icon, color: color, size: 18),
+            const SizedBox(width: 8),
+
+            // Titel (einzeilig mit Ellipsis)
+            Expanded(
+              child: Text(
+                notice.title,
+                style: TextStyle(
                   color: color,
-                  shape: BoxShape.circle,
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600,
                 ),
-                child: Icon(
-                  icon,
-                  color: Colors.white,
-                  size: 20,
-                ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
-              const SizedBox(width: 10),
-              // Content (Titel, Beschreibung, Datum)
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // Titel
-                    Text(
-                      notice.title,
-                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                            fontWeight: FontWeight.bold,
-                            color: color,
-                          ),
-                    ),
-                    // Beschreibung
-                    if (notice.description != null) ...[
-                      const SizedBox(height: 2),
-                      Text(
-                        notice.description!,
-                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                              color: MshColors.textPrimary,
-                              height: 1.2,
-                            ),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ],
-                    // Datum
-                    if (notice.validUntil != null) ...[
-                      const SizedBox(height: 4),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.schedule,
-                            size: 12,
-                            color: MshColors.textSecondary,
-                          ),
-                          const SizedBox(width: 3),
-                          Text(
-                            'Bis ${_formatDate(notice.validUntil!)}',
-                            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                  color: MshColors.textSecondary,
-                                  fontSize: 11,
-                                ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ],
-                ),
-              ),
-              // "+X weitere" Badge (rechts im Banner)
-              if (additionalCount > 0) ...[
-                const SizedBox(width: 8),
-                GestureDetector(
-                  onTap: onMoreTap,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 10,
-                      vertical: 8,
-                    ),
-                    decoration: BoxDecoration(
-                      color: MshColors.warning,
-                      borderRadius: BorderRadius.circular(MshTheme.radiusSmall),
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          '+$additionalCount',
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const Text(
-                          'weitere',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 10,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ],
+            ),
+
+            // "+X" Badge (kompakt)
+            if (additionalCount > 0) ...[
+              const SizedBox(width: 6),
+              GestureDetector(
+                onTap: onMoreTap,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                  decoration: BoxDecoration(
+                    color: color,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Text(
+                    '+$additionalCount',
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 11,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
-              ],
+              ),
             ],
-          ),
+
+            // "Zur Karte" Button
+            if (onTap != null) ...[
+              const SizedBox(width: 6),
+              _CompactIconButton(
+                icon: Icons.map_outlined,
+                color: color,
+                tooltip: 'Auf Karte zeigen',
+                onTap: onTap!,
+              ),
+            ],
+
+            // "Schließen" Button
+            if (onDismiss != null) ...[
+              const SizedBox(width: 4),
+              _CompactIconButton(
+                icon: Icons.close,
+                color: color,
+                tooltip: 'Schließen',
+                onTap: onDismiss!,
+              ),
+            ],
+          ],
         ),
       ),
     );
   }
+}
 
-  String _formatDate(DateTime date) {
-    return DateFormat('dd.MM.yyyy', 'de_DE').format(date);
+/// Kompakter Icon-Button für Banner-Actions
+class _CompactIconButton extends StatelessWidget {
+  const _CompactIconButton({
+    required this.icon,
+    required this.color,
+    required this.onTap,
+    this.tooltip,
+  });
+
+  final IconData icon;
+  final Color color;
+  final VoidCallback onTap;
+  final String? tooltip;
+
+  @override
+  Widget build(BuildContext context) {
+    final button = InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(12),
+      child: Container(
+        padding: const EdgeInsets.all(4),
+        decoration: BoxDecoration(
+          color: color.withValues(alpha: 0.15),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Icon(icon, size: 16, color: color),
+      ),
+    );
+
+    if (tooltip != null) {
+      return Tooltip(message: tooltip!, child: button);
+    }
+    return button;
   }
 }
 
