@@ -154,9 +154,9 @@ class _MobileShell extends StatelessWidget {
             label: 'Ausgehen',
           ),
           NavigationDestination(
-            icon: Icon(Icons.directions_bike_outlined),
-            selectedIcon: Icon(Icons.directions_bike),
-            label: 'Radwege',
+            icon: Icon(Icons.directions_outlined),
+            selectedIcon: Icon(Icons.directions),
+            label: 'Touren',
           ),
           NavigationDestination(
             icon: Icon(Icons.person_outline),
@@ -234,9 +234,9 @@ class _TabletShell extends StatelessWidget {
                 label: Text('Ausgehen'),
               ),
               NavigationRailDestination(
-                icon: Icon(Icons.directions_bike_outlined),
-                selectedIcon: Icon(Icons.directions_bike),
-                label: Text('Radwege'),
+                icon: Icon(Icons.directions_outlined),
+                selectedIcon: Icon(Icons.directions),
+                label: Text('Touren'),
               ),
               NavigationRailDestination(
                 icon: Icon(Icons.person_outline),
@@ -388,8 +388,8 @@ class _DesktopShell extends StatelessWidget {
                         },
                       ),
                       _SidebarItem(
-                        icon: Icons.directions_bike,
-                        label: 'Radwege',
+                        icon: Icons.directions,
+                        label: 'Radeln & Wandern',
                         isSelected: selectedIndex == 7,
                         onTap: () {
                           onIndexChanged(7);
