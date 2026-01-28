@@ -24,7 +24,8 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "zahn",
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo-Fr 08:30-18:30; Sa 08:30-14:00"
     },
     {
       "id": "arzt_msh_053",
@@ -152,7 +153,8 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "augen",
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo-Fr 08:00-19:00; Sa 08:00-16:00"
     },
     {
       "id": "arzt_msh_068",
@@ -189,7 +191,8 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "augen",
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "24/7 (tel.)"
     },
     {
       "id": "arzt_sh_045",
@@ -263,7 +266,8 @@
       "acceptsPrivateInsurance": true,
       "specialization": "innere",
       "verified": true,
-      "source": "arzt-auskunft.de, arzt-atlas.de"
+      "source": "arzt-auskunft.de, arzt-atlas.de",
+      "openingHours": "Mo-Fr 08:00-18:00"
     },
     {
       "id": "arzt_msh_089",
@@ -302,7 +306,8 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "hno",
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo 11:00-14:00; Tu 11:00-14:00, 18:00-22:00; We 11:00-14:00; Th OFF; Fr 11:00-14:00, 18:00-22:00; Sa 11:00-14:00, 18:00-22:00; Su 11:00-14:00"
     },
     {
       "id": "arzt_msh_113",
@@ -393,7 +398,8 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "kinder",
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo-Th 07:30-18:00; Fr 07:30-16:00; Sa-Su off"
     },
     {
       "id": "arzt_msh_137",
@@ -411,7 +417,8 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "zahn",
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo-Su 03:30-23:30; Sa 00:00-24:00"
     },
     {
       "id": "arzt_msh_129",
@@ -448,7 +455,8 @@
       ],
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo-Th 07:00-15:30; Fr 07:00-12:00; Sa-Su off"
     },
     {
       "id": "arzt_msh_124",
@@ -468,7 +476,8 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "innere",
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo-Su 03:30-23:30; Sa 00:00-24:00"
     },
     {
       "id": "arzt_msh_126",
@@ -569,7 +578,8 @@
       ],
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo-Su 03:30-23:30; Sa 00:00-24:00"
     },
     {
       "id": "arzt_msh_091",
@@ -606,7 +616,8 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "innere",
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo,Tu,Th,Fr 08:00-12:00,14:00-17:00; We 08:00-12:00; Sa,Su off"
     },
     {
       "id": "arzt_sh_028",
@@ -621,7 +632,8 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "zahn",
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo 09:00-12:00,12:30-13:30; Tu 14:00-18:00; We 09:00-13:30; Th 09:00-12:00,13:00-18:00; Fr 09:00-12:00; Sa-Su off"
     },
     {
       "id": "arzt_sh_047",
@@ -725,7 +737,8 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "kinder",
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo-Fr 08:00-12:00, Mo,Th 15:00-18:00; PH off"
     },
     {
       "id": "arzt_msh_143",
@@ -741,7 +754,8 @@
       ],
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo,Fr 09:00-12:00; Tu 09:00-13:00,14:00-18:00; Th 09:00-13:00,14:00-16:00"
     },
     {
       "id": "arzt_msh_074",
@@ -856,7 +870,8 @@
       "acceptsPrivateInsurance": true,
       "specialization": "hno",
       "verified": true,
-      "source": "arzt-auskunft.de, arzt-atlas.de"
+      "source": "arzt-auskunft.de, arzt-atlas.de",
+      "openingHours": "Mo 09:00-16:00; Tu-Th 09:00-17:00; Fr 09:00-14:00"
     },
     {
       "id": "arzt_msh_030",
@@ -949,7 +964,8 @@
       ],
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Tu-Fr 09:00-12:00,15:00-18:00; Sa 09:30-12:00; Su-Mo off"
     },
     {
       "id": "arzt_el_001",
@@ -973,7 +989,8 @@
       "specialization": "innere",
       "hasHouseCalls": true,
       "verified": true,
-      "source": "arzt-auskunft.de, arzt-atlas.de"
+      "source": "arzt-auskunft.de, arzt-atlas.de",
+      "openingHours": "Mo-Fr 08:30-19:00; Sa 08:30-14:00; Su off; PH off"
     },
     {
       "id": "arzt_sh_063",
@@ -989,7 +1006,8 @@
       ],
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Tu-Fr 09:00-19:00; Sa 10:00-13:00"
     },
     {
       "id": "arzt_msh_122",
@@ -1028,7 +1046,8 @@
       "acceptsPrivateInsurance": true,
       "specialization": "innere",
       "verified": true,
-      "source": "arzt-auskunft.de, arzt-atlas.de"
+      "source": "arzt-auskunft.de, arzt-atlas.de",
+      "openingHours": "Mo-Th 07:00-20:00; Fr 07:00-14:00"
     },
     {
       "id": "arzt_sh_029",
@@ -1043,7 +1062,8 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "zahn",
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo-Su 03:30-23:30; Sa 00:00-24:00"
     },
     {
       "id": "arzt_ht_039",
@@ -1061,7 +1081,8 @@
       ],
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo-Fr 09:00-13:00, Mo,Tu,Th 14:00-18:00"
     },
     {
       "id": "arzt_msh_043",
@@ -1141,7 +1162,8 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "augen",
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Tu 14:00-15:30; Th 14:00-18:00"
     },
     {
       "id": "arzt_msh_142",
@@ -1158,7 +1180,8 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "innere",
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo-Fr 08:00-18:30; Sa 08:30-12:00"
     },
     {
       "id": "arzt_msh_069",
@@ -1200,7 +1223,8 @@
       "specialization": "allgemein",
       "hasHouseCalls": true,
       "verified": true,
-      "source": "arzt-auskunft.de, arzt-atlas.de"
+      "source": "arzt-auskunft.de, arzt-atlas.de",
+      "openingHours": "24/7"
     },
     {
       "id": "arzt_sh_037",
@@ -1239,7 +1263,8 @@
       "specialization": "allgemein",
       "hasHouseCalls": true,
       "verified": true,
-      "source": "arzt-auskunft.de, arzt-atlas.de"
+      "source": "arzt-auskunft.de, arzt-atlas.de",
+      "openingHours": "Mo-Fr 07:00-22:00; Sa 07:00-20:00"
     },
     {
       "id": "arzt_msh_133",
@@ -1275,7 +1300,8 @@
       ],
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo-Th 07:00-20:00; Fr 07:00-16:00; Sa-Su off"
     },
     {
       "id": "arzt_msh_123",
@@ -1295,7 +1321,8 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "allgemein",
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo 08:00-16:00; Tu,Th 12:00-18:00; We,Fr 08:00-13:00; Sa,Su,PH off"
     },
     {
       "id": "arzt_msh_051",
@@ -1314,7 +1341,8 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "kinder",
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo-Su 11:00-21:00"
     },
     {
       "id": "arzt_msh_073",
@@ -1463,7 +1491,8 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "zahn",
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo-Fr 06:00-18:00; Sa 06:00-12:00"
     },
     {
       "id": "arzt_sg_100",
@@ -1502,7 +1531,8 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "zahn",
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo-Fr 08:00-18:00; Sa 09:00-12:00"
     },
     {
       "id": "arzt_sg_104",
@@ -1685,7 +1715,8 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "allgemein",
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Tu-Su 10:30-21:30"
     },
     {
       "id": "arzt_ht_025",
@@ -1759,7 +1790,8 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "zahn",
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo-Fr 06:00-13:00,14:00-17:00; Sa 06:00-11:00"
     },
     {
       "id": "arzt_msh_144",
@@ -1778,7 +1810,8 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "innere",
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo-Th 09:00-15:30; Fr 09:00-14:30"
     },
     {
       "id": "arzt_el_065",
@@ -1794,7 +1827,8 @@
       ],
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Tu,Th 13:00-16:00,18:00-21:00; We 09:00-21:00; Fr 14:00-19:00; Sa,Su 09:00-18:00; Mo off"
     },
     {
       "id": "arzt_msh_145",
@@ -1811,7 +1845,8 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "zahn",
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo-Fr 09:00-13:00,14:30-18:00; Sa 09:30-12:00"
     },
     {
       "id": "arzt_msh_106",
@@ -1828,7 +1863,8 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "allgemein",
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo-Fr 08:00-18:00; Sa 08:00-14:00"
     },
     {
       "id": "arzt_msh_078",
@@ -1867,7 +1903,8 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "zahn",
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo 08:00-12:00; Tu-Fr 08:00-18:00; Sa 08:00-12:00; Su off"
     },
     {
       "id": "arzt_sg_103",
@@ -1945,7 +1982,8 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "hno",
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo-Fr 08:00-18:00"
     },
     {
       "id": "arzt_msh_115",
@@ -2148,7 +2186,8 @@
       ],
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo 08:00-12:00,14:00-18:00; Tu 08:00-16:00; We 08:00-11:00,14:00-19:00; Th,Fr 08:00-12:00"
     },
     {
       "id": "arzt_sg_002",
@@ -2205,7 +2244,8 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "allgemein",
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo,Th 13:00-18:00; Tu,We 08:00-13:00; Fr 08:00-12:00"
     },
     {
       "id": "arzt_sg_095",
@@ -2333,7 +2373,8 @@
       ],
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo-Fr 09:00-18:00; Sa 09:00-12:00"
     },
     {
       "id": "arzt_sh_086",
@@ -2407,7 +2448,8 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "zahn",
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo-Fr 07:30-19:00; Sa 08:00-12:00"
     },
     {
       "id": "arzt_msh_066",
@@ -2426,7 +2468,8 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "zahn",
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo-Fr 06:00-17:00; Sa,Su,PH off"
     },
     {
       "id": "arzt_el_041",
@@ -2489,7 +2532,8 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "zahn",
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo-Th 07:00-15:30, Fr 07:00-13:00"
     },
     {
       "id": "arzt_msh_054",
@@ -2506,7 +2550,8 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "zahn",
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo,Fr 09:00-12:00; Tu 09:00-13:00,14:00-18:00; Th 09:00-13:00,14:00-16:00"
     },
     {
       "id": "arzt_sh_032",
@@ -2578,7 +2623,8 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "zahn",
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo-Sa 08:00-20:00"
     },
     {
       "id": "arzt_msh_067",
@@ -2653,7 +2699,8 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "zahn",
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo,We,Fr 08:00-12:00; Tu,Th 08:00-12:00,16:00-18:00; Sa,Su,PH off"
     },
     {
       "id": "arzt_msh_017",
@@ -2692,7 +2739,8 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "zahn",
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo-Fr 06:00-16:30; Sa,Su,PH off"
     },
     {
       "id": "arzt_sh_111",
@@ -2708,7 +2756,8 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "specialization": "zahn",
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "We-Fr 08:00-12:00; Mo 08:00-12:00, 14:00-16:00; Tu 08:00-12:00, 14:00-18:00"
     },
     {
       "id": "arzt_sh_015",

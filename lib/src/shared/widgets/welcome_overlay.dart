@@ -260,7 +260,7 @@ class _WelcomeContentState extends State<_WelcomeContent> {
 
                   // Features - Horizontal scrollbare Kacheln
                   SizedBox(
-                    height: 220,
+                    height: 190,
                     child: PageView.builder(
                       controller: _pageController,
                       onPageChanged: (index) {
@@ -302,7 +302,7 @@ class _WelcomeContentState extends State<_WelcomeContent> {
                                   ),
                                 ],
                               ),
-                              const SizedBox(height: 12),
+                              const SizedBox(height: 8),
                               // Zweite Zeile (2 Kacheln falls vorhanden)
                               if (features.length > 2)
                                 Row(
@@ -339,7 +339,7 @@ class _WelcomeContentState extends State<_WelcomeContent> {
                     ),
                   ),
 
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 12),
 
                   // Seiten-Indikatoren (Dots)
                   Row(
@@ -481,7 +481,7 @@ class _FeatureItem extends StatelessWidget {
     }
 
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
       decoration: BoxDecoration(
         color: bgColor,
         borderRadius: BorderRadius.circular(12),
@@ -496,7 +496,7 @@ class _FeatureItem extends StatelessWidget {
               Icon(
                 icon,
                 color: iconColor,
-                size: 32,
+                size: 26,
               ),
               if (isNew)
                 Positioned(
@@ -546,24 +546,24 @@ class _FeatureItem extends StatelessWidget {
                 ),
             ],
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 8),
           Text(
             title,
             style: TextStyle(
               color: isComingSoon ? Colors.white54 : Colors.white,
               fontWeight: FontWeight.w600,
-              fontSize: 13,
+              fontSize: 12,
             ),
             textAlign: TextAlign.center,
-            maxLines: 2,
+            maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),
-          const SizedBox(height: 4),
+          const SizedBox(height: 2),
           Text(
             desc,
             style: TextStyle(
               color: isComingSoon ? Colors.white38 : Colors.white60,
-              fontSize: 11,
+              fontSize: 10,
             ),
             textAlign: TextAlign.center,
             maxLines: 2,

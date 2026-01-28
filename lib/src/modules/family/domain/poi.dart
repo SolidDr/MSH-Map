@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../core/theme/msh_colors.dart';
 import '../../../shared/domain/coordinates.dart';
 import '../../../shared/domain/map_item.dart';
+import '../../../shared/utils/opening_hours_parser.dart';
 
 enum PoiCategory {
   nature,
@@ -171,10 +172,15 @@ class Poi implements MapItem {
       };
 
   @override
-  bool? get isOpenNow => null;
+  bool? get isOpenNow => openingHours != null
+      ? OpeningHoursParser.isOpenNow(openingHours)
+      : null;
 
   @override
-  double get markerOpacity => 1.0;
+  double get markerOpacity => OpeningHoursParser.getMarkerOpacity(openingHours);
+
+  /// Öffnungszeiten für heute
+  String? get todayHours => OpeningHoursParser.getTodayHours(openingHours);
 
   Map<String, dynamic> toFirestore() => {
         'name': name,

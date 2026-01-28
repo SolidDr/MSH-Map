@@ -176,7 +176,7 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
           _hoveredItem = null;
           _mousePosition = null;
         }),
-        onHover: (event) => setState(() => _mousePosition = event.position),
+        onHover: (event) => setState(() => _mousePosition = event.localPosition),
         child: GestureDetector(
           onTap: () => widget.onMarkerTap?.call(item),
           child: isPopular
@@ -304,28 +304,64 @@ class _HoverTooltip extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 12),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                item.displayName,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 14,
+          Flexible(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Flexible(
+                      child: Text(
+                        item.displayName,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    if (item.isOpenNow != null) ...[
+                      const SizedBox(width: 8),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 6,
+                          vertical: 2,
+                        ),
+                        decoration: BoxDecoration(
+                          color: item.isOpenNow!
+                              ? MshColors.success.withValues(alpha: 0.15)
+                              : MshColors.error.withValues(alpha: 0.15),
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: Text(
+                          item.isOpenNow! ? 'Offen' : 'Zu',
+                          style: TextStyle(
+                            color: item.isOpenNow!
+                                ? MshColors.success
+                                : MshColors.error,
+                            fontSize: 10,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ],
                 ),
-              ),
-              if (item.subtitle != null)
-                Text(
-                  item.subtitle!,
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.grey[600],
+                if (item.subtitle != null)
+                  Text(
+                    item.subtitle!,
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Colors.grey[600],
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
-            ],
+              ],
+            ),
           ),
         ],
       ),

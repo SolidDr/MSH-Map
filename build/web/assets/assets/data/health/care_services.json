@@ -59,7 +59,8 @@
       ],
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Tu-Su 11:30-14:30, 17:00-23:00"
     },
     {
       "id": "pflege_msh_013",
@@ -143,7 +144,8 @@
       ],
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Tu-Fr 08:00-18:00"
     },
     {
       "id": "pflege_sh_008",
@@ -280,7 +282,8 @@
       ],
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo-Fr 08:00-17:00; Sa 09:00-13:00"
     },
     {
       "id": "pflege_msh_015",
@@ -447,7 +450,8 @@
       ],
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo-Fr 08:00-18:00; Sa 08:30-12:00"
     },
     {
       "id": "pflege_sg_023",
@@ -464,7 +468,8 @@
       ],
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Su 13:00-17:00"
     }
   ]
 }

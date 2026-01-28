@@ -29,7 +29,8 @@
       "longitude": 10.8708291,
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "node/1738894519"
+      "sourceId": "node/1738894519",
+      "openingHours": "Mo-Fr 09:00-18:00; Sa 09:00-12:00"
     },
     {
       "id": "osm-node-5634738876",
@@ -51,7 +52,8 @@
       "longitude": 11.6734774,
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "node/6252069162"
+      "sourceId": "node/6252069162",
+      "openingHours": "Tu-Su 10:30-21:30"
     },
     {
       "id": "osm-node-6594226995",
@@ -80,7 +82,8 @@
       "website": "https://www.seegebiet-mansfelder-land.de/de/dgh-amsdorf/dorfgemeinschaftshaus.html",
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "node/8129666611"
+      "sourceId": "node/8129666611",
+      "openingHours": "Mo-Fr 06:00–16:30; Sa,Su,PH off"
     },
     {
       "id": "osm-node-8990055022",
@@ -104,7 +107,8 @@
       "targetAudience": "alle",
       "source": "openstreetmap",
       "sourceId": "node/10197037134",
-      "operator": "Förderverein Cruciskirche Sondershausen e.V."
+      "operator": "Förderverein Cruciskirche Sondershausen e.V.",
+      "openingHours": "Mo-Th 08:00-16:00; Fr 08:00-13:30"
     },
     {
       "id": "osm-node-11274045737",
@@ -129,7 +133,8 @@
       "longitude": 10.8744197,
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "node/12107917848"
+      "sourceId": "node/12107917848",
+      "openingHours": "Mo,Tu,Th,Fr 10:00-13:00,14:00-17:30; We,Sa off"
     },
     {
       "id": "osm-node-12301771085",
@@ -240,7 +245,8 @@
       "longitude": 10.8605256,
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "way/177575938"
+      "sourceId": "way/177575938",
+      "openingHours": "Mo-Sa 07:00-20:00; Su,PH off"
     },
     {
       "id": "osm-way-178495503",
@@ -251,7 +257,8 @@
       "longitude": 11.3007096,
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "way/178495503"
+      "sourceId": "way/178495503",
+      "openingHours": "Tu 10:00-12:00,13:00-18:00; We off; Th 10:00-12:00,13:00-17:00; Fr-Mo off"
     },
     {
       "id": "osm-way-182270880",
@@ -308,7 +315,8 @@
       "targetAudience": "alle",
       "source": "openstreetmap",
       "sourceId": "way/200047682",
-      "operator": "SV Olympia Berga"
+      "operator": "SV Olympia Berga",
+      "openingHours": "Mo-Sa 07:00-20:00"
     },
     {
       "id": "osm-way-215422820",
@@ -356,7 +364,8 @@
       "longitude": 11.7336756,
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "way/232054453"
+      "sourceId": "way/232054453",
+      "openingHours": "We-Fr 11:00-14:00, 17:00-22:00; Sa 11:00-22:00; Su,PH 11:00-16:00"
     },
     {
       "id": "osm-way-235130221",
@@ -473,7 +482,8 @@
       "website": "https://swg-nordhaus.de/",
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "way/359553404"
+      "sourceId": "way/359553404",
+      "openingHours": "Mo-Sa 07:00-20:00"
     },
     {
       "id": "osm-way-404876112",
@@ -558,7 +568,8 @@
       "longitude": 11.1379768,
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "way/908869671"
+      "sourceId": "way/908869671",
+      "openingHours": "Mo,Tu 17:00-22:00"
     },
     {
       "id": "osm-way-929796559",

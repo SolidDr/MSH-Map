@@ -18,7 +18,8 @@
       "longitude": 11.2962342,
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "node/1884624234"
+      "sourceId": "node/1884624234",
+      "openingHours": "Mo-Fr 08:30-18:00; Sa 09:00-12:00"
     },
     {
       "id": "osm-node-4451589975",
@@ -45,7 +46,8 @@
       "targetAudience": "senioren",
       "source": "openstreetmap",
       "sourceId": "node/4451603423",
-      "operator": "Diakonie"
+      "operator": "Diakonie",
+      "openingHours": "Mo-Fr 07:00-19:00; Sa,Su 08:00-20:00"
     },
     {
       "id": "osm-node-4453691319",
@@ -134,7 +136,8 @@
       "targetAudience": "alle",
       "source": "openstreetmap",
       "sourceId": "node/7637076327",
-      "operator": "Pflege- und Behinderteneinrichtungen Funk GmbH"
+      "operator": "Pflege- und Behinderteneinrichtungen Funk GmbH",
+      "openingHours": "Mo-Su,PH 07:30 - 22:00"
     },
     {
       "id": "osm-node-7959233389",
@@ -147,7 +150,8 @@
       "longitude": 11.5531948,
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "node/7959233389"
+      "sourceId": "node/7959233389",
+      "openingHours": "Tu-Su 11:30-14:30, 17:00-23:00"
     },
     {
       "id": "osm-node-7959336175",
@@ -201,7 +205,8 @@
       "targetAudience": "alle",
       "source": "openstreetmap",
       "sourceId": "node/8075848205",
-      "operator": "Südharz Klinikum Nordhausen gGmbH"
+      "operator": "Südharz Klinikum Nordhausen gGmbH",
+      "openingHours": "Tu-Su 11:30-14:30,17:00-23:00"
     },
     {
       "id": "osm-node-8319039832",
@@ -293,7 +298,8 @@
       "website": "https://drobs-msh.de/sangerhausen/sangerhausen.html",
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "node/9947607189"
+      "sourceId": "node/9947607189",
+      "openingHours": "Mo-Fr 07:00-18:30; Sa 08:00-11:00; Su,PH off"
     },
     {
       "id": "osm-node-10106140334",
@@ -376,7 +382,8 @@
       "longitude": 10.800663,
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "node/10795166874"
+      "sourceId": "node/10795166874",
+      "openingHours": "Mo-Sa 09:00-19:00"
     },
     {
       "id": "osm-node-11345978858",
@@ -390,7 +397,8 @@
       "targetAudience": "alle",
       "source": "openstreetmap",
       "sourceId": "node/11345978858",
-      "operator": "DRK"
+      "operator": "DRK",
+      "openingHours": "Mo-Fr 08:00-18:00; Sa 08:30-12:00"
     },
     {
       "id": "osm-node-11345999288",
@@ -434,7 +442,8 @@
       "targetAudience": "alle",
       "source": "openstreetmap",
       "sourceId": "node/11947378078",
-      "operator": "DER PARITÄTISCHE I PSW GmbH I Sozialwerk Behindertenhilfe"
+      "operator": "DER PARITÄTISCHE I PSW GmbH I Sozialwerk Behindertenhilfe",
+      "openingHours": "Mo-Fr 10:30-21:00; Sa-Su 11:00-21:00"
     },
     {
       "id": "osm-node-12031825001",
@@ -459,7 +468,8 @@
       "longitude": 11.3022427,
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "node/12046094095"
+      "sourceId": "node/12046094095",
+      "openingHours": "Mo 12:00-17:00; Tu-Fr 10:00-15:00"
     },
     {
       "id": "osm-node-12049729104",
@@ -473,7 +483,8 @@
       "website": "https://kkjr-msh.de/der-kkjr/",
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "node/12049729104"
+      "sourceId": "node/12049729104",
+      "openingHours": "Tu-Fr 13:00-19:00"
     },
     {
       "id": "osm-node-12073621501",
@@ -502,7 +513,8 @@
       "targetAudience": "alle",
       "source": "openstreetmap",
       "sourceId": "node/12073833954",
-      "operator": "Projekt 3"
+      "operator": "Projekt 3",
+      "openingHours": "Su 13:00-17:00"
     },
     {
       "id": "osm-node-12079115183",
@@ -516,7 +528,8 @@
       "targetAudience": "alle",
       "source": "openstreetmap",
       "sourceId": "node/12079115183",
-      "operator": "Albert Schweitzer Familienwerk Sachsen-Anhalt e.V."
+      "operator": "Albert Schweitzer Familienwerk Sachsen-Anhalt e.V.",
+      "openingHours": "Tu 13:00-17:00; Th 09:00-12:00, 13:00-16:00"
     },
     {
       "id": "osm-node-12097134873",
@@ -531,7 +544,8 @@
       "targetAudience": "alle",
       "source": "openstreetmap",
       "sourceId": "node/12097134873",
-      "operator": "Sangerhausen bleibt bunt e.V."
+      "operator": "Sangerhausen bleibt bunt e.V.",
+      "openingHours": "Mo-FR 09:30-18:30; SA 10:00-15:00; Su, PH OFF"
     },
     {
       "id": "osm-node-12112670751",
@@ -600,7 +614,8 @@
       "targetAudience": "alle",
       "source": "openstreetmap",
       "sourceId": "node/13077951757",
-      "operator": "AWO Regionalverband Halle-Merseburg e.V."
+      "operator": "AWO Regionalverband Halle-Merseburg e.V.",
+      "openingHours": "Mo-Sa 09:00-20:00"
     },
     {
       "id": "osm-way-53560934",
@@ -653,7 +668,8 @@
       "targetAudience": "alle",
       "source": "openstreetmap",
       "sourceId": "way/96260114",
-      "operator": "AWO"
+      "operator": "AWO",
+      "openingHours": "Tu,Th 14:00-17:00; Mo 09:00-12:00,14:00-17:00"
     },
     {
       "id": "osm-way-96260463",
@@ -668,7 +684,8 @@
       "targetAudience": "alle",
       "source": "openstreetmap",
       "sourceId": "way/96260463",
-      "operator": "K & S"
+      "operator": "K & S",
+      "openingHours": "Mo,Tu,Th 08:00-12:00,15:00-18:00; We,Fr 08:00-12:00"
     },
     {
       "id": "osm-way-126364240",
@@ -710,7 +727,8 @@
       "targetAudience": "alle",
       "source": "openstreetmap",
       "sourceId": "way/145982384",
-      "operator": "Tagespflege Aptekorz"
+      "operator": "Tagespflege Aptekorz",
+      "openingHours": "Mo-Fr 07:30-15:00"
     },
     {
       "id": "osm-way-148170820",
@@ -724,7 +742,8 @@
       "isBarrierFree": true,
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "way/148170820"
+      "sourceId": "way/148170820",
+      "openingHours": "Mo-Fr 07:30-14:00"
     },
     {
       "id": "osm-way-161939232",
@@ -750,7 +769,8 @@
       "isBarrierFree": true,
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "way/175103010"
+      "sourceId": "way/175103010",
+      "openingHours": "Mo-Su 03:30-23:30; Sa 00:00-24:00"
     },
     {
       "id": "osm-way-177296069",
@@ -865,7 +885,8 @@
       "targetAudience": "alle",
       "source": "openstreetmap",
       "sourceId": "way/179463176",
-      "operator": "Antje Aschenbach"
+      "operator": "Antje Aschenbach",
+      "openingHours": "Mo,Tu,Th,Fr 10:00-17:00; We 10:00-12:00; Sa,Su off"
     },
     {
       "id": "osm-way-183186522",
@@ -880,7 +901,8 @@
       "targetAudience": "alle",
       "source": "openstreetmap",
       "sourceId": "way/183186522",
-      "operator": "Projekt 3"
+      "operator": "Projekt 3",
+      "openingHours": "Mo-Th 07:00-16:00; Fr 07:00-13:00"
     },
     {
       "id": "osm-way-184147070",
@@ -908,7 +930,8 @@
       "longitude": 10.8002944,
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "way/192218425"
+      "sourceId": "way/192218425",
+      "openingHours": "Mo-Sa 09:00-19:00"
     },
     {
       "id": "osm-way-194451081",
@@ -947,7 +970,8 @@
       "longitude": 11.5414814,
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "way/198439838"
+      "sourceId": "way/198439838",
+      "openingHours": "24/7"
     },
     {
       "id": "osm-way-204513545",
@@ -961,7 +985,8 @@
       "targetAudience": "alle",
       "source": "openstreetmap",
       "sourceId": "way/204513545",
-      "operator": "Wippertal Wohnungsbau- und Grundstücksgesellschaft mbH"
+      "operator": "Wippertal Wohnungsbau- und Grundstücksgesellschaft mbH",
+      "openingHours": "Mo-Fr 07:30-14:00"
     },
     {
       "id": "osm-way-217790500",
@@ -974,7 +999,8 @@
       "longitude": 10.8004659,
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "way/217790500"
+      "sourceId": "way/217790500",
+      "openingHours": "Mo-Fr 08:00-18:00; Sa 08:00-12:00"
     },
     {
       "id": "osm-way-219565557",
@@ -990,7 +1016,8 @@
       "website": "https://www.ks-unternehmensgruppe.de/unsere-seniorenresidenzen/seniorenresidenzen/nordhausen/",
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "way/219565557"
+      "sourceId": "way/219565557",
+      "openingHours": "Th [1,3] 13:00-18:00"
     },
     {
       "id": "osm-way-221043051",
@@ -1017,7 +1044,8 @@
       "targetAudience": "alle",
       "source": "openstreetmap",
       "sourceId": "way/223398814",
-      "operator": "AWO"
+      "operator": "AWO",
+      "openingHours": "Mo-Fr 08:00-17:00; Sa 09:00-13:00"
     },
     {
       "id": "osm-way-290195094",
@@ -1130,7 +1158,8 @@
       "isBarrierFree": true,
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "way/351504292"
+      "sourceId": "way/351504292",
+      "openingHours": "Mo-Fr 09:00-18:00, Sa 9:00- 12:00"
     },
     {
       "id": "osm-way-351668215",
@@ -1245,7 +1274,8 @@
       "targetAudience": "alle",
       "source": "openstreetmap",
       "sourceId": "way/448368832",
-      "operator": "AWO Alten-, Jugend- und Sozialhilfe gGmbH"
+      "operator": "AWO Alten-, Jugend- und Sozialhilfe gGmbH",
+      "openingHours": "Mo,Fr 08:30-16:00; Tu,Th 08:30-18:00; We 08:30-12:00"
     },
     {
       "id": "osm-way-451639812",
@@ -1285,7 +1315,8 @@
       "targetAudience": "alle",
       "source": "openstreetmap",
       "sourceId": "way/463869363",
-      "operator": "AWO"
+      "operator": "AWO",
+      "openingHours": "Mo-Fr 07:30-14:00"
     },
     {
       "id": "osm-way-826583696",
@@ -1327,7 +1358,8 @@
       "targetAudience": "alle",
       "source": "openstreetmap",
       "sourceId": "way/984970355",
-      "operator": "DRK"
+      "operator": "DRK",
+      "openingHours": "Su 13:00-17:00"
     },
     {
       "id": "osm-way-1015398297",
@@ -1401,7 +1433,8 @@
       "targetAudience": "alle",
       "source": "openstreetmap",
       "sourceId": "way/1112895475",
-      "operator": "Tagespflege Aptekorz"
+      "operator": "Tagespflege Aptekorz",
+      "openingHours": "Mo-Sa 07:00-20:00"
     },
     {
       "id": "osm-way-1112902834",
@@ -1443,7 +1476,8 @@
       "longitude": 10.8004369,
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "way/1204234401"
+      "sourceId": "way/1204234401",
+      "openingHours": "Mo-Fr 08:00-18:00"
     },
     {
       "id": "osm-way-1305256034",
@@ -1467,7 +1501,8 @@
       "longitude": 11.13863,
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "way/1381044695"
+      "sourceId": "way/1381044695",
+      "openingHours": "Mo-Fr 09:00-19:00; Sa 09:00-18:00"
     },
     {
       "id": "osm-way-1418773518",
@@ -1478,7 +1513,8 @@
       "longitude": 11.5415936,
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "way/1418773518"
+      "sourceId": "way/1418773518",
+      "openingHours": "24/7"
     },
     {
       "id": "osm-way-1424761525",

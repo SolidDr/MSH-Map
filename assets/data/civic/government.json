@@ -42,7 +42,8 @@
       "longitude": 11.0414653,
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "node/413077758"
+      "sourceId": "node/413077758",
+      "openingHours": "Mo-Fr 06:00-18:00; Sa 07:00-11:00; Su 07:00-10:00; PH off"
     },
     {
       "id": "osm-node-419776579",
@@ -64,7 +65,8 @@
       "longitude": 10.808984,
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "node/1099383977"
+      "sourceId": "node/1099383977",
+      "openingHours": "Mo-Th 09:00-20:00; Fr 09:00-17:00"
     },
     {
       "id": "osm-node-1264084920",
@@ -193,7 +195,8 @@
       "email": "info@kyffhaeuserland.de",
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "node/8660364373"
+      "sourceId": "node/8660364373",
+      "openingHours": "Mo 16:30-17:30"
     },
     {
       "id": "osm-node-8660364374",
@@ -221,7 +224,8 @@
       "targetAudience": "alle",
       "source": "openstreetmap",
       "sourceId": "node/10231041590",
-      "operator": "Stadt Sondershausen"
+      "operator": "Stadt Sondershausen",
+      "openingHours": "Mo-Fr 11:00-15:00"
     },
     {
       "id": "osm-node-11132624009",
@@ -264,7 +268,8 @@
       "targetAudience": "alle",
       "source": "openstreetmap",
       "sourceId": "node/12030778561",
-      "operator": "Thüringer Landesamt für Bodenmanagement und Geoinformation"
+      "operator": "Thüringer Landesamt für Bodenmanagement und Geoinformation",
+      "openingHours": "Tu-Su 20:00-01:00"
     },
     {
       "id": "osm-node-12170402987",
@@ -300,7 +305,8 @@
       "longitude": 11.5456163,
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "way/36967232"
+      "sourceId": "way/36967232",
+      "openingHours": "We 18:00; Th 20:00-23:00; Fr-Sa 20:00-01:00; Su-Tu off"
     },
     {
       "id": "osm-way-57834330",
@@ -346,7 +352,8 @@
       "longitude": 10.8724518,
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "way/71184899"
+      "sourceId": "way/71184899",
+      "openingHours": "Mo-Fr 11:00-15:00"
     },
     {
       "id": "osm-way-77488865",
@@ -359,7 +366,8 @@
       "targetAudience": "alle",
       "source": "openstreetmap",
       "sourceId": "way/77488865",
-      "operator": "Landratsamt Kyffhäuserkreis"
+      "operator": "Landratsamt Kyffhäuserkreis",
+      "openingHours": "Mo-Tu 12:00-17:00; We off; Th 12:00-18:00; Fr 10:00-15:00; Sa-Su off"
     },
     {
       "id": "osm-way-78625900",
@@ -424,7 +432,8 @@
       "targetAudience": "alle",
       "source": "openstreetmap",
       "sourceId": "way/172568374",
-      "operator": "Stadt Sangerhausen"
+      "operator": "Stadt Sangerhausen",
+      "openingHours": "Mo-Fr 10:00-14:00"
     },
     {
       "id": "osm-way-175593271",
@@ -472,7 +481,8 @@
       "email": "info@artern.de",
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "way/178085323"
+      "sourceId": "way/178085323",
+      "openingHours": "Mo-Fr 09:00-18:00; Sa 09:00-12:00; Su off"
     },
     {
       "id": "osm-way-180762778",
@@ -489,7 +499,8 @@
       "targetAudience": "alle",
       "source": "openstreetmap",
       "sourceId": "way/180762778",
-      "operator": "SU Wohnraumvermietung / Verwaltung UG"
+      "operator": "SU Wohnraumvermietung / Verwaltung UG",
+      "openingHours": "Mo-Su 03:30-23:30; Sa 00:00-24:00"
     },
     {
       "id": "osm-way-180883054",
@@ -505,7 +516,8 @@
       "website": "http://www.weigl-immobilien.de/",
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "way/180883054"
+      "sourceId": "way/180883054",
+      "openingHours": "Mo-Su 03:30-23:30; Sa 00:00-24:00"
     },
     {
       "id": "osm-way-180969105",
@@ -516,7 +528,8 @@
       "longitude": 11.5421764,
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "way/180969105"
+      "sourceId": "way/180969105",
+      "openingHours": "Mo-Fr 13:00-18:00; Sa-Su 9:00-18:00"
     },
     {
       "id": "osm-way-181195695",
@@ -532,7 +545,8 @@
       "targetAudience": "alle",
       "source": "openstreetmap",
       "sourceId": "way/181195695",
-      "operator": "Wohnungsgenossenschaft \"Glück auf\" e.G."
+      "operator": "Wohnungsgenossenschaft \"Glück auf\" e.G.",
+      "openingHours": "Mo-Su 03:30-23:30; Sa 00:00-24:00"
     },
     {
       "id": "osm-way-182928004",
@@ -558,7 +572,8 @@
       "isBarrierFree": true,
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "way/183214566"
+      "sourceId": "way/183214566",
+      "openingHours": "Mo 09:00-16:00; Tu-Th 09:00-17:00; Fr 09:00-14:00"
     },
     {
       "id": "osm-way-184297551",
@@ -646,7 +661,8 @@
       "isBarrierFree": true,
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "way/255207223"
+      "sourceId": "way/255207223",
+      "openingHours": "Tu-Sa 11:30-14:00,17:30-22:00; Su 11:30-14:00"
     },
     {
       "id": "osm-way-256627593",
@@ -659,7 +675,8 @@
       "longitude": 11.6671034,
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "way/256627593"
+      "sourceId": "way/256627593",
+      "openingHours": "Mo,Tu,Th,Fr 08:00-18:00; We 08:00-13:00; Sa 09:00-12:00; Su,PH off"
     },
     {
       "id": "osm-way-262124262",
@@ -689,7 +706,8 @@
       "targetAudience": "alle",
       "source": "openstreetmap",
       "sourceId": "way/266787321",
-      "operator": "Stadt Heringen/Helme"
+      "operator": "Stadt Heringen/Helme",
+      "openingHours": "Th 09:00-12:00, 14:00-16:00"
     },
     {
       "id": "osm-way-316712377",
@@ -702,7 +720,8 @@
       "longitude": 11.6738406,
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "way/316712377"
+      "sourceId": "way/316712377",
+      "openingHours": "Tu-Su 10:30-21:30"
     },
     {
       "id": "osm-way-350653844",
@@ -719,7 +738,8 @@
       "email": "post.bfh@tlllr.thueringen.de",
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "way/350653844"
+      "sourceId": "way/350653844",
+      "openingHours": "Mo-Sa 07:00-20:00"
     },
     {
       "id": "osm-way-391878112",
@@ -840,7 +860,8 @@
       "longitude": 11.1424082,
       "targetAudience": "alle",
       "source": "openstreetmap",
-      "sourceId": "way/702379167"
+      "sourceId": "way/702379167",
+      "openingHours": "Mo-Th 06:00-14:00; Fr 06:00-12:00"
     },
     {
       "id": "osm-way-746899020",

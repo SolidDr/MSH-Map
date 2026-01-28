@@ -73,7 +73,8 @@
       "city": "Lutherstadt Eisleben",
       "description": "Cocktailbar direkt am Markt",
       "hasFood": true,
-      "hasLiveMusic": false
+      "hasLiveMusic": false,
+      "openingHours": "Mo-Fr 08:00-18:00"
     },
     {
       "id": "nightlife_006",
@@ -86,19 +87,21 @@
       "city": "Lutherstadt Eisleben",
       "description": "Gemütliche Stammkneipe mit guter Stimmung",
       "hasFood": false,
-      "hasLiveMusic": false
+      "hasLiveMusic": false,
+      "openingHours": "Mo-Fr 11:00-15:00,17:00-22:00; Sa 12:00-22:30; Su 11:00-17:00"
     },
     {
       "id": "nightlife_007",
       "name": "Ronnys Pub",
       "type": "pub",
-      "latitude": 51.5280,
+      "latitude": 51.528,
       "longitude": 11.5475,
       "city": "Lutherstadt Eisleben",
       "postalCode": "06295",
       "description": "Pub mit abwechslungsreicher Getränkeauswahl",
       "hasFood": false,
-      "hasLiveMusic": false
+      "hasLiveMusic": false,
+      "openingHours": "Mo-Th 09:00-18:00; Fr off; Sa-Su 13:00-18:00"
     },
     {
       "id": "nightlife_008",

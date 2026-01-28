@@ -62,12 +62,11 @@ class PoiDetailContent extends StatelessWidget {
               value: [poi.address, poi.city].whereType<String>().join(', '),
             ),
 
-          // Öffnungszeiten
+          // Öffnungszeiten mit Status
           if (poi.openingHours != null)
-            _InfoRow(
-              icon: Icons.access_time,
-              label: 'Öffnungszeiten',
-              value: poi.openingHours!,
+            _OpeningHoursRow(
+              openingHours: poi.openingHours!,
+              isOpen: poi.isOpenNow,
             ),
 
           // Preis
@@ -209,6 +208,75 @@ class _InfoRow extends StatelessWidget {
                 const SizedBox(height: 2),
                 Text(
                   value,
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _OpeningHoursRow extends StatelessWidget {
+  const _OpeningHoursRow({
+    required this.openingHours,
+    required this.isOpen,
+  });
+
+  final String openingHours;
+  final bool? isOpen;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Icon(Icons.access_time, size: 20, color: Colors.grey[600]),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      'Öffnungszeiten',
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                            color: Colors.grey[600],
+                          ),
+                    ),
+                    if (isOpen != null) ...[
+                      const SizedBox(width: 8),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 6,
+                          vertical: 2,
+                        ),
+                        decoration: BoxDecoration(
+                          color: isOpen!
+                              ? MshColors.success.withValues(alpha: 0.15)
+                              : MshColors.error.withValues(alpha: 0.15),
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: Text(
+                          isOpen! ? 'Geöffnet' : 'Geschlossen',
+                          style: TextStyle(
+                            color: isOpen! ? MshColors.success : MshColors.error,
+                            fontSize: 10,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ],
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  openingHours,
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
               ],

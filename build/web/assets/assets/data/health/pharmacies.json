@@ -163,7 +163,8 @@
       ],
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Th 09:00-12:00, 14:00-16:00"
     },
     {
       "id": "apo_msh_058",
@@ -196,7 +197,8 @@
       "phone": "03464573135",
       "phoneFormatted": "03464 / 57 31 35",
       "verified": true,
-      "source": "apoguide.de, news.de"
+      "source": "apoguide.de, news.de",
+      "openingHours": "Mo-Su 11:00-23:00"
     },
     {
       "id": "apo_msh_013",
@@ -253,7 +255,8 @@
       "isBarrierFree": true,
       "hasParking": true,
       "verified": true,
-      "source": "apoguide.de, news.de"
+      "source": "apoguide.de, news.de",
+      "openingHours": "Mo-Fr 07:00-22:00; Sa 07:00-20:00"
     },
     {
       "id": "apo_sg_047",
@@ -384,7 +387,8 @@
       ],
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Tu-Su 14:00-17:00 || \"nach Vereinbarung\""
     },
     {
       "id": "apo_al_016",
@@ -454,7 +458,8 @@
       ],
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "24/7"
     },
     {
       "id": "apo_sg_023",
@@ -495,7 +500,8 @@
       ],
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo-Fr 07:00-22:00; Sa 07:00-20:00; Su,PH off"
     },
     {
       "id": "apotheke_el_003",
@@ -598,7 +604,8 @@
       "phoneFormatted": "03464 / 57 30 00",
       "isBarrierFree": true,
       "verified": true,
-      "source": "apoguide.de, news.de"
+      "source": "apoguide.de, news.de",
+      "openingHours": "Mo-Fr 07:00-22:00; Sa 07:00-20:00"
     },
     {
       "id": "apo_msh_026",
@@ -634,7 +641,8 @@
       ],
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo-Fr 06:00-22:00; Sa 06:00-20:00"
     },
     {
       "id": "apo_msh_049",
@@ -792,7 +800,8 @@
       "phone": "03475602274",
       "phoneFormatted": "03475 / 60 22 74",
       "verified": true,
-      "source": "apoguide.de, news.de"
+      "source": "apoguide.de, news.de",
+      "openingHours": "Mo-Fr 08:00-18:00"
     },
     {
       "id": "apo_sg_030",
@@ -886,7 +895,8 @@
       ],
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo-Fr 10:00-18:00; Sa 10:00-13:00"
     },
     {
       "id": "apotheke_sg_004",
@@ -902,7 +912,8 @@
       "isBarrierFree": true,
       "hasParking": true,
       "verified": true,
-      "source": "apoguide.de, news.de"
+      "source": "apoguide.de, news.de",
+      "openingHours": "Mo-Fr 09:00-18:00; Sa 10:00-12:00"
     },
     {
       "id": "apo_sg_031",
@@ -935,7 +946,8 @@
       "phoneFormatted": "034775 / 20 28",
       "hasParking": true,
       "verified": true,
-      "source": "apoguide.de, news.de"
+      "source": "apoguide.de, news.de",
+      "openingHours": "Mo 08:00-12:00, 13:00-17:00; Tu 08:00-13:00; We 08:00-12:00, 14:00-18:00; Th 08:00-12:00, 14:00-17:30; Fr 08:00-13:00"
     },
     {
       "id": "apo_msh_038",
@@ -991,7 +1003,8 @@
       ],
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo-Fr 08:00-16:00"
     },
     {
       "id": "apo_msh_059",
@@ -1027,7 +1040,8 @@
       "isBarrierFree": true,
       "hasParking": true,
       "verified": true,
-      "source": "apoguide.de, news.de"
+      "source": "apoguide.de, news.de",
+      "openingHours": "Mo-Fr 08:30-19:00; Sa 08:30-14:00; Su off; PH off"
     },
     {
       "id": "apo_sg_035",
@@ -1209,7 +1223,8 @@
       ],
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
-      "source": "openstreetmap"
+      "source": "openstreetmap",
+      "openingHours": "Mo-Fr 08:00-12:00; Mo 15:00-18:00; Tu 14:00-16:00; We,Th 16:00-18:00"
     },
     {
       "id": "apo_msh_053",

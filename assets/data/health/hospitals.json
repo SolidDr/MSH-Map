@@ -105,7 +105,8 @@
         "HNO (Hals-Nasen-Ohren)"
       ],
       "verified": true,
-      "source": "helios-gesundheit.de, bundes-klinik-atlas.de"
+      "source": "helios-gesundheit.de, bundes-klinik-atlas.de",
+      "openingHours": "Mo-Fr 08:30-19:00; Sa 08:30-14:00; Su off; PH off"
     },
     {
       "id": "kh_sg_001",
@@ -135,7 +136,8 @@
         "Notfallmedizin"
       ],
       "verified": true,
-      "source": "helios-gesundheit.de, bundes-klinik-atlas.de"
+      "source": "helios-gesundheit.de, bundes-klinik-atlas.de",
+      "openingHours": "Mo, We, Th, Fr 16:00-23:00; Sa, Su, PH 11:30-23:00; Tu OFF"
     },
     {
       "id": "kh_sg_007",
