@@ -16,79 +16,91 @@ final salzstrasseRoute = RadwegRoute(
   category: RadwegCategory.themenweg,
   lengthKm: 90,
   difficulty: 'Mittel',
-  routeColor: const Color(0xFFE8E8E8), // Salzweiß/Grau
+  routeColor: const Color(0xFF78909C), // Salzgrau (besser sichtbar)
   isLoop: false,
   elevationGain: 480,
   websiteUrl: 'https://www.fluss-radwege.de/salzstrassen-radweg/',
-  center: const LatLng(51.38, 11.68),
-  overviewZoom: 10.0,
+  center: const LatLng(51.35, 11.65),
+  overviewZoom: 9.5,
   routePoints: const [
     // === Start: Merseburg (Dom) ===
-    LatLng(51.4600, 11.9985),
+    LatLng(51.4605, 11.9990),
 
-    // === Abschnitt 1: Merseburg Richtung Süden ===
-    LatLng(51.4500, 11.9800),
-    LatLng(51.4400, 11.9600),
-    LatLng(51.4300, 11.9400),
+    // === Abschnitt 1: Merseburg → Richtung Südwesten ===
+    LatLng(51.4550, 11.9900),
+    LatLng(51.4480, 11.9780),
+    LatLng(51.4400, 11.9640),
+    LatLng(51.4320, 11.9480),
+    LatLng(51.4240, 11.9300),
 
-    // === Abschnitt 2: Zum Geiseltalsee ===
-    LatLng(51.4200, 11.9200),
-    LatLng(51.4100, 11.9000),
-    LatLng(51.4000, 11.8800),
-    LatLng(51.3900, 11.8600),
+    // === Abschnitt 2: → Bad Lauchstädt Gebiet ===
+    LatLng(51.4160, 11.9100),
+    LatLng(51.4080, 11.8880),
+    LatLng(51.4000, 11.8660),
+    LatLng(51.3920, 11.8450),
 
-    // === Abschnitt 3: Geiseltalsee Südufer ===
-    LatLng(51.3800, 11.8400),
-    LatLng(51.3700, 11.8200),
-    // Geiseltalsee (größter künstlicher See Deutschlands)
-    LatLng(51.3550, 11.8100),
+    // === Abschnitt 3: → Geiseltalsee (Nordufer) ===
+    LatLng(51.3850, 11.8300),
+    LatLng(51.3780, 11.8180),
+    // Geiseltalsee Nordufer
+    LatLng(51.3700, 11.8100),
+    LatLng(51.3620, 11.8050),
 
-    // === Abschnitt 4: Mücheln ===
-    LatLng(51.3400, 11.8000),
-    // Mücheln
+    // === Abschnitt 4: Geiseltalsee → Mücheln ===
+    LatLng(51.3540, 11.8020),
+    LatLng(51.3450, 11.8000),
+    LatLng(51.3350, 11.8020),
+    LatLng(51.3250, 11.8050),
+    LatLng(51.3150, 11.8070),
+    // Mücheln (am See)
     LatLng(51.2944, 11.8087),
 
-    // === Abschnitt 5: Richtung Steigra - Karsdorf ===
-    LatLng(51.2800, 11.7800),
-    LatLng(51.2700, 11.7500),
-    LatLng(51.2600, 11.7200),
+    // === Abschnitt 5: Mücheln → Steigra ===
+    LatLng(51.2880, 11.7950),
+    LatLng(51.2820, 11.7780),
+    LatLng(51.2760, 11.7600),
+    LatLng(51.2700, 11.7400),
+    LatLng(51.2650, 11.7180),
     // Steigra
-    LatLng(51.2550, 11.6900),
+    LatLng(51.2600, 11.6950),
 
-    // === Abschnitt 6: Karsdorf - Wangen ===
-    LatLng(51.2600, 11.6600),
-    // Karsdorf
-    LatLng(51.2680, 11.6300),
-    LatLng(51.2720, 11.6000),
-    // Wangen (bei Nebra)
-    LatLng(51.2760, 11.5700),
+    // === Abschnitt 6: Steigra → Karsdorf ===
+    LatLng(51.2580, 11.6700),
+    LatLng(51.2600, 11.6450),
+    // Karsdorf (am Unstrutradweg)
+    LatLng(51.2650, 11.6200),
 
-    // === Abschnitt 7: Nebra und Mittelberg ===
-    LatLng(51.2780, 11.5500),
-    // Nebra
-    LatLng(51.2713, 11.5448),
+    // === Abschnitt 7: Karsdorf → Wangen/Nebra ===
+    LatLng(51.2680, 11.5950),
+    LatLng(51.2700, 11.5700),
+    // Wangen (nahe Arche Nebra)
+    LatLng(51.2714, 11.5450),
 
-    // === Abschnitt 8: Durch Ziegelrodaer Forst ===
-    LatLng(51.2900, 11.5200),
-    LatLng(51.3100, 11.4900),
-    LatLng(51.3300, 11.4600),
+    // === Abschnitt 8: Nebra → durch Ziegelrodaer Forst ===
+    LatLng(51.2800, 11.5300),
+    LatLng(51.2900, 11.5100),
+    LatLng(51.3000, 11.4900),
+    LatLng(51.3100, 11.4700),
+    LatLng(51.3200, 11.4520),
 
-    // === Abschnitt 9: Allstedt ===
-    LatLng(51.3500, 11.4400),
-    LatLng(51.3700, 11.4200),
+    // === Abschnitt 9: → Allstedt ===
+    LatLng(51.3300, 11.4380),
+    LatLng(51.3420, 11.4260),
+    LatLng(51.3550, 11.4150),
+    LatLng(51.3680, 11.4050),
     // Schloss Allstedt
-    LatLng(51.4034, 11.3925),
+    LatLng(51.3833, 11.3833),
   ],
   pois: const [
     RadwegPoi(
       name: 'Merseburg',
-      coords: LatLng(51.4600, 11.9985),
+      coords: LatLng(51.4605, 11.9990),
       description: 'Startpunkt mit Dom und historischer Altstadt',
       icon: Icons.church,
     ),
     RadwegPoi(
       name: 'Geiseltalsee',
-      coords: LatLng(51.3550, 11.8100),
+      coords: LatLng(51.3700, 11.8100),
       description: 'Größter künstlicher See Deutschlands (1.840 ha)',
       icon: Icons.water,
     ),
@@ -99,14 +111,14 @@ final salzstrasseRoute = RadwegRoute(
       icon: Icons.location_city,
     ),
     RadwegPoi(
-      name: 'Nebra',
-      coords: LatLng(51.2713, 11.5448),
+      name: 'Wangen/Nebra',
+      coords: LatLng(51.2714, 11.5450),
       description: 'Nahe dem Fundort der Himmelsscheibe',
       icon: Icons.stars,
     ),
     RadwegPoi(
       name: 'Schloss Allstedt',
-      coords: LatLng(51.4034, 11.3925),
+      coords: LatLng(51.3833, 11.3833),
       description: 'Ziel: Historisches Schloss, Thomas-Müntzer-Stätte',
       icon: Icons.castle,
     ),

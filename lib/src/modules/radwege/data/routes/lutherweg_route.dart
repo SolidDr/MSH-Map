@@ -20,8 +20,8 @@ final lutherwegRoute = RadwegRoute(
   isLoop: false,
   elevationGain: 1850,
   websiteUrl: 'https://www.lutherweg.de/',
-  center: const LatLng(51.25, 10.95),
-  overviewZoom: 9.0,
+  center: const LatLng(51.25, 10.90),
+  overviewZoom: 8.5,
   routePoints: const [
     // === Start: Lutherstadt Eisleben ===
     // Luthers Geburtshaus
@@ -29,56 +29,80 @@ final lutherwegRoute = RadwegRoute(
 
     // === Abschnitt 1: Eisleben Zentrum ===
     LatLng(51.5284, 11.5449),
-    // St. Andreas Kirche
-    LatLng(51.5284, 11.5449),
+    LatLng(51.5290, 11.5380),
+    LatLng(51.5300, 11.5300),
 
-    // === Abschnitt 2: Eisleben Richtung Westen ===
-    LatLng(51.5260, 11.5300),
-    LatLng(51.5240, 11.5100),
-    LatLng(51.5220, 11.4900),
+    // === Abschnitt 2: Eisleben → Norden nach Mansfeld ===
+    LatLng(51.5350, 11.5200),
+    LatLng(51.5420, 11.5100),
+    LatLng(51.5500, 11.5020),
+    LatLng(51.5580, 11.4950),
+    LatLng(51.5660, 11.4880),
+    LatLng(51.5740, 11.4800),
+    LatLng(51.5820, 11.4720),
+    LatLng(51.5900, 11.4660),
+    // Mansfeld-Lutherstadt (Schloss)
+    LatLng(51.5980, 11.4580),
 
-    // === Abschnitt 3: Richtung Mansfeld ===
-    LatLng(51.5200, 11.4700),
-    LatLng(51.5180, 11.4500),
-    LatLng(51.5160, 11.4300),
-    // Mansfeld-Lutherstadt
-    LatLng(51.5980, 11.4600),
-
-    // === Abschnitt 4: Richtung Stolberg (Harz) ===
-    LatLng(51.5800, 11.4000),
-    LatLng(51.5700, 11.3500),
-    LatLng(51.5650, 11.3000),
-    // Stolberg (Harz)
+    // === Abschnitt 3: Mansfeld → Westen durch Südharz ===
+    LatLng(51.5950, 11.4400),
+    LatLng(51.5920, 11.4200),
+    LatLng(51.5890, 11.3980),
+    LatLng(51.5870, 11.3750),
+    LatLng(51.5850, 11.3500),
+    LatLng(51.5840, 11.3250),
+    LatLng(51.5830, 11.3000),
+    LatLng(51.5820, 11.2750),
+    LatLng(51.5810, 11.2500),
+    LatLng(51.5800, 11.2250),
+    LatLng(51.5790, 11.2000),
+    LatLng(51.5780, 11.1750),
+    LatLng(51.5770, 11.1500),
+    LatLng(51.5760, 11.1250),
+    LatLng(51.5750, 11.1000),
+    LatLng(51.5745, 11.0750),
+    LatLng(51.5742, 11.0500),
+    LatLng(51.5740, 11.0250),
+    LatLng(51.5738, 11.0000),
+    // Stolberg (Harz) - Fachwerkstadt
     LatLng(51.5740, 10.9500),
 
-    // === Abschnitt 5: Durch den Harz ===
-    LatLng(51.5600, 10.9000),
-    LatLng(51.5500, 10.8500),
+    // === Abschnitt 4: Stolberg → durch Südharz nach SW ===
+    LatLng(51.5700, 10.9200),
+    LatLng(51.5650, 10.8900),
+    LatLng(51.5580, 10.8600),
+    LatLng(51.5500, 10.8300),
     LatLng(51.5400, 10.8000),
-
-    // === Abschnitt 6: Thüringen - Richtung Nordhausen ===
-    LatLng(51.5000, 10.7500),
-    LatLng(51.4600, 10.7000),
+    LatLng(51.5280, 10.7750),
     // Nordhausen Gebiet
-    LatLng(51.5000, 10.7900),
+    LatLng(51.5100, 10.7900),
 
-    // === Abschnitt 7: Mühlhausen ===
-    LatLng(51.3500, 10.6000),
-    LatLng(51.2500, 10.5000),
-    // Mühlhausen
+    // === Abschnitt 5: → Süden Richtung Mühlhausen ===
+    LatLng(51.4800, 10.7600),
+    LatLng(51.4500, 10.7300),
+    LatLng(51.4200, 10.6900),
+    LatLng(51.3900, 10.6500),
+    LatLng(51.3600, 10.6100),
+    LatLng(51.3300, 10.5700),
+    LatLng(51.3000, 10.5300),
+    LatLng(51.2700, 10.5000),
+    LatLng(51.2400, 10.4700),
+    // Mühlhausen (historische Reichsstadt)
     LatLng(51.2086, 10.4528),
 
-    // === Abschnitt 8: Richtung Eisenach ===
-    LatLng(51.1500, 10.4000),
-    LatLng(51.1000, 10.3500),
-    LatLng(51.0500, 10.3200),
+    // === Abschnitt 6: Mühlhausen → Eisenach ===
+    LatLng(51.1800, 10.4400),
+    LatLng(51.1500, 10.4200),
+    LatLng(51.1200, 10.4000),
+    LatLng(51.0900, 10.3800),
+    LatLng(51.0600, 10.3600),
+    LatLng(51.0300, 10.3400),
+    LatLng(51.0000, 10.3250),
 
-    // === Abschnitt 9: Eisenach ===
-    LatLng(51.0000, 10.3200),
-    // Wartburg
+    // === Abschnitt 7: Eisenach + Wartburg ===
+    // Wartburg (UNESCO-Welterbe)
     LatLng(50.9667, 10.3066),
-
-    // === Ziel: Eisenach Markt ===
+    // Eisenach Zentrum
     LatLng(50.9749, 10.3203),
   ],
   pois: const [
@@ -90,20 +114,20 @@ final lutherwegRoute = RadwegRoute(
     ),
     RadwegPoi(
       name: 'Luthers Sterbehaus',
-      coords: LatLng(51.5269, 11.5501),
+      coords: LatLng(51.5284, 11.5449),
       description: 'Hier starb Luther 1546',
       icon: Icons.museum,
     ),
     RadwegPoi(
       name: 'Mansfeld-Lutherstadt',
-      coords: LatLng(51.5980, 11.4600),
+      coords: LatLng(51.5980, 11.4580),
       description: 'Luthers Kindheit: Elternhaus und Schloss',
       icon: Icons.castle,
     ),
     RadwegPoi(
       name: 'Stolberg (Harz)',
       coords: LatLng(51.5740, 10.9500),
-      description: 'Thomas-Müntzer-Stadt im Südharz',
+      description: 'Fachwerkstadt im Südharz',
       icon: Icons.location_city,
     ),
     RadwegPoi(

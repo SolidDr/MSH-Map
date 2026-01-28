@@ -20,84 +20,91 @@ final suesserSeeRoute = RadwegRoute(
   isLoop: true,
   elevationGain: 80,
   websiteUrl: 'https://www.seegebiet-mansfelder-land.de/de/radrundweg.html',
-  center: const LatLng(51.4800, 11.6850),
-  overviewZoom: 13.0,
+  center: const LatLng(51.4920, 11.6750),
+  overviewZoom: 13.5,
   routePoints: const [
-    // === Start: Seeburg (Schloss) ===
-    LatLng(51.4909, 11.7001),
+    // === Start: Seeburg (Schloss auf Halbinsel am Ostufer) ===
+    LatLng(51.4912, 11.7005),
 
-    // === Abschnitt 1: Seeburg Richtung Süden am Ostufer ===
-    LatLng(51.4880, 11.6980),
-    LatLng(51.4850, 11.6960),
-    LatLng(51.4820, 11.6940),
-    LatLng(51.4790, 11.6920),
+    // === Südufer: Seeburg → Aseleben (gegen Uhrzeigersinn) ===
+    LatLng(51.4900, 11.6990),
+    LatLng(51.4885, 11.6970),
+    LatLng(51.4870, 11.6945),
+    LatLng(51.4860, 11.6920),
+    LatLng(51.4855, 11.6890),
+    LatLng(51.4852, 11.6860),
+    LatLng(51.4850, 11.6830),
+    LatLng(51.4848, 11.6800),
+    LatLng(51.4850, 11.6770),
+    LatLng(51.4855, 11.6740),
+    // Aseleben (Südufer Mitte)
+    LatLng(51.4858, 11.6710),
+    LatLng(51.4862, 11.6680),
+    LatLng(51.4868, 11.6650),
+    LatLng(51.4875, 11.6620),
+    LatLng(51.4882, 11.6590),
 
-    // === Abschnitt 2: Südostufer ===
-    LatLng(51.4760, 11.6890),
-    LatLng(51.4730, 11.6870),
-    LatLng(51.4700, 11.6860),
+    // === Westufer: Aseleben → Lüttchendorf ===
+    LatLng(51.4890, 11.6565),
+    LatLng(51.4898, 11.6545),
+    // Lüttchendorf (Westufer)
+    LatLng(51.4910, 11.6530),
+    LatLng(51.4925, 11.6525),
+    LatLng(51.4940, 11.6530),
 
-    // === Abschnitt 3: Aseleben (Südufer) ===
-    LatLng(51.4750, 11.6800),
-    // Aseleben
-    LatLng(51.4780, 11.6750),
-    LatLng(51.4790, 11.6700),
+    // === Nordwestufer: Lüttchendorf → Wormsleben ===
+    LatLng(51.4955, 11.6545),
+    LatLng(51.4968, 11.6565),
+    // Wormsleben (Nordwestufer, Weinberge)
+    LatLng(51.4980, 11.6590),
+    LatLng(51.4990, 11.6620),
+    LatLng(51.4998, 11.6655),
 
-    // === Abschnitt 4: Westufer Richtung Lüttchendorf ===
-    LatLng(51.4810, 11.6650),
-    LatLng(51.4830, 11.6600),
-    // Lüttchendorf
-    LatLng(51.4850, 11.6580),
+    // === Nordufer: Wormsleben → Seeburg ===
+    LatLng(51.5005, 11.6695),
+    LatLng(51.5008, 11.6740),
+    LatLng(51.5008, 11.6790),
+    LatLng(51.5005, 11.6840),
+    LatLng(51.4998, 11.6885),
+    LatLng(51.4988, 11.6920),
+    LatLng(51.4975, 11.6950),
+    LatLng(51.4960, 11.6975),
+    LatLng(51.4942, 11.6992),
+    LatLng(51.4925, 11.7002),
 
-    // === Abschnitt 5: Wormsleben ===
-    LatLng(51.4870, 11.6620),
-    LatLng(51.4890, 11.6660),
-    // Wormsleben
-    LatLng(51.4910, 11.6700),
-
-    // === Abschnitt 6: Nordwest am See ===
-    LatLng(51.4930, 11.6750),
-    LatLng(51.4940, 11.6800),
-    LatLng(51.4950, 11.6850),
-
-    // === Abschnitt 7: Zurück nach Seeburg ===
-    LatLng(51.4940, 11.6900),
-    LatLng(51.4930, 11.6950),
-    LatLng(51.4920, 11.6980),
-
-    // === Zurück zum Start ===
-    LatLng(51.4909, 11.7001),
+    // === Zurück zum Schloss Seeburg ===
+    LatLng(51.4912, 11.7005),
   ],
   pois: const [
     RadwegPoi(
       name: 'Schloss Seeburg',
-      coords: LatLng(51.4909, 11.7001),
+      coords: LatLng(51.4912, 11.7005),
       description: 'Start/Ziel: Romantisches Schloss mit Cafe',
       icon: Icons.castle,
     ),
     RadwegPoi(
       name: 'Hafen Seeburg',
-      coords: LatLng(51.4880, 11.6980),
+      coords: LatLng(51.4900, 11.6990),
       description: 'Yachthafen mit Bootsverleih',
       icon: Icons.sailing,
     ),
     RadwegPoi(
       name: 'Aseleben',
-      coords: LatLng(51.4780, 11.6750),
+      coords: LatLng(51.4858, 11.6710),
       description: 'Gasthof Zahn mit Bowlingbahn',
       icon: Icons.restaurant,
     ),
     RadwegPoi(
-      name: 'Wormsleben',
-      coords: LatLng(51.4910, 11.6700),
-      description: 'Weinanbau und Obstplantagen',
-      icon: Icons.wine_bar,
+      name: 'Lüttchendorf',
+      coords: LatLng(51.4910, 11.6530),
+      description: 'Kleines Dorf am Westufer',
+      icon: Icons.home,
     ),
     RadwegPoi(
-      name: 'Badestrand',
-      coords: LatLng(51.4850, 11.6960),
-      description: 'Öffentlicher Badestrand am Ostufer',
-      icon: Icons.beach_access,
+      name: 'Wormsleben',
+      coords: LatLng(51.4980, 11.6590),
+      description: 'Weinanbau und Obstplantagen am Nordufer',
+      icon: Icons.wine_bar,
     ),
   ],
 );
