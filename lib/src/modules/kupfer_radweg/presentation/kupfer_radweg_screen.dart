@@ -379,7 +379,7 @@ class _InfoPanel extends StatelessWidget {
             // Kontakt
             Row(
               children: [
-                const Icon(Icons.contact_phone, size: 16, color: Colors.grey),
+                const Icon(Icons.person_outline, size: 16, color: Colors.grey),
                 const SizedBox(width: MshSpacing.xs),
                 Expanded(
                   child: Text(
@@ -389,10 +389,11 @@ class _InfoPanel extends StatelessWidget {
                 ),
                 TextButton.icon(
                   onPressed: () => launchUrl(
-                    Uri.parse('tel:${KupferRouteData.contactPhone}'),
+                    Uri.parse(KupferRouteData.websiteSeg),
+                    mode: LaunchMode.externalApplication,
                   ),
-                  icon: const Icon(Icons.phone, size: 16),
-                  label: const Text('Anrufen'),
+                  icon: const Icon(Icons.open_in_new, size: 16),
+                  label: const Text('Kontakt'),
                   style: TextButton.styleFrom(
                     foregroundColor: KupferRouteData.kupferColor,
                     padding: const EdgeInsets.symmetric(horizontal: 8),
