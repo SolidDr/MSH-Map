@@ -1,11 +1,8 @@
-import 'dart:js_interop';
-
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:web/web.dart' as web;
 
 import '../../core/theme/msh_colors.dart';
-import '../../core/theme/msh_spacing.dart';
 import '../../core/theme/msh_theme.dart';
 import '../../features/analytics/data/usage_analytics_service.dart';
 import '../../modules/_module_registry.dart';

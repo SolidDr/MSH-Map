@@ -42,4 +42,10 @@ class SearchResult implements MapItem {
 
   @override
   Map<String, dynamic> get metadata => {'source': source};
+
+  @override
+  bool? get isOpenNow => null;
+
+  @override
+  double get markerOpacity => 1.0;
 }

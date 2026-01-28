@@ -1,0 +1,117 @@
+{
+  "metadata": {
+    "source": "Web-Recherche 2025",
+    "lastUpdated": "2025-01-28",
+    "region": "Mansfeld-Südharz"
+  },
+  "data": [
+    {
+      "id": "nightlife_001",
+      "name": "Rüssel-Pub",
+      "type": "pub",
+      "latitude": 51.4726,
+      "longitude": 11.2988,
+      "street": "Wilhelm-Koenen-Str. 57a",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "phone": "03464521900",
+      "phoneFormatted": "03464 / 52 19 00",
+      "website": "https://ruessel-pub.de",
+      "openingHours": "Mi-Sa 18:00-24:00; So 18:00-22:00",
+      "description": "Gemütlicher Pub mit Restaurant und Pension",
+      "hasFood": true,
+      "hasLiveMusic": false
+    },
+    {
+      "id": "nightlife_002",
+      "name": "Su's Pub",
+      "type": "pub",
+      "latitude": 51.4683,
+      "longitude": 11.3012,
+      "street": "Alte Magdeburger Str. 12",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "description": "Beliebter Treffpunkt in Sangerhausen",
+      "hasFood": false,
+      "hasLiveMusic": false
+    },
+    {
+      "id": "nightlife_003",
+      "name": "Billard-Café MAFA",
+      "type": "bar",
+      "latitude": 51.4695,
+      "longitude": 11.2975,
+      "street": "Carl-Flügel-Str. 7",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "description": "Billard-Café mit gemütlicher Atmosphäre",
+      "hasFood": false,
+      "hasLiveMusic": false
+    },
+    {
+      "id": "nightlife_004",
+      "name": "Hafenbar Hettstedt",
+      "type": "club",
+      "latitude": 51.6526,
+      "longitude": 11.5047,
+      "street": "Untere Bahnhofstraße 39",
+      "postalCode": "06333",
+      "city": "Hettstedt",
+      "website": "https://www.hafenbar-hettstedt.de",
+      "description": "Club und Eventlocation mit regelmäßigen Partys",
+      "hasFood": false,
+      "hasLiveMusic": true
+    },
+    {
+      "id": "nightlife_005",
+      "name": "Blue Inn Cocktailbar",
+      "type": "cocktailbar",
+      "latitude": 51.5275,
+      "longitude": 11.5489,
+      "street": "Markt 57",
+      "postalCode": "06295",
+      "city": "Lutherstadt Eisleben",
+      "description": "Cocktailbar direkt am Markt",
+      "hasFood": true,
+      "hasLiveMusic": false
+    },
+    {
+      "id": "nightlife_006",
+      "name": "Bar Liebevoll",
+      "type": "bar",
+      "latitude": 51.5268,
+      "longitude": 11.5495,
+      "street": "Jüdenhof 13",
+      "postalCode": "06295",
+      "city": "Lutherstadt Eisleben",
+      "description": "Gemütliche Stammkneipe mit guter Stimmung",
+      "hasFood": false,
+      "hasLiveMusic": false
+    },
+    {
+      "id": "nightlife_007",
+      "name": "Ronnys Pub",
+      "type": "pub",
+      "latitude": 51.5280,
+      "longitude": 11.5475,
+      "city": "Lutherstadt Eisleben",
+      "postalCode": "06295",
+      "description": "Pub mit abwechslungsreicher Getränkeauswahl",
+      "hasFood": false,
+      "hasLiveMusic": false
+    },
+    {
+      "id": "nightlife_008",
+      "name": "Zum Herrenkrug",
+      "type": "pub",
+      "latitude": 51.4612,
+      "longitude": 11.3125,
+      "street": "Riestedter Str. 37",
+      "postalCode": "06526",
+      "city": "Sangerhausen-Othal",
+      "description": "Traditionelle Gaststätte mit deutschem Essen",
+      "hasFood": true,
+      "hasLiveMusic": false
+    }
+  ]
+}
