@@ -114733,7 +114733,7 @@ o.push(new A.Vq(h,new A.aRx(l),l.alT(),k))
 if(l.aAS(i)&&!l.ay)o.push(new A.Us(l.alS(),k))
 if(h.p(0,"health")&&!l.ay)o.push(new A.XI(l.alV(),l.alW(),k))
 j=A.b([j,A.f0(k,A.lA(!1,new A.ad(B.pv,A.ah(o,B.l,B.e,B.N),k),!0,!1,B.aj,!0,!0),k,k,0,0,0,k)],g)
-if(!l.ay)j.push(A.f0(A.bu(a,k,t.l).w.a.b*l.ax+60,new A.a6I(new A.aRy(l,a),k),k,k,k,21,k,k))
+if(!l.ay)j.push(A.f0(A.bu(a,k,t.l).w.a.b*l.ax+16,new A.a6I(new A.aRy(l,a),k),k,k,k,21,k,k))
 if(l.x)j.push(A.Ku(0,new A.mf(B.t.a6(0.3),B.kx,k)))
 if(l.y!=null&&!l.ay){h=A.bu(a,k,t.l).w
 o=l.ax

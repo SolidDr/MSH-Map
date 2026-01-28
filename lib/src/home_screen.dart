@@ -541,7 +541,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
           // "Fehlt dir was?" Button (ausblenden im Fullmap-Modus)
           if (!_isFullMapMode)
             Positioned(
-              bottom: MediaQuery.of(context).size.height * _sheetPosition + 60,
+              bottom: MediaQuery.of(context).size.height * _sheetPosition + 16,
               right: MshSpacing.lg,
               child: _FeedbackButton(
                 onPressed: () => _showFeedbackSheet(context),
