@@ -3,12 +3,13 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {"assets/AssetManifest.bin": "30b69e36ab2e1d9771a125c9839bacb9",
-"assets/AssetManifest.bin.json": "dd5eead14961a42896fd94fb1f14f6e9",
+const RESOURCES = {"assets/AssetManifest.bin": "2fa5d67bdcd09b5b0fb3db2aac7d683c",
+"assets/AssetManifest.bin.json": "6c8c5021a8f99c52f1b7f50fd680767e",
 "assets/assets/data/civic/government.json": "468aa87c4f399f178ad7b848d42bef98",
 "assets/assets/data/civic/social_facilities.json": "4aa3733140ec8ab3178c909bffb5b24a",
 "assets/assets/data/civic/youth_centres.json": "d6914f81c57624fe47ecb897f88a2c99",
 "assets/assets/data/engagement/places.json": "804582e89c15e2fbe5a24739bc6f345a",
+"assets/assets/data/health/aeds.json": "37cbd0bef9923e75c79c504d01cd8773",
 "assets/assets/data/health/care_services.json": "88c8039a315bf52b66dd80b29058f1b9",
 "assets/assets/data/health/doctors.json": "2e39554a3fe7e2e85c88f1eb78e29271",
 "assets/assets/data/health/fitness.json": "1a5c5250011c7fc0076307cfd5935305",
@@ -17,10 +18,11 @@ const RESOURCES = {"assets/AssetManifest.bin": "30b69e36ab2e1d9771a125c9839bacb9
 "assets/assets/data/health/pharmacies.json": "e6b9510c629acb0b21a41632ad9a8fa4",
 "assets/assets/data/health/physiotherapy.json": "3a0dfca215725a4a9013a4992b571273",
 "assets/assets/data/nightlife/venues.json": "978665633b845e0c997866ce45faa369",
+"assets/assets/data/outdoor/wandernadel.json": "70846338738bd4a486b11b77a056fb84",
 "assets/data/events/events_current.json": "5011b4e8fbcdf5f5da2ea8715007f8ae",
 "assets/data/notices/notices_current.json": "d021d04caff0d9d7c902749d07f6f306",
 "assets/FontManifest.json": "7b2a36307916a9721811788013e65289",
-"assets/fonts/MaterialIcons-Regular.otf": "2649336db1af92a6c99e41b6fa311e1d",
+"assets/fonts/MaterialIcons-Regular.otf": "144bd9d6887d3a8f95fe1e49e1186728",
 "assets/lib/assets/data/analytics.json": "32057235e668e869bcb2d4bd47c9dd77",
 "assets/lib/assets/data/locations.json": "417a9ff482ac95887eb76d8cc6a299ea",
 "assets/lib/assets/data/msh_seed_locations.geojson": "a51533b2b734fa87f091458696bc2e3b",
@@ -42,7 +44,7 @@ const RESOURCES = {"assets/AssetManifest.bin": "30b69e36ab2e1d9771a125c9839bacb9
 "canvaskit/skwasm_heavy.wasm": "b0be7910760d205ea4e011458df6ee01",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "flutter.js": "24bc71911b75b5f8135c949e27a2984e",
-"flutter_bootstrap.js": "18737fd01b6bbce7cd2d6a24c7d88470",
+"flutter_bootstrap.js": "29b2a072ca1f067dc40fb87a2f886369",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
@@ -50,9 +52,9 @@ const RESOURCES = {"assets/AssetManifest.bin": "30b69e36ab2e1d9771a125c9839bacb9
 "import.html": "94f049fc0bfa06a59f5b4f8e3f1a1510",
 "index.html": "59cab93631e6a01db33d0064765b00a2",
 "/": "59cab93631e6a01db33d0064765b00a2",
-"main.dart.js": "dc90f49f01fc0002e3729d4c228fc83a",
+"main.dart.js": "93104795a2933ee9328ef96389747cda",
 "manifest.json": "7650c600954b95bc8831b201afedd1fe",
-"version.json": "80b8606e91ece0c3c2ff5682ec0dce0c"};
+"version.json": "14433c5ec145831f2045dba8fdc2c0cc"};
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = ["main.dart.js",

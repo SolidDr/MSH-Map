@@ -211,23 +211,69 @@ class _RadwegeScreenState extends State<RadwegeScreen>
   }
 
   /// Erstellt animierte "Fahrrad"-Punkte entlang der Route
+  /// Mit Glow-Effekten und Spuren - jeder Radweg in seiner eigenen Farbe
   List<Marker> _buildAnimatedMarkers(RadwegRoute route) {
     final markers = <Marker>[];
     final points = route.routePoints;
-    const numBikes = 5;
 
-    for (var i = 0; i < numBikes; i++) {
-      final offset = i / numBikes;
-      final progress = (_animationController.value + offset) % 1.0;
+    // Fahrrad-Konfigurationen: (offset, speed, direction)
+    // direction: 1 = vorwärts, -1 = rückwärts
+    const bikeConfigs = <(double, double, int)>[
+      (0.0, 1.0, 1),    // Fahrrad 1: normal, vorwärts
+      (0.15, 0.7, -1),  // Fahrrad 2: langsamer, rückwärts
+      (0.33, 1.3, 1),   // Fahrrad 3: schneller, vorwärts
+      (0.50, 0.85, -1), // Fahrrad 4: etwas langsamer, rückwärts
+      (0.67, 1.1, 1),   // Fahrrad 5: etwas schneller, vorwärts
+      (0.82, 0.6, -1),  // Fahrrad 6: langsam, rückwärts
+    ];
 
-      // Position auf der Route berechnen
+    for (final (offset, speed, direction) in bikeConfigs) {
+      // Progress berechnen mit Geschwindigkeit und Richtung
+      var progress = (_animationController.value * speed + offset) % 1.0;
+      if (direction < 0) progress = 1.0 - progress;
+
       final position = _getPositionOnRoute(points, progress);
 
+      // Trail-Effekt (mehrere verblassende Punkte)
+      const trailCount = 6;
+      for (var t = trailCount; t >= 0; t--) {
+        final trailOffset = t * 0.012 * direction;
+        var trailProgress = progress - trailOffset;
+        if (trailProgress < 0) trailProgress += 1.0;
+        if (trailProgress > 1) trailProgress -= 1.0;
+
+        final trailPos = _getPositionOnRoute(points, trailProgress);
+        final alpha = ((1.0 - t / trailCount) * 180).round().clamp(0, 255);
+        final size = 8.0 + (1.0 - t / trailCount) * 10;
+
+        markers.add(
+          Marker(
+            point: trailPos,
+            width: size,
+            height: size,
+            child: Container(
+              decoration: BoxDecoration(
+                color: route.routeColor.withAlpha(alpha ~/ 2),
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                    color: route.routeColor.withAlpha(alpha),
+                    blurRadius: size * 1.5,
+                    spreadRadius: size * 0.3,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      }
+
+      // Hauptpunkt mit intensivem Glow
       markers.add(
         Marker(
           point: position,
-          width: 16,
-          height: 16,
+          width: 24,
+          height: 24,
           child: Container(
             decoration: BoxDecoration(
               color: Colors.white,
@@ -238,11 +284,26 @@ class _RadwegeScreenState extends State<RadwegeScreen>
               ),
               boxShadow: [
                 BoxShadow(
-                  color: route.routeColor.withAlpha(100),
-                  blurRadius: 8,
-                  spreadRadius: 2,
+                  color: route.routeColor,
+                  blurRadius: 12,
+                  spreadRadius: 4,
+                ),
+                BoxShadow(
+                  color: route.routeColor.withAlpha(150),
+                  blurRadius: 25,
+                  spreadRadius: 8,
+                ),
+                BoxShadow(
+                  color: route.routeColor.withAlpha(60),
+                  blurRadius: 40,
+                  spreadRadius: 15,
                 ),
               ],
+            ),
+            child: Icon(
+              Icons.pedal_bike,
+              size: 14,
+              color: route.routeColor,
             ),
           ),
         ),
