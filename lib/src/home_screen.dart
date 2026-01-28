@@ -68,8 +68,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
   // Listenansicht Modus - Alternative zur Karte für Senioren
   bool _isListViewMode = false;
 
-  // Radwege auf der Karte anzeigen
-  bool _showRadwege = false;
+  // Radwege auf der Karte anzeigen (Standard: AN)
+  bool _showRadwege = true;
 
   // Gespeicherte Kartenposition
   double? _savedLatitude;
@@ -414,7 +414,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
     final counts = <String, int>{};
     for (final item in _items.where((i) =>
         i.moduleId == 'health' &&
-        i.metadata['healthCategory'] == 'doctor')) {
+        i.metadata['healthCategory'] == 'doctor',)) {
       final spec = item.metadata['specialization'] as String?;
       if (spec != null) {
         counts[spec] = (counts[spec] ?? 0) + 1;
@@ -515,7 +515,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
             (n.severity == NoticeSeverity.critical ||
                 n.severity == NoticeSeverity.warning) &&
             n.latitude != null &&
-            n.longitude != null)
+            n.longitude != null,)
         .toList();
 
     // Notice Banner Opacity basierend auf Sheet Position
@@ -1019,7 +1019,7 @@ class _DraggableBottomContent extends StatelessWidget {
                     route: action.$3,
                   ),
                 ),
-              ))
+              ),)
           .toList(),
     );
   }
@@ -1183,9 +1183,9 @@ class _FeedbackSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: MshColors.surface,
-        borderRadius: const BorderRadius.vertical(
+        borderRadius: BorderRadius.vertical(
           top: Radius.circular(MshTheme.radiusXLarge),
         ),
       ),

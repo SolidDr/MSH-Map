@@ -245,6 +245,31 @@ class FilterGroups {
   );
 
   // ═══════════════════════════════════════════════════════════════
+  // OUTDOOR (2 Kategorien - Wandern)
+  // ═══════════════════════════════════════════════════════════════
+  static const outdoorGroup = FilterGroup(
+    id: 'outdoor',
+    title: 'Outdoor & Wandern',
+    icon: Icons.hiking,
+    categories: [
+      FilterCategory(
+        id: 'hikingStamp',
+        label: 'Wandernadel',
+        icon: Icons.hiking,
+        color: MshColors.categoryHikingStamp,
+        mapCategories: [MapItemCategory.hikingStamp],
+      ),
+      FilterCategory(
+        id: 'nature_outdoor',
+        label: 'Naturerlebnis',
+        icon: Icons.forest,
+        color: MshColors.success,
+        mapCategories: [MapItemCategory.nature],
+      ),
+    ],
+  );
+
+  // ═══════════════════════════════════════════════════════════════
   // SERVICES (3 Kategorien)
   // ═══════════════════════════════════════════════════════════════
   static const serviceGroup = FilterGroup(
@@ -280,6 +305,7 @@ class FilterGroups {
   static const List<FilterGroup> all = [
     gastroGroup,
     familyGroup,
+    outdoorGroup,
     healthGroup,
     civicGroup,
     cultureGroup,

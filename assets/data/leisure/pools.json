@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "source": "sawanne.de, eisleber-baeder.de, openstreetmap",
+    "created_at": "2026-01-28",
+    "version": "1.0",
+    "region": "Mansfeld-Südharz",
+    "note": "Hallenbäder und Freibäder im Landkreis MSH",
+    "total_count": 3
+  },
+  "data": [
+    {
+      "id": "pool_001",
+      "type": "pool",
+      "name": "SaWanne Hallenbad",
+      "description": "Modernes Hallenbad mit Sportbecken, Lehrschwimmbecken und Aqua-Fitness-Kursen. Ideal für Familien und Schwimmunterricht.",
+      "phone": "03464521809",
+      "phoneFormatted": "03464 / 52 18 09",
+      "email": "info@sawanne.de",
+      "website": "https://sawanne.de/",
+      "street": "Otto-Nuschke-Straße 29",
+      "postalCode": "06526",
+      "city": "Sangerhausen",
+      "latitude": 51.4652,
+      "longitude": 11.2878,
+      "poolType": "indoor",
+      "features": [
+        "Sportbecken (25m)",
+        "Lehrschwimmbecken",
+        "Aqua-Fitness-Kurse",
+        "Schwimmkurse für Kinder",
+        "Babyschwimmen"
+      ],
+      "aquaFitness": [
+        {
+          "name": "AQUA-Fitness Flachwasser",
+          "description": "Gelenkschonendes Training im flachen Wasser",
+          "day": "Dienstag - Freitag",
+          "requiresRegistration": true
+        },
+        {
+          "name": "AQUA-Fitness Tiefwasser",
+          "description": "Intensives Training im tiefen Wasser",
+          "day": "Dienstag - Freitag",
+          "requiresRegistration": true
+        }
+      ],
+      "openingHours": {
+        "monday": {"from": "08:00", "to": "22:00"},
+        "tuesday": {"from": "08:00", "to": "22:00"},
+        "wednesday": {"from": "08:00", "to": "22:00"},
+        "thursday": {"from": "08:00", "to": "22:00"},
+        "friday": {"from": "08:00", "to": "22:00"},
+        "saturday": {"from": "10:00", "to": "20:00"},
+        "sunday": {"from": "10:00", "to": "18:00"}
+      },
+      "isBarrierFree": true,
+      "hasParking": true,
+      "familyFriendly": true,
+      "ageGroups": ["0-3", "3-6", "6-12", "12+"]
+    },
+    {
+      "id": "pool_002",
+      "type": "pool",
+      "name": "Schwimmhalle Eisleben",
+      "description": "Städtisches Hallenbad in Lutherstadt Eisleben mit Sportbecken.",
+      "phone": "+49 3475 602173",
+      "phoneFormatted": "03475 / 60 21 73",
+      "website": "https://www.eisleber-baeder.de/schwimmhalle.html",
+      "street": "Friedensstraße",
+      "postalCode": "06295",
+      "city": "Lutherstadt Eisleben",
+      "latitude": 51.5212635,
+      "longitude": 11.5439038,
+      "poolType": "indoor",
+      "features": [
+        "Sportbecken",
+        "Schwimmkurse"
+      ],
+      "openingHoursText": "Di,Do 13:00-16:00 und 18:00-21:00; Mi 09:00-21:00; Fr 14:00-19:00; Sa,So 09:00-18:00; Mo geschlossen",
+      "isBarrierFree": false,
+      "hasParking": true,
+      "familyFriendly": true,
+      "ageGroups": ["3-6", "6-12", "12+"],
+      "source": "openstreetmap"
+    },
+    {
+      "id": "pool_003",
+      "type": "pool",
+      "name": "Freibad Hettstedt (Mühlholz)",
+      "description": "Freibad im Mühlholz-Waldgebiet bei Hettstedt.",
+      "street": "Am Mühlholz",
+      "postalCode": "06333",
+      "city": "Hettstedt",
+      "latitude": 51.6096718,
+      "longitude": 11.48948,
+      "poolType": "outdoor",
+      "features": [
+        "Schwimmbecken",
+        "Liegewiese"
+      ],
+      "seasonal": true,
+      "seasonNote": "Nur in der Sommersaison geöffnet (ca. Mai-September)",
+      "isBarrierFree": false,
+      "hasParking": true,
+      "familyFriendly": true,
+      "ageGroups": ["3-6", "6-12", "12+"],
+      "source": "openstreetmap"
+    }
+  ]
+}

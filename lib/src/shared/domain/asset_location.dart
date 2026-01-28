@@ -121,6 +121,8 @@ class AssetLocation implements MapItem {
       case 'indoor':
         return MapItemCategory.indoor;
       case 'farm':
+      case 'hofladen':
+      case 'bauernhof':
         return MapItemCategory.farm;
       case 'adventure':
         return MapItemCategory.adventure;

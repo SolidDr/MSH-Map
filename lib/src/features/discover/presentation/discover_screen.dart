@@ -86,6 +86,22 @@ class _DiscoverScreenState extends ConsumerState<DiscoverScreen> {
     );
   }
 
+  /// Sucht nach Items basierend auf Suchtext
+  List<MapItem> _searchItems(String query) {
+    if (query.isEmpty) return [];
+    final searchLower = query.toLowerCase();
+    return _allItems.where((item) {
+      final nameMatch = item.displayName.toLowerCase().contains(searchLower);
+      final subtitleMatch = item.subtitle?.toLowerCase().contains(searchLower) ?? false;
+      final cityMatch = (item.metadata['city'] as String?)?.toLowerCase().contains(searchLower) ?? false;
+      final addressMatch = (item.metadata['address'] as String?)?.toLowerCase().contains(searchLower) ?? false;
+      return nameMatch || subtitleMatch || cityMatch || addressMatch;
+    }).take(20).toList(); // Max 20 Suchergebnisse
+  }
+
+  /// Zeigt ob Suchleiste aktiv ist
+  bool get _hasSearchQuery => _searchController.text.length >= 2;
+
   @override
   Widget build(BuildContext context) {
     final filterState = ref.watch(filterProvider);
@@ -133,19 +149,26 @@ class _DiscoverScreenState extends ConsumerState<DiscoverScreen> {
               ),
             ),
 
-          // Filter Gruppen
+          // Suchergebnisse oder Filter Gruppen
           if (!_isLoading) ...[
-            // Aktive Filter Anzeige
-            if (hasActiveFilters)
+            // Suchergebnisse anzeigen wenn Suchtext vorhanden
+            if (_hasSearchQuery) ...[
               SliverToBoxAdapter(
-                child: _buildActiveFiltersSection(context, filterState),
+                child: _buildSearchResults(context),
               ),
+            ] else ...[
+              // Aktive Filter Anzeige
+              if (hasActiveFilters)
+                SliverToBoxAdapter(
+                  child: _buildActiveFiltersSection(context, filterState),
+                ),
 
-            // Alle Gruppen
-            for (final group in FilterGroups.all)
-              SliverToBoxAdapter(
-                child: _buildFilterGroup(context, group),
-              ),
+              // Alle Gruppen
+              for (final group in FilterGroups.all)
+                SliverToBoxAdapter(
+                  child: _buildFilterGroup(context, group),
+                ),
+            ],
 
             // Bottom Spacing
             const SliverToBoxAdapter(
@@ -190,6 +213,121 @@ class _DiscoverScreenState extends ConsumerState<DiscoverScreen> {
         onChanged: (_) => setState(() {}),
       ),
     );
+  }
+
+  Widget _buildSearchResults(BuildContext context) {
+    final results = _searchItems(_searchController.text);
+
+    return Padding(
+      padding: const EdgeInsets.all(MshSpacing.lg),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Header
+          Row(
+            children: [
+              const Icon(Icons.search, size: 20, color: MshColors.textSecondary),
+              const SizedBox(width: MshSpacing.sm),
+              Text(
+                results.isEmpty
+                    ? 'Keine Ergebnisse'
+                    : '${results.length} Ergebnisse',
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      color: MshColors.textStrong,
+                      fontWeight: FontWeight.w600,
+                    ),
+              ),
+            ],
+          ),
+          const SizedBox(height: MshSpacing.md),
+
+          // Ergebnisliste
+          if (results.isEmpty)
+            Container(
+              padding: const EdgeInsets.all(MshSpacing.xl),
+              decoration: BoxDecoration(
+                color: MshColors.surface,
+                borderRadius: BorderRadius.circular(MshTheme.radiusMedium),
+              ),
+              child: Center(
+                child: Column(
+                  children: [
+                    const Icon(
+                      Icons.search_off,
+                      size: 48,
+                      color: MshColors.textMuted,
+                    ),
+                    const SizedBox(height: MshSpacing.md),
+                    Text(
+                      'Keine Treffer für "${_searchController.text}"',
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                            color: MshColors.textMuted,
+                          ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              ),
+            )
+          else
+            ...results.map((item) => _buildSearchResultItem(context, item)),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSearchResultItem(BuildContext context, MapItem item) {
+    return Card(
+      margin: const EdgeInsets.only(bottom: MshSpacing.sm),
+      child: ListTile(
+        leading: CircleAvatar(
+          backgroundColor: item.markerColor.withAlpha(30),
+          child: Icon(
+            _getCategoryIcon(item.category),
+            color: item.markerColor,
+            size: 20,
+          ),
+        ),
+        title: Text(
+          item.displayName,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+        ),
+        subtitle: Text(
+          item.subtitle ?? '',
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: const TextStyle(color: MshColors.textMuted),
+        ),
+        trailing: const Icon(Icons.chevron_right),
+        onTap: () {
+          // Zur Karte navigieren mit Fokus auf POI
+          context.go(
+            '/?lat=${item.coordinates.latitude}&lng=${item.coordinates.longitude}&poi=${item.id}',
+          );
+        },
+      ),
+    );
+  }
+
+  IconData _getCategoryIcon(MapItemCategory category) {
+    return switch (category) {
+      MapItemCategory.restaurant => Icons.restaurant,
+      MapItemCategory.cafe => Icons.local_cafe,
+      MapItemCategory.imbiss => Icons.fastfood,
+      MapItemCategory.bar => Icons.local_bar,
+      MapItemCategory.doctor => Icons.medical_services,
+      MapItemCategory.pharmacy => Icons.local_pharmacy,
+      MapItemCategory.hospital => Icons.local_hospital,
+      MapItemCategory.pool => Icons.pool,
+      MapItemCategory.playground => Icons.child_friendly,
+      MapItemCategory.museum => Icons.museum,
+      MapItemCategory.nature => Icons.park,
+      MapItemCategory.hikingStamp => Icons.hiking,
+      MapItemCategory.government => Icons.account_balance,
+      MapItemCategory.farm => Icons.agriculture,
+      _ => Icons.place,
+    };
   }
 
   Widget _buildActiveFiltersSection(BuildContext context, FilterState filterState) {
@@ -303,7 +441,6 @@ class _DiscoverScreenState extends ConsumerState<DiscoverScreen> {
                   color: category.color,
                   count: count,
                   isSelected: isSelected,
-                  size: MshCategoryCardSize.medium,
                   onTap: () => _showCategoryPois(category),
                 ),
               );

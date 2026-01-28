@@ -1,7 +1,7 @@
 name: msh_map
 description: Regionale Plattform fuer Mansfeld-Suedharz
 publish_to: 'none'
-version: 2.5.1+12
+version: 2.5.1+13
 
 environment:
   sdk: '>=3.5.0 <4.0.0'
@@ -75,3 +75,4 @@ flutter:
     - assets/data/civic/youth_centres.json
     - assets/data/civic/social_facilities.json
     - assets/data/nightlife/venues.json
+    - assets/data/leisure/pools.json
