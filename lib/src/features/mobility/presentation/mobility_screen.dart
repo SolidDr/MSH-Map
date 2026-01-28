@@ -100,7 +100,7 @@ class _MobilityScreenState extends ConsumerState<MobilityScreen> {
             icon: Icons.departure_board,
             label: 'Abfahrten',
             color: MshColors.info,
-            onTap: () => _openInsaAbfahrten(),
+            onTap: _openInsaAbfahrten,
           ),
         ),
         const SizedBox(width: MshSpacing.sm),
@@ -109,7 +109,7 @@ class _MobilityScreenState extends ConsumerState<MobilityScreen> {
             icon: Icons.route,
             label: 'Verbindung',
             color: MshColors.primary,
-            onTap: () => _openInsaVerbindung(),
+            onTap: _openInsaVerbindung,
           ),
         ),
         const SizedBox(width: MshSpacing.sm),
@@ -118,7 +118,7 @@ class _MobilityScreenState extends ConsumerState<MobilityScreen> {
             icon: Icons.map_outlined,
             label: 'Liniennetz',
             color: MshColors.engagementNormal,
-            onTap: () => _openInsaLiniennetz(),
+            onTap: _openInsaLiniennetz,
           ),
         ),
       ],
@@ -260,11 +260,11 @@ class _MobilityScreenState extends ConsumerState<MobilityScreen> {
           ),
         ),
         const SizedBox(height: MshSpacing.md),
-        SingleChildScrollView(
+        const SingleChildScrollView(
           scrollDirection: Axis.horizontal,
-          padding: const EdgeInsets.symmetric(horizontal: MshSpacing.lg),
+          padding: EdgeInsets.symmetric(horizontal: MshSpacing.lg),
           child: Row(
-            children: const [
+            children: [
               _SharingCard(
                 icon: Icons.directions_bike,
                 label: 'Fahrrad',
@@ -366,7 +366,7 @@ class _NearbyStopsSection extends ConsumerWidget {
         const SizedBox(height: MshSpacing.md),
         stopsAsync.when(
           data: (stops) => _buildStopsList(context, stops),
-          loading: () => _buildLoadingState(),
+          loading: _buildLoadingState,
           error: (error, _) => _buildErrorState(context, error, ref),
         ),
       ],

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'src/core/constants/app_strings.dart';
+import 'src/core/providers/accessibility_provider.dart';
+import 'src/core/providers/theme_provider.dart';
 import 'src/core/router/app_router.dart';
 import 'src/core/theme/msh_theme.dart';
-import 'src/core/providers/theme_provider.dart';
-import 'src/core/providers/accessibility_provider.dart';
+import 'src/shared/widgets/update_warning.dart';
 import 'src/shared/widgets/welcome_overlay.dart';
 
 class MshMapApp extends ConsumerWidget {
@@ -24,24 +26,27 @@ class MshMapApp extends ConsumerWidget {
       darkTheme = MshTheme.highContrast;
     }
 
-    return WelcomeOverlay(
-      child: MaterialApp.router(
-        title: AppStrings.appName,
-        theme: lightTheme,
-        darkTheme: darkTheme,
-        themeMode: _convertAppThemeMode(themeMode),
-        routerConfig: appRouter,
-        debugShowCheckedModeBanner: false,
-        builder: (context, child) {
-          // Wende Accessibility Text Scaling an
-          return MediaQuery(
-            data: MediaQuery.of(context).copyWith(
-              textScaler: TextScaler.linear(accessibilitySettings.textScale),
-              boldText: accessibilitySettings.boldText,
-            ),
-            child: child!,
-          );
-        },
+    return UpdateWarning(
+      enabled: true, // #update_warning - auf false setzen um App freizugeben
+      child: WelcomeOverlay(
+        child: MaterialApp.router(
+          title: AppStrings.appName,
+          theme: lightTheme,
+          darkTheme: darkTheme,
+          themeMode: _convertAppThemeMode(themeMode),
+          routerConfig: appRouter,
+          debugShowCheckedModeBanner: false,
+          builder: (context, child) {
+            // Wende Accessibility Text Scaling an
+            return MediaQuery(
+              data: MediaQuery.of(context).copyWith(
+                textScaler: TextScaler.linear(accessibilitySettings.textScale),
+                boldText: accessibilitySettings.boldText,
+              ),
+              child: child!,
+            );
+          },
+        ),
       ),
     );
   }

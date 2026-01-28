@@ -8,7 +8,7 @@ import '../theme/msh_colors.dart';
 
 class AppShell extends StatefulWidget {
 
-  const AppShell({super.key, required this.child});
+  const AppShell({required this.child, super.key});
   final Widget child;
 
   @override
@@ -452,8 +452,8 @@ class _SidebarItem extends StatelessWidget {
   const _SidebarItem({
     required this.icon,
     required this.label,
-    this.isSelected = false,
     required this.onTap,
+    this.isSelected = false,
     this.badge,
     this.disabled = false,
   });

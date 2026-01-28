@@ -569,7 +569,7 @@ class _SettingsItem extends StatelessWidget {
                     ),
               ),
             const SizedBox(width: MshSpacing.xs),
-            Icon(
+            const Icon(
               Icons.chevron_right,
               size: 20,
               color: MshColors.textMuted,
