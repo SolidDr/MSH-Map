@@ -29,6 +29,15 @@ abstract class MapItem {
 
   /// Zusätzliche Daten
   Map<String, dynamic> get metadata => {};
+
+  /// Öffnungsstatus: true=offen, false=geschlossen, null=unbekannt
+  /// Wird für Marker-Opacity verwendet
+  bool? get isOpenNow => null;
+
+  /// Marker-Opacity basierend auf Öffnungsstatus
+  /// 1.0 = voll sichtbar, 0.35 = geschlossen
+  /// Überschreiben für dynamische Opacity basierend auf Schließzeit
+  double get markerOpacity => 1.0;
 }
 
 enum MapItemCategory {
@@ -66,6 +75,10 @@ enum MapItemCategory {
   physiotherapy,
   fitness,
   careService,
+  // Nachtleben
+  pub,
+  cocktailbar,
+  club,
   // Other
   service,
   search,

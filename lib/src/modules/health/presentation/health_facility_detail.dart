@@ -77,10 +77,16 @@ class HealthFacilityDetailContent extends StatelessWidget {
               content: facility.fullAddress,
             ),
 
-          // Öffnungszeiten
+          // Öffnungszeiten (Map-Format)
           if (facility.openingHours != null) ...[
             const SizedBox(height: MshSpacing.md),
             _OpeningHoursSection(facility: facility),
+          ],
+
+          // Öffnungszeiten (String-Format aus OSM)
+          if (facility.openingHoursRaw != null && facility.openingHours == null) ...[
+            const SizedBox(height: MshSpacing.md),
+            _OpeningHoursRawSection(facility: facility),
           ],
 
           // Sprechstunde ohne Termin
@@ -420,6 +426,89 @@ class _OpeningHoursSection extends StatelessWidget {
           ),
         );
       }),
+    );
+  }
+}
+
+/// Öffnungszeiten-Sektion für OSM String-Format mit Geöffnet/Geschlossen Badge
+class _OpeningHoursRawSection extends StatelessWidget {
+  const _OpeningHoursRawSection({required this.facility});
+
+  final HealthFacility facility;
+
+  @override
+  Widget build(BuildContext context) {
+    final isOpen = facility.isOpenNow;
+    final todayHours = facility.todayHours;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            const Icon(Icons.schedule, color: MshColors.textSecondary, size: 20),
+            const SizedBox(width: MshSpacing.sm),
+            Text(
+              'Öffnungszeiten',
+              style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                    color: MshColors.textSecondary,
+                  ),
+            ),
+            const Spacer(),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+              decoration: BoxDecoration(
+                color: isOpen ? MshColors.success : MshColors.error,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Text(
+                isOpen ? 'Geöffnet' : 'Geschlossen',
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: MshSpacing.sm),
+        // Heute-Zeiten hervorheben
+        if (todayHours != null) ...[
+          Container(
+            padding: const EdgeInsets.all(MshSpacing.sm),
+            decoration: BoxDecoration(
+              color: MshColors.primary.withValues(alpha: 0.1),
+              borderRadius: BorderRadius.circular(MshTheme.radiusSmall),
+            ),
+            child: Row(
+              children: [
+                const Icon(Icons.today, size: 16, color: MshColors.primary),
+                const SizedBox(width: MshSpacing.xs),
+                Text(
+                  'Heute: ',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    color: MshColors.primary,
+                  ),
+                ),
+                Text(
+                  todayHours,
+                  style: TextStyle(color: MshColors.textPrimary),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: MshSpacing.sm),
+        ],
+        // Vollständige Öffnungszeiten
+        Text(
+          facility.openingHoursRaw!,
+          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                color: MshColors.textSecondary,
+              ),
+        ),
+      ],
     );
   }
 }

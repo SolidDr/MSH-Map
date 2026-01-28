@@ -144,6 +144,16 @@ class _MobileShell extends StatelessWidget {
             label: 'Arzt',
           ),
           NavigationDestination(
+            icon: Icon(Icons.volunteer_activism_outlined),
+            selectedIcon: Icon(Icons.volunteer_activism),
+            label: 'Soziales',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.nightlife_outlined),
+            selectedIcon: Icon(Icons.nightlife),
+            label: 'Ausgehen',
+          ),
+          NavigationDestination(
             icon: Icon(Icons.person_outline),
             selectedIcon: Icon(Icons.person),
             label: 'Profil',
@@ -207,6 +217,16 @@ class _TabletShell extends StatelessWidget {
                 icon: Icon(Icons.local_hospital_outlined),
                 selectedIcon: Icon(Icons.local_hospital),
                 label: Text('Gesundheit'),
+              ),
+              NavigationRailDestination(
+                icon: Icon(Icons.volunteer_activism_outlined),
+                selectedIcon: Icon(Icons.volunteer_activism),
+                label: Text('Soziales'),
+              ),
+              NavigationRailDestination(
+                icon: Icon(Icons.nightlife_outlined),
+                selectedIcon: Icon(Icons.nightlife),
+                label: Text('Ausgehen'),
               ),
               NavigationRailDestination(
                 icon: Icon(Icons.person_outline),
@@ -340,11 +360,29 @@ class _DesktopShell extends StatelessWidget {
                         },
                       ),
                       _SidebarItem(
-                        icon: Icons.person,
-                        label: 'Profil',
+                        icon: Icons.volunteer_activism,
+                        label: 'Soziales',
                         isSelected: selectedIndex == 5,
                         onTap: () {
                           onIndexChanged(5);
+                          context.go('/soziales');
+                        },
+                      ),
+                      _SidebarItem(
+                        icon: Icons.nightlife,
+                        label: 'Nachtleben',
+                        isSelected: selectedIndex == 6,
+                        onTap: () {
+                          onIndexChanged(6);
+                          context.go('/nightlife');
+                        },
+                      ),
+                      _SidebarItem(
+                        icon: Icons.person,
+                        label: 'Profil',
+                        isSelected: selectedIndex == 7,
+                        onTap: () {
+                          onIndexChanged(7);
                           context.go('/profile');
                         },
                       ),
@@ -480,6 +518,10 @@ void _navigateToIndex(BuildContext context, int index) {
     case 4:
       context.go('/health');
     case 5:
+      context.go('/soziales');
+    case 6:
+      context.go('/nightlife');
+    case 7:
       context.go('/profile');
   }
 }

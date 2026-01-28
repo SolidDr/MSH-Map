@@ -110,6 +110,12 @@ class MshColors {
   static const Color categorySocialFacility = Color(0xFF00897B);// Teal - Soziale Einrichtungen
 
   // ═══════════════════════════════════════════════════════════════
+  // NIGHTLIFE - Bars, Clubs, Pubs
+  // ═══════════════════════════════════════════════════════════════
+
+  static const Color categoryNightlife = Color(0xFF7C3AED);     // Violet - Nachtleben
+
+  // ═══════════════════════════════════════════════════════════════
   // BEWERTUNGS-STERNE
   // ═══════════════════════════════════════════════════════════════
 
@@ -165,6 +171,15 @@ class MshColors {
 
   /// Engagement-Gold - für "Helfen"-Rahmen
   static const Color engagementGold = Color(0xFFD4A853);
+
+  // ═══════════════════════════════════════════════════════════════
+  // POPULARITY - Goldener Glow für beliebte Orte
+  // ═══════════════════════════════════════════════════════════════
+
+  /// Leuchtendes Gold für beliebte POIs
+  static const Color popularityGold = Color(0xFFFFD700);        // Gold
+  static const Color popularityGoldLight = Color(0xFFFFE657);   // Helleres Gold für Glow
+  static const Color popularityGoldDark = Color(0xFFDAA520);    // Dunkleres Gold für Rand
 
   /// Engagement-Herz - für Adoption
   static const Color engagementHeart = Color(0xFFE74C3C);

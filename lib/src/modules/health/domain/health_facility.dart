@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../shared/domain/coordinates.dart';
 import '../../../shared/domain/map_item.dart';
+import '../../../shared/utils/opening_hours_parser.dart';
 import 'emergency_service.dart';
 import 'health_category.dart';
 
@@ -42,6 +43,7 @@ class HealthFacility implements MapItem {
     this.postalCode,
     this.city,
     this.openingHours,
+    this.openingHoursRaw,
     this.walkInHours,
     this.hasHouseCalls = false,
     this.isBarrierFree = false,
@@ -59,6 +61,17 @@ class HealthFacility implements MapItem {
   });
 
   factory HealthFacility.fromJson(Map<String, dynamic> json) {
+    // openingHours kann String oder Map sein
+    final openingHoursValue = json['openingHours'];
+    Map<String, dynamic>? openingHoursMap;
+    String? openingHoursRawStr;
+
+    if (openingHoursValue is Map<String, dynamic>) {
+      openingHoursMap = openingHoursValue;
+    } else if (openingHoursValue is String) {
+      openingHoursRawStr = openingHoursValue;
+    }
+
     return HealthFacility(
       id: json['id'] as String,
       name: json['name'] as String,
@@ -79,7 +92,8 @@ class HealthFacility implements MapItem {
       address: json['street'] as String? ?? json['address'] as String?,
       postalCode: json['postalCode'] as String?,
       city: json['city'] as String?,
-      openingHours: json['openingHours'] as Map<String, dynamic>?,
+      openingHours: openingHoursMap,
+      openingHoursRaw: openingHoursRawStr,
       walkInHours: json['walkInHours'] as String?,
       hasHouseCalls: json['hasHouseCalls'] as bool? ?? false,
       isBarrierFree: json['isBarrierFree'] as bool? ?? false,
@@ -129,6 +143,7 @@ class HealthFacility implements MapItem {
   final String? postalCode;
   final String? city;
   final Map<String, dynamic>? openingHours;
+  final String? openingHoursRaw;
   final String? walkInHours;
   final bool hasHouseCalls;
   final bool isBarrierFree;
@@ -207,8 +222,15 @@ class HealthFacility implements MapItem {
     return parts.join(', ');
   }
 
-  /// Prüft ob jetzt geöffnet (vereinfachte Logik)
+  /// Prüft ob jetzt geöffnet
+  @override
   bool get isOpenNow {
+    // Prüfe zuerst das String-Format (OSM)
+    if (openingHoursRaw != null) {
+      return OpeningHoursParser.isOpenNow(openingHoursRaw);
+    }
+
+    // Fallback auf Map-Format
     if (openingHours == null) return false;
     final now = DateTime.now();
     final dayName = _getDayName(now.weekday);
@@ -239,6 +261,26 @@ class HealthFacility implements MapItem {
     }
 
     return false;
+  }
+
+  /// Marker-Opacity basierend auf Öffnungsstatus
+  @override
+  double get markerOpacity {
+    // String-Format nutzt den Parser
+    if (openingHoursRaw != null) {
+      return OpeningHoursParser.getMarkerOpacity(openingHoursRaw);
+    }
+    // Map-Format: einfache Logik (offen=1.0, geschlossen=0.35, unbekannt=0.5)
+    if (openingHours == null) return 0.5;
+    return isOpenNow ? 1.0 : 0.35;
+  }
+
+  /// Gibt Öffnungszeiten für heute zurück (für Tooltip)
+  String? get todayHours {
+    if (openingHoursRaw != null) {
+      return OpeningHoursParser.getTodayHours(openingHoursRaw);
+    }
+    return null;
   }
 
   String _getDayName(int weekday) {
@@ -282,6 +324,7 @@ class HealthFacility implements MapItem {
       if (postalCode != null) 'postalCode': postalCode,
       if (city != null) 'city': city,
       if (openingHours != null) 'openingHours': openingHours,
+      if (openingHoursRaw != null) 'openingHours': openingHoursRaw,
       if (walkInHours != null) 'walkInHours': walkInHours,
       'hasHouseCalls': hasHouseCalls,
       'isBarrierFree': isBarrierFree,

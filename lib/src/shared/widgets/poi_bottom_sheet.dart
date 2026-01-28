@@ -7,6 +7,7 @@ import 'package:web/web.dart' as web;
 import '../../core/theme/msh_colors.dart';
 import '../../core/theme/msh_spacing.dart';
 import '../../core/theme/msh_theme.dart';
+import '../../features/analytics/data/usage_analytics_service.dart';
 import '../../modules/_module_registry.dart';
 import '../domain/map_item.dart';
 
@@ -26,6 +27,9 @@ class PoiBottomSheet extends StatelessWidget {
   }
 
   static void show(BuildContext context, MapItem item) {
+    // Track POI click for analytics (mit ID für Popularity-Berechnung)
+    UsageAnalyticsService().trackPoiClickById(item.id, item.category.name);
+
     showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,

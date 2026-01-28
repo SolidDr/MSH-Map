@@ -170,6 +170,12 @@ class Poi implements MapItem {
         'facilities': facilities,
       };
 
+  @override
+  bool? get isOpenNow => null;
+
+  @override
+  double get markerOpacity => 1.0;
+
   Map<String, dynamic> toFirestore() => {
         'name': name,
         'description': description,

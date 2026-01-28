@@ -11,6 +11,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/theme/msh_colors.dart';
 import '../../../../core/theme/msh_spacing.dart';
 import '../../../../core/theme/msh_theme.dart';
+import '../../../../features/analytics/data/usage_analytics_service.dart';
 import '../../../../features/engagement/application/engagement_provider.dart';
 import '../../../../features/engagement/data/engagement_repository.dart';
 import '../../../../features/engagement/domain/engagement_model.dart';
@@ -38,6 +39,8 @@ class _EventsScreenState extends ConsumerState<EventsScreen>
   void initState() {
     super.initState();
     _tabController = TabController(length: 2, vsync: this);
+    // Track module visit
+    UsageAnalyticsService().trackModuleVisit('events');
   }
 
   @override

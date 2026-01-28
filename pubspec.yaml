@@ -72,3 +72,4 @@ flutter:
     - assets/data/civic/government.json
     - assets/data/civic/youth_centres.json
     - assets/data/civic/social_facilities.json
+    - assets/data/nightlife/venues.json

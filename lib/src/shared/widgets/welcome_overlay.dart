@@ -109,10 +109,92 @@ class _WelcomeOverlayState extends State<WelcomeOverlay>
   }
 }
 
-class _WelcomeContent extends StatelessWidget {
-
+class _WelcomeContent extends StatefulWidget {
   const _WelcomeContent({required this.onStart});
   final VoidCallback onStart;
+
+  @override
+  State<_WelcomeContent> createState() => _WelcomeContentState();
+}
+
+class _WelcomeContentState extends State<_WelcomeContent> {
+  final PageController _pageController = PageController();
+  int _currentPage = 0;
+
+  // Feature-Kacheln in Seiten aufgeteilt (je 4 pro Seite)
+  static const List<List<_FeatureData>> _featurePages = [
+    // Seite 1: Kern-Features
+    [
+      _FeatureData(
+        icon: Icons.family_restroom,
+        title: 'Familie',
+        desc: 'Spielplätze, Museen, Natur',
+      ),
+      _FeatureData(
+        icon: Icons.restaurant,
+        title: 'Gastronomie',
+        desc: 'Restaurants & Cafés',
+      ),
+      _FeatureData(
+        icon: Icons.event,
+        title: 'Events',
+        desc: 'Veranstaltungen live',
+      ),
+      _FeatureData(
+        icon: Icons.local_hospital,
+        title: 'Gesundheit',
+        desc: 'Ärzte & Apotheken',
+      ),
+    ],
+    // Seite 2: Neue Features
+    [
+      _FeatureData(
+        icon: Icons.directions_bus,
+        title: 'Mobilität',
+        desc: 'ÖPNV-Abfahrten',
+        isNew: true,
+      ),
+      _FeatureData(
+        icon: Icons.people,
+        title: 'Soziales',
+        desc: 'Jugendzentren & Behörden',
+        isNew: true,
+      ),
+      _FeatureData(
+        icon: Icons.nightlife,
+        title: 'Nachtleben',
+        desc: 'Bars & Clubs',
+        isNew: true,
+      ),
+      _FeatureData(
+        icon: Icons.volunteer_activism,
+        title: 'Engagement',
+        desc: 'Freiwilligenarbeit',
+        isNew: true,
+      ),
+    ],
+    // Seite 3: Coming Soon + Privatsphäre
+    [
+      _FeatureData(
+        icon: Icons.storefront,
+        title: 'Flohmarkt',
+        desc: 'Was einer nicht braucht, macht dem anderen Freude',
+        isComingSoon: true,
+      ),
+      _FeatureData(
+        icon: Icons.cookie_outlined,
+        title: 'Privatsphäre',
+        desc: 'Keine Tracking-Cookies',
+        highlight: true,
+      ),
+    ],
+  ];
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -174,79 +256,129 @@ class _WelcomeContent extends StatelessWidget {
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 39),
+                  const SizedBox(height: 32),
 
-                  // Features - Module-Übersicht
-                  const Row(
-                    children: [
-                      Expanded(
-                        child: _FeatureItem(
-                          icon: Icons.family_restroom,
-                          title: 'Familie',
-                          desc: 'Spielplätze, Museen, Natur',
-                        ),
-                      ),
-                      SizedBox(width: 12),
-                      Expanded(
-                        child: _FeatureItem(
-                          icon: Icons.restaurant,
-                          title: 'Gastronomie',
-                          desc: 'Restaurants & Cafés',
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 12),
-                  const Row(
-                    children: [
-                      Expanded(
-                        child: _FeatureItem(
-                          icon: Icons.event,
-                          title: 'Events',
-                          desc: 'Veranstaltungen live',
-                        ),
-                      ),
-                      SizedBox(width: 12),
-                      Expanded(
-                        child: _FeatureItem(
-                          icon: Icons.local_hospital,
-                          title: 'Gesundheit',
-                          desc: 'Ärzte & Apotheken',
-                          isNew: true,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 12),
-                  const Row(
-                    children: [
-                      Expanded(
-                        child: _FeatureItem(
-                          icon: Icons.directions_bus,
-                          title: 'Mobilität',
-                          desc: 'ÖPNV-Abfahrten',
-                          isNew: true,
-                        ),
-                      ),
-                      SizedBox(width: 12),
-                      Expanded(
-                        child: _FeatureItem(
-                          icon: Icons.cookie_outlined,
-                          title: 'Privatsphäre',
-                          desc: 'Keine Tracking-Cookies',
-                          highlight: true,
-                        ),
-                      ),
-                    ],
+                  // Features - Horizontal scrollbare Kacheln
+                  SizedBox(
+                    height: 220,
+                    child: PageView.builder(
+                      controller: _pageController,
+                      onPageChanged: (index) {
+                        setState(() => _currentPage = index);
+                      },
+                      itemCount: _featurePages.length,
+                      itemBuilder: (context, pageIndex) {
+                        final features = _featurePages[pageIndex];
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 4),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              // Erste Zeile (2 Kacheln)
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: _FeatureItem(
+                                      icon: features[0].icon,
+                                      title: features[0].title,
+                                      desc: features[0].desc,
+                                      highlight: features[0].highlight,
+                                      isNew: features[0].isNew,
+                                      isComingSoon: features[0].isComingSoon,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 12),
+                                  Expanded(
+                                    child: features.length > 1
+                                        ? _FeatureItem(
+                                            icon: features[1].icon,
+                                            title: features[1].title,
+                                            desc: features[1].desc,
+                                            highlight: features[1].highlight,
+                                            isNew: features[1].isNew,
+                                            isComingSoon: features[1].isComingSoon,
+                                          )
+                                        : const SizedBox(),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 12),
+                              // Zweite Zeile (2 Kacheln falls vorhanden)
+                              if (features.length > 2)
+                                Row(
+                                  children: [
+                                    Expanded(
+                                      child: _FeatureItem(
+                                        icon: features[2].icon,
+                                        title: features[2].title,
+                                        desc: features[2].desc,
+                                        highlight: features[2].highlight,
+                                        isNew: features[2].isNew,
+                                        isComingSoon: features[2].isComingSoon,
+                                      ),
+                                    ),
+                                    const SizedBox(width: 12),
+                                    Expanded(
+                                      child: features.length > 3
+                                          ? _FeatureItem(
+                                              icon: features[3].icon,
+                                              title: features[3].title,
+                                              desc: features[3].desc,
+                                              highlight: features[3].highlight,
+                                              isNew: features[3].isNew,
+                                              isComingSoon: features[3].isComingSoon,
+                                            )
+                                          : const SizedBox(),
+                                    ),
+                                  ],
+                                ),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
                   ),
 
-                  const SizedBox(height: 39),
+                  const SizedBox(height: 16),
+
+                  // Seiten-Indikatoren (Dots)
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(
+                      _featurePages.length,
+                      (index) => AnimatedContainer(
+                        duration: const Duration(milliseconds: 200),
+                        margin: const EdgeInsets.symmetric(horizontal: 4),
+                        width: _currentPage == index ? 24 : 8,
+                        height: 8,
+                        decoration: BoxDecoration(
+                          color: _currentPage == index
+                              ? MshColors.primary
+                              : Colors.white24,
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(height: 8),
+
+                  // Swipe-Hinweis
+                  Text(
+                    '← Wischen für mehr Features →',
+                    style: TextStyle(
+                      color: Colors.white.withValues(alpha: 0.4),
+                      fontSize: 11,
+                    ),
+                  ),
+
+                  const SizedBox(height: 24),
 
                   // CTA Button
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: onStart,
+                      onPressed: widget.onStart,
                       style: ElevatedButton.styleFrom(
                         backgroundColor: MshColors.primary,
                         foregroundColor: Colors.white,
@@ -284,13 +416,15 @@ class _WelcomeContent extends StatelessWidget {
   }
 }
 
-class _FeatureItem extends StatelessWidget {
-  const _FeatureItem({
+/// Datenklasse für Feature-Kacheln
+class _FeatureData {
+  const _FeatureData({
     required this.icon,
     required this.title,
     required this.desc,
     this.highlight = false,
     this.isNew = false,
+    this.isComingSoon = false,
   });
 
   final IconData icon;
@@ -298,23 +432,60 @@ class _FeatureItem extends StatelessWidget {
   final String desc;
   final bool highlight;
   final bool isNew;
+  final bool isComingSoon;
+}
+
+class _FeatureItem extends StatelessWidget {
+  const _FeatureItem({
+    required this.icon,
+    required this.title,
+    required this.desc,
+    this.highlight = false,
+    this.isNew = false,
+    this.isComingSoon = false,
+  });
+
+  final IconData icon;
+  final String title;
+  final String desc;
+  final bool highlight;
+  final bool isNew;
+  final bool isComingSoon;
 
   @override
   Widget build(BuildContext context) {
+    // Coming Soon hat eigenen Stil
+    final Color bgColor;
+    final Border? border;
+    final Color iconColor;
+
+    if (isComingSoon) {
+      bgColor = Colors.white.withValues(alpha: 0.03);
+      border = Border.all(
+        color: Colors.white.withValues(alpha: 0.15),
+        style: BorderStyle.solid,
+      );
+      iconColor = Colors.white38;
+    } else if (highlight) {
+      bgColor = MshColors.success.withValues(alpha: 0.15);
+      border = Border.all(color: MshColors.success.withValues(alpha: 0.3));
+      iconColor = MshColors.success;
+    } else if (isNew) {
+      bgColor = MshColors.primary.withValues(alpha: 0.15);
+      border = Border.all(color: MshColors.primary.withValues(alpha: 0.3));
+      iconColor = MshColors.primary;
+    } else {
+      bgColor = Colors.white.withValues(alpha: 0.05);
+      border = null;
+      iconColor = MshColors.primary;
+    }
+
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: highlight
-            ? MshColors.success.withValues(alpha: 0.15)
-            : isNew
-                ? MshColors.primary.withValues(alpha: 0.15)
-                : Colors.white.withValues(alpha: 0.05),
+        color: bgColor,
         borderRadius: BorderRadius.circular(12),
-        border: highlight
-            ? Border.all(color: MshColors.success.withValues(alpha: 0.3))
-            : isNew
-                ? Border.all(color: MshColors.primary.withValues(alpha: 0.3))
-                : null,
+        border: border,
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -324,11 +495,7 @@ class _FeatureItem extends StatelessWidget {
             children: [
               Icon(
                 icon,
-                color: highlight
-                    ? MshColors.success
-                    : isNew
-                        ? MshColors.primary
-                        : MshColors.primary,
+                color: iconColor,
                 size: 32,
               ),
               if (isNew)
@@ -354,13 +521,36 @@ class _FeatureItem extends StatelessWidget {
                     ),
                   ),
                 ),
+              if (isComingSoon)
+                Positioned(
+                  top: -4,
+                  right: -16,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 4,
+                      vertical: 1,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.white24,
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    child: const Text(
+                      'BALD',
+                      style: TextStyle(
+                        color: Colors.white70,
+                        fontSize: 8,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
             ],
           ),
           const SizedBox(height: 12),
           Text(
             title,
-            style: const TextStyle(
-              color: Colors.white,
+            style: TextStyle(
+              color: isComingSoon ? Colors.white54 : Colors.white,
               fontWeight: FontWeight.w600,
               fontSize: 13,
             ),
@@ -371,8 +561,8 @@ class _FeatureItem extends StatelessWidget {
           const SizedBox(height: 4),
           Text(
             desc,
-            style: const TextStyle(
-              color: Colors.white60,
+            style: TextStyle(
+              color: isComingSoon ? Colors.white38 : Colors.white60,
               fontSize: 11,
             ),
             textAlign: TextAlign.center,

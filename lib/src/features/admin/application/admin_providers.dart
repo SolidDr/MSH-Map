@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../about/data/traffic_counter_service.dart';
+import '../../analytics/data/usage_analytics_service.dart';
 import '../../ratings/application/rating_providers.dart';
 import '../../ratings/domain/rating_model.dart';
 
@@ -56,6 +57,7 @@ class AdminStats {
     required this.averageRating,
     required this.topRatedPois,
     required this.recentReviews,
+    required this.usageStats,
   });
 
   final TrafficStats trafficStats;
@@ -63,16 +65,19 @@ class AdminStats {
   final double averageRating;
   final List<PoiRating> topRatedPois;
   final List<({String poiId, ReviewEntry review})> recentReviews;
+  final UsageStats usageStats;
 }
 
 /// Aggregierter Provider für alle Admin-Statistiken
 final adminStatsProvider = FutureProvider<AdminStats>((ref) async {
   final trafficService = TrafficCounterService();
   final ratingService = ref.watch(ratingServiceProvider);
+  final usageAnalyticsService = UsageAnalyticsService();
 
   final trafficStats = await trafficService.getStats();
   final allRatings = await ratingService.getAllRatings();
   final recentReviews = await ratingService.getRecentReviews(limit: 15);
+  final usageStats = await usageAnalyticsService.getStats();
 
   // Berechne Gesamtstatistiken
   var totalRatings = 0;
@@ -91,5 +96,6 @@ final adminStatsProvider = FutureProvider<AdminStats>((ref) async {
     averageRating: averageRating,
     topRatedPois: allRatings.take(10).toList(),
     recentReviews: recentReviews,
+    usageStats: usageStats,
   );
 });

@@ -484,6 +484,11 @@ class _SuggestionItem extends StatelessWidget {
       MapItemCategory.physiotherapy => Icons.spa,
       MapItemCategory.fitness => Icons.fitness_center,
       MapItemCategory.careService => Icons.elderly,
+      // Nachtleben
+      MapItemCategory.pub => Icons.sports_bar,
+      MapItemCategory.cocktailbar => Icons.wine_bar,
+      MapItemCategory.club => Icons.nightlife,
+      // Other
       MapItemCategory.service => Icons.business,
       MapItemCategory.search => Icons.search,
       MapItemCategory.custom => Icons.place,
@@ -520,6 +525,11 @@ class _SuggestionItem extends StatelessWidget {
       MapItemCategory.physiotherapy => 'Physiotherapie',
       MapItemCategory.fitness => 'Fitness',
       MapItemCategory.careService => 'Pflegedienst',
+      // Nachtleben
+      MapItemCategory.pub => 'Pub',
+      MapItemCategory.cocktailbar => 'Cocktailbar',
+      MapItemCategory.club => 'Club',
+      // Other
       MapItemCategory.service => 'Service',
       MapItemCategory.search => 'Suche',
       MapItemCategory.custom => 'Ort',

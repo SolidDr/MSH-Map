@@ -85,14 +85,10 @@ class CivicFacilityDetailContent extends StatelessWidget {
               content: facility.fullAddress,
             ),
 
-          // Öffnungszeiten
+          // Öffnungszeiten mit Geöffnet/Geschlossen Badge
           if (facility.openingHours != null && facility.openingHours!.isNotEmpty) ...[
             const SizedBox(height: MshSpacing.md),
-            _InfoSection(
-              icon: Icons.schedule,
-              title: 'Öffnungszeiten',
-              content: facility.openingHours!,
-            ),
+            _OpeningHoursSection(facility: facility),
           ],
 
           const Divider(height: MshSpacing.xl),
@@ -297,6 +293,91 @@ class _InfoSection extends StatelessWidget {
               ),
             ],
           ),
+        ),
+      ],
+    );
+  }
+}
+
+/// Öffnungszeiten-Sektion mit Geöffnet/Geschlossen Badge
+class _OpeningHoursSection extends StatelessWidget {
+  const _OpeningHoursSection({required this.facility});
+
+  final CivicFacility facility;
+
+  @override
+  Widget build(BuildContext context) {
+    final isOpen = facility.isOpenNow;
+    final todayHours = facility.todayHours;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            const Icon(Icons.schedule, color: MshColors.textSecondary, size: 20),
+            const SizedBox(width: MshSpacing.sm),
+            Text(
+              'Öffnungszeiten',
+              style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                    color: MshColors.textSecondary,
+                  ),
+            ),
+            const Spacer(),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+              decoration: BoxDecoration(
+                color: isOpen ? MshColors.success : MshColors.error,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Text(
+                isOpen ? 'Geöffnet' : 'Geschlossen',
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: MshSpacing.sm),
+        // Heute-Zeiten hervorheben
+        if (todayHours != null) ...[
+          Container(
+            padding: const EdgeInsets.all(MshSpacing.sm),
+            decoration: BoxDecoration(
+              color: MshColors.primary.withValues(alpha: 0.1),
+              borderRadius: BorderRadius.circular(MshTheme.radiusSmall),
+            ),
+            child: Row(
+              children: [
+                const Icon(Icons.today, size: 16, color: MshColors.primary),
+                const SizedBox(width: MshSpacing.xs),
+                Text(
+                  'Heute: ',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    color: MshColors.primary,
+                  ),
+                ),
+                Expanded(
+                  child: Text(
+                    todayHours,
+                    style: TextStyle(color: MshColors.textPrimary),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: MshSpacing.sm),
+        ],
+        // Vollständige Öffnungszeiten
+        Text(
+          facility.openingHours!,
+          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                color: MshColors.textSecondary,
+              ),
         ),
       ],
     );

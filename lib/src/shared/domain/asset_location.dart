@@ -75,6 +75,12 @@ class AssetLocation implements MapItem {
   @override
   Map<String, dynamic> get metadata => _rawData;
 
+  @override
+  bool? get isOpenNow => null;
+
+  @override
+  double get markerOpacity => 1.0;
+
   String get description => _description ?? '';
 
   /// Konvertiert String-Kategorie zu MapItemCategory

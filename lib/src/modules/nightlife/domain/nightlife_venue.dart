@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import '../../../shared/domain/coordinates.dart';
 import '../../../shared/domain/map_item.dart';
 import '../../../shared/utils/opening_hours_parser.dart';
-import 'civic_category.dart';
+import 'nightlife_category.dart';
 
-/// Öffentliche/soziale Einrichtung (Behörde, Jugendzentrum, Soziale Einrichtung)
-class CivicFacility implements MapItem {
-  const CivicFacility({
+/// Nachtleben-Venue (Bar, Pub, Club, Diskothek)
+class NightlifeVenue implements MapItem {
+  const NightlifeVenue({
     required this.id,
     required this.name,
-    required this.civicCategory,
+    required this.nightlifeCategory,
     required this.latitude,
     required this.longitude,
     this.street,
@@ -17,22 +17,18 @@ class CivicFacility implements MapItem {
     this.city,
     this.phone,
     this.phoneFormatted,
-    this.email,
     this.website,
     this.openingHours,
     this.description,
-    this.isBarrierFree = false,
-    this.hasParking = false,
-    this.operator,
-    this.targetAudience = TargetAudience.all,
-    this.source,
+    this.hasFood = false,
+    this.hasLiveMusic = false,
   });
 
-  factory CivicFacility.fromJson(Map<String, dynamic> json) {
-    return CivicFacility(
+  factory NightlifeVenue.fromJson(Map<String, dynamic> json) {
+    return NightlifeVenue(
       id: json['id'] as String? ?? '',
       name: json['name'] as String? ?? '',
-      civicCategory: CivicCategory.fromString(json['type'] as String?),
+      nightlifeCategory: NightlifeCategory.fromString(json['type'] as String?),
       latitude: (json['latitude'] as num?)?.toDouble() ?? 0.0,
       longitude: (json['longitude'] as num?)?.toDouble() ?? 0.0,
       street: json['street'] as String?,
@@ -40,22 +36,18 @@ class CivicFacility implements MapItem {
       city: json['city'] as String?,
       phone: json['phone'] as String?,
       phoneFormatted: json['phoneFormatted'] as String?,
-      email: json['email'] as String?,
       website: json['website'] as String?,
       openingHours: json['openingHours'] as String?,
       description: json['description'] as String?,
-      isBarrierFree: json['isBarrierFree'] as bool? ?? false,
-      hasParking: json['hasParking'] as bool? ?? false,
-      operator: json['operator'] as String?,
-      targetAudience: TargetAudience.fromString(json['targetAudience'] as String?),
-      source: json['source'] as String?,
+      hasFood: json['hasFood'] as bool? ?? false,
+      hasLiveMusic: json['hasLiveMusic'] as bool? ?? false,
     );
   }
 
   @override
   final String id;
   final String name;
-  final CivicCategory civicCategory;
+  final NightlifeCategory nightlifeCategory;
   final double latitude;
   final double longitude;
   final String? street;
@@ -63,15 +55,11 @@ class CivicFacility implements MapItem {
   final String? city;
   final String? phone;
   final String? phoneFormatted;
-  final String? email;
   final String? website;
   final String? openingHours;
   final String? description;
-  final bool isBarrierFree;
-  final bool hasParking;
-  final String? operator;
-  final TargetAudience targetAudience;
-  final String? source;
+  final bool hasFood;
+  final bool hasLiveMusic;
 
   // MapItem Implementation
 
@@ -88,17 +76,18 @@ class CivicFacility implements MapItem {
   String? get subtitle => description ?? city;
 
   @override
-  MapItemCategory get category => switch (civicCategory) {
-        CivicCategory.government => MapItemCategory.government,
-        CivicCategory.youthCentre => MapItemCategory.youthCentre,
-        CivicCategory.socialFacility => MapItemCategory.socialFacility,
+  MapItemCategory get category => switch (nightlifeCategory) {
+        NightlifeCategory.pub => MapItemCategory.pub,
+        NightlifeCategory.bar => MapItemCategory.bar,
+        NightlifeCategory.cocktailbar => MapItemCategory.cocktailbar,
+        NightlifeCategory.club => MapItemCategory.club,
       };
 
   @override
-  Color get markerColor => civicCategory.color;
+  Color get markerColor => nightlifeCategory.color;
 
   @override
-  String get moduleId => 'civic';
+  String get moduleId => 'nightlife';
 
   @override
   DateTime? get lastUpdated => null;
@@ -110,13 +99,10 @@ class CivicFacility implements MapItem {
         'city': city,
         'phone': phone,
         'phoneFormatted': phoneFormatted,
-        'email': email,
         'website': website,
         'openingHours': openingHours,
-        'isBarrierFree': isBarrierFree,
-        'hasParking': hasParking,
-        'operator': operator,
-        'targetAudience': targetAudience.name,
+        'hasFood': hasFood,
+        'hasLiveMusic': hasLiveMusic,
       };
 
   /// Vollständige Adresse
@@ -130,16 +116,6 @@ class CivicFacility implements MapItem {
     }
     return parts.join(', ');
   }
-
-  /// Ist für Jugendliche relevant?
-  bool get isYouthRelevant =>
-      civicCategory == CivicCategory.youthCentre ||
-      targetAudience == TargetAudience.youth;
-
-  /// Ist für Senioren relevant?
-  bool get isSeniorRelevant =>
-      civicCategory == CivicCategory.socialFacility ||
-      targetAudience == TargetAudience.seniors;
 
   /// Prüft ob jetzt geöffnet basierend auf Öffnungszeiten
   @override

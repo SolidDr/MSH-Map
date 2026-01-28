@@ -4,6 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:latlong2/latlong.dart';
 import '../../core/config/feature_flags.dart';
 import '../../core/config/map_config.dart';
+import '../../core/theme/msh_colors.dart';
+import '../../features/analytics/application/popularity_providers.dart';
 import '../../features/engagement/domain/engagement_model.dart';
 import '../../features/engagement/presentation/engagement_detail_sheet.dart';
 import '../../features/engagement/presentation/engagement_map_layer.dart';
@@ -64,6 +66,9 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
 
   @override
   Widget build(BuildContext context) {
+    // Beliebte POIs laden für goldenen Glow-Effekt
+    final popularPois = ref.watch(popularPoisProvider).valueOrNull ?? {};
+
     return Stack(
       children: [
         GestureDetector(
@@ -110,7 +115,9 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
                   useDetailedBorder: _currentZoom > 12,
                 ),
               MarkerLayer(
-                markers: widget.items.map(_buildMarker).toList(),
+                markers: widget.items
+                    .map((item) => _buildMarker(item, popularPois[item.id] ?? 0.0))
+                    .toList(),
               ),
               // Polylines für Straßensperrungen (vor Markern, damit Marker oben liegen)
               if (widget.notices.any((n) => n.hasRoute))
@@ -153,11 +160,15 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
     );
   }
 
-  Marker _buildMarker(MapItem item) {
+  Marker _buildMarker(MapItem item, double popularityScore) {
+    final isPopular = popularityScore > 0;
+    // Beliebte POIs bekommen größere Marker für bessere Sichtbarkeit
+    final markerSize = isPopular ? 48.0 : 40.0;
+
     return Marker(
       point: item.coordinates.toLatLng(),
-      width: 40,
-      height: 40,
+      width: markerSize,
+      height: markerSize,
       child: MouseRegion(
         cursor: SystemMouseCursors.click,
         onEnter: (_) => setState(() => _hoveredItem = item),
@@ -168,10 +179,18 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
         onHover: (event) => setState(() => _mousePosition = event.position),
         child: GestureDetector(
           onTap: () => widget.onMarkerTap?.call(item),
-          child: _MarkerIcon(
-            category: item.category,
-            color: item.markerColor,
-          ),
+          child: isPopular
+              ? _PopularMarkerIcon(
+                  category: item.category,
+                  color: item.markerColor,
+                  opacity: item.markerOpacity,
+                  popularityScore: popularityScore,
+                )
+              : _MarkerIcon(
+                  category: item.category,
+                  color: item.markerColor,
+                  opacity: item.markerOpacity,
+                ),
         ),
       ),
     );
@@ -348,6 +367,10 @@ class _HoverTooltip extends StatelessWidget {
         MapItemCategory.physiotherapy => Icons.spa,
         MapItemCategory.fitness => Icons.fitness_center,
         MapItemCategory.careService => Icons.elderly,
+        // Nachtleben
+        MapItemCategory.pub => Icons.sports_bar,
+        MapItemCategory.cocktailbar => Icons.wine_bar,
+        MapItemCategory.club => Icons.nightlife,
         // Other
         MapItemCategory.service => Icons.build,
         MapItemCategory.search => Icons.search,
@@ -357,21 +380,29 @@ class _HoverTooltip extends StatelessWidget {
 
 class _MarkerIcon extends StatelessWidget {
 
-  const _MarkerIcon({required this.category, required this.color});
+  const _MarkerIcon({
+    required this.category,
+    required this.color,
+    this.opacity = 1.0,
+  });
   final MapItemCategory category;
   final Color color;
+  final double opacity;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: color,
-        shape: BoxShape.circle,
-        boxShadow: const [
-          BoxShadow(color: Colors.black26, blurRadius: 4, offset: Offset(0, 2)),
-        ],
+    return Opacity(
+      opacity: opacity,
+      child: Container(
+        decoration: BoxDecoration(
+          color: color,
+          shape: BoxShape.circle,
+          boxShadow: const [
+            BoxShadow(color: Colors.black26, blurRadius: 4, offset: Offset(0, 2)),
+          ],
+        ),
+        child: Icon(_iconFor(category), color: Colors.white, size: 24),
       ),
-      child: Icon(_iconFor(category), color: Colors.white, size: 24),
     );
   }
 
@@ -410,6 +441,158 @@ class _MarkerIcon extends StatelessWidget {
         MapItemCategory.physiotherapy => Icons.spa,
         MapItemCategory.fitness => Icons.fitness_center,
         MapItemCategory.careService => Icons.elderly,
+        // Nachtleben
+        MapItemCategory.pub => Icons.sports_bar,
+        MapItemCategory.cocktailbar => Icons.wine_bar,
+        MapItemCategory.club => Icons.nightlife,
+        // Other
+        MapItemCategory.service => Icons.build,
+        MapItemCategory.search => Icons.search,
+        MapItemCategory.custom => Icons.place,
+      };
+}
+
+/// Marker mit goldenem Glow für beliebte POIs
+class _PopularMarkerIcon extends StatefulWidget {
+  const _PopularMarkerIcon({
+    required this.category,
+    required this.color,
+    required this.popularityScore,
+    this.opacity = 1.0,
+  });
+
+  final MapItemCategory category;
+  final Color color;
+  final double opacity;
+  final double popularityScore; // 0.5-1.0, höher = beliebter
+
+  @override
+  State<_PopularMarkerIcon> createState() => _PopularMarkerIconState();
+}
+
+class _PopularMarkerIconState extends State<_PopularMarkerIcon>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller;
+  late final Animation<double> _glowAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    // Langsamere Animation für subtileren Effekt
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 2000),
+      vsync: this,
+    )..repeat(reverse: true);
+
+    _glowAnimation = Tween<double>(begin: 0.4, end: 1.0).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // Glow-Intensität basiert auf Popularity-Score
+    final baseGlowIntensity = widget.popularityScore * 0.6;
+
+    return AnimatedBuilder(
+      animation: _glowAnimation,
+      builder: (context, child) {
+        final glowIntensity = baseGlowIntensity * _glowAnimation.value;
+        final spreadRadius = 2.0 + (widget.popularityScore * 4);
+        final blurRadius = 8.0 + (widget.popularityScore * 8);
+
+        return Opacity(
+          opacity: widget.opacity,
+          child: Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              boxShadow: [
+                // Äußerer goldener Glow
+                BoxShadow(
+                  color: MshColors.popularityGold.withValues(alpha: glowIntensity),
+                  blurRadius: blurRadius,
+                  spreadRadius: spreadRadius,
+                ),
+                // Mittlerer Glow für mehr Tiefe
+                BoxShadow(
+                  color: MshColors.popularityGoldLight.withValues(alpha: glowIntensity * 0.5),
+                  blurRadius: blurRadius * 0.6,
+                  spreadRadius: spreadRadius * 0.5,
+                ),
+                // Standard Schatten
+                const BoxShadow(
+                  color: Colors.black26,
+                  blurRadius: 4,
+                  offset: Offset(0, 2),
+                ),
+              ],
+            ),
+            child: Container(
+              decoration: BoxDecoration(
+                color: widget.color,
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: MshColors.popularityGold,
+                  width: 2.5,
+                ),
+              ),
+              child: Icon(
+                _iconFor(widget.category),
+                color: Colors.white,
+                size: 24,
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  IconData _iconFor(MapItemCategory c) => switch (c) {
+        // Gastro
+        MapItemCategory.restaurant => Icons.restaurant,
+        MapItemCategory.cafe => Icons.coffee,
+        MapItemCategory.imbiss => Icons.fastfood,
+        MapItemCategory.bar => Icons.local_bar,
+        // Events
+        MapItemCategory.event => Icons.event,
+        MapItemCategory.culture => Icons.museum,
+        MapItemCategory.sport => Icons.sports,
+        // Family
+        MapItemCategory.playground => Icons.child_care,
+        MapItemCategory.museum => Icons.account_balance,
+        MapItemCategory.nature => Icons.park,
+        MapItemCategory.zoo => Icons.pets,
+        MapItemCategory.castle => Icons.castle,
+        MapItemCategory.pool => Icons.pool,
+        MapItemCategory.indoor => Icons.house,
+        MapItemCategory.farm => Icons.agriculture,
+        MapItemCategory.adventure => Icons.terrain,
+        // Bildung
+        MapItemCategory.school => Icons.school,
+        MapItemCategory.kindergarten => Icons.child_care,
+        MapItemCategory.library => Icons.local_library,
+        // Civic
+        MapItemCategory.government => Icons.account_balance,
+        MapItemCategory.youthCentre => Icons.group,
+        MapItemCategory.socialFacility => Icons.volunteer_activism,
+        // Gesundheit
+        MapItemCategory.doctor => Icons.medical_services,
+        MapItemCategory.pharmacy => Icons.local_pharmacy,
+        MapItemCategory.hospital => Icons.local_hospital,
+        MapItemCategory.physiotherapy => Icons.spa,
+        MapItemCategory.fitness => Icons.fitness_center,
+        MapItemCategory.careService => Icons.elderly,
+        // Nachtleben
+        MapItemCategory.pub => Icons.sports_bar,
+        MapItemCategory.cocktailbar => Icons.wine_bar,
+        MapItemCategory.club => Icons.nightlife,
         // Other
         MapItemCategory.service => Icons.build,
         MapItemCategory.search => Icons.search,

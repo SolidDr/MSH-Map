@@ -1,6 +1,9 @@
+import 'dart:async' show unawaited;
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart' show debugPrint;
 import 'package:shared_preferences/shared_preferences.dart';
+import '../../analytics/data/usage_analytics_service.dart';
 import '../domain/rating_model.dart';
 
 /// Service für anonymes Bewertungssystem
@@ -105,6 +108,10 @@ class RatingService {
 
       // Lokal merken, dass bewertet wurde
       await _markAsRated(poiId);
+
+      // Track rating for analytics (fire and forget)
+      unawaited(UsageAnalyticsService().trackRatingSubmitted());
+
       return true;
     } catch (e) {
       debugPrint('Fehler beim Bewerten: $e');

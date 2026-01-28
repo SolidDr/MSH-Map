@@ -95,6 +95,12 @@ class MshEvent implements MapItem {
         'tags': tags,
       };
 
+  @override
+  bool? get isOpenNow => null;
+
+  @override
+  double get markerOpacity => 1.0;
+
   /// Convert to JSON
   Map<String, dynamic> toJson() {
     return {

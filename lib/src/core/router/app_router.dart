@@ -17,6 +17,8 @@ import '../../modules/events/presentation/screens/events_screen.dart';
 import '../../modules/gastro/presentation/menu_upload/ocr_preview.dart';
 import '../../modules/gastro/presentation/menu_upload/upload_screen.dart';
 import '../../modules/health/presentation/health_screen.dart';
+import '../../modules/civic/presentation/soziales_screen.dart';
+import '../../modules/nightlife/presentation/nightlife_screen.dart';
 import '../config/feature_flags.dart';
 import '../shell/app_shell.dart';
 
@@ -69,6 +71,14 @@ final appRouter = GoRouter(
         GoRoute(
           path: '/health',
           builder: (context, state) => const HealthScreen(),
+        ),
+        GoRoute(
+          path: '/soziales',
+          builder: (context, state) => const SozialesScreen(),
+        ),
+        GoRoute(
+          path: '/nightlife',
+          builder: (context, state) => const NightlifeScreen(),
         ),
         GoRoute(
           path: '/profile',
