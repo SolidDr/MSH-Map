@@ -192,17 +192,19 @@ class FilterState {
       categories.isNotEmpty || activeFilterIds.isNotEmpty;
 }
 
-/// Filter Notifier mit Persistierung
-class FilterNotifier extends StateNotifier<FilterState> {
-
-  // Starteinstellung: Standard-Filter (Gesundheit)
-  // Radwege werden separat über _showRadwege in HomeScreen gesteuert
-  FilterNotifier() : super(const FilterState()) {
-    _loadSavedFilters();
-  }
+/// Filter Notifier mit Persistierung (Riverpod 3.x)
+class FilterNotifier extends Notifier<FilterState> {
   // SharedPreferences Keys
   static const _keyCategoriesFilter = 'map_filter_categories';
   static const _keyHasSeenApp = 'has_seen_app_v2'; // Flag für ersten Besuch
+
+  @override
+  FilterState build() {
+    // Starteinstellung: Standard-Filter (Gesundheit)
+    // Radwege werden separat über _showRadwege in HomeScreen gesteuert
+    _loadSavedFilters();
+    return const FilterState();
+  }
 
   /// Lädt gespeicherte Filter aus SharedPreferences
   Future<void> _loadSavedFilters() async {
@@ -260,8 +262,6 @@ class FilterNotifier extends StateNotifier<FilterState> {
   }
 }
 
-/// Provider
+/// Provider (Riverpod 3.x)
 final filterProvider =
-    StateNotifierProvider<FilterNotifier, FilterState>((ref) {
-  return FilterNotifier();
-});
+    NotifierProvider<FilterNotifier, FilterState>(FilterNotifier.new);

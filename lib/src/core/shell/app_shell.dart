@@ -320,10 +320,10 @@ class _MobileShellState extends State<_MobileShell>
       'Karte',
       'Entdecken',
       'Events',
-      'Mobilität',
+      'ÖPNV',
       'Gesundheit',
       'Soziales',
-      'Nachtleben',
+      'Ausgehen',
       'Radwege',
       'Profil',
     ];
@@ -425,12 +425,12 @@ class _TabletShell extends StatelessWidget {
               NavigationRailDestination(
                 icon: Icon(Icons.celebration_outlined),
                 selectedIcon: Icon(Icons.celebration),
-                label: Text('Erleben'),
+                label: Text('Events'),
               ),
               NavigationRailDestination(
                 icon: Icon(Icons.directions_bus_outlined),
                 selectedIcon: Icon(Icons.directions_bus),
-                label: Text('Mobilität'),
+                label: Text('ÖPNV'),
               ),
               NavigationRailDestination(
                 icon: Icon(Icons.local_hospital_outlined),
@@ -558,7 +558,7 @@ class _DesktopShell extends StatelessWidget {
                       ),
                       _SidebarItem(
                         icon: Icons.celebration,
-                        label: 'Erleben',
+                        label: 'Events',
                         isSelected: selectedIndex == 2,
                         onTap: () {
                           onIndexChanged(2);
@@ -567,7 +567,7 @@ class _DesktopShell extends StatelessWidget {
                       ),
                       _SidebarItem(
                         icon: Icons.directions_bus,
-                        label: 'Mobilität',
+                        label: 'ÖPNV',
                         isSelected: selectedIndex == 3,
                         onTap: () {
                           onIndexChanged(3);
@@ -594,7 +594,7 @@ class _DesktopShell extends StatelessWidget {
                       ),
                       _SidebarItem(
                         icon: Icons.nightlife,
-                        label: 'Nachtleben',
+                        label: 'Ausgehen',
                         isSelected: selectedIndex == 6,
                         onTap: () {
                           onIndexChanged(6);
@@ -602,8 +602,8 @@ class _DesktopShell extends StatelessWidget {
                         },
                       ),
                       _SidebarItem(
-                        icon: Icons.directions,
-                        label: 'Radeln & Wandern',
+                        icon: Icons.directions_bike,
+                        label: 'Radwege',
                         isSelected: selectedIndex == 7,
                         onTap: () {
                           onIndexChanged(7);

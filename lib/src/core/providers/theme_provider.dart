@@ -1,17 +1,19 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-/// Theme Mode Provider - verwaltet Dark/Light Mode
-final themeModeProvider = StateNotifierProvider<AppThemeModeNotifier, AppThemeMode>((ref) {
-  return AppThemeModeNotifier();
-});
+/// Theme Mode Provider - verwaltet Dark/Light Mode (Riverpod 3.x)
+final themeModeProvider = NotifierProvider<AppThemeModeNotifier, AppThemeMode>(
+  AppThemeModeNotifier.new,
+);
 
-class AppThemeModeNotifier extends StateNotifier<AppThemeMode> {
-  AppThemeModeNotifier() : super(AppThemeMode.light) {
-    _loadAppThemeMode();
-  }
-
+class AppThemeModeNotifier extends Notifier<AppThemeMode> {
   static const _key = 'theme_mode';
+
+  @override
+  AppThemeMode build() {
+    _loadAppThemeMode();
+    return AppThemeMode.light;
+  }
 
   Future<void> _loadAppThemeMode() async {
     final prefs = await SharedPreferences.getInstance();

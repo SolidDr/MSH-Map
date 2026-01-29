@@ -49,24 +49,23 @@ class UploadSuccess extends UploadState {
   final MenuModel menu;
 }
 
-/// Provider for the upload controller
+/// Provider for the upload controller (Riverpod 3.x)
 final uploadControllerProvider =
-    StateNotifierProvider<UploadController, UploadState>((ref) {
-  return UploadController(
-    ref.watch(imagePickerServiceProvider),
-    ref.watch(openAiServiceProvider),
-    ref.watch(menuRepositoryProvider),
-  );
-});
+    NotifierProvider<UploadController, UploadState>(UploadController.new);
 
-/// Controller for the menu upload flow
-class UploadController extends StateNotifier<UploadState> {
-  UploadController(
-      this._imagePicker, this._openAiService, this._menuRepository,)
-      : super(const UploadInitial());
-  final ImagePickerService _imagePicker;
-  final OpenAiService _openAiService;
-  final MenuRepository _menuRepository;
+/// Controller for the menu upload flow (Riverpod 3.x)
+class UploadController extends Notifier<UploadState> {
+  late final ImagePickerService _imagePicker;
+  late final OpenAiService _openAiService;
+  late final MenuRepository _menuRepository;
+
+  @override
+  UploadState build() {
+    _imagePicker = ref.watch(imagePickerServiceProvider);
+    _openAiService = ref.watch(openAiServiceProvider);
+    _menuRepository = ref.watch(menuRepositoryProvider);
+    return const UploadInitial();
+  }
 
   /// Pick image from camera
   Future<void> pickFromCamera() async {

@@ -20,19 +20,19 @@ final usageStatsFutureProvider = FutureProvider<UsageStats>((ref) async {
 
 /// Provider für Top-Module
 final topModulesProvider = Provider<List<MapEntry<String, int>>>((ref) {
-  final stats = ref.watch(usageStatsProvider).valueOrNull;
+  final stats = ref.watch(usageStatsProvider).value;
   return stats?.topModules(6) ?? [];
 });
 
 /// Provider für Top-Kategorien
 final topCategoriesProvider = Provider<List<MapEntry<String, int>>>((ref) {
-  final stats = ref.watch(usageStatsProvider).valueOrNull;
+  final stats = ref.watch(usageStatsProvider).value;
   return stats?.topCategories(10) ?? [];
 });
 
 /// Provider für Peak-Zeiten Insights
 final peakTimesProvider = Provider<PeakTimesInsight>((ref) {
-  final stats = ref.watch(usageStatsProvider).valueOrNull;
+  final stats = ref.watch(usageStatsProvider).value;
   return PeakTimesInsight(
     peakHour: stats?.peakHour,
     peakWeekday: stats?.peakWeekday,

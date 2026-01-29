@@ -25,10 +25,10 @@ final poiPopularityProvider =
   return service.getPopularityScore(poiId);
 });
 
-/// Provider der prüft ob ein POI beliebt ist
+/// Provider der prüft ob ein POI beliebt ist (Riverpod 3.x)
 final isPoiPopularProvider =
     Provider.family<bool, String>((ref, poiId) {
-  final popularPois = ref.watch(popularPoisProvider).valueOrNull ?? {};
+  final popularPois = ref.watch(popularPoisProvider).value ?? {};
   return popularPois.containsKey(poiId);
 });
 

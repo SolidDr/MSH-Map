@@ -104,9 +104,9 @@ class _RatingBottomSheetState extends ConsumerState<RatingBottomSheet> {
       error: (_, __) => _buildRatingForm(context, null),
       data: (hasRated) {
         if (hasRated) {
-          return _buildAlreadyRated(context, ratingAsync.valueOrNull);
+          return _buildAlreadyRated(context, ratingAsync.value);
         }
-        return _buildRatingForm(context, ratingAsync.valueOrNull);
+        return _buildRatingForm(context, ratingAsync.value);
       },
     );
   }

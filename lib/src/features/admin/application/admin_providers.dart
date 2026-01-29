@@ -18,11 +18,21 @@ bool isValidAdminKey(String? key) {
 }
 
 // ═══════════════════════════════════════════════════════════════
-// ADMIN PROVIDERS
+// ADMIN PROVIDERS (Riverpod 3.x)
 // ═══════════════════════════════════════════════════════════════
 
+/// Notifier für Admin-Key State
+class AdminKeyNotifier extends Notifier<String?> {
+  @override
+  String? build() => null;
+
+  void setKey(String? key) => state = key;
+}
+
 /// State Provider für Admin-Status (wird von URL-Parameter gesetzt)
-final adminKeyProvider = StateProvider<String?>((ref) => null);
+final adminKeyProvider = NotifierProvider<AdminKeyNotifier, String?>(
+  AdminKeyNotifier.new,
+);
 
 /// Provider für den aktuellen Admin-Status
 final isAdminProvider = Provider<bool>((ref) {

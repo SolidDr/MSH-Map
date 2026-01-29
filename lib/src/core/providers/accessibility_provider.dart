@@ -2,22 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-/// Accessibility Settings Provider
+/// Accessibility Settings Provider (Riverpod 3.x)
 final accessibilityProvider =
-    StateNotifierProvider<AccessibilityNotifier, AccessibilitySettings>((ref) {
-  return AccessibilityNotifier();
-});
+    NotifierProvider<AccessibilityNotifier, AccessibilitySettings>(
+  AccessibilityNotifier.new,
+);
 
-class AccessibilityNotifier extends StateNotifier<AccessibilitySettings> {
-  AccessibilityNotifier() : super(const AccessibilitySettings()) {
-    _loadSettings();
-  }
-
+class AccessibilityNotifier extends Notifier<AccessibilitySettings> {
   static const _keyHighContrast = 'accessibility_high_contrast';
   static const _keyTextScale = 'accessibility_text_scale';
   static const _keyReduceAnimations = 'accessibility_reduce_animations';
   static const _keyLargeButtons = 'accessibility_large_buttons';
   static const _keyBoldText = 'accessibility_bold_text';
+
+  @override
+  AccessibilitySettings build() {
+    _loadSettings();
+    return const AccessibilitySettings();
+  }
 
   Future<void> _loadSettings() async {
     final prefs = await SharedPreferences.getInstance();

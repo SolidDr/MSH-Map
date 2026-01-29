@@ -30,16 +30,19 @@ class AuthError extends AuthState {
   final String message;
 }
 
-/// Auth controller provider
+/// Auth controller provider (Riverpod 3.x)
 final authControllerProvider =
-    StateNotifierProvider<AuthController, AuthState>((ref) {
-  return AuthController(ref.watch(authRepositoryProvider));
-});
+    NotifierProvider<AuthController, AuthState>(AuthController.new);
 
-/// Controller managing authentication state
-class AuthController extends StateNotifier<AuthState> {
-  AuthController(this._repository) : super(const AuthInitial());
-  final AuthRepository _repository;
+/// Controller managing authentication state (Riverpod 3.x)
+class AuthController extends Notifier<AuthState> {
+  late final AuthRepository _repository;
+
+  @override
+  AuthState build() {
+    _repository = ref.watch(authRepositoryProvider);
+    return const AuthInitial();
+  }
 
   /// Sign in with email and password
   Future<void> signIn(String email, String password) async {

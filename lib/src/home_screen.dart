@@ -508,7 +508,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
 
     // Get active notices for map markers
     final noticesAsync = ref.watch(activeNoticesProvider);
-    final notices = noticesAsync.valueOrNull ?? <MshNotice>[];
+    final notices = noticesAsync.value ?? <MshNotice>[];
     // Filter to only critical and warning notices with locations
     final importantNotices = notices
         .where((n) =>

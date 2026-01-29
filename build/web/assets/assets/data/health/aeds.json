@@ -2,7 +2,7 @@
   {
     "id": "aed-node-1365671935",
     "type": "defibrillator",
-    "name": "AED - Vor den Toiletten",
+    "name": "AED",
     "description": "Vor den Toiletten",
     "latitude": 51.6555977,
     "longitude": 11.8226124,
@@ -21,7 +21,7 @@
   {
     "id": "aed-node-3394998317",
     "type": "defibrillator",
-    "name": "AED - An der Außenwand der Feuerwache.",
+    "name": "AED",
     "description": "An der Außenwand der Feuerwache.",
     "latitude": 51.2309121,
     "longitude": 11.2554213,
@@ -40,7 +40,7 @@
   {
     "id": "aed-node-6404854187",
     "type": "defibrillator",
-    "name": "Defibrillator (AED)",
+    "name": "AED",
     "latitude": 51.3020619,
     "longitude": 11.8042573,
     "city": "Mansfeld-Südharz",
@@ -58,7 +58,7 @@
   {
     "id": "aed-node-6404854188",
     "type": "defibrillator",
-    "name": "Defibrillator (AED)",
+    "name": "AED",
     "latitude": 51.2976231,
     "longitude": 11.810002,
     "city": "Mansfeld-Südharz",
@@ -76,7 +76,7 @@
   {
     "id": "aed-node-8474859364",
     "type": "defibrillator",
-    "name": "AED - Auf dem Parkdeck hängt bei Rappe ein AED. Bei Rean",
+    "name": "AED",
     "description": "Auf dem Parkdeck hängt bei Rappe ein AED. Bei Reanimation muss die Security im Laden benachrichtigt werden , diese geben den AED raus",
     "latitude": 51.5036043,
     "longitude": 10.7942648,
@@ -95,7 +95,7 @@
   {
     "id": "aed-node-8486018905",
     "type": "defibrillator",
-    "name": "Defibrillator (AED)",
+    "name": "AED",
     "latitude": 51.201666,
     "longitude": 11.9567948,
     "city": "Mansfeld-Südharz",
@@ -113,7 +113,7 @@
   {
     "id": "aed-node-8486286777",
     "type": "defibrillator",
-    "name": "AED - AED am Infobereich, E-Center WSF",
+    "name": "AED",
     "description": "AED am Infobereich, E-Center WSF",
     "latitude": 51.2186268,
     "longitude": 11.9676256,
@@ -132,7 +132,7 @@
   {
     "id": "aed-node-9865742213",
     "type": "defibrillator",
-    "name": "AED bei Björn Steiger Stiftung",
+    "name": "AED",
     "description": "Real - Eingangsbereich, bei Geldautomat / Lotto Geschäft",
     "latitude": 51.6552254,
     "longitude": 11.4869085,
@@ -153,7 +153,7 @@
   {
     "id": "aed-node-10004107367",
     "type": "defibrillator",
-    "name": "AED bei Björn Steiger Stiftung",
+    "name": "AED",
     "description": "Sporthalle Allee - Im Eingangsbereich, links neben der Tür, zwischen Feuerlöscher und Schaukasten",
     "latitude": 51.7199637,
     "longitude": 11.231469,
@@ -174,7 +174,7 @@
   {
     "id": "aed-node-10004147108",
     "type": "defibrillator",
-    "name": "AED bei Björn Steiger Stiftung",
+    "name": "AED",
     "description": "Sporthalle Hagenberg - Im Eingangsbereich, links neben Schaukasten",
     "latitude": 51.7297737,
     "longitude": 11.1301603,
@@ -195,7 +195,7 @@
   {
     "id": "aed-node-10814078973",
     "type": "defibrillator",
-    "name": "AED - In der Toilette",
+    "name": "AED",
     "description": "In der Toilette",
     "latitude": 51.5940321,
     "longitude": 11.4578929,
@@ -215,7 +215,7 @@
   {
     "id": "aed-node-11136810005",
     "type": "defibrillator",
-    "name": "Defibrillator (AED)",
+    "name": "AED",
     "latitude": 51.4262728,
     "longitude": 11.0061314,
     "city": "Südharz",
@@ -233,7 +233,7 @@
   {
     "id": "aed-node-11138714905",
     "type": "defibrillator",
-    "name": "AED - Im Erdgeschoss neben der Treppe",
+    "name": "AED",
     "description": "Im Erdgeschoss neben der Treppe",
     "latitude": 51.3700424,
     "longitude": 10.8699882,
@@ -252,7 +252,7 @@
   {
     "id": "aed-node-12087272032",
     "type": "defibrillator",
-    "name": "Defibrillator (AED)",
+    "name": "AED",
     "latitude": 51.5824509,
     "longitude": 10.6174204,
     "city": "Mansfeld-Südharz",
@@ -270,7 +270,7 @@
   {
     "id": "aed-node-12087279561",
     "type": "defibrillator",
-    "name": "AED - Am Haupteingang von Halle 1",
+    "name": "AED",
     "description": "Am Haupteingang von Halle 1",
     "latitude": 51.5928612,
     "longitude": 10.6178092,
@@ -289,7 +289,7 @@
   {
     "id": "aed-node-12995802122",
     "type": "defibrillator",
-    "name": "AED - rechts am Eingang zum Gemeindehaus",
+    "name": "AED",
     "description": "rechts am Eingang zum Gemeindehaus",
     "latitude": 51.7266109,
     "longitude": 10.610635,
@@ -309,7 +309,7 @@
   {
     "id": "aed-node-13017911301",
     "type": "defibrillator",
-    "name": "AED bei Feuerwehr Kehmstedt",
+    "name": "AED",
     "description": "Freiwillige Feuerwehr",
     "latitude": 51.4736639,
     "longitude": 10.6086667,
@@ -329,7 +329,7 @@
   {
     "id": "aed-node-13092570002",
     "type": "defibrillator",
-    "name": "Defibrillator (AED)",
+    "name": "AED",
     "latitude": 51.3670336,
     "longitude": 10.8692819,
     "street": "Göldnerstraße 5",
@@ -348,7 +348,7 @@
   {
     "id": "aed-node-13376438901",
     "type": "defibrillator",
-    "name": "AED bei Oberschule Braunlage",
+    "name": "AED",
     "description": "Neben dem Sekretariat am Eingang",
     "latitude": 51.7273902,
     "longitude": 10.6135438,
@@ -369,7 +369,7 @@
   {
     "id": "aed-node-13376444702",
     "type": "defibrillator",
-    "name": "AED bei Gipfelstürmer Sportartikel GmbH",
+    "name": "AED",
     "description": "Monsterroller Braunlage",
     "latitude": 51.7310555,
     "longitude": 10.6129113,
@@ -390,7 +390,7 @@
   {
     "id": "aed-node-13376444705",
     "type": "defibrillator",
-    "name": "AED bei Wurmberg Seilbahn GmbH",
+    "name": "AED",
     "description": "Talstation",
     "latitude": 51.731792,
     "longitude": 10.6128659,
@@ -411,7 +411,7 @@
   {
     "id": "aed-node-13376470201",
     "type": "defibrillator",
-    "name": "AED bei AHORN Harz Hotel",
+    "name": "AED",
     "description": "AHORN Harz Hotel",
     "latitude": 51.7342688,
     "longitude": 10.6116706,
@@ -432,7 +432,7 @@
   {
     "id": "aed-node-13376471301",
     "type": "defibrillator",
-    "name": "AED bei Eisstadion Braunlage",
+    "name": "AED",
     "description": "Eisstadion Braunlage",
     "latitude": 51.7297793,
     "longitude": 10.611757,
@@ -453,7 +453,7 @@
   {
     "id": "aed-node-13376473201",
     "type": "defibrillator",
-    "name": "AED bei Hallen- und Freizeitbad",
+    "name": "AED",
     "description": "Hallen- und Freizeitbad",
     "latitude": 51.7264516,
     "longitude": 10.6171833,
@@ -474,7 +474,7 @@
   {
     "id": "aed-node-13376478002",
     "type": "defibrillator",
-    "name": "AED bei Wurmberg Seilbahn GmbH",
+    "name": "AED",
     "description": "Hexenritt Talstation",
     "latitude": 51.7498162,
     "longitude": 10.6281293,
@@ -495,7 +495,7 @@
   {
     "id": "aed-node-13376478302",
     "type": "defibrillator",
-    "name": "AED - Kurgastzentrum",
+    "name": "AED",
     "description": "Kurgastzentrum",
     "latitude": 51.7251347,
     "longitude": 10.6139684,
@@ -515,7 +515,7 @@
   {
     "id": "aed-node-13376480401",
     "type": "defibrillator",
-    "name": "AED bei Wurmberg Seilbahn GmbH",
+    "name": "AED",
     "description": "Hexenritt Talstation",
     "latitude": 51.7498162,
     "longitude": 10.6281293,
@@ -536,7 +536,7 @@
   {
     "id": "aed-node-13376563201",
     "type": "defibrillator",
-    "name": "AED - Polizeistation",
+    "name": "AED",
     "description": "Polizeistation",
     "latitude": 51.7299213,
     "longitude": 10.6090331,
@@ -556,7 +556,7 @@
   {
     "id": "aed-node-13376567701",
     "type": "defibrillator",
-    "name": "AED bei Post-Apotheke",
+    "name": "AED",
     "description": "Post-Apotheke",
     "latitude": 51.7263049,
     "longitude": 10.6117999,
@@ -577,7 +577,7 @@
   {
     "id": "aed-node-13376570902",
     "type": "defibrillator",
-    "name": "AED bei elrlebnistage Harz",
+    "name": "AED",
     "description": "elrlebnistage Harz / Haus Gifhorn",
     "latitude": 51.6554274,
     "longitude": 10.6584896,
@@ -598,7 +598,7 @@
   {
     "id": "aed-node-13376571002",
     "type": "defibrillator",
-    "name": "AED bei Sanatorium Dr. Barner",
+    "name": "AED",
     "description": "Sanatorium",
     "latitude": 51.7293828,
     "longitude": 10.6176279,
@@ -619,7 +619,7 @@
   {
     "id": "aed-node-13376573901",
     "type": "defibrillator",
-    "name": "AED bei Erholungswerk PPT e.V.",
+    "name": "AED",
     "description": "Haus Waldhöhe",
     "latitude": 51.7307142,
     "longitude": 10.6154261,
@@ -640,7 +640,7 @@
   {
     "id": "aed-node-13376579201",
     "type": "defibrillator",
-    "name": "AED bei Stadt Braunlage",
+    "name": "AED",
     "description": "Rathaus",
     "latitude": 51.7273413,
     "longitude": 10.6084853,
@@ -661,7 +661,7 @@
   {
     "id": "aed-node-13376582001",
     "type": "defibrillator",
-    "name": "AED bei relaxa hotel Harz-Wald Braunlage",
+    "name": "AED",
     "description": "relaxa hotel Harz-Wald Braunlage",
     "latitude": 51.7364125,
     "longitude": 10.6112465,
@@ -682,7 +682,7 @@
   {
     "id": "aed-node-13376586701",
     "type": "defibrillator",
-    "name": "AED bei Städtische Betriebe Braunlage",
+    "name": "AED",
     "description": "SBB Braunlage",
     "latitude": 51.717586,
     "longitude": 10.6149883,
@@ -703,7 +703,7 @@
   {
     "id": "aed-node-13376587202",
     "type": "defibrillator",
-    "name": "AED bei Wurmbergseilbahn GmbH",
+    "name": "AED",
     "description": "Mittelstation",
     "latitude": 51.7444695,
     "longitude": 10.6172654,
@@ -724,7 +724,7 @@
   {
     "id": "aed-node-13376587401",
     "type": "defibrillator",
-    "name": "AED bei BTG Braunlage",
+    "name": "AED",
     "description": "Tourist Information Braunlage",
     "latitude": 51.727857,
     "longitude": 10.6145916,
@@ -745,7 +745,7 @@
   {
     "id": "aed-node-13376599601",
     "type": "defibrillator",
-    "name": "AED - Freibad Hohegeiss",
+    "name": "AED",
     "description": "Freibad Hohegeiss",
     "latitude": 51.6557205,
     "longitude": 10.6681569,
@@ -764,7 +764,7 @@
   {
     "id": "aed-node-13376602701",
     "type": "defibrillator",
-    "name": "AED bei RAT Immobilien GmbH & Co KG",
+    "name": "AED",
     "description": "Panoramic Hotel",
     "latitude": 51.6669811,
     "longitude": 10.6559616,
@@ -785,7 +785,7 @@
   {
     "id": "aed-node-13376602801",
     "type": "defibrillator",
-    "name": "AED bei RAT Immobilien GmbH & Co KG",
+    "name": "AED",
     "description": "Panoramic Hotel",
     "latitude": 51.6669811,
     "longitude": 10.6559616,
@@ -806,7 +806,7 @@
   {
     "id": "aed-node-13376602901",
     "type": "defibrillator",
-    "name": "AED bei RAT Immobilien GmbH & Co KG",
+    "name": "AED",
     "description": "Panoramic Hotel",
     "latitude": 51.6669811,
     "longitude": 10.6559616,
@@ -827,7 +827,7 @@
   {
     "id": "aed-node-13376604801",
     "type": "defibrillator",
-    "name": "AED bei Städtische Betriebe Braunlage",
+    "name": "AED",
     "description": "Bauhof SBB",
     "latitude": 51.6695863,
     "longitude": 10.6678364,

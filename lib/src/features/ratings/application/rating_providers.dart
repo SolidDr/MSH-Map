@@ -34,11 +34,15 @@ final recentReviewsProvider =
   return service.getRecentReviews();
 });
 
-/// Notifier für das Absenden einer Bewertung
-class RatingSubmitNotifier extends StateNotifier<AsyncValue<bool?>> {
-  RatingSubmitNotifier(this._service) : super(const AsyncValue.data(null));
+/// Notifier für das Absenden einer Bewertung (Riverpod 3.x)
+class RatingSubmitNotifier extends Notifier<AsyncValue<bool?>> {
+  late final RatingService _service;
 
-  final RatingService _service;
+  @override
+  AsyncValue<bool?> build() {
+    _service = ref.watch(ratingServiceProvider);
+    return const AsyncValue.data(null);
+  }
 
   Future<bool> submit({
     required String poiId,
@@ -66,9 +70,8 @@ class RatingSubmitNotifier extends StateNotifier<AsyncValue<bool?>> {
   }
 }
 
-/// Provider für das Absenden einer Bewertung
+/// Provider für das Absenden einer Bewertung (Riverpod 3.x)
 final ratingSubmitProvider =
-    StateNotifierProvider<RatingSubmitNotifier, AsyncValue<bool?>>((ref) {
-  final service = ref.watch(ratingServiceProvider);
-  return RatingSubmitNotifier(service);
-});
+    NotifierProvider<RatingSubmitNotifier, AsyncValue<bool?>>(
+  RatingSubmitNotifier.new,
+);

@@ -214,11 +214,21 @@ final departuresAutoRefreshProvider =
 });
 
 // ═══════════════════════════════════════════════════════════════
-// HELPER PROVIDERS
+// HELPER PROVIDERS (Riverpod 3.x)
 // ═══════════════════════════════════════════════════════════════
 
+/// Notifier für Refresh-Counter
+class StopsRefreshNotifier extends Notifier<int> {
+  @override
+  int build() => 0;
+
+  void increment() => state++;
+}
+
 /// Manueller Refresh-Trigger für Haltestellen
-final stopsRefreshProvider = StateProvider<int>((ref) => 0);
+final stopsRefreshProvider = NotifierProvider<StopsRefreshNotifier, int>(
+  StopsRefreshNotifier.new,
+);
 
 /// Haltestellen mit manuellem Refresh
 final nearbyStopsWithRefreshProvider =
@@ -241,5 +251,5 @@ final nearbyStopsWithRefreshProvider =
 
 /// Trigger für manuellen Refresh
 void refreshNearbyStops(WidgetRef ref) {
-  ref.read(stopsRefreshProvider.notifier).state++;
+  ref.read(stopsRefreshProvider.notifier).increment();
 }

@@ -78,7 +78,7 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
   @override
   Widget build(BuildContext context) {
     // Beliebte POIs laden für goldenen Glow-Effekt
-    final popularPois = ref.watch(popularPoisProvider).valueOrNull ?? {};
+    final popularPois = ref.watch(popularPoisProvider).value ?? {};
 
     return Stack(
       key: _stackKey,
@@ -282,7 +282,10 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
       color: notice.color.withValues(alpha: 0.8),
       borderColor: Colors.white,
       borderStrokeWidth: 2,
-      isDotted: notice.severity == NoticeSeverity.warning,
+      // flutter_map 8.x: isDotted ersetzt durch pattern
+      pattern: notice.severity == NoticeSeverity.warning
+          ? const StrokePattern.dotted()
+          : const StrokePattern.solid(),
     );
   }
 

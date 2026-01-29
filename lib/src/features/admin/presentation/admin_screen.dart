@@ -29,7 +29,7 @@ class _AdminScreenState extends ConsumerState<AdminScreen>
     super.initState();
     _tabController = TabController(length: 4, vsync: this);
     Future.microtask(() {
-      ref.read(adminKeyProvider.notifier).state = widget.adminKey;
+      ref.read(adminKeyProvider.notifier).setKey(widget.adminKey);
     });
   }
 
