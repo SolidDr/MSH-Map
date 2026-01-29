@@ -81,10 +81,25 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
     return Stack(
       key: _stackKey,
       children: [
-        GestureDetector(
-          onDoubleTap: widget.onDoubleTap,
-          behavior: HitTestBehavior.translucent,
-          child: FlutterMap(
+        // Listener für Trackpad Pinch-to-Zoom (Web)
+        Listener(
+          onPointerPanZoomUpdate: (event) {
+            // Trackpad-Pinch: scale != 1.0 bedeutet Zoom-Geste
+            if (event.scale != 1.0) {
+              final currentZoom = _mapController.camera.zoom;
+              // Scale > 1 = reinzoomen, < 1 = rauszoomen
+              final zoomDelta = (event.scale - 1.0) * 0.5;
+              final newZoom = (currentZoom + zoomDelta).clamp(
+                MapConfig.minZoom,
+                MapConfig.maxZoom,
+              );
+              _mapController.move(_mapController.camera.center, newZoom);
+            }
+          },
+          child: GestureDetector(
+            onDoubleTap: widget.onDoubleTap,
+            behavior: HitTestBehavior.translucent,
+            child: FlutterMap(
             mapController: _mapController,
             options: MapOptions(
               initialCenter:
@@ -174,6 +189,7 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
             ],
           ),
         ),
+        ), // Listener
 
         // Zoom Controls
         Positioned(
