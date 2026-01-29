@@ -155,7 +155,7 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
                 urlTemplate: MapConfig.tileUrlTemplate,
                 userAgentPackageName: MapConfig.userAgent,
               ),
-              if (widget.showFogOfWar)
+              if (widget.showFogOfWar && FeatureFlags.enableFogOfWar)
                 AdaptiveFogOfWarLayer(
                   currentZoom: _currentZoom,
                   useDetailedBorder: _currentZoom > 12,

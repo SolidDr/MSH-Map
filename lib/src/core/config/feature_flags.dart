@@ -13,7 +13,7 @@ class FeatureFlags {
   static const bool enableMap = true;
 
   /// Fog of War Effekt am Kartenrand (außerhalb MSH)
-  static const bool enableFogOfWar = true;
+  static const bool enableFogOfWar = false;
 
   /// Kategorien-Filter auf der Karte
   static const bool enableCategoryFilter = true;
