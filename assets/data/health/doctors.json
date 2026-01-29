@@ -672,11 +672,13 @@
       "id": "arzt_sh_001",
       "type": "doctor",
       "name": "Dr. med. Anja Ehrke",
-      "latitude": 51.4558,
-      "longitude": 11.0658,
-      "street": "Roßla",
+      "latitude": 51.4635,
+      "longitude": 11.0660,
+      "street": "Hallesche Straße 37",
       "postalCode": "06536",
-      "city": "Südharz OT Roßla",
+      "city": "Südharz-Roßla",
+      "phone": "+49 34651 2400",
+      "phoneFormatted": "034651 / 24 00",
       "isBarrierFree": true,
       "languages": [
         "Deutsch"
@@ -686,7 +688,9 @@
       "specialization": "allgemein",
       "hasHouseCalls": true,
       "verified": true,
-      "source": "arzt-auskunft.de, arzt-atlas.de"
+      "verifiedDate": "2026-01-29",
+      "correctionNote": "Koordinaten korrigiert - waren 800m zu weit südlich",
+      "source": "arzt-auskunft.de, doctolib.de"
     },
     {
       "id": "arzt_sh_085",

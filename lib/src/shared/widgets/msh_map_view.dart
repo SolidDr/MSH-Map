@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -57,6 +58,7 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
   MapItem? _hoveredItem;
   Offset? _mousePosition;
   double _currentZoom = MapConfig.defaultZoom;
+  double _currentRotation = 0.0;
   final GlobalKey _stackKey = GlobalKey();
 
   @override
@@ -82,13 +84,28 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
       key: _stackKey,
       children: [
         // Listener für Trackpad Pinch-to-Zoom (Web)
+        // Verwendet onPointerPanZoomStart/Update für echte Trackpad-Pinch-Gesten
+        // und onPointerSignal für Scroll-Wheel-Events (auch Trackpad-Scroll)
         Listener(
           onPointerPanZoomUpdate: (event) {
-            // Trackpad-Pinch: scale != 1.0 bedeutet Zoom-Geste
+            // Echte Trackpad-Pinch-Geste (zwei Finger zusammen/auseinander)
             if (event.scale != 1.0) {
               final currentZoom = _mapController.camera.zoom;
-              // Scale > 1 = reinzoomen, < 1 = rauszoomen
-              final zoomDelta = (event.scale - 1.0) * 0.5;
+              // Logarithmische Skalierung für natürlicheres Zoomen
+              final zoomDelta = (event.scale - 1.0) * 2.0;
+              final newZoom = (currentZoom + zoomDelta).clamp(
+                MapConfig.minZoom,
+                MapConfig.maxZoom,
+              );
+              _mapController.move(_mapController.camera.center, newZoom);
+            }
+          },
+          onPointerSignal: (event) {
+            // Scroll-Wheel und Trackpad-Scroll (zwei Finger scrollen)
+            if (event is PointerScrollEvent) {
+              final currentZoom = _mapController.camera.zoom;
+              // scrollDelta.dy: negativ = nach oben scrollen = reinzoomen
+              final zoomDelta = -event.scrollDelta.dy * 0.002;
               final newZoom = (currentZoom + zoomDelta).clamp(
                 MapConfig.minZoom,
                 MapConfig.maxZoom,
@@ -116,9 +133,12 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
                 scrollWheelVelocity: 0.005,   // Scroll/Trackpad-Zoom Geschwindigkeit
               ),
               onPositionChanged: (position, hasGesture) {
-                if (_currentZoom != position.zoom) {
+                final newZoom = position.zoom ?? MapConfig.defaultZoom;
+                final newRotation = _mapController.camera.rotation;
+                if (_currentZoom != newZoom || _currentRotation != newRotation) {
                   setState(() {
-                    _currentZoom = position.zoom ?? MapConfig.defaultZoom;
+                    _currentZoom = newZoom;
+                    _currentRotation = newRotation;
                   });
                 }
                 if (hasGesture && position.center != null && position.zoom != null) {
@@ -191,11 +211,14 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
         ),
         ), // Listener
 
-        // Zoom Controls
+        // Map Controls (Zoom + Kompass)
         Positioned(
           right: 16,
           bottom: 16,
-          child: _ZoomControls(controller: _mapController),
+          child: _MapControls(
+            controller: _mapController,
+            currentRotation: _currentRotation,
+          ),
         ),
 
         // Hover Tooltip
@@ -285,38 +308,129 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
   }
 }
 
-// Zoom Controls Widget
-class _ZoomControls extends StatelessWidget {
-  const _ZoomControls({required this.controller});
+// Map Controls Widget (Zoom + Kompass)
+class _MapControls extends StatelessWidget {
+  const _MapControls({
+    required this.controller,
+    required this.currentRotation,
+  });
 
   final MapController controller;
+  final double currentRotation;
+
+  @override
+  Widget build(BuildContext context) {
+    final isRotated = currentRotation.abs() > 0.5; // Mehr als 0.5° gedreht
+
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        // Kompass-Button (nur wenn Karte gedreht ist)
+        if (isRotated) ...[
+          _CompassButton(
+            rotation: currentRotation,
+            onPressed: () => controller.rotate(0),
+          ),
+          const SizedBox(height: 8),
+        ],
+        // Zoom-Buttons
+        Card(
+          elevation: 4,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              IconButton(
+                icon: const Icon(Icons.add),
+                onPressed: () {
+                  final zoom = controller.camera.zoom;
+                  final newZoom = (zoom + 1).clamp(MapConfig.minZoom, MapConfig.maxZoom);
+                  controller.move(controller.camera.center, newZoom);
+                },
+                tooltip: 'Hineinzoomen',
+              ),
+              const Divider(height: 1),
+              IconButton(
+                icon: const Icon(Icons.remove),
+                onPressed: () {
+                  final zoom = controller.camera.zoom;
+                  final newZoom = (zoom - 1).clamp(MapConfig.minZoom, MapConfig.maxZoom);
+                  controller.move(controller.camera.center, newZoom);
+                },
+                tooltip: 'Herauszoomen',
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+// Kompass-Button Widget
+class _CompassButton extends StatelessWidget {
+  const _CompassButton({
+    required this.rotation,
+    required this.onPressed,
+  });
+
+  final double rotation;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
     return Card(
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          IconButton(
-            icon: const Icon(Icons.add),
-            onPressed: () {
-              final zoom = controller.camera.zoom;
-              controller.move(controller.camera.center, zoom + 1);
-            },
-            tooltip: 'Hineinzoomen',
+      child: InkWell(
+        onTap: onPressed,
+        borderRadius: BorderRadius.circular(8),
+        child: Container(
+          width: 48,
+          height: 48,
+          alignment: Alignment.center,
+          child: Transform.rotate(
+            angle: -rotation * (3.14159265359 / 180), // Grad zu Radiant
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                // Norden-Pfeil (rot)
+                Positioned(
+                  top: 8,
+                  child: Container(
+                    width: 4,
+                    height: 14,
+                    decoration: BoxDecoration(
+                      color: Colors.red.shade700,
+                      borderRadius: BorderRadius.circular(2),
+                    ),
+                  ),
+                ),
+                // Süden-Pfeil (grau)
+                Positioned(
+                  bottom: 8,
+                  child: Container(
+                    width: 4,
+                    height: 14,
+                    decoration: BoxDecoration(
+                      color: Colors.grey.shade400,
+                      borderRadius: BorderRadius.circular(2),
+                    ),
+                  ),
+                ),
+                // Mittelpunkt
+                Container(
+                  width: 8,
+                  height: 8,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(color: Colors.black54, width: 2),
+                  ),
+                ),
+              ],
+            ),
           ),
-          const Divider(height: 1),
-          IconButton(
-            icon: const Icon(Icons.remove),
-            onPressed: () {
-              final zoom = controller.camera.zoom;
-              controller.move(controller.camera.center, zoom - 1);
-            },
-            tooltip: 'Herauszoomen',
-          ),
-        ],
+        ),
       ),
     );
   }

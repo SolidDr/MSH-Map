@@ -195,22 +195,31 @@ class FilterState {
 /// Filter Notifier mit Persistierung
 class FilterNotifier extends StateNotifier<FilterState> {
 
-  // Starteinstellung: Leeres Set = alle Kategorien sichtbar
+  // Starteinstellung: Standard-Filter (Gesundheit)
+  // Radwege werden separat über _showRadwege in HomeScreen gesteuert
   FilterNotifier() : super(const FilterState()) {
     _loadSavedFilters();
   }
   // SharedPreferences Keys
   static const _keyCategoriesFilter = 'map_filter_categories';
+  static const _keyHasSeenApp = 'has_seen_app_v2'; // Flag für ersten Besuch
 
   /// Lädt gespeicherte Filter aus SharedPreferences
   Future<void> _loadSavedFilters() async {
     final prefs = await SharedPreferences.getInstance();
     final savedCategories = prefs.getStringList(_keyCategoriesFilter);
+    final hasSeenApp = prefs.getBool(_keyHasSeenApp) ?? false;
 
     if (savedCategories != null) {
+      // Gespeicherte Filter verwenden
       state = state.copyWith(categories: savedCategories.toSet());
+    } else if (!hasSeenApp) {
+      // Erster Besuch: Nur Gesundheit anzeigen (Radwege sind separat an)
+      state = state.copyWith(categories: {'health'});
+      await prefs.setBool(_keyHasSeenApp, true);
+      await _saveFilters();
     }
-    // Wenn nichts gespeichert ist, bleibt das leere Set (alle sichtbar)
+    // Wenn hasSeenApp true aber keine Filter gespeichert → alle sichtbar
   }
 
   /// Speichert aktuelle Filter in SharedPreferences

@@ -12,7 +12,9 @@ const kupferspurenRoute = RadwegRoute(
   shortName: 'Kupferspuren',
   description: '800 Jahre Bergbaugeschichte auf einem Radweg: '
       'Entlang an Halden, Schächten und Kupferspuren '
-      'durch Mansfeld-Südharz.',
+      'durch Mansfeld-Südharz.\n\n'
+      '⚠️ Hinweis: Dieser Radweg befindet sich in der Ausbauphase. '
+      'Der dargestellte Verlauf entspricht dem aktuellen Planungsstand.',
   category: RadwegCategory.themenweg,
   lengthKm: 48,
   difficulty: 'Leicht',

@@ -40,6 +40,16 @@ class _WelcomeOverlayState extends State<WelcomeOverlay>
   }
 
   Future<void> _checkIfShouldShow() async {
+    // Admin-Route: Kein Welcome Screen
+    final currentPath = Uri.base.path;
+    if (currentPath.startsWith('/admin')) {
+      setState(() {
+        _showOverlay = false;
+        _isLoading = false;
+      });
+      return;
+    }
+
     final prefs = await SharedPreferences.getInstance();
     final lastSeenTimestamp = prefs.getInt(_lastSeenKey);
 

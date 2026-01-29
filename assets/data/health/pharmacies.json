@@ -5,7 +5,7 @@
     "version": "3.0",
     "region": "Mansfeld-Suedharz",
     "note": "Automatisch gemerged aus OSM + manuellen Daten",
-    "total_count": 55,
+    "total_count": 56,
     "verified_count": 9
   },
   "data": [
@@ -980,6 +980,26 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "source": "openstreetmap"
+    },
+    {
+      "id": "apo_sh_kyffhaeuser",
+      "type": "pharmacy",
+      "name": "Kyffhäuser Apotheke",
+      "latitude": 51.4630,
+      "longitude": 11.0695,
+      "street": "Hallesche Straße 59",
+      "postalCode": "06536",
+      "city": "Südharz-Roßla",
+      "phone": "+49 34651 2431",
+      "phoneFormatted": "034651 / 24 31",
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "verified": false,
+      "source": "customer_feedback",
+      "addedDate": "2026-01-29"
     }
   ]
 }

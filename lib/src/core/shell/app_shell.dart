@@ -293,7 +293,7 @@ class _MobileShellState extends State<_MobileShell>
       (Icons.local_hospital, 'Gesundheit', 4),
       (Icons.volunteer_activism, 'Soziales', 5),
       (Icons.nightlife, 'Ausgehen', 6),
-      (Icons.directions, 'Touren', 7),
+      (Icons.directions_bike, 'Radwege', 7),
       (Icons.person, 'Profil', 8),
     ];
 
@@ -324,7 +324,7 @@ class _MobileShellState extends State<_MobileShell>
       'Gesundheit',
       'Soziales',
       'Nachtleben',
-      'Touren',
+      'Radwege',
       'Profil',
     ];
     return index < titles.length ? titles[index] : 'MSH Map';
@@ -448,9 +448,9 @@ class _TabletShell extends StatelessWidget {
                 label: Text('Ausgehen'),
               ),
               NavigationRailDestination(
-                icon: Icon(Icons.directions_outlined),
-                selectedIcon: Icon(Icons.directions),
-                label: Text('Touren'),
+                icon: Icon(Icons.directions_bike_outlined),
+                selectedIcon: Icon(Icons.directions_bike),
+                label: Text('Radwege'),
               ),
               NavigationRailDestination(
                 icon: Icon(Icons.person_outline),
