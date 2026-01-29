@@ -203,6 +203,15 @@ class _HealthScreenState extends ConsumerState<HealthScreen> {
           }),
         ),
         _CategoryChip(
+          label: 'Kliniken',
+          icon: Icons.local_hospital,
+          isSelected: _selectedCategory == HealthCategory.hospital,
+          onTap: () => setState(() {
+            _selectedCategory = HealthCategory.hospital;
+            _selectedSpecialization = null;
+          }),
+        ),
+        _CategoryChip(
           label: 'Fitness',
           icon: Icons.fitness_center,
           isSelected: _selectedCategory == HealthCategory.fitness,
@@ -563,6 +572,17 @@ class _FacilityCard extends StatelessWidget {
                         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                               color: MshColors.textSecondary,
                             ),
+                      ),
+                    ] else if (facility.description != null &&
+                        facility.description!.isNotEmpty) ...[
+                      const SizedBox(height: 2),
+                      Text(
+                        facility.description!,
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                              color: MshColors.textSecondary,
+                            ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ],
                     const SizedBox(height: 4),
