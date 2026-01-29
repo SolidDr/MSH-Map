@@ -1,0 +1,50 @@
+name: Build & Deploy to Vercel
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'build/web/**'  # Verhindert Endlosschleife
+      - '**.md'
+  workflow_dispatch:  # Manueller Trigger möglich
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.0'
+          channel: 'stable'
+          cache: true
+
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Build Web Release
+        run: flutter build web --release --web-renderer html
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git add build/web/
+          if git diff --staged --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and Push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -m "build: Auto-build web release [skip ci]"
+          git push
