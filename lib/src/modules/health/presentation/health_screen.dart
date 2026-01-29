@@ -6,6 +6,7 @@ library;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/theme/msh_colors.dart';
 import '../../../features/analytics/data/usage_analytics_service.dart';
@@ -408,11 +409,51 @@ class _HealthScreenState extends ConsumerState<HealthScreen> {
       context: context,
       builder: (context) => AlertDialog(
         title: const Text('Gesundheit in MSH'),
-        content: const Text(
-          'Hier findest du Ärzte, Apotheken und Gesundheitseinrichtungen '
-          'im Landkreis Mansfeld-Südharz.\n\n'
-          'Im Notfall-Bereich oben findest du wichtige Notfallnummern '
-          'und den aktuellen Apotheken-Notdienst.',
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'Hier findest du Ärzte, Apotheken und Gesundheitseinrichtungen '
+              'im Landkreis Mansfeld-Südharz.\n\n'
+              'Im Notfall-Bereich oben findest du wichtige Notfallnummern '
+              'und den aktuellen Apotheken-Notdienst.',
+            ),
+            const SizedBox(height: 16),
+            Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: Colors.blue.shade50,
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(color: Colors.blue.shade200),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Wir geben uns allergrößte Mühe, unsere Daten '
+                    'vollständig und korrekt zu halten. Sollte dennoch '
+                    'etwas nicht stimmen, melden Sie sich bitte bei uns:',
+                    style: TextStyle(fontSize: 13),
+                  ),
+                  const SizedBox(height: 8),
+                  SizedBox(
+                    width: double.infinity,
+                    child: OutlinedButton.icon(
+                      onPressed: () async {
+                        final uri = Uri.parse('mailto:feedback@kolan-systems.de?subject=MSH Map Feedback - Gesundheitsdaten');
+                        if (await canLaunchUrl(uri)) {
+                          await launchUrl(uri);
+                        }
+                      },
+                      icon: const Icon(Icons.mail_outline, size: 18),
+                      label: const Text('Feedback senden'),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
         actions: [
           TextButton(
