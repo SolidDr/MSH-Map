@@ -93,10 +93,12 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
               minZoom: MapConfig.minZoom,
               maxZoom: MapConfig.maxZoom,
               interactionOptions: const InteractionOptions(
+                flags: InteractiveFlag.all,   // Alle Gesten aktivieren inkl. Trackpad-Pinch
                 pinchZoomThreshold: 0.1,      // Niedrigerer Threshold für sensitiveres Pinch
                 pinchMoveThreshold: 20,       // Bewegungsschwelle für Pinch-to-pan
                 rotationThreshold: 50,
                 enableMultiFingerGestureRace: true,
+                scrollWheelVelocity: 0.005,   // Scroll/Trackpad-Zoom Geschwindigkeit
               ),
               onPositionChanged: (position, hasGesture) {
                 if (_currentZoom != position.zoom) {
