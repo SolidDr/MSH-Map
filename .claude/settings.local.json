@@ -99,7 +99,8 @@
       "WebFetch(domain:www.kirchenkreis-eisleben-soemmerda.de)",
       "WebFetch(domain:www.drk-sangerhausen.de)",
       "WebFetch(domain:www.awo-rv-harz.de)",
-      "Bash(gh pr create:*)"
+      "Bash(gh pr create:*)",
+      "Bash(flutter pub:*)"
     ]
   }
 }
