@@ -5,7 +5,7 @@
     "version": "3.0",
     "region": "Mansfeld-Suedharz",
     "note": "Automatisch gemerged aus OSM + manuellen Daten",
-    "total_count": 114,
+    "total_count": 115,
     "verified_count": 13
   },
   "data": [
@@ -2175,6 +2175,32 @@
       "acceptsPublicInsurance": true,
       "acceptsPrivateInsurance": true,
       "source": "openstreetmap"
+    },
+    {
+      "id": "arzt_sh_zastava",
+      "type": "doctor",
+      "name": "Michael Zastava",
+      "latitude": 51.4625657,
+      "longitude": 11.0714624,
+      "street": "Hallesche Straße 69",
+      "postalCode": "06536",
+      "city": "Südharz-Roßla",
+      "locationNote": "Ross-Passage, 1. OG rechts",
+      "phone": "+49 34651 459805",
+      "phoneFormatted": "034651 / 45 98 05",
+      "fax": "+49 34651 459806",
+      "website": "https://www.nervenarzt-rossla.de",
+      "specialization": "neuro",
+      "openingHours": "Mo 08:00-12:00,14:00-17:00; Tu 14:00-19:00; Th 08:00-12:00,14:00-17:00; Fr 08:00-11:00",
+      "isBarrierFree": true,
+      "languages": [
+        "Deutsch"
+      ],
+      "acceptsPublicInsurance": true,
+      "acceptsPrivateInsurance": true,
+      "verified": false,
+      "source": "customer_feedback, arzt-auskunft.de",
+      "addedDate": "2026-01-29"
     }
   ]
 }

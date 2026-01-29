@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 import 'app.dart';
@@ -25,6 +26,9 @@ Future<void> main() async {
     debugPrint('Flutter error: ${details.exception}');
     debugPrint('Stack: ${details.stack}');
   };
+
+  // Pfad-basierte URLs für Web (ohne #)
+  usePathUrlStrategy();
 
   runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();

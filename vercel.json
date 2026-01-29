@@ -25,6 +25,7 @@
     "FIREBASE_PROJECT_ID": "lunch-radar-5d984"
   },
   "rewrites": [
-    { "source": "/api/:path*", "destination": "/api/:path*" }
+    { "source": "/api/:path*", "destination": "/api/:path*" },
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
   ]
 }
