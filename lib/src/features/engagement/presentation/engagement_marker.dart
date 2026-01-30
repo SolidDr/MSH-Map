@@ -77,6 +77,7 @@ class _EngagementMarkerState extends State<EngagementMarker>
     final borderRadius = BorderRadius.circular(widget.size * 0.25);
 
     return GestureDetector(
+      behavior: HitTestBehavior.opaque,
       onTap: widget.onTap,
       child: AnimatedBuilder(
         animation: _pulseAnimation,

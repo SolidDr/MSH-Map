@@ -309,6 +309,7 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
           }
         },
         child: GestureDetector(
+          behavior: HitTestBehavior.opaque,
           onTap: () => widget.onMarkerTap?.call(item),
           child: isPopular
               ? _PopularMarkerIcon(
@@ -348,6 +349,7 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
       width: 48,
       height: 48,
       child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
         onTap: () => widget.onNoticeTap?.call(notice),
         child: _NoticeMarkerIcon(notice: notice),
       ),

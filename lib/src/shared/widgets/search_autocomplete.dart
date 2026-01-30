@@ -69,8 +69,9 @@ class _SearchAutocompleteState extends State<SearchAutocomplete> {
   void _onFocusChange() {
     if (!_focusNode.hasFocus) {
       // Verzögert schließen, damit Tap auf Item registriert wird
-      Future.delayed(const Duration(milliseconds: 200), () {
-        if (!_focusNode.hasFocus) {
+      // 300ms gibt mehr Zeit für Touch-Events auf langsamen Geräten
+      Future.delayed(const Duration(milliseconds: 300), () {
+        if (!_focusNode.hasFocus && mounted) {
           _removeOverlay();
         }
       });
@@ -315,6 +316,7 @@ class _SuggestionsOverlay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
+      left: MshSpacing.lg,
       width: MediaQuery.of(context).size.width - (MshSpacing.lg * 2),
       child: CompositedTransformFollower(
         link: link,
@@ -369,7 +371,8 @@ class _SuggestionItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(
