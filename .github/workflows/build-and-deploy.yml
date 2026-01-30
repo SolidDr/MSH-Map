@@ -8,6 +8,9 @@ on:
       - '**.md'
   workflow_dispatch:  # Manueller Trigger möglich
 
+permissions:
+  contents: write  # Erlaubt Push vom github-actions[bot]
+
 jobs:
   build:
     runs-on: ubuntu-latest
