@@ -6,6 +6,7 @@ library;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/theme/msh_colors.dart';
 import '../../../core/theme/msh_spacing.dart';
@@ -559,6 +560,13 @@ class _FacilityCard extends StatelessWidget {
   final CivicFacility facility;
   final VoidCallback onTap;
 
+  Future<void> _callPhone(String phone) async {
+    final uri = Uri.parse('tel:$phone');
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -635,9 +643,27 @@ class _FacilityCard extends StatelessWidget {
                       ),
                     ),
                   const SizedBox(height: MshSpacing.xs),
-                  const Icon(
-                    Icons.chevron_right,
-                    color: MshColors.textMuted,
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      // Telefon-Button (klickbar)
+                      if (facility.phone != null)
+                        IconButton(
+                          icon: const Icon(
+                            Icons.phone,
+                            color: MshColors.success,
+                            size: 22,
+                          ),
+                          tooltip: 'Anrufen',
+                          onPressed: () => _callPhone(facility.phone!),
+                          padding: const EdgeInsets.all(8),
+                          constraints: const BoxConstraints(),
+                        ),
+                      const Icon(
+                        Icons.chevron_right,
+                        color: MshColors.textMuted,
+                      ),
+                    ],
                   ),
                 ],
               ),

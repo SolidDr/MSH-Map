@@ -181,37 +181,122 @@ class _DiscoverScreenState extends ConsumerState<DiscoverScreen> {
   }
 
   Widget _buildSearchBar(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: MshColors.surface,
-        borderRadius: BorderRadius.circular(MshTheme.radiusMedium),
-        border: Border.all(
-          color: MshColors.textMuted.withValues(alpha: 0.2),
-        ),
-      ),
-      child: TextField(
-        controller: _searchController,
-        decoration: InputDecoration(
-          hintText: 'Orte, Kategorien, Adressen...',
-          hintStyle: const TextStyle(color: MshColors.textMuted),
-          prefixIcon: const Icon(Icons.search, color: MshColors.textSecondary),
-          suffixIcon: _searchController.text.isNotEmpty
-              ? IconButton(
-                  icon: const Icon(Icons.clear, size: 18),
-                  onPressed: () {
-                    _searchController.clear();
-                    setState(() {});
-                  },
-                )
-              : null,
-          border: InputBorder.none,
-          contentPadding: const EdgeInsets.symmetric(
-            horizontal: MshSpacing.md,
-            vertical: MshSpacing.md,
+    return Autocomplete<MapItem>(
+      optionsBuilder: (TextEditingValue textEditingValue) {
+        if (textEditingValue.text.length < 2) {
+          return const Iterable<MapItem>.empty();
+        }
+        return _searchItems(textEditingValue.text);
+      },
+      displayStringForOption: (MapItem item) => item.displayName,
+      fieldViewBuilder: (context, controller, focusNode, onFieldSubmitted) {
+        // Sync mit _searchController für _hasSearchQuery
+        controller.addListener(() {
+          if (_searchController.text != controller.text) {
+            _searchController.text = controller.text;
+            setState(() {});
+          }
+        });
+
+        return Container(
+          decoration: BoxDecoration(
+            color: MshColors.surface,
+            borderRadius: BorderRadius.circular(MshTheme.radiusMedium),
+            border: Border.all(
+              color: MshColors.textMuted.withValues(alpha: 0.2),
+            ),
           ),
-        ),
-        onChanged: (_) => setState(() {}),
-      ),
+          child: TextField(
+            controller: controller,
+            focusNode: focusNode,
+            decoration: InputDecoration(
+              hintText: 'Orte, Kategorien, Adressen...',
+              hintStyle: const TextStyle(color: MshColors.textMuted),
+              prefixIcon: const Icon(Icons.search, color: MshColors.textSecondary),
+              suffixIcon: controller.text.isNotEmpty
+                  ? IconButton(
+                      icon: const Icon(Icons.clear, size: 18),
+                      onPressed: () {
+                        controller.clear();
+                        _searchController.clear();
+                        setState(() {});
+                      },
+                    )
+                  : null,
+              border: InputBorder.none,
+              contentPadding: const EdgeInsets.symmetric(
+                horizontal: MshSpacing.md,
+                vertical: MshSpacing.md,
+              ),
+            ),
+            onSubmitted: (_) => onFieldSubmitted(),
+          ),
+        );
+      },
+      optionsViewBuilder: (context, onSelected, options) {
+        return Align(
+          alignment: Alignment.topLeft,
+          child: Material(
+            elevation: 4,
+            borderRadius: BorderRadius.circular(MshTheme.radiusMedium),
+            child: Container(
+              constraints: BoxConstraints(
+                maxHeight: 300,
+                maxWidth: MediaQuery.of(context).size.width - MshSpacing.lg * 2,
+              ),
+              decoration: BoxDecoration(
+                color: MshColors.surface,
+                borderRadius: BorderRadius.circular(MshTheme.radiusMedium),
+                border: Border.all(color: MshColors.textMuted.withValues(alpha: 0.2)),
+              ),
+              child: ListView.builder(
+                padding: EdgeInsets.zero,
+                shrinkWrap: true,
+                itemCount: options.length,
+                itemBuilder: (context, index) {
+                  final item = options.elementAt(index);
+                  return ListTile(
+                    dense: true,
+                    leading: CircleAvatar(
+                      radius: 16,
+                      backgroundColor: item.markerColor.withAlpha(30),
+                      child: Icon(
+                        _getCategoryIcon(item.category),
+                        color: item.markerColor,
+                        size: 16,
+                      ),
+                    ),
+                    title: Text(
+                      item.displayName,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(fontSize: 14),
+                    ),
+                    subtitle: item.subtitle != null
+                        ? Text(
+                            item.subtitle!,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
+                              fontSize: 12,
+                              color: MshColors.textMuted,
+                            ),
+                          )
+                        : null,
+                    onTap: () => onSelected(item),
+                  );
+                },
+              ),
+            ),
+          ),
+        );
+      },
+      onSelected: (MapItem item) {
+        // Direkt zur Karte navigieren mit Fokus auf POI
+        context.go(
+          '/?lat=${item.coordinates.latitude}&lng=${item.coordinates.longitude}&poi=${item.id}',
+        );
+      },
     );
   }
 

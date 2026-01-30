@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../core/constants/app_strings.dart';
@@ -424,6 +425,33 @@ class _WelcomeContentState extends State<_WelcomeContent> {
                   ),
 
                   const SizedBox(height: 12),
+
+                  // Barrierefreiheit-Hinweis
+                  TextButton.icon(
+                    onPressed: () {
+                      widget.onStart();
+                      // Kurze Verzögerung damit das Overlay erst schließt
+                      Future.delayed(const Duration(milliseconds: 450), () {
+                        if (context.mounted) {
+                          context.push('/accessibility');
+                        }
+                      });
+                    },
+                    icon: const Icon(
+                      Icons.accessibility_new,
+                      size: 16,
+                      color: Colors.white54,
+                    ),
+                    label: const Text(
+                      'Schriftgröße & Kontrast anpassen',
+                      style: TextStyle(
+                        color: Colors.white54,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(height: 8),
 
                   const Text(
                     'Tippen oder wischen zum Starten',

@@ -637,7 +637,7 @@ class _FacilityCard extends StatelessWidget {
                 ),
               ),
 
-              // Status Badges
+              // Aktionen (Telefon + Chevron)
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
@@ -661,9 +661,27 @@ class _FacilityCard extends StatelessWidget {
                       ),
                     ),
                   const SizedBox(height: MshSpacing.xs),
-                  const Icon(
-                    Icons.chevron_right,
-                    color: MshColors.textMuted,
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      // Telefon-Button (klickbar)
+                      if (facility.phone != null)
+                        IconButton(
+                          icon: const Icon(
+                            Icons.phone,
+                            color: MshColors.success,
+                            size: 22,
+                          ),
+                          tooltip: 'Anrufen',
+                          onPressed: () => _callPhone(facility.phone!),
+                          padding: const EdgeInsets.all(8),
+                          constraints: const BoxConstraints(),
+                        ),
+                      const Icon(
+                        Icons.chevron_right,
+                        color: MshColors.textMuted,
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -685,5 +703,12 @@ class _FacilityCard extends StatelessWidget {
       HealthCategory.medicalSupply => Icons.medical_information,
       HealthCategory.defibrillator => Icons.favorite,
     };
+  }
+
+  Future<void> _callPhone(String phone) async {
+    final uri = Uri.parse('tel:$phone');
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
+    }
   }
 }
