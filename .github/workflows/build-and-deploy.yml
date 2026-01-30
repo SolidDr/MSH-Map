@@ -35,7 +35,13 @@ jobs:
         run: flutter analyze --no-fatal-infos || true
 
       - name: Build Web Release
-        run: flutter build web --release --verbose
+        run: |
+          flutter build web --release 2>&1 || {
+            echo "=== BUILD FAILED ==="
+            echo "Checking for Dart compilation errors..."
+            flutter analyze lib/ --fatal-infos 2>&1 || true
+            exit 1
+          }
 
       - name: Check for changes
         id: changes
