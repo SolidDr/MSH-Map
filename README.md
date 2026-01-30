@@ -1,246 +1,177 @@
-# 🗺️ MSH Map
+# MSH Map
 
-**Interaktive Kartenanwendung für den Landkreis Mansfeld-Südharz**
+**Regionale Plattform für Mansfeld-Südharz**
 
-Eine moderne, barrierefreie Web-App die lokale Orte, Events, ÖPNV-Verbindungen und mehr auf einer übersichtlichen Karte vereint – mit besonderem Fokus auf ältere Nutzer und regionale Bedürfnisse.
+Eine moderne Flutter Web-App, die lokale Orte, Veranstaltungen, ÖPNV-Verbindungen, Gesundheitseinrichtungen und mehr auf einer interaktiven Karte vereint.
 
-![MSH Map Analytics](https://img.shields.io/badge/Status-Beta-yellow)
+![Version](https://img.shields.io/badge/Version-2.5.2-blue)
+![Flutter](https://img.shields.io/badge/Flutter-3.38-02569B?logo=flutter)
 ![License](https://img.shields.io/badge/License-MIT-green)
-![Made with Claude](https://img.shields.io/badge/Made%20with-Claude%20AI-blueviolet)
+
+**Live:** [msh-map.de](https://msh-map.de)
 
 ---
 
-## ✨ Features
+## Features
 
-### 🔍 Intelligente Suche
-- **Tensor Search Architektur** – Suchsystem basierend auf KOLAN Systems Tensor Search, optimiert für lokale Ausführung ohne externe Abhängigkeiten
-- Autocomplete mit Echtzeit-Vorschlägen
-- Fuzzy-Matching und Synonym-Erkennung
-- Kategoriebasierte Filterung
+### Karte & Entdecken
+- Interaktive Karte mit allen Points of Interest
+- Autocomplete-Suche mit Live-Vorschlägen
+- Kategoriebasierte Filter mit Scroll-Indikatoren
+- Marker-Clustering für bessere Performance
 
-### 🗺️ Interaktive Karte
-- Alle Points of Interest auf einen Blick
-- Kategorien: Gastronomie, Kultur, Gesundheit, Bildung, Sport und mehr
-- Echtzeit-Warnungen und Hinweise (Baustellen, Sperrungen)
-- Heatmap-Visualisierung für Dichte-Analyse
+### Veranstaltungen
+- Regionale Events und Termine
+- Engagement-Möglichkeiten (Vereine, Ehrenamt)
+- Tierheimtiere zur Vermittlung
+- Teilen-Funktion (WhatsApp, SMS, etc.)
 
-### 📅 Events & Erleben
-- Veranstaltungskalender der Region
-- Filter nach Kategorie (Konzert, Markt, Theater, Sport, etc.)
-- "Mitmachen" – Vereine und Gruppen entdecken
-
-### 🚌 Mobilität
-- ÖPNV-Abfahrten in Echtzeit
+### ÖPNV (Mobilität)
+- Echtzeit-Abfahrten von Haltestellen
 - Verbindungssuche mit Autocomplete
-- Haltestellen in der Nähe
-- Alternative Mobilität (Fahrrad, Carsharing)
+- Integration mit INSA Sachsen-Anhalt
 
-### 🏥 Gesundheit (NEU)
-- Ärzte-Suche mit Öffnungszeiten und Kontaktdaten
-- Notdienst-Apotheken – immer aktuell
-- Barrierefreie Praxen finden
-- Seniorenfreundliche Darstellung mit großen Touch-Targets
+### Gesundheit
+- Ärzte, Apotheken, Krankenhäuser
+- Notdienst-Apotheken (aktuell)
+- Defibrillatoren (AED) Standorte
+- Klickbare Telefonnummern in Listen
 
-### ♿ Barrierefreiheit
-- Optimiert für ältere Nutzer
-- Hoher Kontrast, große Schriften
-- Vollständige Keyboard-Navigation
-- Screen-Reader kompatibel
+### Soziales
+- Behörden und Ämter
+- Jugendzentren
+- Soziale Einrichtungen
+- Seniorentreffs
+
+### Ausgehen & Freizeit
+- Restaurants, Cafés, Bars
+- Schwimmbäder
+- Nachtleben
+
+### Radwege
+- Regionale Radrouten mit GPX-Daten
+- Animierte Streckenanzeige auf der Karte
+- POIs entlang der Routen
+
+### Barrierefreiheit
+- Einstellbare Schriftgröße
+- Hoher Kontrast Modus
+- Große Touch-Targets
+- Hinweis auf Startseite
 
 ---
 
-## 🚀 Quick Start
+## Tech Stack
+
+| Bereich | Technologie |
+|---------|-------------|
+| Framework | Flutter 3.38 (Web) |
+| State Management | Riverpod |
+| Routing | go_router |
+| Karte | flutter_map + Leaflet |
+| Clustering | flutter_map_marker_cluster |
+| CI/CD | GitHub Actions |
+| Hosting | Vercel |
+
+---
+
+## Entwicklung
 
 ### Voraussetzungen
 
-- Node.js 18+ 
-- npm oder yarn
+- Flutter SDK 3.38+
+- Dart SDK 3.8+
 
 ### Installation
 
 ```bash
 # Repository klonen
-git clone https://github.com/kolan-systems/msh-map-analytics.git
-
-# In das Verzeichnis wechseln
-cd msh-map-analytics
+git clone https://github.com/SolidDr/MSH-Map.git
+cd MSH-Map
 
 # Abhängigkeiten installieren
-npm install
+flutter pub get
 
 # Entwicklungsserver starten
-npm run dev
+flutter run -d chrome
 ```
 
-Die App ist nun unter `http://localhost:3000` erreichbar.
-
-### Production Build
+### Build
 
 ```bash
-npm run build
-npm run start
-```
+# Web Release Build
+flutter build web --release
 
----
-
-## 🏗️ Architektur
-
-### Tensor Search Integration
-
-Die Suchfunktionalität basiert auf der **KOLAN Systems Tensor Search** Architektur. Diese wurde speziell so konzipiert, dass sie:
-
-- **Lokal ausführbar** ist – keine externen API-Aufrufe notwendig
-- **Offline-fähig** – Suche funktioniert auch ohne Internetverbindung
-- **Datenschutzfreundlich** – alle Daten bleiben auf dem Gerät
-- **Performant** – optimiert für schnelle Antwortzeiten auch auf älteren Geräten
-
-```
-┌─────────────────────────────────────────────────┐
-│                  MSH Map App                     │
-├─────────────────────────────────────────────────┤
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────┐ │
-│  │   Tensor    │  │    Map      │  │  Event  │ │
-│  │   Search    │  │   Engine    │  │ Handler │ │
-│  └──────┬──────┘  └──────┬──────┘  └────┬────┘ │
-│         │                │               │      │
-│         └────────────────┼───────────────┘      │
-│                          │                      │
-│              ┌───────────┴───────────┐          │
-│              │     Local Data Store   │          │
-│              │   (Offline Available)  │          │
-│              └───────────────────────┘          │
-└─────────────────────────────────────────────────┘
+# Der Build liegt in build/web/
 ```
 
 ### Projektstruktur
 
 ```
-msh-map-analytics/
-├── src/
-│   ├── components/     # UI-Komponenten
-│   ├── features/       # Feature-Module
-│   │   ├── search/     # Tensor Search Implementation
-│   │   ├── map/        # Kartenlogik
-│   │   ├── events/     # Event-Handling
-│   │   ├── mobility/   # ÖPNV-Features
-│   │   └── health/     # Gesundheits-Modul
-│   ├── data/           # Lokale Datensätze
-│   ├── styles/         # CSS/Styling
-│   └── utils/          # Hilfsfunktionen
-├── public/             # Statische Assets
-└── docs/               # Dokumentation
+lib/
+├── main.dart
+├── app.dart
+└── src/
+    ├── core/           # Theme, Config, Constants
+    │   ├── config/
+    │   ├── constants/
+    │   ├── providers/
+    │   ├── shell/      # App Shell (Navigation)
+    │   └── theme/
+    ├── features/       # Feature-Module
+    │   ├── analytics/
+    │   ├── discover/   # Entdecken Screen
+    │   ├── engagement/ # Veranstaltungen
+    │   ├── mobility/   # ÖPNV
+    │   └── profile/    # Einstellungen
+    ├── modules/        # Daten-Module
+    │   ├── civic/      # Soziales
+    │   ├── gastro/     # Gastronomie
+    │   ├── health/     # Gesundheit
+    │   ├── leisure/    # Freizeit
+    │   ├── nightlife/  # Ausgehen
+    │   └── radwege/    # Radwege
+    └── shared/         # Gemeinsame Widgets
+        ├── domain/
+        └── widgets/
 ```
 
 ---
 
-## 🎯 Roadmap
+## Datenquellen
 
-### ✅ Abgeschlossen
-- [x] Interaktive Kartenansicht
-- [x] Kategoriebasierte Filter
-- [x] Event-Kalender
-- [x] ÖPNV-Integration
-- [x] Warnungen & Hinweise
-- [x] Mobile-optimierte Ansicht
-
-### 🔄 In Arbeit
-- [ ] Gesundheits-Modul (Ärzte, Apotheken)
-- [ ] Erweiterte Suchfunktionen
-- [ ] Offline-Modus (Service Worker)
-- [ ] Benutzerprofile
-
-### 📋 Geplant
-- [ ] Mehrsprachigkeit (DE/EN)
-- [ ] Push-Benachrichtigungen
-- [ ] Community-Features
-- [ ] API für Drittanbieter
+- **OpenStreetMap** - Geodaten, POIs
+- **INSA Sachsen-Anhalt** - ÖPNV Echtzeitdaten
+- **Kommunale Quellen** - Veranstaltungen, Behörden
+- **Eigene Recherche** - Gesundheit, Soziales
 
 ---
 
-## 🛠️ Entwicklung
+## CI/CD
 
-### Technologie-Stack
+GitHub Actions baut automatisch bei Push auf `main`:
 
-| Bereich | Technologie |
-|---------|-------------|
-| Frontend | Next.js / React |
-| Karte | Leaflet |
-| Styling | Tailwind CSS |
-| State | Zustand / Context |
-| Suche | Tensor Search (KOLAN) |
-| Deployment | Vercel |
-
-### Lokale Entwicklung
-
-```bash
-# Tests ausführen
-npm run test
-
-# Linting
-npm run lint
-
-# Type-Check
-npm run type-check
-```
-
-### Daten aktualisieren
-
-Die lokalen Datensätze können über das Admin-Interface oder manuell aktualisiert werden:
-
-```bash
-npm run update-data
-```
+1. Flutter Web Release Build
+2. Commit der Build-Artefakte
+3. Deploy zu Vercel
 
 ---
 
-## 📊 Datenquellen
+## Lizenz
 
-MSH Map Analytics aggregiert öffentlich verfügbare Daten aus verschiedenen Quellen:
-
-- OpenStreetMap (Geodaten)
-- Kommunale Webseiten (Events, Öffnungszeiten)
-- INSA Sachsen-Anhalt (ÖPNV)
-- KV Sachsen-Anhalt (Arztverzeichnis)
-- Apothekerkammer (Notdienste)
+MIT License - siehe [LICENSE](LICENSE)
 
 ---
 
-## 🤝 Beitragen
-
-Beiträge sind willkommen! Bitte lies zuerst unsere [Contributing Guidelines](CONTRIBUTING.md).
-
-1. Fork das Repository
-2. Erstelle einen Feature-Branch (`git checkout -b feature/AmazingFeature`)
-3. Committe deine Änderungen (`git commit -m 'Add AmazingFeature'`)
-4. Push zum Branch (`git push origin feature/AmazingFeature`)
-5. Öffne einen Pull Request
-
----
-
-## 📄 Lizenz
-
-Dieses Projekt steht unter der MIT-Lizenz – siehe [LICENSE](LICENSE) für Details.
-
----
-
-## 👏 Credits
-
-Entwickelt von **KOLAN Systems**
-
-Dieses Projekt wurde in Zusammenarbeit mit Claude AI entwickelt.
-
----
-
-## 📬 Kontakt
+## Kontakt
 
 **KOLAN Systems**
 
 - Website: [kolansystems.de](https://kolansystems.de)
-- E-Mail: kontakt@kolansystems.de
-- GitHub: [@kolan-systems](https://github.com/kolan-systems)
+- GitHub: [@SolidDr](https://github.com/SolidDr)
 
 ---
 
 <p align="center">
-  <sub>Mit ❤️ für Mansfeld-Südharz</sub>
+  <sub>Mit Liebe für Mansfeld-Südharz</sub>
 </p>
