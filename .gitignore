@@ -123,5 +123,8 @@ node_modules/
 # DeepScan generated output
 deepscan/output/
 
+# Deprecated backup code (broken references)
+_deprecated_backup/
+
 # Windows reserved device names
 nul
