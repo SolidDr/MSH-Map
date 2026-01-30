@@ -4,14 +4,16 @@ import '../../core/theme/msh_colors.dart';
 /// Kupferfarbe für Radwege
 const _kupferColor = Color(0xFFB87333);
 
-class CategoryQuickFilter extends StatelessWidget {
-
+class CategoryQuickFilter extends StatefulWidget {
   const CategoryQuickFilter({
-    required this.selectedCategories, required this.onCategoryToggle, super.key,
+    required this.selectedCategories,
+    required this.onCategoryToggle,
+    super.key,
     this.categoryCounts = const {},
     this.onRadwegeToggle,
     this.radwegeActive = false,
   });
+
   final Set<String> selectedCategories;
   final ValueChanged<String> onCategoryToggle;
   final Map<String, int> categoryCounts;
@@ -23,49 +25,149 @@ class CategoryQuickFilter extends StatelessWidget {
   final bool radwegeActive;
 
   @override
+  State<CategoryQuickFilter> createState() => _CategoryQuickFilterState();
+}
+
+class _CategoryQuickFilterState extends State<CategoryQuickFilter> {
+  final ScrollController _scrollController = ScrollController();
+  bool _showRightFade = true;
+  bool _showLeftFade = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(_updateFadeIndicators);
+    // Initial check nach dem ersten Frame
+    WidgetsBinding.instance.addPostFrameCallback((_) => _updateFadeIndicators());
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _updateFadeIndicators() {
+    if (!_scrollController.hasClients) return;
+
+    final position = _scrollController.position;
+    final atStart = position.pixels <= 0;
+    final atEnd = position.pixels >= position.maxScrollExtent - 10;
+
+    setState(() {
+      _showLeftFade = !atStart;
+      _showRightFade = !atEnd;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       height: 48,
       margin: const EdgeInsets.only(top: 8),
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        clipBehavior: Clip.none,
-        padding: const EdgeInsets.only(left: 12, right: 24),
+      child: Stack(
         children: [
-          _CategoryChip(
-            label: 'Alle',
-            icon: Icons.apps,
-            count: categoryCounts.values.fold(0, (a, b) => a + b),
-            isSelected: selectedCategories.isEmpty && !radwegeActive,
-            onTap: () {
-              // Clear all by toggling all selected categories
-              for (final cat in selectedCategories.toList()) {
-                onCategoryToggle(cat);
-              }
-              // Radwege auch deaktivieren wenn aktiv
-              if (radwegeActive) {
-                onRadwegeToggle?.call();
-              }
-            },
+          // Filter-Liste
+          ListView(
+            controller: _scrollController,
+            scrollDirection: Axis.horizontal,
+            clipBehavior: Clip.none,
+            padding: const EdgeInsets.only(left: 12, right: 24),
+            children: [
+              _CategoryChip(
+                label: 'Alle',
+                icon: Icons.apps,
+                count: widget.categoryCounts.values.fold(0, (a, b) => a + b),
+                isSelected: widget.selectedCategories.isEmpty && !widget.radwegeActive,
+                onTap: () {
+                  // Clear all by toggling all selected categories
+                  for (final cat in widget.selectedCategories.toList()) {
+                    widget.onCategoryToggle(cat);
+                  }
+                  // Radwege auch deaktivieren wenn aktiv
+                  if (widget.radwegeActive) {
+                    widget.onRadwegeToggle?.call();
+                  }
+                },
+              ),
+              // Radwege-Chip (speziell, da es Polylines sind)
+              if (widget.onRadwegeToggle != null)
+                _CategoryChip(
+                  label: 'Radwege',
+                  icon: Icons.directions_bike,
+                  color: _kupferColor,
+                  count: 9, // Anzahl der Radwege
+                  isSelected: widget.radwegeActive,
+                  onTap: widget.onRadwegeToggle!,
+                ),
+              ..._categories.map(
+                (cat) => _CategoryChip(
+                  label: cat.label,
+                  icon: cat.icon,
+                  color: cat.color,
+                  count: widget.categoryCounts[cat.id] ?? 0,
+                  isSelected: widget.selectedCategories.contains(cat.id),
+                  onTap: () => widget.onCategoryToggle(cat.id),
+                ),
+              ),
+            ],
           ),
-          // Radwege-Chip (speziell, da es Polylines sind)
-          if (onRadwegeToggle != null)
-            _CategoryChip(
-              label: 'Radwege',
-              icon: Icons.directions_bike,
-              color: _kupferColor,
-              count: 9, // Anzahl der Radwege
-              isSelected: radwegeActive,
-              onTap: onRadwegeToggle!,
+          // Linker Gradient-Fade (zeigt: mehr links)
+          if (_showLeftFade)
+            Positioned(
+              left: 0,
+              top: 0,
+              bottom: 0,
+              child: IgnorePointer(
+                child: Container(
+                  width: 24,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.centerLeft,
+                      end: Alignment.centerRight,
+                      colors: [
+                        MshColors.background,
+                        MshColors.background.withValues(alpha: 0),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
             ),
-          ..._categories.map((cat) => _CategoryChip(
-                label: cat.label,
-                icon: cat.icon,
-                color: cat.color,
-                count: categoryCounts[cat.id] ?? 0,
-                isSelected: selectedCategories.contains(cat.id),
-                onTap: () => onCategoryToggle(cat.id),
-              ),),
+          // Rechter Gradient-Fade (zeigt: mehr rechts)
+          if (_showRightFade)
+            Positioned(
+              right: 0,
+              top: 0,
+              bottom: 0,
+              child: IgnorePointer(
+                child: Container(
+                  width: 40,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.centerLeft,
+                      end: Alignment.centerRight,
+                      colors: [
+                        MshColors.background.withValues(alpha: 0),
+                        MshColors.background,
+                      ],
+                    ),
+                  ),
+                  // Kleiner Pfeil als visueller Hinweis
+                  child: const Align(
+                    alignment: Alignment.centerRight,
+                    child: Padding(
+                      padding: EdgeInsets.only(right: 4),
+                      child: Icon(
+                        Icons.chevron_right,
+                        size: 20,
+                        color: MshColors.textMuted,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
         ],
       ),
     );
