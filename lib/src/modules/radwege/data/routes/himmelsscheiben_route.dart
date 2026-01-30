@@ -17,13 +17,13 @@ const himmelsscheibenRoute = RadwegRoute(
   category: RadwegCategory.themenweg,
   lengthKm: 71,
   difficulty: 'Mittel',
-  routeColor: const Color(0xFF1E3A5F), // Nachthimmelblau
+  routeColor: Color(0xFF1E3A5F), // Nachthimmelblau
   elevationGain: 420,
   websiteUrl: 'https://www.himmelswege.de/',
-  center: const LatLng(51.38, 11.72),
+  center: LatLng(51.38, 11.72),
   overviewZoom: 10,
   // 288 Koordinaten aus OSM Relation 92435 extrahiert
-  routePoints: const [
+  routePoints: [
     LatLng(51.4975513, 11.9590124),
     LatLng(51.4965710, 11.9594322),
     LatLng(51.4966364, 11.9558915),
@@ -308,7 +308,7 @@ const himmelsscheibenRoute = RadwegRoute(
     LatLng(51.2722173, 11.5438093),
     LatLng(51.2713547, 11.5447476),
   ],
-  pois: const [
+  pois: [
     RadwegPoi(
       name: 'Landesmuseum Halle',
       coords: LatLng(51.4981, 11.9625),

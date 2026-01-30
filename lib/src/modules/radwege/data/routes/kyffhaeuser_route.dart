@@ -17,13 +17,13 @@ const kyffhaeuserRoute = RadwegRoute(
   category: RadwegCategory.rundweg,
   lengthKm: 36,
   difficulty: 'Mittel',
-  routeColor: const Color(0xFF795548), // Braun
+  routeColor: Color(0xFF795548), // Braun
   isLoop: true,
   elevationGain: 380,
   websiteUrl: 'https://bad-frankenhausen.de/kur-tourismus/freizeit-kultur/freizeitangebote/wandern-radfahren/kyffhaeuser-radweg/',
-  center: const LatLng(51.40, 11.10),
+  center: LatLng(51.40, 11.10),
   overviewZoom: 11.5,
-  routePoints: const [
+  routePoints: [
     // Start: Kelbra
     LatLng(51.4362, 11.0401),
 
@@ -60,7 +60,7 @@ const kyffhaeuserRoute = RadwegRoute(
     LatLng(51.4350, 11.0600),
     LatLng(51.4362, 11.0401),
   ],
-  pois: const [
+  pois: [
     RadwegPoi(
       name: 'Stausee Kelbra',
       coords: LatLng(51.4400, 11.0300),

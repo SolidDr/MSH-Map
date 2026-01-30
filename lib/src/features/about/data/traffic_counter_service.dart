@@ -152,7 +152,7 @@ class TrafficCounterService {
 
   int _getWeekNumber(DateTime date) {
     // ISO 8601 Wochennummer
-    final dayOfYear = date.difference(DateTime(date.year, 1)).inDays + 1;
+    final dayOfYear = date.difference(DateTime(date.year)).inDays + 1;
     final weekday = date.weekday;
     return ((dayOfYear - weekday + 10) / 7).floor();
   }

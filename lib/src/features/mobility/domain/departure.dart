@@ -6,6 +6,18 @@ import 'package:flutter/material.dart';
 
 /// Eine Abfahrt an einer Haltestelle
 class Departure {
+  const Departure({
+    required this.tripId,
+    required this.direction,
+    required this.line,
+    required this.plannedWhen,
+    this.when,
+    this.delay,
+    this.platform,
+    this.plannedPlatform,
+    this.cancelled,
+    this.remarks,
+  });
 
   factory Departure.fromJson(Map<String, dynamic> json) {
     return Departure(
@@ -24,18 +36,6 @@ class Departure {
           .toList(),
     );
   }
-  const Departure({
-    required this.tripId,
-    required this.direction,
-    required this.line,
-    required this.plannedWhen,
-    this.when,
-    this.delay,
-    this.platform,
-    this.plannedPlatform,
-    this.cancelled,
-    this.remarks,
-  });
 
   /// Trip-ID für diese Fahrt
   final String tripId;
@@ -126,6 +126,13 @@ class Departure {
 
 /// Verkehrslinie (z.B. "RE 10", "Bus 200")
 class TransitLine {
+  const TransitLine({
+    required this.id,
+    required this.name,
+    required this.mode,
+    required this.product,
+    this.operator,
+  });
 
   factory TransitLine.fromJson(Map<String, dynamic> json) {
     return TransitLine(
@@ -136,13 +143,6 @@ class TransitLine {
       operator: json['operator']?['name'] as String?,
     );
   }
-  const TransitLine({
-    required this.id,
-    required this.name,
-    required this.mode,
-    required this.product,
-    this.operator,
-  });
 
   /// Linien-ID
   final String id;

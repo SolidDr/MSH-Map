@@ -16,13 +16,13 @@ const romanikRoute = RadwegRoute(
   category: RadwegCategory.themenweg,
   lengthKm: 32.6,
   difficulty: 'Leicht',
-  routeColor: const Color(0xFF8D6E63), // Braun/Sandstein
+  routeColor: Color(0xFF8D6E63), // Braun/Sandstein
   isLoop: true,
   elevationGain: 291,
   websiteUrl: 'https://www.outdooractive.com/de/route/radtour/harz/erlebnistour-strasse-der-romanik/9660811/',
-  center: const LatLng(51.44, 11.36),
+  center: LatLng(51.44, 11.36),
   overviewZoom: 11.5,
-  routePoints: const [
+  routePoints: [
     // Start: Europa-Rosarium Sangerhausen
     LatLng(51.4737, 11.3096),
 
@@ -66,7 +66,7 @@ const romanikRoute = RadwegRoute(
     // Zurück zum Start
     LatLng(51.4737, 11.3096),
   ],
-  pois: const [
+  pois: [
     RadwegPoi(
       name: 'Europa-Rosarium Sangerhausen',
       coords: LatLng(51.4737, 11.3096),

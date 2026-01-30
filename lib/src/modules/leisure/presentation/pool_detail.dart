@@ -94,7 +94,7 @@ class PoolDetailContent extends StatelessWidget {
                         avatar: const Icon(Icons.check, size: 16),
                         label: Text(feature),
                         backgroundColor: MshColors.categoryPool.withAlpha(25),
-                      ))
+                      ),)
                   .toList(),
             ),
             const SizedBox(height: 16),
@@ -135,7 +135,7 @@ class PoolDetailContent extends StatelessWidget {
                     ),
                     isThreeLine: offer.description != null,
                   ),
-                )),
+                ),),
             const SizedBox(height: 16),
           ],
 
@@ -171,7 +171,7 @@ class PoolDetailContent extends StatelessWidget {
                   .map((age) => Chip(
                         avatar: const Icon(Icons.child_care, size: 16),
                         label: Text(_formatAgeGroup(age)),
-                      ))
+                      ),)
                   .toList(),
             ),
           ],

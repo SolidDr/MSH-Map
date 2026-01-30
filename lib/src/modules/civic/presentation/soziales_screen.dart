@@ -8,9 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/theme/msh_colors.dart';
-import '../../../features/analytics/data/usage_analytics_service.dart';
 import '../../../core/theme/msh_spacing.dart';
 import '../../../core/theme/msh_theme.dart';
+import '../../../features/analytics/data/usage_analytics_service.dart';
 import '../data/civic_repository.dart';
 import '../domain/civic_category.dart';
 import '../domain/civic_facility.dart';

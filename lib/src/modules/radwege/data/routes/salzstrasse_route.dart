@@ -17,13 +17,13 @@ const salzstrasseRoute = RadwegRoute(
   category: RadwegCategory.themenweg,
   lengthKm: 90,
   difficulty: 'Mittel',
-  routeColor: const Color(0xFF78909C), // Salzgrau
+  routeColor: Color(0xFF78909C), // Salzgrau
   elevationGain: 480,
   websiteUrl: 'https://www.fluss-radwege.de/salzstrassen-radweg/',
-  center: const LatLng(51.35, 11.65),
+  center: LatLng(51.35, 11.65),
   overviewZoom: 9.5,
   // 547 Koordinaten aus OSM Relation 92560 extrahiert
-  routePoints: const [
+  routePoints: [
     LatLng(51.4952647, 10.9739538),
     LatLng(51.4935564, 10.9736170),
     LatLng(51.4931917, 10.9739803),
@@ -571,7 +571,7 @@ const salzstrasseRoute = RadwegRoute(
     LatLng(51.3732222, 12.2402397),
     LatLng(51.3744600, 12.2421065),
   ],
-  pois: const [
+  pois: [
     RadwegPoi(
       name: 'Schloss Allstedt',
       coords: LatLng(51.3833, 11.3833),

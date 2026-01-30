@@ -15,11 +15,11 @@ const wipperRoute = RadwegRoute(
   category: RadwegCategory.flussradweg,
   lengthKm: 35.8,
   difficulty: 'Leicht',
-  routeColor: const Color(0xFF00BCD4), // Cyan
+  routeColor: Color(0xFF00BCD4), // Cyan
   websiteUrl: 'https://www.komoot.com/de-de/smarttour/e1603960896/wipper-radweg-von-sandersleben-nach-bernburg',
-  center: const LatLng(51.72, 11.58),
+  center: LatLng(51.72, 11.58),
   overviewZoom: 10.5,
-  routePoints: const [
+  routePoints: [
     // Start: Sandersleben
     LatLng(51.6800, 11.4000),
 
@@ -57,7 +57,7 @@ const wipperRoute = RadwegRoute(
     // Bernburg (Ende, Anschluss Saale-Radweg)
     LatLng(51.7950, 11.7400),
   ],
-  pois: const [
+  pois: [
     RadwegPoi(
       name: 'Sandersleben',
       coords: LatLng(51.6800, 11.4000),

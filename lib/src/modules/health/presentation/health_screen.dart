@@ -9,9 +9,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/theme/msh_colors.dart';
-import '../../../features/analytics/data/usage_analytics_service.dart';
 import '../../../core/theme/msh_spacing.dart';
 import '../../../core/theme/msh_theme.dart';
+import '../../../features/analytics/data/usage_analytics_service.dart';
 import '../data/health_repository.dart';
 import '../domain/health_category.dart';
 import '../domain/health_facility.dart';

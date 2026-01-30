@@ -16,12 +16,12 @@ const lutherwegRoute = RadwegRoute(
   category: RadwegCategory.fernradweg,
   lengthKm: 239,
   difficulty: 'Schwer',
-  routeColor: const Color(0xFF8B4513), // Luther-Braun (Kutte)
+  routeColor: Color(0xFF8B4513), // Luther-Braun (Kutte)
   elevationGain: 1850,
   websiteUrl: 'https://www.lutherweg.de/',
-  center: const LatLng(51.25, 10.90),
+  center: LatLng(51.25, 10.90),
   overviewZoom: 8.5,
-  routePoints: const [
+  routePoints: [
     // === Start: Lutherstadt Eisleben ===
     // Luthers Geburtshaus
     LatLng(51.5276, 11.5497),
@@ -104,7 +104,7 @@ const lutherwegRoute = RadwegRoute(
     // Eisenach Zentrum
     LatLng(50.9749, 10.3203),
   ],
-  pois: const [
+  pois: [
     RadwegPoi(
       name: 'Luthers Geburtshaus',
       coords: LatLng(51.5276, 11.5497),

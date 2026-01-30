@@ -4,6 +4,14 @@ library;
 
 /// Haltestelle/Station im ÖPNV-Netz
 class TransitStop {
+  const TransitStop({
+    required this.id,
+    required this.name,
+    required this.latitude,
+    required this.longitude,
+    this.distance,
+    this.products,
+  });
 
   factory TransitStop.fromJson(Map<String, dynamic> json) {
     final location = json['location'] as Map<String, dynamic>?;
@@ -19,14 +27,6 @@ class TransitStop {
           : null,
     );
   }
-  const TransitStop({
-    required this.id,
-    required this.name,
-    required this.latitude,
-    required this.longitude,
-    this.distance,
-    this.products,
-  });
 
   /// Eindeutige ID der Haltestelle (z.B. "8010159")
   final String id;
@@ -80,6 +80,18 @@ class TransitStop {
 
 /// Verfügbare Verkehrsmittel an einer Haltestelle
 class TransitProducts {
+  const TransitProducts({
+    this.nationalExpress = false,
+    this.national = false,
+    this.regionalExpress = false,
+    this.regional = false,
+    this.suburban = false,
+    this.bus = false,
+    this.ferry = false,
+    this.subway = false,
+    this.tram = false,
+    this.taxi = false,
+  });
 
   factory TransitProducts.fromJson(Map<String, dynamic> json) {
     return TransitProducts(
@@ -95,18 +107,6 @@ class TransitProducts {
       taxi: json['taxi'] as bool? ?? false,
     );
   }
-  const TransitProducts({
-    this.nationalExpress = false,
-    this.national = false,
-    this.regionalExpress = false,
-    this.regional = false,
-    this.suburban = false,
-    this.bus = false,
-    this.ferry = false,
-    this.subway = false,
-    this.tram = false,
-    this.taxi = false,
-  });
 
   final bool nationalExpress; // ICE
   final bool national; // IC/EC

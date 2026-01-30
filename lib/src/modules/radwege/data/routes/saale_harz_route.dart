@@ -17,15 +17,15 @@ const saaleHarzRoute = RadwegRoute(
   category: RadwegCategory.fernradweg,
   lengthKm: 70,
   difficulty: 'Mittel',
-  routeColor: const Color(0xFF2196F3), // Blau
+  routeColor: Color(0xFF2196F3), // Blau
   elevationGain: 520,
   websiteUrl: 'https://www.outdooractive.com/de/route/fernradweg/saale-unstrut/radweg-saale-harz/1533378/',
   contactName: 'Fremdenverkehrsverein Lutherstadt Eisleben',
   contactPhone: '03475/602124',
-  center: const LatLng(51.54, 11.50),
+  center: LatLng(51.54, 11.50),
   overviewZoom: 10.5,
   // 494 Koordinaten aus OSM Relation 132135 extrahiert
-  routePoints: const [
+  routePoints: [
     LatLng(51.5727955, 11.2735899),
     LatLng(51.5731152, 11.2741613),
     LatLng(51.5734498, 11.2750081),
@@ -521,7 +521,7 @@ const saaleHarzRoute = RadwegRoute(
     LatLng(51.5082582, 11.6269976),
     LatLng(51.5085934, 11.6258552),
   ],
-  pois: const [
+  pois: [
     RadwegPoi(
       name: 'Wippra (Start)',
       coords: LatLng(51.5728, 11.2736),

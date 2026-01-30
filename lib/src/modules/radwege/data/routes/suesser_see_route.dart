@@ -16,13 +16,13 @@ const suesserSeeRoute = RadwegRoute(
   category: RadwegCategory.rundweg,
   lengthKm: 15,
   difficulty: 'Leicht',
-  routeColor: const Color(0xFF4FC3F7), // Seewasser-Blau
+  routeColor: Color(0xFF4FC3F7), // Seewasser-Blau
   isLoop: true,
   elevationGain: 80,
   websiteUrl: 'https://www.seegebiet-mansfelder-land.de/de/radrundweg.html',
-  center: const LatLng(51.4920, 11.6750),
+  center: LatLng(51.4920, 11.6750),
   overviewZoom: 13.5,
-  routePoints: const [
+  routePoints: [
     // === Start: Seeburg (Schloss auf Halbinsel am Ostufer) ===
     LatLng(51.4912, 11.7005),
 
@@ -75,7 +75,7 @@ const suesserSeeRoute = RadwegRoute(
     // === Zurück zum Schloss Seeburg ===
     LatLng(51.4912, 11.7005),
   ],
-  pois: const [
+  pois: [
     RadwegPoi(
       name: 'Schloss Seeburg',
       coords: LatLng(51.4912, 11.7005),

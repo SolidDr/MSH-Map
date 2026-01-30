@@ -1,7 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import '../../../shared/domain/map_item.dart';
+
 import '../../../shared/domain/coordinates.dart';
+import '../../../shared/domain/map_item.dart';
 
 enum RestaurantType { restaurant, cafe, imbiss, bar }
 

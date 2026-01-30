@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../core/theme/msh_colors.dart';
+
 import '../../core/constants/app_strings.dart';
+import '../../core/theme/msh_colors.dart';
 
 class WelcomeOverlay extends StatefulWidget {
 

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+
 import '../../../core/theme/msh_colors.dart';
-import '../domain/engagement_model.dart';
 import '../data/engagement_repository.dart';
+import '../domain/engagement_model.dart';
 
 /// Karte für ein adoptierbares Tier
 /// Mit Bild, Details und Dringlichkeits-Anzeige
