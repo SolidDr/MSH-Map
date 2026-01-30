@@ -121,10 +121,7 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
               _mapController.move(_mapController.camera.center, newZoom);
             }
           },
-          child: GestureDetector(
-            onDoubleTap: widget.onDoubleTap,
-            behavior: HitTestBehavior.translucent,
-            child: FlutterMap(
+          child: FlutterMap(
             mapController: _mapController,
             options: MapOptions(
               initialCenter:
@@ -255,7 +252,6 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
                 ),
             ],
           ),
-        ),
         ), // Listener
 
         // Map Controls (Zoom + Kompass)
