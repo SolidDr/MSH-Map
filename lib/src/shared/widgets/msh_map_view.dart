@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:flutter_map_marker_cluster/flutter_map_marker_cluster.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:latlong2/latlong.dart';
 import '../../core/config/feature_flags.dart';
@@ -58,8 +59,15 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
   MapItem? _hoveredItem;
   Offset? _mousePosition;
   double _currentZoom = MapConfig.defaultZoom;
-  double _currentRotation = 0.0;
+  double _currentRotation = 0;
   final GlobalKey _stackKey = GlobalKey();
+
+  // Performance: Schwellenwert für Animationen
+  static const int _animationThreshold = 100; // Über 100 Marker → keine Animationen
+
+  // Performance: Debounce für Hover-Updates
+  DateTime _lastHoverUpdate = DateTime.now();
+  static const Duration _hoverDebounce = Duration(milliseconds: 50);
 
   @override
   void initState() {
@@ -125,12 +133,10 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
               minZoom: MapConfig.minZoom,
               maxZoom: MapConfig.maxZoom,
               interactionOptions: const InteractionOptions(
-                flags: InteractiveFlag.all,   // Alle Gesten aktivieren inkl. Trackpad-Pinch
                 pinchZoomThreshold: 0.1,      // Niedrigerer Threshold für sensitiveres Pinch
                 pinchMoveThreshold: 20,       // Bewegungsschwelle für Pinch-to-pan
                 rotationThreshold: 50,
                 enableMultiFingerGestureRace: true,
-                scrollWheelVelocity: 0.005,   // Scroll/Trackpad-Zoom Geschwindigkeit
               ),
               onPositionChanged: (position, hasGesture) {
                 final newZoom = position.zoom ?? MapConfig.defaultZoom;
@@ -141,11 +147,11 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
                     _currentRotation = newRotation;
                   });
                 }
-                if (hasGesture && position.center != null && position.zoom != null) {
+                if (hasGesture) {
                   widget.onPositionChanged?.call(
-                    position.center!.latitude,
-                    position.center!.longitude,
-                    position.zoom!,
+                    position.center.latitude,
+                    position.center.longitude,
+                    position.zoom,
                   );
                 }
               },
@@ -182,10 +188,51 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
                     );
                   }).toList(),
                 ),
-              MarkerLayer(
-                markers: widget.items
-                    .map((item) => _buildMarker(item, popularPois[item.id] ?? 0.0))
-                    .toList(),
+              // Performance: Marker-Clustering bei vielen Markern
+              MarkerClusterLayerWidget(
+                options: MarkerClusterLayerOptions(
+                  maxClusterRadius: 80,
+                  disableClusteringAtZoom: 16, // Bei hohem Zoom keine Cluster
+                  animationsOptions: const AnimationsOptions(
+                    zoom: Duration(milliseconds: 200),
+                    fitBound: Duration(milliseconds: 200),
+                    spiderfy: Duration(milliseconds: 200),
+                  ),
+                  markers: widget.items
+                      .map((item) => _buildMarker(
+                            item,
+                            popularPois[item.id] ?? 0.0,
+                            disableAnimations: widget.items.length > _animationThreshold,
+                          ))
+                      .toList(),
+                  builder: (context, markers) {
+                    // Cluster-Marker Widget
+                    return Container(
+                      decoration: BoxDecoration(
+                        color: MshColors.primary,
+                        shape: BoxShape.circle,
+                        border: Border.all(color: Colors.white, width: 2),
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Colors.black26,
+                            blurRadius: 4,
+                            offset: Offset(0, 2),
+                          ),
+                        ],
+                      ),
+                      child: Center(
+                        child: Text(
+                          markers.length.toString(),
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
               ),
               // Polylines für Straßensperrungen (vor Markern, damit Marker oben liegen)
               if (widget.notices.any((n) => n.hasRoute))
@@ -232,7 +279,7 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
     );
   }
 
-  Marker _buildMarker(MapItem item, double popularityScore) {
+  Marker _buildMarker(MapItem item, double popularityScore, {required bool disableAnimations}) {
     final isPopular = popularityScore > 0;
     // Beliebte POIs bekommen größere Marker für bessere Sichtbarkeit
     final markerSize = isPopular ? 48.0 : 40.0;
@@ -249,6 +296,11 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
           _mousePosition = null;
         }),
         onHover: (event) {
+          // Performance: Debounce hover updates
+          final now = DateTime.now();
+          if (now.difference(_lastHoverUpdate) < _hoverDebounce) return;
+          _lastHoverUpdate = now;
+
           final stackBox =
               _stackKey.currentContext?.findRenderObject() as RenderBox?;
           if (stackBox != null) {
@@ -264,6 +316,7 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
                   color: item.markerColor,
                   opacity: item.markerOpacity,
                   popularityScore: popularityScore,
+                  disableAnimation: disableAnimations,
                 )
               : _MarkerIcon(
                   category: item.category,
@@ -668,18 +721,21 @@ class _MarkerIcon extends StatelessWidget {
 }
 
 /// Marker mit goldenem Glow für beliebte POIs
+/// Performance: Animation kann deaktiviert werden bei vielen Markern
 class _PopularMarkerIcon extends StatefulWidget {
   const _PopularMarkerIcon({
     required this.category,
     required this.color,
     required this.popularityScore,
     this.opacity = 1.0,
+    this.disableAnimation = false,
   });
 
   final MapItemCategory category;
   final Color color;
   final double opacity;
   final double popularityScore; // 0.5-1.0, höher = beliebter
+  final bool disableAnimation; // Performance: Bei vielen Markern deaktivieren
 
   @override
   State<_PopularMarkerIcon> createState() => _PopularMarkerIconState();
@@ -687,40 +743,45 @@ class _PopularMarkerIcon extends StatefulWidget {
 
 class _PopularMarkerIconState extends State<_PopularMarkerIcon>
     with SingleTickerProviderStateMixin {
-  late final AnimationController _controller;
-  late final Animation<double> _glowAnimation;
+  AnimationController? _controller;
+  Animation<double>? _glowAnimation;
 
   @override
   void initState() {
     super.initState();
-    // Langsamere Animation für subtileren Effekt
-    _controller = AnimationController(
-      duration: const Duration(milliseconds: 2000),
-      vsync: this,
-    )..repeat(reverse: true);
+    // Performance: Animation nur erstellen wenn nicht deaktiviert
+    if (!widget.disableAnimation) {
+      _controller = AnimationController(
+        duration: const Duration(milliseconds: 2000),
+        vsync: this,
+      )..repeat(reverse: true);
 
-    _glowAnimation = Tween<double>(begin: 0.4, end: 1).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
-    );
+      _glowAnimation = Tween<double>(begin: 0.4, end: 1).animate(
+        CurvedAnimation(parent: _controller!, curve: Curves.easeInOut),
+      );
+    }
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _controller?.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    // Performance: Statischer Marker ohne Animation
+    if (widget.disableAnimation) {
+      return _buildStaticMarker();
+    }
+
     // Glow-Intensität basiert auf Popularity-Score
     final baseGlowIntensity = widget.popularityScore * 0.6;
 
     return AnimatedBuilder(
-      animation: _glowAnimation,
+      animation: _glowAnimation!,
       builder: (context, child) {
-        final glowIntensity = baseGlowIntensity * _glowAnimation.value;
-        final spreadRadius = 2.0 + (widget.popularityScore * 4);
-        final blurRadius = 8.0 + (widget.popularityScore * 8);
+        final glowIntensity = baseGlowIntensity * _glowAnimation!.value;
 
         return Opacity(
           opacity: widget.opacity,
@@ -728,44 +789,72 @@ class _PopularMarkerIconState extends State<_PopularMarkerIcon>
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               boxShadow: [
-                // Äußerer goldener Glow
+                // Performance: Nur ein BoxShadow statt 3
                 BoxShadow(
                   color: MshColors.popularityGold.withValues(alpha: glowIntensity),
-                  blurRadius: blurRadius,
-                  spreadRadius: spreadRadius,
-                ),
-                // Mittlerer Glow für mehr Tiefe
-                BoxShadow(
-                  color: MshColors.popularityGoldLight.withValues(alpha: glowIntensity * 0.5),
-                  blurRadius: blurRadius * 0.6,
-                  spreadRadius: spreadRadius * 0.5,
-                ),
-                // Standard Schatten
-                const BoxShadow(
-                  color: Colors.black26,
-                  blurRadius: 4,
-                  offset: Offset(0, 2),
+                  blurRadius: 10,
+                  spreadRadius: 3,
                 ),
               ],
             ),
-            child: Container(
-              decoration: BoxDecoration(
-                color: widget.color,
-                shape: BoxShape.circle,
-                border: Border.all(
-                  color: MshColors.popularityGold,
-                  width: 2.5,
-                ),
-              ),
-              child: Icon(
-                _iconFor(widget.category),
-                color: Colors.white,
-                size: 24,
-              ),
-            ),
+            child: child,
           ),
         );
       },
+      child: _buildMarkerCore(),
+    );
+  }
+
+  /// Statischer Marker ohne Animation (Performance-Modus)
+  Widget _buildStaticMarker() {
+    return Opacity(
+      opacity: widget.opacity,
+      child: Container(
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          boxShadow: const [
+            BoxShadow(
+              color: Colors.black26,
+              blurRadius: 4,
+              offset: Offset(0, 2),
+            ),
+          ],
+        ),
+        child: Container(
+          decoration: BoxDecoration(
+            color: widget.color,
+            shape: BoxShape.circle,
+            border: Border.all(
+              color: MshColors.popularityGold,
+              width: 2.5,
+            ),
+          ),
+          child: Icon(
+            _iconFor(widget.category),
+            color: Colors.white,
+            size: 24,
+          ),
+        ),
+      ),
+    );
+  }
+
+  /// Kern des Markers (für AnimatedBuilder child)
+  Widget _buildMarkerCore() {
+    return Container(
+      decoration: BoxDecoration(
+        color: widget.color,
+        shape: BoxShape.circle,
+        border: Border.all(
+          color: MshColors.popularityGold,
+          width: 2.5,
+        ),
+      ),
+      child: Icon(
+        _iconFor(widget.category),
+        color: Colors.white,
+        size: 24,
+      ),
     );
   }
 
