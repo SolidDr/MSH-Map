@@ -6,9 +6,8 @@ part of 'engagement_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$EngagementPlaceImpl _$$EngagementPlaceImplFromJson(
-        Map<String, dynamic> json) =>
-    _$EngagementPlaceImpl(
+_EngagementPlace _$EngagementPlaceFromJson(Map<String, dynamic> json) =>
+    _EngagementPlace(
       id: json['id'] as String,
       name: json['name'] as String,
       type: $enumDecode(_$EngagementTypeEnumMap, json['type']),
@@ -22,11 +21,13 @@ _$EngagementPlaceImpl _$$EngagementPlaceImplFromJson(
       website: json['website'] as String?,
       description: json['description'] as String?,
       openingHours: json['openingHours'] as String?,
-      currentNeeds: (json['currentNeeds'] as List<dynamic>?)
+      currentNeeds:
+          (json['currentNeeds'] as List<dynamic>?)
               ?.map((e) => EngagementNeed.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
-      adoptableAnimals: (json['adoptableAnimals'] as List<dynamic>?)
+      adoptableAnimals:
+          (json['adoptableAnimals'] as List<dynamic>?)
               ?.map((e) => AdoptableAnimal.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
@@ -38,8 +39,7 @@ _$EngagementPlaceImpl _$$EngagementPlaceImplFromJson(
       dataSource: json['dataSource'] as String?,
     );
 
-Map<String, dynamic> _$$EngagementPlaceImplToJson(
-        _$EngagementPlaceImpl instance) =>
+Map<String, dynamic> _$EngagementPlaceToJson(_EngagementPlace instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
@@ -72,8 +72,8 @@ const _$EngagementTypeEnumMap = {
   EngagementType.environment: 'environment',
 };
 
-_$EngagementNeedImpl _$$EngagementNeedImplFromJson(Map<String, dynamic> json) =>
-    _$EngagementNeedImpl(
+_EngagementNeed _$EngagementNeedFromJson(Map<String, dynamic> json) =>
+    _EngagementNeed(
       id: json['id'] as String,
       title: json['title'] as String,
       description: json['description'] as String,
@@ -97,8 +97,7 @@ _$EngagementNeedImpl _$$EngagementNeedImplFromJson(Map<String, dynamic> json) =>
       isActive: json['isActive'] as bool? ?? true,
     );
 
-Map<String, dynamic> _$$EngagementNeedImplToJson(
-        _$EngagementNeedImpl instance) =>
+Map<String, dynamic> _$EngagementNeedToJson(_EngagementNeed instance) =>
     <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
@@ -137,9 +136,8 @@ const _$NeedCategoryEnumMap = {
   NeedCategory.other: 'other',
 };
 
-_$AdoptableAnimalImpl _$$AdoptableAnimalImplFromJson(
-        Map<String, dynamic> json) =>
-    _$AdoptableAnimalImpl(
+_AdoptableAnimal _$AdoptableAnimalFromJson(Map<String, dynamic> json) =>
+    _AdoptableAnimal(
       id: json['id'] as String,
       name: json['name'] as String,
       type: $enumDecode(_$AnimalTypeEnumMap, json['type']),
@@ -149,12 +147,14 @@ _$AdoptableAnimalImpl _$$AdoptableAnimalImplFromJson(
       size: json['size'] as String?,
       description: json['description'] as String?,
       character: json['character'] as String?,
-      specialNeeds: (json['specialNeeds'] as List<dynamic>?)
+      specialNeeds:
+          (json['specialNeeds'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
           const [],
       imageUrl: json['imageUrl'] as String?,
-      additionalImages: (json['additionalImages'] as List<dynamic>?)
+      additionalImages:
+          (json['additionalImages'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
           const [],
@@ -166,8 +166,7 @@ _$AdoptableAnimalImpl _$$AdoptableAnimalImplFromJson(
       contactInfo: json['contactInfo'] as String?,
     );
 
-Map<String, dynamic> _$$AdoptableAnimalImplToJson(
-        _$AdoptableAnimalImpl instance) =>
+Map<String, dynamic> _$AdoptableAnimalToJson(_AdoptableAnimal instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
