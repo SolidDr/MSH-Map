@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
+
 import '../../../core/theme/msh_colors.dart';
-import '../domain/engagement_model.dart';
 import '../data/engagement_repository.dart';
+import '../domain/engagement_model.dart';
 import 'adoptable_animal_card.dart';
 
 /// Detail-Sheet für einen Engagement-Ort
@@ -440,6 +442,19 @@ class EngagementDetailSheet extends StatelessWidget {
             ),
           ],
         ),
+        const SizedBox(height: 12),
+        SizedBox(
+          width: double.infinity,
+          child: OutlinedButton.icon(
+            onPressed: _sharePlace,
+            icon: const Icon(Icons.share, size: 18),
+            label: const Text('Teilen'),
+            style: OutlinedButton.styleFrom(
+              foregroundColor: MshColors.textSecondary,
+              side: const BorderSide(color: MshColors.slateMuted),
+            ),
+          ),
+        ),
       ],
     );
   }
@@ -463,6 +478,24 @@ class EngagementDetailSheet extends StatelessWidget {
     if (await canLaunchUrl(uri)) {
       await launchUrl(uri, mode: LaunchMode.externalApplication);
     }
+  }
+
+  Future<void> _sharePlace() async {
+    final buffer = StringBuffer();
+    buffer.writeln(place.name);
+    buffer.writeln('${place.type.emoji} ${place.type.label}');
+    if (place.city != null) {
+      buffer.writeln('📍 ${place.city}');
+    }
+    if (place.description != null) {
+      buffer.writeln();
+      buffer.writeln(place.description);
+    }
+    buffer.writeln();
+    buffer.writeln('🔗 Mehr auf MSH Map:');
+    buffer.writeln('https://msh-map.de');
+
+    await Share.share(buffer.toString(), subject: place.name);
   }
 }
 

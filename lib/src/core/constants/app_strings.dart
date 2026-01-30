@@ -29,7 +29,7 @@ class AppStrings {
   static const String navExplore = 'Entdecken';
   static const String navFamily = 'Familienaktivitäten';
   static const String navGastro = 'Gastronomie';
-  static const String navEvents = 'Events';
+  static const String navEvents = 'Veranstaltungen';
   static const String navSearch = 'Suche';
   static const String navAbout = 'Über MSH Map';
   static const String navPrivacy = 'Datenschutz';

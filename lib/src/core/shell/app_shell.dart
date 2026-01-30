@@ -288,13 +288,13 @@ class _MobileShellState extends State<_MobileShell>
     const items = [
       (Icons.map, 'Karte', 0),
       (Icons.explore, 'Entdecken', 1),
-      (Icons.celebration, 'Events', 2),
+      (Icons.celebration, 'Veranstaltungen', 2),
       (Icons.directions_bus, 'ÖPNV', 3),
       (Icons.local_hospital, 'Gesundheit', 4),
       (Icons.volunteer_activism, 'Soziales', 5),
       (Icons.nightlife, 'Ausgehen', 6),
       (Icons.directions_bike, 'Radwege', 7),
-      (Icons.person, 'Profil', 8),
+      (Icons.person, 'Einstellungen', 8),
     ];
 
     return Padding(
@@ -319,13 +319,13 @@ class _MobileShellState extends State<_MobileShell>
     const titles = [
       'Karte',
       'Entdecken',
-      'Events',
+      'Veranstaltungen',
       'ÖPNV',
       'Gesundheit',
       'Soziales',
       'Ausgehen',
       'Radwege',
-      'Profil',
+      'Einstellungen',
     ];
     return index < titles.length ? titles[index] : 'MSH Map';
   }
@@ -425,7 +425,7 @@ class _TabletShell extends StatelessWidget {
               NavigationRailDestination(
                 icon: Icon(Icons.celebration_outlined),
                 selectedIcon: Icon(Icons.celebration),
-                label: Text('Events'),
+                label: Text('Veranstaltungen'),
               ),
               NavigationRailDestination(
                 icon: Icon(Icons.directions_bus_outlined),
@@ -455,7 +455,7 @@ class _TabletShell extends StatelessWidget {
               NavigationRailDestination(
                 icon: Icon(Icons.person_outline),
                 selectedIcon: Icon(Icons.person),
-                label: Text('Profil'),
+                label: Text('Einstellungen'),
               ),
             ],
           ),
@@ -558,7 +558,7 @@ class _DesktopShell extends StatelessWidget {
                       ),
                       _SidebarItem(
                         icon: Icons.celebration,
-                        label: 'Events',
+                        label: 'Veranstaltungen',
                         isSelected: selectedIndex == 2,
                         onTap: () {
                           onIndexChanged(2);
@@ -612,7 +612,7 @@ class _DesktopShell extends StatelessWidget {
                       ),
                       _SidebarItem(
                         icon: Icons.person,
-                        label: 'Profil',
+                        label: 'Einstellungen',
                         isSelected: selectedIndex == 8,
                         onTap: () {
                           onIndexChanged(8);
