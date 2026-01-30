@@ -284,29 +284,32 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
       point: item.coordinates.toLatLng(),
       width: markerSize,
       height: markerSize,
-      child: MouseRegion(
-        cursor: SystemMouseCursors.click,
-        onEnter: (_) => setState(() => _hoveredItem = item),
-        onExit: (_) => setState(() {
-          _hoveredItem = null;
-          _mousePosition = null;
-        }),
-        onHover: (event) {
-          // Performance: Debounce hover updates
-          final now = DateTime.now();
-          if (now.difference(_lastHoverUpdate) < _hoverDebounce) return;
-          _lastHoverUpdate = now;
-
-          final stackBox =
-              _stackKey.currentContext?.findRenderObject() as RenderBox?;
-          if (stackBox != null) {
-            final localPos = stackBox.globalToLocal(event.position);
-            setState(() => _mousePosition = localPos);
-          }
+      child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: () {
+          debugPrint('🎯 Marker tapped: ${item.displayName}');
+          widget.onMarkerTap?.call(item);
         },
-        child: GestureDetector(
-          behavior: HitTestBehavior.opaque,
-          onTap: () => widget.onMarkerTap?.call(item),
+        child: MouseRegion(
+          cursor: SystemMouseCursors.click,
+          onEnter: (_) => setState(() => _hoveredItem = item),
+          onExit: (_) => setState(() {
+            _hoveredItem = null;
+            _mousePosition = null;
+          }),
+          onHover: (event) {
+            // Performance: Debounce hover updates
+            final now = DateTime.now();
+            if (now.difference(_lastHoverUpdate) < _hoverDebounce) return;
+            _lastHoverUpdate = now;
+
+            final stackBox =
+                _stackKey.currentContext?.findRenderObject() as RenderBox?;
+            if (stackBox != null) {
+              final localPos = stackBox.globalToLocal(event.position);
+              setState(() => _mousePosition = localPos);
+            }
+          },
           child: isPopular
               ? _PopularMarkerIcon(
                   category: item.category,
