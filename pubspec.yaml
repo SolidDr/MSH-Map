@@ -1,7 +1,7 @@
 name: msh_map
 description: Regionale Plattform fuer Mansfeld-Suedharz
 publish_to: 'none'
-version: 2.5.2+43
+version: 2.5.2+44
 
 environment:
   sdk: '>=3.8.0 <4.0.0'
@@ -40,6 +40,8 @@ dependencies:
   json_annotation: ^4.9.0
   shared_preferences: ^2.2.3
   share_plus: ^10.1.4  # Teilen-Funktion
+  printing: ^5.14.2    # Druckansicht für POI-Details
+  pdf: ^3.11.2         # PDF-Generierung
 
   # Map (MSH Map)
   flutter_map: ^8.2.2

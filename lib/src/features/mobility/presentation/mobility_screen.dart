@@ -305,6 +305,86 @@ class _MobilityScreenState extends ConsumerState<MobilityScreen> {
 // ═══════════════════════════════════════════════════════════════
 
 class _NearbyStopsSection extends ConsumerWidget {
+  void _showLocationHelpDialog(BuildContext context) {
+    showDialog<void>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Row(
+          children: [
+            Icon(Icons.location_off, color: Colors.orange),
+            SizedBox(width: 8),
+            Expanded(child: Text('Standort deaktiviert')),
+          ],
+        ),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'So aktivierst du den Standort:',
+              style: TextStyle(fontWeight: FontWeight.w600),
+            ),
+            const SizedBox(height: 12),
+            _buildHelpStep('1', 'Klicke auf das Schloss-Symbol in der Adressleiste'),
+            _buildHelpStep('2', 'Wähle "Website-Einstellungen"'),
+            _buildHelpStep('3', 'Erlaube den Standortzugriff'),
+            _buildHelpStep('4', 'Lade die Seite neu'),
+            const SizedBox(height: 12),
+            const Text(
+              'Alternativ zeigen wir dir Haltestellen im Zentrum von Mansfeld-Südharz.',
+              style: TextStyle(
+                color: MshColors.textMuted,
+                fontSize: 13,
+              ),
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('Verstanden'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildHelpStep(String number, String text) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: 20,
+            height: 20,
+            decoration: BoxDecoration(
+              color: MshColors.primary.withValues(alpha: 0.1),
+              shape: BoxShape.circle,
+            ),
+            child: Center(
+              child: Text(
+                number,
+                style: const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600,
+                  color: MshColors.primary,
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(width: 8),
+          Expanded(
+            child: Text(
+              text,
+              style: const TextStyle(fontSize: 13),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final stopsAsync = ref.watch(nearbyStopsProvider);
@@ -338,12 +418,28 @@ class _NearbyStopsSection extends ConsumerWidget {
                     locationAsync.when(
                       data: (location) {
                         if (location.status == LocationStatus.fallbackLocation) {
-                          return Text(
-                            location.errorMessage ?? 'Zeige Haltestellen im MSH-Zentrum',
-                            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                          return GestureDetector(
+                            onTap: () => _showLocationHelpDialog(context),
+                            child: Row(
+                              children: [
+                                const Icon(
+                                  Icons.info_outline,
+                                  size: 12,
                                   color: MshColors.warning,
-                                  fontSize: 11,
                                 ),
+                                const SizedBox(width: 4),
+                                Flexible(
+                                  child: Text(
+                                    location.errorMessage ?? 'Zeige Haltestellen im MSH-Zentrum',
+                                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                          color: MshColors.warning,
+                                          fontSize: 11,
+                                          decoration: TextDecoration.underline,
+                                        ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           );
                         }
                         return const SizedBox.shrink();

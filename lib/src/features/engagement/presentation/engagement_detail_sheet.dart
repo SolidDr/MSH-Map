@@ -3,6 +3,7 @@ import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/theme/msh_colors.dart';
+import '../../../shared/services/print_service.dart';
 import '../data/engagement_repository.dart';
 import '../domain/engagement_model.dart';
 import 'adoptable_animal_card.dart';
@@ -443,17 +444,44 @@ class EngagementDetailSheet extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 12),
-        SizedBox(
-          width: double.infinity,
-          child: OutlinedButton.icon(
-            onPressed: _sharePlace,
-            icon: const Icon(Icons.share, size: 18),
-            label: const Text('Teilen'),
-            style: OutlinedButton.styleFrom(
-              foregroundColor: MshColors.textSecondary,
-              side: const BorderSide(color: MshColors.slateMuted),
+        Row(
+          children: [
+            Expanded(
+              child: OutlinedButton.icon(
+                onPressed: () => _launchTransitDirections(place.latitude, place.longitude),
+                icon: const Icon(Icons.directions_bus, size: 18),
+                label: const Text('ÖPNV'),
+                style: OutlinedButton.styleFrom(
+                  foregroundColor: MshColors.info,
+                  side: const BorderSide(color: MshColors.info),
+                ),
+              ),
             ),
-          ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: OutlinedButton.icon(
+                onPressed: _sharePlace,
+                icon: const Icon(Icons.share, size: 18),
+                label: const Text('Teilen'),
+                style: OutlinedButton.styleFrom(
+                  foregroundColor: MshColors.textSecondary,
+                  side: const BorderSide(color: MshColors.slateMuted),
+                ),
+              ),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: OutlinedButton.icon(
+                onPressed: _printDetails,
+                icon: const Icon(Icons.print, size: 18),
+                label: const Text('Drucken'),
+                style: OutlinedButton.styleFrom(
+                  foregroundColor: MshColors.textSecondary,
+                  side: const BorderSide(color: MshColors.slateMuted),
+                ),
+              ),
+            ),
+          ],
         ),
       ],
     );
@@ -480,6 +508,18 @@ class EngagementDetailSheet extends StatelessWidget {
     }
   }
 
+  Future<void> _launchTransitDirections(double lat, double lng) async {
+    // Google Maps mit ÖPNV-Modus öffnen
+    final uri = Uri.parse(
+      'https://www.google.com/maps/dir/?api=1'
+      '&destination=$lat,$lng'
+      '&travelmode=transit',
+    );
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    }
+  }
+
   Future<void> _sharePlace() async {
     final buffer = StringBuffer();
     buffer.writeln(place.name);
@@ -496,6 +536,32 @@ class EngagementDetailSheet extends StatelessWidget {
     buffer.writeln('https://msh-map.de');
 
     await Share.share(buffer.toString(), subject: place.name);
+  }
+
+  Future<void> _printDetails() async {
+    final additionalInfo = <String>[];
+
+    if (place.currentNeeds.isNotEmpty) {
+      additionalInfo.add('Aktuelle Hilfsbedarfe: ${place.currentNeeds.length}');
+      for (final need in place.currentNeeds) {
+        additionalInfo.add('• ${need.title} (${need.urgency.label})');
+      }
+    }
+
+    if (place.adoptableAnimals.isNotEmpty) {
+      additionalInfo.add('Tiere zur Vermittlung: ${place.adoptableAnimals.length}');
+    }
+
+    await PrintService.printPoiDetails(
+      title: place.name,
+      category: '${place.type.emoji} ${place.type.label}',
+      address: place.city,
+      phone: place.phone,
+      website: place.website,
+      openingHours: place.openingHours,
+      description: place.description,
+      additionalInfo: additionalInfo.isNotEmpty ? additionalInfo : null,
+    );
   }
 }
 

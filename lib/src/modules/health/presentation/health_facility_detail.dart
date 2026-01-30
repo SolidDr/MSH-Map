@@ -3,6 +3,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../../core/theme/msh_colors.dart';
 import '../../../core/theme/msh_spacing.dart';
 import '../../../core/theme/msh_theme.dart';
+import '../../../shared/services/print_service.dart';
 import '../../../shared/widgets/transport_buttons.dart';
 import '../domain/health_category.dart';
 import '../domain/health_facility.dart';
@@ -65,6 +66,16 @@ class HealthFacilityDetailContent extends StatelessWidget {
             label: 'Route anzeigen',
             color: MshColors.primary,
             onTap: () => _openMaps(context),
+          ),
+
+          const SizedBox(height: MshSpacing.md),
+
+          // Drucken-Button (besonders für Senioren)
+          _LargeActionButton(
+            icon: Icons.print,
+            label: 'Informationen drucken',
+            color: MshColors.textSecondary,
+            onTap: () => _printDetails(),
           ),
 
           const Divider(height: MshSpacing.xl),
@@ -142,6 +153,50 @@ class HealthFacilityDetailContent extends StatelessWidget {
       'https://www.google.com/maps/dir/?api=1&destination=${facility.coordinates.latitude},${facility.coordinates.longitude}',
     );
     launchUrl(url, mode: LaunchMode.externalApplication);
+  }
+
+  Future<void> _printDetails() async {
+    final additionalInfo = <String>[];
+
+    if (facility.isBarrierFree) additionalInfo.add('Barrierefrei');
+    if (facility.hasHouseCalls) additionalInfo.add('Hausbesuche möglich');
+    if (facility.hasParking) additionalInfo.add('Parkplätze vorhanden');
+    if (facility.hasDelivery) additionalInfo.add('Lieferservice');
+
+    // Öffnungszeiten formatieren
+    String? openingHoursText;
+    if (facility.openingHoursRaw != null) {
+      openingHoursText = facility.openingHoursRaw;
+    } else if (facility.openingHours != null) {
+      final buffer = StringBuffer();
+      final days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+      final dayNames = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'];
+      for (var i = 0; i < days.length; i++) {
+        final dayData = facility.openingHours![days[i]] as Map<String, dynamic>?;
+        if (dayData != null) {
+          buffer.write('${dayNames[i]}: ${dayData['from']}-${dayData['to']}');
+          if (dayData['afternoon'] != null) {
+            final pm = dayData['afternoon'] as Map<String, dynamic>;
+            buffer.write(', ${pm['from']}-${pm['to']}');
+          }
+          buffer.write(' | ');
+        }
+      }
+      openingHoursText = buffer.toString().trimRight();
+      if (openingHoursText.endsWith('|')) {
+        openingHoursText = openingHoursText.substring(0, openingHoursText.length - 2);
+      }
+    }
+
+    await PrintService.printPoiDetails(
+      title: facility.name,
+      category: facility.specialization?.label ?? facility.healthCategory.label,
+      address: facility.fullAddress.isNotEmpty ? facility.fullAddress : null,
+      phone: facility.phone,
+      website: facility.website,
+      openingHours: openingHoursText,
+      additionalInfo: additionalInfo.isNotEmpty ? additionalInfo : null,
+    );
   }
 }
 
