@@ -139,10 +139,7 @@ return $default(_that);case _:
 final _that = this;
 switch (_that) {
 case _EngagementPlace():
-return $default(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return $default(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -201,10 +198,7 @@ return $default(_that.id,_that.name,_that.type,_that.latitude,_that.longitude,_t
 @optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  EngagementType type,  double latitude,  double longitude,  String? street,  String? city,  String? postalCode,  String? phone,  String? email,  String? website,  String? description,  String? openingHours,  List<EngagementNeed> currentNeeds,  List<AdoptableAnimal> adoptableAnimals,  String? imageUrl,  bool isVerified,  DateTime? lastUpdated,  String? dataSource)  $default,) {final _that = this;
 switch (_that) {
 case _EngagementPlace():
-return $default(_that.id,_that.name,_that.type,_that.latitude,_that.longitude,_that.street,_that.city,_that.postalCode,_that.phone,_that.email,_that.website,_that.description,_that.openingHours,_that.currentNeeds,_that.adoptableAnimals,_that.imageUrl,_that.isVerified,_that.lastUpdated,_that.dataSource);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return $default(_that.id,_that.name,_that.type,_that.latitude,_that.longitude,_that.street,_that.city,_that.postalCode,_that.phone,_that.email,_that.website,_that.description,_that.openingHours,_that.currentNeeds,_that.adoptableAnimals,_that.imageUrl,_that.isVerified,_that.lastUpdated,_that.dataSource);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -475,10 +469,7 @@ return $default(_that);case _:
 final _that = this;
 switch (_that) {
 case _EngagementNeed():
-return $default(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return $default(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -537,10 +528,7 @@ return $default(_that.id,_that.title,_that.description,_that.urgency,_that.categ
 @optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String title,  String description,  UrgencyLevel urgency,  NeedCategory category,  DateTime? neededBy,  DateTime? validUntil,  String? contactPerson,  String? contactPhone,  String? contactEmail,  int? targetAmount,  int? currentAmount,  String? unit,  DateTime? createdAt,  bool isActive)  $default,) {final _that = this;
 switch (_that) {
 case _EngagementNeed():
-return $default(_that.id,_that.title,_that.description,_that.urgency,_that.category,_that.neededBy,_that.validUntil,_that.contactPerson,_that.contactPhone,_that.contactEmail,_that.targetAmount,_that.currentAmount,_that.unit,_that.createdAt,_that.isActive);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return $default(_that.id,_that.title,_that.description,_that.urgency,_that.category,_that.neededBy,_that.validUntil,_that.contactPerson,_that.contactPhone,_that.contactEmail,_that.targetAmount,_that.currentAmount,_that.unit,_that.createdAt,_that.isActive);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -790,10 +778,7 @@ return $default(_that);case _:
 final _that = this;
 switch (_that) {
 case _AdoptableAnimal():
-return $default(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return $default(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -852,10 +837,7 @@ return $default(_that.id,_that.name,_that.type,_that.breed,_that.age,_that.gende
 @optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  AnimalType type,  String? breed,  String? age,  String? gender,  String? size,  String? description,  String? character,  List<String> specialNeeds,  String? imageUrl,  List<String> additionalImages,  bool isUrgent,  bool isReserved,  DateTime? availableSince,  String? contactInfo)  $default,) {final _that = this;
 switch (_that) {
 case _AdoptableAnimal():
-return $default(_that.id,_that.name,_that.type,_that.breed,_that.age,_that.gender,_that.size,_that.description,_that.character,_that.specialNeeds,_that.imageUrl,_that.additionalImages,_that.isUrgent,_that.isReserved,_that.availableSince,_that.contactInfo);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return $default(_that.id,_that.name,_that.type,_that.breed,_that.age,_that.gender,_that.size,_that.description,_that.character,_that.specialNeeds,_that.imageUrl,_that.additionalImages,_that.isUrgent,_that.isReserved,_that.availableSince,_that.contactInfo);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

@@ -72,7 +72,7 @@ enum UrgencyLevel {
 
 /// Engagement-Ort (Tierheim, Verein, etc.)
 @freezed
-class EngagementPlace with _$EngagementPlace {
+sealed class EngagementPlace with _$EngagementPlace {
 
   const factory EngagementPlace({
     required String id,
@@ -131,7 +131,7 @@ class EngagementPlace with _$EngagementPlace {
 
 /// Aktueller Bedarf/Hilfsaufruf
 @freezed
-class EngagementNeed with _$EngagementNeed {
+sealed class EngagementNeed with _$EngagementNeed {
 
   const factory EngagementNeed({
     required String id,
@@ -226,7 +226,7 @@ enum NeedCategory {
 
 /// Tier zur Vermittlung
 @freezed
-class AdoptableAnimal with _$AdoptableAnimal {
+sealed class AdoptableAnimal with _$AdoptableAnimal {
 
   const factory AdoptableAnimal({
     required String id,

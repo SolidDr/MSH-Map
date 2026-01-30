@@ -11,7 +11,7 @@ enum UserRole {
 
 /// User model representing authenticated users
 @freezed
-class UserModel with _$UserModel {
+sealed class UserModel with _$UserModel {
   const factory UserModel({
     required String uid,
     required String email,
