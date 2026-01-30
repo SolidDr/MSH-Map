@@ -105,9 +105,9 @@ coverage/
 
 # Firebase config - committed for CI (public keys, visible in web build anyway)
 
-# Generated code
-*.g.dart
-*.freezed.dart
+# Generated code - committed for CI stability
+# *.g.dart
+# *.freezed.dart
 
 # Secrets & API Keys
 secrets/
