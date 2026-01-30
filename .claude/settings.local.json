@@ -100,7 +100,17 @@
       "WebFetch(domain:www.drk-sangerhausen.de)",
       "WebFetch(domain:www.awo-rv-harz.de)",
       "Bash(gh pr create:*)",
-      "Bash(flutter pub:*)"
+      "Bash(flutter pub:*)",
+      "Bash(tree:*)",
+      "WebFetch(domain:www.helios-gesundheit.de)",
+      "Bash(xargs:*)",
+      "WebFetch(domain:www.mansfeldsuedharz-tourismus.de)",
+      "WebFetch(domain:www.sangerhausen-tourist.de)",
+      "Bash(flutter --version:*)",
+      "WebFetch(domain:pub.dev)",
+      "Bash(del:*)",
+      "Bash(gh run list:*)",
+      "Bash(git rebase:*)"
     ]
   }
 }

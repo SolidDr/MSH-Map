@@ -76,157 +76,162 @@ class _EngagementMarkerState extends State<EngagementMarker>
     final typeColor = MshColors.getEngagementColor(widget.type.id);
     final borderRadius = BorderRadius.circular(widget.size * 0.25);
 
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
-      onTap: widget.onTap,
-      child: AnimatedBuilder(
-        animation: _pulseAnimation,
-        builder: (context, child) {
-          return Transform.scale(
-            scale: _shouldPulse ? _pulseAnimation.value : 1.0,
-            child: child,
-          );
-        },
-        child: Stack(
-          clipBehavior: Clip.none,
-          children: [
-            // Äußerer goldener Glow (für Engagement)
-            Container(
-              width: widget.size + 8,
-              height: widget.size + 8,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular((widget.size + 8) * 0.25),
-                boxShadow: [
-                  BoxShadow(
-                    color: MshColors.engagementGold.withOpacity(0.4),
-                    blurRadius: 12,
-                    spreadRadius: 2,
-                  ),
-                  if (_shouldPulse)
-                    BoxShadow(
-                      color: widget.urgency.color.withOpacity(0.3),
-                      blurRadius: 20,
-                      spreadRadius: 4,
-                    ),
-                ],
-              ),
-            ),
-
-            // Hauptmarker
-            Positioned(
-              left: 4,
-              top: 4,
-              child: Container(
-                width: widget.size,
-                height: widget.size,
-                decoration: BoxDecoration(
-                  color: typeColor,
-                  borderRadius: borderRadius,
-                  border: Border.all(
-                    color: MshColors.engagementGold,
-                    width: 3,
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: typeColor.withOpacity(0.3),
-                      blurRadius: 8,
-                      offset: const Offset(0, 3),
-                    ),
-                  ],
-                ),
-                child: Center(
-                  child: Text(
-                    widget.type.emoji,
-                    style: TextStyle(fontSize: widget.size * 0.45),
-                  ),
-                ),
-              ),
-            ),
-
-            // Herz-Badge oben links
-            Positioned(
-              top: -2,
-              left: -2,
-              child: Container(
-                width: 20,
-                height: 20,
-                decoration: BoxDecoration(
-                  color: MshColors.engagementHeart,
-                  borderRadius: BorderRadius.circular(6),
-                  border: Border.all(color: Colors.white, width: 2),
-                ),
-                child: const Center(
-                  child: Text('❤️', style: TextStyle(fontSize: 10)),
-                ),
-              ),
-            ),
-
-            // Dringlichkeits-Badge oben rechts
-            if (widget.urgency != UrgencyLevel.normal)
-              Positioned(
-                top: -4,
-                right: -4,
-                child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+    // SizedBox.expand sorgt dafür, dass die volle Marker-Fläche tappbar ist
+    return SizedBox.expand(
+      child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: widget.onTap,
+        child: Center(
+          child: AnimatedBuilder(
+            animation: _pulseAnimation,
+            builder: (context, child) {
+              return Transform.scale(
+                scale: _shouldPulse ? _pulseAnimation.value : 1.0,
+                child: child,
+              );
+            },
+            child: Stack(
+              clipBehavior: Clip.none,
+              children: [
+                // Äußerer goldener Glow (für Engagement)
+                Container(
+                  width: widget.size + 8,
+                  height: widget.size + 8,
                   decoration: BoxDecoration(
-                    color: widget.urgency.color,
-                    borderRadius: BorderRadius.circular(6),
-                    border: Border.all(color: Colors.white, width: 1.5),
+                    borderRadius: BorderRadius.circular((widget.size + 8) * 0.25),
+                    boxShadow: [
+                      BoxShadow(
+                        color: MshColors.engagementGold.withOpacity(0.4),
+                        blurRadius: 12,
+                        spreadRadius: 2,
+                      ),
+                      if (_shouldPulse)
+                        BoxShadow(
+                          color: widget.urgency.color.withOpacity(0.3),
+                          blurRadius: 20,
+                          spreadRadius: 4,
+                        ),
+                    ],
                   ),
-                  child: Text(
-                    widget.urgency == UrgencyLevel.critical ? '!' : '⚡',
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 10,
-                      fontWeight: FontWeight.bold,
+                ),
+
+                // Hauptmarker
+                Positioned(
+                  left: 4,
+                  top: 4,
+                  child: Container(
+                    width: widget.size,
+                    height: widget.size,
+                    decoration: BoxDecoration(
+                      color: typeColor,
+                      borderRadius: borderRadius,
+                      border: Border.all(
+                        color: MshColors.engagementGold,
+                        width: 3,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: typeColor.withOpacity(0.3),
+                          blurRadius: 8,
+                          offset: const Offset(0, 3),
+                        ),
+                      ],
+                    ),
+                    child: Center(
+                      child: Text(
+                        widget.type.emoji,
+                        style: TextStyle(fontSize: widget.size * 0.45),
+                      ),
                     ),
                   ),
                 ),
-              ),
 
-            // Tier-Anzahl Badge unten rechts
-            if (widget.adoptableCount != null && widget.adoptableCount! > 0)
-              Positioned(
-                bottom: 0,
-                right: 0,
-                child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                  decoration: BoxDecoration(
-                    color: MshColors.forest,
-                    borderRadius: BorderRadius.circular(8),
-                    border: Border.all(color: Colors.white, width: 1.5),
+                // Herz-Badge oben links
+                Positioned(
+                  top: -2,
+                  left: -2,
+                  child: Container(
+                    width: 20,
+                    height: 20,
+                    decoration: BoxDecoration(
+                      color: MshColors.engagementHeart,
+                      borderRadius: BorderRadius.circular(6),
+                      border: Border.all(color: Colors.white, width: 2),
+                    ),
+                    child: const Center(
+                      child: Text('❤️', style: TextStyle(fontSize: 10)),
+                    ),
                   ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const Text('🐾', style: TextStyle(fontSize: 10)),
-                      const SizedBox(width: 2),
-                      Text(
-                        '${widget.adoptableCount}',
+                ),
+
+                // Dringlichkeits-Badge oben rechts
+                if (widget.urgency != UrgencyLevel.normal)
+                  Positioned(
+                    top: -4,
+                    right: -4,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+                      decoration: BoxDecoration(
+                        color: widget.urgency.color,
+                        borderRadius: BorderRadius.circular(6),
+                        border: Border.all(color: Colors.white, width: 1.5),
+                      ),
+                      child: Text(
+                        widget.urgency == UrgencyLevel.critical ? '!' : '⚡',
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: 10,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                    ],
+                    ),
+                  ),
+
+                // Tier-Anzahl Badge unten rechts
+                if (widget.adoptableCount != null && widget.adoptableCount! > 0)
+                  Positioned(
+                    bottom: 0,
+                    right: 0,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                      decoration: BoxDecoration(
+                        color: MshColors.forest,
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(color: Colors.white, width: 1.5),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          const Text('🐾', style: TextStyle(fontSize: 10)),
+                          const SizedBox(width: 2),
+                          Text(
+                            '${widget.adoptableCount}',
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 10,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+
+                // Zeiger unten
+                Positioned(
+                  bottom: -6,
+                  left: (widget.size + 8 - 12) / 2,
+                  child: CustomPaint(
+                    size: const Size(12, 6),
+                    painter: _TrianglePainter(
+                      color: typeColor,
+                      borderColor: MshColors.engagementGold,
+                    ),
                   ),
                 ),
-              ),
-
-            // Zeiger unten
-            Positioned(
-              bottom: -6,
-              left: (widget.size + 8 - 12) / 2,
-              child: CustomPaint(
-                size: const Size(12, 6),
-                painter: _TrianglePainter(
-                  color: typeColor,
-                  borderColor: MshColors.engagementGold,
-                ),
-              ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

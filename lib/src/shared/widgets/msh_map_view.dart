@@ -658,17 +658,24 @@ class _MarkerIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Opacity(
-      opacity: opacity,
-      child: Container(
-        decoration: BoxDecoration(
-          color: color,
-          shape: BoxShape.circle,
-          boxShadow: const [
-            BoxShadow(color: Colors.black26, blurRadius: 4, offset: Offset(0, 2)),
-          ],
+    // SizedBox.expand sorgt dafür, dass die volle Marker-Fläche tappbar ist
+    return SizedBox.expand(
+      child: Center(
+        child: Opacity(
+          opacity: opacity,
+          child: Container(
+            width: 36,
+            height: 36,
+            decoration: BoxDecoration(
+              color: color,
+              shape: BoxShape.circle,
+              boxShadow: const [
+                BoxShadow(color: Colors.black26, blurRadius: 4, offset: Offset(0, 2)),
+              ],
+            ),
+            child: Icon(_iconFor(category), color: Colors.white, size: 20),
+          ),
         ),
-        child: Icon(_iconFor(category), color: Colors.white, size: 24),
       ),
     );
   }
@@ -780,61 +787,75 @@ class _PopularMarkerIconState extends State<_PopularMarkerIcon>
     // Glow-Intensität basiert auf Popularity-Score
     final baseGlowIntensity = widget.popularityScore * 0.6;
 
-    return AnimatedBuilder(
-      animation: _glowAnimation!,
-      builder: (context, child) {
-        final glowIntensity = baseGlowIntensity * _glowAnimation!.value;
+    // SizedBox.expand sorgt dafür, dass die volle Marker-Fläche tappbar ist
+    return SizedBox.expand(
+      child: Center(
+        child: AnimatedBuilder(
+          animation: _glowAnimation!,
+          builder: (context, child) {
+            final glowIntensity = baseGlowIntensity * _glowAnimation!.value;
 
-        return Opacity(
-          opacity: widget.opacity,
-          child: Container(
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              boxShadow: [
-                // Performance: Nur ein BoxShadow statt 3
-                BoxShadow(
-                  color: MshColors.popularityGold.withValues(alpha: glowIntensity),
-                  blurRadius: 10,
-                  spreadRadius: 3,
+            return Opacity(
+              opacity: widget.opacity,
+              child: Container(
+                width: 40,
+                height: 40,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  boxShadow: [
+                    // Performance: Nur ein BoxShadow statt 3
+                    BoxShadow(
+                      color: MshColors.popularityGold.withValues(alpha: glowIntensity),
+                      blurRadius: 10,
+                      spreadRadius: 3,
+                    ),
+                  ],
                 ),
-              ],
-            ),
-            child: child,
-          ),
-        );
-      },
-      child: _buildMarkerCore(),
+                child: child,
+              ),
+            );
+          },
+          child: _buildMarkerCore(),
+        ),
+      ),
     );
   }
 
   /// Statischer Marker ohne Animation (Performance-Modus)
   Widget _buildStaticMarker() {
-    return Opacity(
-      opacity: widget.opacity,
-      child: Container(
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          boxShadow: const [
-            BoxShadow(
-              color: Colors.black26,
-              blurRadius: 4,
-              offset: Offset(0, 2),
+    // SizedBox.expand sorgt dafür, dass die volle Marker-Fläche tappbar ist
+    return SizedBox.expand(
+      child: Center(
+        child: Opacity(
+          opacity: widget.opacity,
+          child: Container(
+            width: 40,
+            height: 40,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.black26,
+                  blurRadius: 4,
+                  offset: Offset(0, 2),
+                ),
+              ],
             ),
-          ],
-        ),
-        child: Container(
-          decoration: BoxDecoration(
-            color: widget.color,
-            shape: BoxShape.circle,
-            border: Border.all(
-              color: MshColors.popularityGold,
-              width: 2.5,
+            child: Container(
+              decoration: BoxDecoration(
+                color: widget.color,
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: MshColors.popularityGold,
+                  width: 2.5,
+                ),
+              ),
+              child: Icon(
+                _iconFor(widget.category),
+                color: Colors.white,
+                size: 20,
+              ),
             ),
-          ),
-          child: Icon(
-            _iconFor(widget.category),
-            color: Colors.white,
-            size: 24,
           ),
         ),
       ),
@@ -844,6 +865,8 @@ class _PopularMarkerIconState extends State<_PopularMarkerIcon>
   /// Kern des Markers (für AnimatedBuilder child)
   Widget _buildMarkerCore() {
     return Container(
+      width: 40,
+      height: 40,
       decoration: BoxDecoration(
         color: widget.color,
         shape: BoxShape.circle,
@@ -855,7 +878,7 @@ class _PopularMarkerIconState extends State<_PopularMarkerIcon>
       child: Icon(
         _iconFor(widget.category),
         color: Colors.white,
-        size: 24,
+        size: 20,
       ),
     );
   }
