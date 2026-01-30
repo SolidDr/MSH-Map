@@ -103,8 +103,7 @@ coverage/
 .env.*
 *.env
 
-# Firebase generated config - regenerate via FlutterFire CLI
-lib/firebase_options.dart
+# Firebase config - committed for CI (public keys, visible in web build anyway)
 
 # Generated code
 *.g.dart
