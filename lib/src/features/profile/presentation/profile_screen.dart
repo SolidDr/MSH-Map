@@ -522,7 +522,6 @@ class _SettingsItem extends StatelessWidget {
     required this.icon,
     required this.label,
     required this.onTap,
-    this.trailing,
     this.isDestructive = false,
     this.tooltip,
   });
