@@ -164,7 +164,8 @@ class WanderwegRoute {
     required this.lengthKm,
     required this.difficulty,
     required this.routeColor,
-    required this.routePoints,
+    this.routePoints = const <LatLng>[],
+    this.routeSegments = const <List<LatLng>>[],
     required this.pois,
     required this.center,
     required this.overviewZoom,
@@ -204,8 +205,11 @@ class WanderwegRoute {
   /// Farbe für die Route auf der Karte
   final Color routeColor;
 
-  /// GPS-Punkte der Route
+  /// GPS-Punkte der Route (für durchgehende Routen)
   final List<LatLng> routePoints;
+
+  /// GPS-Punkte als Segmente (für Routen mit Lücken)
+  final List<List<LatLng>> routeSegments;
 
   /// POIs entlang der Route
   final List<WanderwegPoi> pois;

@@ -166,23 +166,42 @@ class _MshMapViewState extends ConsumerState<MshMapView> {
               // Radwege-Polylines (Glow-Effekt)
               if (widget.showRadwege)
                 PolylineLayer(
-                  polylines: RadwegeRepository.allRoutes.map((route) {
-                    return Polyline(
-                      points: route.routePoints,
-                      color: route.glowColor,
-                      strokeWidth: 12,
-                    );
+                  polylines: RadwegeRepository.allRoutes.expand((route) {
+                    // Verwende routeSegments wenn vorhanden, sonst routePoints
+                    if (route.routeSegments.isNotEmpty) {
+                      return route.routeSegments.map((segment) => Polyline(
+                        points: segment,
+                        color: route.glowColor,
+                        strokeWidth: 12,
+                      ));
+                    } else if (route.routePoints.isNotEmpty) {
+                      return [Polyline(
+                        points: route.routePoints,
+                        color: route.glowColor,
+                        strokeWidth: 12,
+                      )];
+                    }
+                    return <Polyline>[];
                   }).toList(),
                 ),
               // Radwege-Polylines (Hauptlinie)
               if (widget.showRadwege)
                 PolylineLayer(
-                  polylines: RadwegeRepository.allRoutes.map((route) {
-                    return Polyline(
-                      points: route.routePoints,
-                      color: route.routeColor,
-                      strokeWidth: 4,
-                    );
+                  polylines: RadwegeRepository.allRoutes.expand((route) {
+                    if (route.routeSegments.isNotEmpty) {
+                      return route.routeSegments.map((segment) => Polyline(
+                        points: segment,
+                        color: route.routeColor,
+                        strokeWidth: 4,
+                      ));
+                    } else if (route.routePoints.isNotEmpty) {
+                      return [Polyline(
+                        points: route.routePoints,
+                        color: route.routeColor,
+                        strokeWidth: 4,
+                      )];
+                    }
+                    return <Polyline>[];
                   }).toList(),
                 ),
               // Performance: Marker-Clustering bei vielen Markern

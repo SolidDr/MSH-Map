@@ -178,22 +178,40 @@ class _RadwegeTabState extends State<_RadwegeTab>
               userAgentPackageName: MapConfig.userAgent,
             ),
             PolylineLayer(
-              polylines: _selectedRoutes.map((route) {
-                return Polyline(
-                  points: route.routePoints,
-                  color: route.glowColor,
-                  strokeWidth: 14,
-                );
+              polylines: _selectedRoutes.expand((route) {
+                if (route.routeSegments.isNotEmpty) {
+                  return route.routeSegments.map((segment) => Polyline(
+                    points: segment,
+                    color: route.glowColor,
+                    strokeWidth: 14,
+                  ));
+                } else if (route.routePoints.isNotEmpty) {
+                  return [Polyline(
+                    points: route.routePoints,
+                    color: route.glowColor,
+                    strokeWidth: 14,
+                  )];
+                }
+                return <Polyline>[];
               }).toList(),
             ),
             PolylineLayer(
-              polylines: _selectedRoutes.map((route) {
+              polylines: _selectedRoutes.expand((route) {
                 final isFocused = route.id == _focusedRoute?.id;
-                return Polyline(
-                  points: route.routePoints,
-                  color: route.routeColor,
-                  strokeWidth: isFocused ? 5 : 3,
-                );
+                if (route.routeSegments.isNotEmpty) {
+                  return route.routeSegments.map((segment) => Polyline(
+                    points: segment,
+                    color: route.routeColor,
+                    strokeWidth: isFocused ? 5 : 3,
+                  ));
+                } else if (route.routePoints.isNotEmpty) {
+                  return [Polyline(
+                    points: route.routePoints,
+                    color: route.routeColor,
+                    strokeWidth: isFocused ? 5 : 3,
+                  )];
+                }
+                return <Polyline>[];
               }).toList(),
             ),
             if (_focusedRoute != null)
@@ -541,22 +559,40 @@ class _WanderwegeTabState extends State<_WanderwegeTab>
               userAgentPackageName: MapConfig.userAgent,
             ),
             PolylineLayer(
-              polylines: _selectedRoutes.map((route) {
-                return Polyline(
-                  points: route.routePoints,
-                  color: route.glowColor,
-                  strokeWidth: 14,
-                );
+              polylines: _selectedRoutes.expand((route) {
+                if (route.routeSegments.isNotEmpty) {
+                  return route.routeSegments.map((segment) => Polyline(
+                    points: segment,
+                    color: route.glowColor,
+                    strokeWidth: 14,
+                  ));
+                } else if (route.routePoints.isNotEmpty) {
+                  return [Polyline(
+                    points: route.routePoints,
+                    color: route.glowColor,
+                    strokeWidth: 14,
+                  )];
+                }
+                return <Polyline>[];
               }).toList(),
             ),
             PolylineLayer(
-              polylines: _selectedRoutes.map((route) {
+              polylines: _selectedRoutes.expand((route) {
                 final isFocused = route.id == _focusedRoute?.id;
-                return Polyline(
-                  points: route.routePoints,
-                  color: route.routeColor,
-                  strokeWidth: isFocused ? 5 : 3,
-                );
+                if (route.routeSegments.isNotEmpty) {
+                  return route.routeSegments.map((segment) => Polyline(
+                    points: segment,
+                    color: route.routeColor,
+                    strokeWidth: isFocused ? 5 : 3,
+                  ));
+                } else if (route.routePoints.isNotEmpty) {
+                  return [Polyline(
+                    points: route.routePoints,
+                    color: route.routeColor,
+                    strokeWidth: isFocused ? 5 : 3,
+                  )];
+                }
+                return <Polyline>[];
               }).toList(),
             ),
             if (_focusedRoute != null)
